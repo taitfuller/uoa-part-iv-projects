@@ -1,0 +1,2034 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Using large screen displays to support understanding program code",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2940/",
+      "description": [
+        "Trying to understand a large, unknown computer codebase is a challenging task. Currently, developers use Integrated Development Environments (IDEs) to navigate through a codebase whilst trying to connect different parts of the system together. Another approach would be to use people's spatial abilities to help with this process, but most computer screens are not large enough to display several code files simultaneously. This project will develop a huge screen viewer/editor that allows programmers to visualise multiple program files at the same time. It will use the large wall display in the centre for e-research to visualise the code."
+      ],
+      "outcomes": [
+        "User study of how developers read code on large screens",
+        "Development of a web-based system to display multiple code files on a huge-screen system",
+        "Evaluation and analysis of the impact of using the system on code comprehension"
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Software Development Tools and Processes 1",
+        "Software Development Tools and Processes 2"
+      ],
+      "supervisors": ["Craig Sutherland"],
+      "cosupervisors": []
+    },
+    {
+      "id": "2",
+      "title": "Tangible-based Programming Environment for Robots",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2941/",
+      "description": [
+        "Children are often fascinated with robots and want to control (program) them. Currently, most programming environments are screen-based, requiring the use of either a mouse and keyboard or a touch screen. This project will investigate the use of physical coding blocks (tangibles) as an alternative approach to programming robots. The project will involve developing the programming environment and evaluating it with children."
+      ],
+      "outcomes": [
+        "Refinement of a web and tangible block-based programming system",
+        "Evaluation of the system with school-aged children"
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Games & Education Aids 1", "Games & Education Aids 2"],
+      "supervisors": ["Craig Sutherland"],
+      "cosupervisors": []
+    },
+    {
+      "id": "3",
+      "title": "Real-Time Face Recognition System using Modular Miniaturized Computer and Deep Neural Network",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2955/",
+      "description": [
+        "This research project aims at building a stand-alone hardware system that runs deep neural network learning models for real-time face recognition applications. It will use an upgraded Raspberry Pi system augmented with a GPU processing unit.",
+        "In this project, the students will create a system that can instantly know whether a person captured by the developed system camera has ever been seen before. When the system captures a face, it records the time and date so it can tell when the person has been seen previously. There are two parts in this project; a hardware part and an algorithmic part. In the hardware part, we will be using a miniaturized computer available in the market. In the algorithmic part, a deep neural network will be developed to recognize faces. The face of a captured person image has to be tracked and extracted from the background beforehand, then the recognition process starts. Python programming language will be used within Anaconda or Colab environment. Tensor flow framework and Keras rich neural network library will be used to ease the implementation of the algorithms. OpenCV library can be used in implementing the face recognition component of this project. The students are expected to code some algorithms from scratch as well as using any available library.",
+        "Applicants must discuss the project with the supervisor before submitting their preference. The allocation of the project may be declined if not discussed beforehand with the supervisor. Keen and hardworking students are encouraged to apply for this challenging yet very interesting project. Broad experiences will be gained from this project in many modern technologies."
+      ],
+      "outcomes": ["A system that can recognize faces in real-time"],
+      "prerequisites": "Hardworking and keen students. Python programming skill is advantegeous.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Human Computer Interactions"],
+      "supervisors": ["Waleed Abdulla"],
+      "cosupervisors": []
+    },
+    {
+      "id": "4",
+      "title": "Automated Building Generation",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2997/",
+      "description": [
+        "Traditional approaches to procedural generation of buildings focus on buildings that look correct, but tend to ignore aspects such as compliance with building codes. This results in the creation of buildings that are suitable for entertainment purposes (such as in video games), but not for more serious purposes (such as health and safety training).",
+        "This project's goal is to create a procedural content generation system that incorporates building code rules (such as those related to fire control or evacuation routes) to produce output that is realistic and suitable for simulation and training purposes.",
+        "Stage one will require students to investigate generative systems and look at some building regulations, to determine an appropriate scope. Stage two will require students to create a generator that incorporates this information to produce appropriate 3D models of buildings."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Games & Education Aids 1",
+        "Games & Education Aids 2",
+        "Human Computer Interactions"
+      ],
+      "supervisors": ["Alex Shaw"],
+      "cosupervisors": ["Robert Amor"]
+    },
+    {
+      "id": "5",
+      "title": "Realistic Voice Cloning with Deep Neural Networks",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3000/",
+      "description": [
+        "A relatively new technology, called 'Voice Cloning' is thriving with many applications demanding it. The monotonic robotic voice in virtual assistant applications will be replaced with natural human voices. Human voice cloning can make proliferated applications such as video clips, audiobooks, chat-bots, automated tutoring, etc., more engaging and dynamic. One can personalize any voice in any delivered talks. This technique can also be used to bring back the voice of a beloved family member who lost their voice due to certain chronic sicknesses in their vocal tract. Voice cloning is not a simple standard text to speech synthesis, but it is a more profound approach to replicating the targeted voices by embedding the cloned speaker's attributes. Deep neural network learning will be used in achieving this objective. Interested applicants are encouraged to read the following papers to assess the complexity of the project and whether they are interested in working on it or not.",
+        "1. \"Neural Voice Cloning with a Few Samples\", which can be downloaded from https://arxiv.org/pdf/1802.06006.pdf .",
+        "2. Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis, which can be downloaded from https://arxiv.org/abs/1806.04558",
+        "Applicants must discuss the project with the supervisor before submitting their preference. The allocation of the project may be declined if not discussed beforehand with the supervisor. Keen and hardworking students are encouraged to apply for this challenging yet very interesting project. Broad experiences will be gained from this project in many modern technologies."
+      ],
+      "outcomes": ["A software to clone targeting speakers"],
+      "prerequisites": "good background with programming and software system setup",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning"],
+      "supervisors": ["Waleed Abdulla"],
+      "cosupervisors": []
+    },
+    {
+      "id": "6",
+      "title": "Telescope scheduling",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3006/",
+      "description": [
+        "Telescopes observe celestial objects (or sources) in the sky. The telescopes are usually movable and can point at different positions in the sky. Very large scientific telescopes in astronomical observatories are highly specialised, very expensive and scarce. Hence, they must be used as efficiently as possible. In a typical operation mode, a telescope will be configured to observe a given list of sources, which correspond to positions in the sky. It remains pointed at a source of the list for a certain observation period, e.g. 10 minutes, after which the telescope is rotated and tilted to point to the next object on the list. Due to the fact that the movement between positions takes time and that necessary observation periods might vary, this observation of sources becomes a difficult optimisation problem. In this project you will develop scheduling and ordering algorithms to optimise the use of telescopes. This includes the development of a tool that can process lists of source to be observed which then creates optimised observation sequences that can be used for the operation of real telescopes.This project will be done in collaboration with A/Prof Willem van Straten, Institute for Radio Astronomy and Space Research, AUT."
+      ],
+      "outcomes": ["Telescope scheduling tool"],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Engineering Science",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Operations Research",
+        "Optimisation",
+        "Parallel & Cloud Computing",
+        "Space Systems"
+      ],
+      "supervisors": ["Oliver Sinnen"],
+      "cosupervisors": []
+    },
+    {
+      "id": "7",
+      "title": "Avoiding communication in parallel programs",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3007/",
+      "description": [
+        "When the tasks of a program are executed on a parallel computer, it can be beneficial to executed the same task on more than one processor. This happens when this replicated execution of the tasks helps to avoid the costly transfer of data across the memory or network system. Scheduling algorithms with task duplication are not only allocating and ordering the tasks of a program onto a parallel computer, but they are also decided which tasks are beneficial to duplicate. In this project you will investigate different scheduling algorithms that use task duplication, varying the system model and the complexity. The algorithms will then be implemented and measured in an experimental study."
+      ],
+      "outcomes": [
+        "The outcome will be an algorithm library to be integrated into existing research work of the Parallel and Reconfigurable Computing Lab."
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Engineering Science",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Operations Research",
+        "Optimisation",
+        "Parallel & Cloud Computing"
+      ],
+      "supervisors": ["Oliver Sinnen"],
+      "cosupervisors": []
+    },
+    {
+      "id": "8",
+      "title": "How much slack is in a multiprocessor schedule?",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3008/",
+      "description": [
+        "Parallel computing has become extremely important in today's IT world. Almost all computers are now parallel systems. To efficiently use them one needs to divide a program into tasks and to schedule them onto the processors or cores of the system. Theoretically this is addressed by task scheduling where a program is described by a directed acyclic graph, a so called task graph. The primary objective of task scheduling is the fast execution of a program, but the energy consumption becomes more and more important too. So called slack reclamation algorithms slow down the execution of non-crucial tasks so that idle times (the slack) are filled and the energy consumption is reduced. But recently the question was raised how much slack is actually present in schedules produced by modern scheduling algorithms. This project will investigate this important question, whose answer can have a strong consequence on the design of future scheduling algorithms."
+      ],
+      "outcomes": ["Scheduling algorithms and tools."],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Engineering Science",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Operations Research",
+        "Optimisation",
+        "Parallel & Cloud Computing"
+      ],
+      "supervisors": ["Oliver Sinnen"],
+      "cosupervisors": []
+    },
+    {
+      "id": "9",
+      "title": "Multi-Agent System Control for Smart Grid Connected Multi Energy Storage System",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3015/",
+      "description": [
+        "Agent- based computing has the potential to improve the theory and practice of modelling, designing and implementing complex system. In recent years, the penetration of the renewable energy sources (RES) including photovoltaic (PV) and wind energy have increased due to their environmentally friendly advantages. In a large-scale RES, the proper communication system with the smart grid is crucial to achieve stable synchronous operation throughout the system. In this project, the multiple microgrids with multiple energy storage systems will be controlled and coordinated on multi agent platform. The Arduino is used as digital signal processor (DSP) of each agent (ie. PV, Battery, etc) and transmit / receive the data packets wirelessly through the ZigBee using IEEE 802.15.4 communication protocol standard. The testbed at Power Systems Lab at Dept of ECSE, UoA would be used to experimentally validate the concept, and extend it further."
+      ],
+      "outcomes": [
+        "· Research on the integration of multi photovoltaic and multi energy storage system.",
+        "· Research suitable coordinated energy management algorithms on multi agent-based platform.",
+        "· Model the suitable algorithm on the simulation environment (MATLAB/Simulink).",
+        "· Validate the proposed method in the hardware using Arduino and ZigBee."
+      ],
+      "prerequisites": "Students must consult the supervisor before bidding on the project.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": ["Green Energy Technologies", "Power Systems"],
+      "supervisors": ["Abhisek Ukil"],
+      "cosupervisors": []
+    },
+    {
+      "id": "10",
+      "title": "Robotic Yield estimation of Apple Orchards",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3019/",
+      "description": [
+        "This project will form a part of the multi-institution MaaraTech project being run by the CARES team at UoA - https://cares.blogs.auckland.ac.nz/research/robots-in-agriculture/human-assist/.",
+        "The students will process RGBD data collected from Apple Orchard's via a UR5 robotic arm and seek to generate a detailed 3D map of the trees and a count of the number of fruitless on them. This project will involve developing the deep learning-based computer vision models to detect the fruitless and other canopy features, and developing methods for 3D reconstruction of the point cloud data.",
+        "The research aim will be to extend the computer vision models to handle the RGBD data, and determine how to associate partially occluded fruitlets across the scan data to assemble an accurate count for the tree as a whole.",
+        "This project will primarily be done using Python and/or C++ within a Robotic Operating System (ROS) framework."
+      ],
+      "outcomes": [
+        "The outcome of this project will be a yield estimation pipeline that will be able to:",
+        "Detect fruitlets and other features within RGBD data Reconstruct RGBD data into accurate models of an apple tree Provide an accurate estimate of the number of fruitlets within the apple tree"
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "AI & Machine learning",
+        "Image & Voice Processing",
+        "Robotics"
+      ],
+      "supervisors": ["Henry Williams"],
+      "cosupervisors": ["Bruce MacDonald"]
+    },
+    {
+      "id": "12",
+      "title": "Study the behavior of ultrasonic acoustic power transmission",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3028/",
+      "description": [
+        "There are several wireless power transmission methods, such as inductive power transfer and capacitive power transfer. In this research, we would like to study wireless acoustic power transfer. Students will design a circuit to generate a narrow beam ultrasound signal and then emit it through certain mediums such as air or water using piezoelectric transducers and finally detecting the signal power at a receiving side. Parametric array loudspeaker (PAL) unique acoustic feature is our means to achieve that. PAL can exploit the non-linear characteristics of air to the emitted ultrasonic beam to produce a narrow directional beam. PAL is constructed from a big array of small ultrasound piezoelectric transducers. PAL speakers are available in our labs. The power efficiency will be calculated, and a feasibility study of using acoustic power transfer will be concluded."
+      ],
+      "outcomes": [
+        "A design and implementation of ultrasound transmission and receiving system"
+      ],
+      "prerequisites": "Prospective students are expected to be motivated enough to handle the challenge. The students must see the supervisor before bidding for the project. Signal Processing course ELELCTENG 733 is an advantage to undertake this project.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": ["Signal Processing"],
+      "supervisors": ["Waleed Abdulla"],
+      "cosupervisors": []
+    },
+    {
+      "id": "13",
+      "title": "Developing an audio sensory device that allows blind people to “see”",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3056/",
+      "description": [
+        "People with heavily impaired vision have always relied on white canes or guide dogs to assist their navigation in their daily life. Over the past decade, research efforts have discovered that the human mind can be trained to 'visualize' objects using sound alone. For example, if one hears a burst of sound of a specific pitch, loudness, and position (achieved through surround sound), the receiver can be trained to visualize a dot, line, shape, or pattern in their mind.",
+        "In this way, experiments proved that visually impaired people could navigate set courses without white canes or service dogs. Moreover, they could carry out simple tasks which required pinpointing and grasping objects without performing sweeping motions with their hands. However, current technologies do not allow users to perceive depth in their ‘peripheral vision’, nor walk at speeds that a white cane would enable them to.",
+        "Thus, there is great potential to improve the technology of audio-sensory assistance by giving visually impaired users the ability to perceive depth. Through this, it is possible that they could perform daily tasks such as walking and grasping at speeds akin those who do not have visual impairment."
+      ],
+      "outcomes": [
+        "Researching how different sounds lead to different images being visualised by a human.",
+        "Exploring how machine vision can be used to identify certain objects that visually impaired people need to exercise caution around.",
+        "Determining an appropriate optical sensor that enables the signal processing algorithm to express ‘depth’ from 2D real-time images.",
+        "Developing an audio signal processing algorithm that describes real-time images as sounds.",
+        "Investigating how surround sound can enable users to have an accurate ‘peripheral vision’ of up to 170 degrees (or more).",
+        "Measuring the speed and accuracy of a user’s response to everyday tasks, as opposed to using traditional assistive devices such as a white cane"
+      ],
+      "prerequisites": "This is a cross-departmental project initiated by Mechatronics, by the student Urim Chae (ucha862). He will be partnering with Bill Yang (byan982). Please add Urim's name into the Team Section below.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Mechatronics Engineering"
+      ],
+      "categories": ["Acoustics", "Computer Vision", "Signal Processing"],
+      "supervisors": ["Kevin I-Kai Wang"],
+      "cosupervisors": []
+    },
+    {
+      "id": "14",
+      "title": "Deep learning the geometry of the inverse problem of electrocardiography",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3077/",
+      "description": [
+        "The inverse problem of electrocardiography involves predicting the electrical potentials on the heart surface from body surface recordings (ECGs). The inverse problem is very challenging, but also highly impactful. Correctly solving the inverse problem will lead to novel non-invasive techniques for localising (finding) erroneous carcdiac circuits.",
+        "We have developed a very novel technique for predicting heart surface potentials from body surface potentials for a given patient heart anatomy. Our technique involves decomposing heart and body surfaces into 3D Gaussian bases and then learning relationships via neural networks.",
+        "In this project we would like to enhance our neural network architecture with anatomical and geometric relationships to be able to predict heart surface potentials with varying patient heart geometry."
+      ],
+      "outcomes": [
+        "A machine learning/deep AI technique (software) able to predict the heart surface potentials for different patient anatomies."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": ["AI & Machine learning"],
+      "supervisors": ["Avinash Malik"],
+      "cosupervisors": []
+    },
+    {
+      "id": "15",
+      "title": "Real-time embedded gastric pacemaker",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3078/",
+      "description": [
+        "Stomach and intestines fullfil an important life sustaining function. Stomach has an instrinsic frequency of beats (around 20 sec period) just like the heart, which allows food digestion. People suffer from slow down of the stomach's pacing frequency termed brady-gastria. Brady-gastria can lead to serious health issues like gastroparesis, highly reduced life-style and even death.",
+        "We have developed novel gastric pace making algorithms and related software implementation of these algorithms see, https://ieeexplore.ieee.org/document/9175500 and https://www.sciencedirect.com/science/article/abs/pii/S0010482519304299?via%3Dihub",
+        "The project aims to implement the developed algorithm on embedded platforms, enhance the algorithm to make them real-time, and then potentially test them with real animal experiments."
+      ],
+      "outcomes": [
+        "An embedded implementation of the gastric pacemaking algorithms."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": ["Control Systems", "Embedded Systems"],
+      "supervisors": ["Avinash Malik"],
+      "cosupervisors": []
+    },
+    {
+      "id": "16",
+      "title": "Sing to search",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3079/",
+      "description": [
+        "Many a times music listeners know certain tunes (or part of a song), but do not recall the name of the song or the artist.",
+        "This project aims to allow users to hum or sing certain tunes (or part of a song) to allow searching music catalogs in their library or online."
+      ],
+      "outcomes": [
+        "A machine learning architecture to allow searching songs via humming/singing."
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning"],
+      "supervisors": ["Avinash Malik"],
+      "cosupervisors": []
+    },
+    {
+      "id": "17",
+      "title": "Optimisation of magnetic material placement in IPT pads for EV charging",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3083/",
+      "description": [
+        "Inductive power transfer (IPT) for electric vehicles has shown promise in recent years as an alternative to conductive charging. One of the current issues for IPT systems for EV charging is the cost of magnetic material within the system. The material costs of the IPT systems need to be reduced to improve economic viability. This project aims to create an optimisation software that optimises the placement of magnetic materials within an IPT system to lower the cost while maintaining the power transfer capability of the system."
+      ],
+      "outcomes": [
+        "A generalised optimisation approach using a genetic algorithm to minimise the material usage while maximising the power transfer capability of the IPT system.",
+        "The ideal optimisation approach will utilise parallel computing to improve the time taken for the optimisation process to converge on the solution.",
+        "A prototype of the solution to verify the simulation findings."
+      ],
+      "prerequisites": "Both students should be enrolled in Electeng 734 (Power electronics).",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": [
+        "Power Electronics & Electronics Systems",
+        "Wireless Power Technologies"
+      ],
+      "supervisors": ["Seho Kim"],
+      "cosupervisors": ["Grant Covic"]
+    },
+    {
+      "id": "18",
+      "title": "Fundamental study of power loss on the coupling plates of Capacitive Power Transfer systems",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3109/",
+      "description": [
+        "Capacitive power transfer (CPT) is an emerging wireless transfer technology that has drawn attention by both academia and design engineers. As a dual to inductive power transfer (IPT), a CPT system achieves wireless/contactless power transfer by electric field coupling between metal plates. A typical CPT system consists of a high-frequency DC-AC inverter, compensation networks, and two pairs of metal plates to form the required electric field coupling. Much effort has been made to improve the CPT system performance in power transfer capability, power density, etc., but how to improve the system efficiency remains a key focus of study.",
+        "This project is to establish a model for analyzing the power loss on the coupling metal plates of CPT systems under high-frequency (a few or tens of MHz) excitations. The work involves basic circuit analysis and design, high-frequency electromagnetic simulation, and laboratory measurements to determine the key factors affecting the power loss on the coupling plates."
+      ],
+      "outcomes": [
+        "A verified model showing the relationship between the power loss of the metal plates and the circuit/coupling parameters."
+      ],
+      "prerequisites": "At least one of the prospective students needs to be enrolled in the Power Electronics course.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Wireless Power Technologies"],
+      "supervisors": ["Aiguo Patrick Hu"],
+      "cosupervisors": ["Andrew Austin"]
+    },
+    {
+      "id": "19",
+      "title": "Multi-Processor System on Chip for Machine Learning based Object Recognition",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3110/",
+      "description": [
+        "Machine learning algorithms are used in many applications from market predictions to autonomous robots and vehicles. Real time and correct object detection and tracking (such as pedestrian and vehicle detections) are critical parts of computing components in safety critical applications such as autonomous vehicles. The aim of this research is to implement a multi-processor system on FPGA (using soft-core and/or hard-core processing elements) for machine learning based object recognition."
+      ],
+      "outcomes": [
+        "Investigating machine learning algorithms (deep learning) and their computational complexities for object (pedestrian and vehicle) detection.",
+        "Implementing the multi-processor system and evaluating the accuracy and system performance and discussing the design trade-offs."
+      ],
+      "prerequisites": "Students should have passed COMPSYS 304 and COMPSYS 305, as good knowledge of computer architecture and digital systems design is essential for this project. Students are highly recommended to take COMPSYS 701 as an elective, which can be helpful to provide additional knowledge to carry out this project.",
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": ["AI & Machine learning", "Embedded Systems"],
+      "supervisors": ["Morteza Biglari-Abhari"],
+      "cosupervisors": []
+    },
+    {
+      "id": "20",
+      "title": "Reconfigurable Hardware Accelerator for Embedded Artificial Intelligence",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3111/",
+      "description": [
+        "Machine learning models, which are part of artificial intelligence (AI) are trained based on application-specific data and then deployed in target execution platform to perform useful predictions. Machine learning algorithms are computationally intensive so, deployment of these algorithms for embedded systems is very challenging as not only achieving the required system performance and prediction accuracy are essential, reducing energy consumption is also critical. The aim of this research is to investigate the computational complexity of machine learning algorithms, especially, deep learning algorithms for embedded applications (such as face recognition) and develop a reconfigurable hardware accelerator, which is implemented on FPGA to satisfy the required performance and accuracy while minimizing the energy consumption."
+      ],
+      "outcomes": [
+        "Investigating the computational complexity of a case study for deep learning algorithm and identify the opportunities for performance and accuracy improvements using hardware accelerators. Reducing hardware complexity through algorithmic optimizations and using approximate computing will be investigated too.",
+        "FPGA implementation of the proposed hardware accelerator and evaluating the system performance and prediction accuracy for the chosen case study."
+      ],
+      "prerequisites": "Students should have passed COMPSYS 304 and COMPSYS 305, as good knowledge of computer architecture and digital systems design is essential for this project. Students are highly recommended to take COMPSYS 701 as an elective, which can be helpful to provide additional knowledge to carry out this project.",
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": ["AI & Machine learning", "Embedded Systems"],
+      "supervisors": ["Morteza Biglari-Abhari"],
+      "cosupervisors": []
+    },
+    {
+      "id": "21",
+      "title": "Run-Time Security Threat Detection for Embedded Systems Software",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3112/",
+      "description": [
+        "Security vulnerabilities of network connected embedded systems, which are deployed in Internet of Things (IoT) devices have become significantly important especially in safety critical applications such as medical devices and autonomous vehicles. Due to continuous changes of security threats, employing a run-time potential security threat detection is essential. This can be considered at different components of the multi-processor systems architecture. Processing elements are the main components of such systems and identifying their security threats efficiently depends on their complexity. In this research, a softcore configurable processor based on RISC-V instruction set architecture (which is an open source instruction set architecture) is extended to support information flow tracking at run-time. The effectiveness of the proposed architecture extension and its performance overhead are evaluated."
+      ],
+      "outcomes": [
+        "Investigating the information flow tracking approaches at the processor architecture and micro-architecture levels",
+        "Comparing the performance of an available RISC-V based processor implementation (on a simulation tool or on an FPGA) and compare it with an ARM Cortex A9 processor",
+        "Developing new application-specific instructions and demonstrate the performance improvements compared to the basic RISC-V processor"
+      ],
+      "prerequisites": "Students should have passed COMPSYS 304 and COMPSYS 305, as good knowledge of computer architecture and digital systems design is essential for this project. Students are highly recommended to take COMPSYS 701 as an elective, which can be helpful to provide additional knowledge to carry out this project.",
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": ["Embedded Systems"],
+      "supervisors": ["Morteza Biglari-Abhari"],
+      "cosupervisors": []
+    },
+    {
+      "id": "22",
+      "title": "Automated Software Test Oracles",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3129/",
+      "description": [
+        "Test oracle is a mechanism to determine whether an application is executed correctly. It is a reliable source of how the SUT (Software Under Test) must operate. It is also expected to provide correct results for any inputs that are specified by the software specifications, and a comparator to verify the actual behaviour. Automated test oracles are helpful in providing an adequate automated testing framework.",
+        "After test cases are executed and results of the testing are generated, it is necessary to decide whether the results are valid in order to determine the correctness of the software behaviour. To verify the behaviour of the SUT, correct results are compared with the results generated by the software. The results produced by the SUT that need to be verified are called actual outputs, and the correct results that are used to evaluate actual outputs are called expected outputs. Test oracles are used as a reliable source of how the SUT must behave and a tool to verify actual outputs correctness. Usually, the verifier makes a comparison between actual and expected outputs.",
+        "Deep Learning (DL) is an umbrella term used for a collection on advanced machine learning algorithms capable of learning complex patterns from big data. In this project we would like to explore how DL based supervised, unsupervised, or reinforcement learning algorithms can be used to facilitate the design and implementation of complex software test oracles to help reduce the difficulties and complexities of testing difficult-to-test software systems."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "AI & Machine learning",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Reza Shahamiri"],
+      "cosupervisors": []
+    },
+    {
+      "id": "23",
+      "title": "Automated Intelligibility Assessments of Dysarthric Individuals",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3130/",
+      "description": [
+        "Dysarthria is a neurological disability that damages the control of motor speech articulators. An effective treatment plan requires a good understanding of the disability and its severity. The severity of dysarthria is usually identified by a subjective speech intelligibility assessment, which is based on the identification of how well normal speakers can comprehend the subject's speech. In this project we would like to design an Android based solution that uses Deep Learning algorithms to conduct an objective assessment of dysarthria by listening to individual's speech and conducting an automated assessment."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Image & Voice Processing",
+        "Smart Phone & Tablet Applications"
+      ],
+      "supervisors": ["Reza Shahamiri"],
+      "cosupervisors": ["Catherine Watson"]
+    },
+    {
+      "id": "24",
+      "title": "Sign-language understanding using Reinforcement learning and DNN",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3158/",
+      "description": [
+        "This project will understand English sign-language from hand motion, gesture, and facial emotion. There are a lot of research on recognizing alphabets and numbers, but not word and sentence itself, which is more realistic and useful in real-world. Do literature survey on conventional approach, and select the best one and develop it as the first version. Then improve the method as the second version and/or integrate them to understand nuance of sign language. You may use reinforcement learning and/or Deep Neural Network (DNN). This project may be combined with other related projects, such as social human robot interaction projects and healthcare robot projects. All necessary devices will be provided.",
+        "This project includes to:",
+        "do literature survey on conventional approach find the best one for English, develop and test, and improve the method.",
+        "Project scope will be decided after the meeting with supervisors. You will bring to the role a passion for research and engineering, excellent computing skills (including a high level of programming ability), and a strong sense of responsibility. It will be better if you have an experience on vision processing and/or using DNN."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Embedded Systems",
+        "Image & Voice Processing",
+        "Robotics"
+      ],
+      "supervisors": ["Ho Seok AHN"],
+      "cosupervisors": ["Jongyoon Lim"]
+    },
+    {
+      "id": "25",
+      "title": "Plant monitoring system with 3D reconstruction",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3160/",
+      "description": [
+        "This project will develop a system to monitor the change of plant growing. 3D reconstructed model may be needed to measure the number and size of fruit and leaves. May need to train Deep Neural Network (DNN) models to detect different fruits, such as kiwi, apple, grape, strawberry, tomato, paprica. We have a well working detection model for kiwi and apple fruits, and can easily make different models for other fruits using DNN. All necessary devices will be provided.",
+        "This project includes to:",
+        "do 3D reconstruction of plant, make different models to detect different fruit and leaves, find easy way to train models, and develop a dashboard for user.",
+        "Project scope will be decided after the meeting with supervisors. You will bring to the role a passion for research and engineering, excellent computing skills (including a high level of programming ability), and a strong sense of responsibility. It will be better if you have an experience on vision processing and/or using DNN."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Robotics"],
+      "supervisors": ["Ho Seok AHN"],
+      "cosupervisors": ["Jongyoon Lim"]
+    },
+    {
+      "id": "26",
+      "title": "PhysiOid - A smartphone application connecting doctors and their patients",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3162/",
+      "description": [
+        "Immunity and other bodily systems begin to decline as one steps into his/her fifties. The healthcare industry hence requires co-operation and adherence to medical and physical activities from the elderly patient’s end. However, doctors would also need to regularly check up with their patients, process their treatments, help them exercise, and monitor their medical progress in iterations.",
+        "This research project involves developing a smartphone application that is pitched to doctors, nurses and specifically physiotherapists who can customise exercise routines for their disabled/special needs’ patients. After examining the patient’s medical condition, they can prescribe them with daily exercises that need little to no moderation, create a workout routine for them and monitor their progress in real-time. In doing so, the doctor ensures that the workout routine is followed by the patient without having to physically be present to help with the exercises.",
+        "The benefits of using the application for the patient would be that the patient gets some independence and privacy while exercising as the doctor’s visits can significantly reduce. The application is programmed to use the device sensors, to send an alert to the doctor, in case the patient is straining himself or herself or not complying to the movement restrictions of their disability.",
+        "The platform on which the application will be created would most likely be Python or C++, using features like databases to manage the patient records and progress, flexibility trackers using statistics, graphs and data modelling, and machine learning algorithms for the device sensors.",
+        "The purpose of the application is to facilitate human-computer interaction, and is targeted to be technologically simple from the GUI end. AI would be used in the application to detect patient movements by mapping their body frame and approximating their movement limits, as well as automate the patient’s progress curve, suggesting exercises specific to their disabilities based on the doctor’s previous prescriptions to patients with similar degrees of special needs."
+      ],
+      "outcomes": [
+        "A functional application to help ease doctors’ duties",
+        "Get a better understanding of human-computer interaction",
+        "Estimate models using statistics obtained from patients’ progress",
+        "Create a socially sustainable model that could target audiences from different age groups"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Human Computer Interactions",
+        "Robotics"
+      ],
+      "supervisors": ["Ho Seok AHN"],
+      "cosupervisors": ["Christopher Lee"]
+    },
+    {
+      "id": "27",
+      "title": "Instantly train neural networks: One shot inverse reinforcement learning for robotic arm control",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3165/",
+      "description": [
+        "A key drawback of reinforcement learning is the necessity of thousands of training iterations and hand engineered training environments/reward functions. This greatly limits the flexibility and adaptability of real-world robotic systems controlled by reinforcement learning based systems.",
+        "As shown by Andrew Ng’s paper “Apprenticeship Learning via Inverse Reinforcement Learning”, there is opportunity to dramatically reduce the time and data requirement for neural network training.",
+        "Our project aims to create a pretrained inverse reinforcement system which is adaptable to novel robot arm control tasks, with only 1-3 runtime training examples provided by human teachers.",
+        "Our system could be revolutionary in the healthcare, manufacturing, and primary industries, as tasks can quickly be learnt from normal employees without an engineer’s expertise.",
+        "Three key requirements for instant training are one-shot object identification, current state classification and state specific action sequences. By separating tasks usually performed in an amorphous blob, we can leverage tremendous amounts of pretraining. Additionally, our system becomes explainable and easily manually tweaked.",
+        "One shot object identification of never seen before objects, even in different poses, angles, and lighting conditions, can be achieved through a pretrained CNN + Intel real sense depth camera. Rather than object classification, each will output heuristics such as colour, texture and patterns plus height, width, and shape respectively.",
+        "Classification of the current state will be controlled by a pretrained, iteratively optimized hand-crafted algorithm. Heuristics such as ‘robot arm distance to object’ and ‘robot arm movement’ will segment training examples into separate states. Eg: ‘State 1: move arm to object A’, ‘State 2: pick up object A’",
+        "State specific actions will be controlled by tiny inverse reinforcement neural networks. They can be tiny as they have very few inputs/outputs and are only responsible for actions in their very specific state. Their tiny size allows for very quick training."
+      ],
+      "outcomes": [
+        "• Research current apprenticeship learning and inverse reinforcement learning methodologies",
+        "• Research one shot object classification via CNN and ensemble networks",
+        "• Research and experiment with neural network based robot arm control",
+        "• Develop one shot object classifier through CNN + Depth inputs",
+        "• Develop an iteratively optimised state classification algorithm based on heuristics provided by one shot object classifier",
+        "• Implement tiny apprenticeship based inverse reinforcement neural networks",
+        "• Integrate separate aspects of our system to work with a robotic arm",
+        "• Test our system for a range of never trained upon tasks",
+        "• Evaluate the accuracy, reliability and flexibility for different task types and complexities.",
+        "• Investigate future enhancements which could further improve functionality"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Robotics"],
+      "supervisors": ["Ho Seok AHN"],
+      "cosupervisors": ["Christopher Lee"]
+    },
+    {
+      "id": "28",
+      "title": "Robot Soccer System",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3166/",
+      "description": [
+        "This project will develop a robot soccer system that autonomously do soccer game. We have a famous robot soccer game, Mirosot, which is the game for the NZ Robot Soccer Championship. In this project, we develop a new game that uses three smaller and lighter robots with 3D printing in the smaller field. Example codes and all necessary devices will be provided.",
+        "This project includes to:",
+        "design a scale of the game, develop a robot body and circuit board, develop a vision and strategy SW, and do an interesting game.",
+        "Project scope will be decided after the meeting with supervisors. You will bring to the role a passion for research and engineering, excellent computing skills (including a high level of programming ability), and a strong sense of responsibility."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Embedded Systems", "Robotics"],
+      "supervisors": ["Ho Seok AHN"],
+      "cosupervisors": ["Christopher Lee"]
+    },
+    {
+      "id": "29",
+      "title": "Safe autonomy using synchronous AI and the F1/10 racing car",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3186/",
+      "description": [
+        "Cyber-physical systems, such as autonomous vehicles, use interactive machine learning modules for decision making. Current approaches use a set of interacting neural networks, called neural network ensembles, to design such systems. These ensembles are realised using multithreading-based composition, which is not ideal for safety-critical systems. Hence, for safety-critical systems such as autonomous vehicles, there is a need for rigorous approaches.",
+        "This project seeks to develop an alternative approach by reusing neural network ensembles, which are designed in the Keras library. After the application has been developed and the networks are trained, a compiler (recently developed by us), will be used to generate automatic C code, where the neural networks will operate synchronously. Our approach, thus, brings model driven engineering to the AI space. This will facilitate automatic static analysis to determine the worst case timing behaviour of the application, which is important for autonomy.",
+        "The students will develop NN ensembles for autonomous vehicle application in Keras using deep neural networks. These will be then used to design an automated platooning system using the F1/10 racing vehicles (see: (1) http://www.madhurbehl.com/f110.html (2) https://www.youtube.com/watch?v=vgEyvazwrU8).",
+        "The prior work on this at UPenn (Ivanov et al. below), the car only supports uniform motion. Hence, it can only deal with static obstacles. Also, they only a single car is validated. We will develop an approach for a platoon of cars following each other and will support both static and dynamic obstacles.",
+        "References",
+        "Roop PS, Pearce H, Monadjem K. Synchronous neural networks for cyber-physical systems. In2018 16th ACM/IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE) 2018 Oct 15 (pp. 1-10). IEEE.",
+        "Allen N, Raje Y, Ro JW, Roop P. A compositional approach for real-time machine learning. InProceedings of the 17th ACM-IEEE International Conference on Formal Methods and Models for System Design 2019 Oct 9 (pp. 1-5).",
+        "Yang X, Roop PS, Pearce H, Woo JR, A COMPOSITIONAL APPROACH USING KERAS FOR NEURAL NETWORKS IN REAL-TIME SYSTEMS, Design Automation and Test in Europe (DATE), March 2020, Grenoble, France.",
+        "R. Ivanov, J. Weimer, R. Alur, G.J. Pappas, and I. Lee. Case Study: Verifying the Safety of an Autonomous Racing Car with a Neural Network Controller, arXiv, 2019.",
+        "R. Ivanov, J. Weimer, R. Alur, G.J. Pappas, and I. Lee. Verisig: Verifying safety properties of hybrid systems with neural network controllers, 22nd ACM International Conference on Hybrid Systems: Computation and Control, 2019.",
+        "Keras https://keras.io/"
+      ],
+      "outcomes": [
+        "Design and verification of safe neural networks for autonomous platooning systems Design of a autonomous vehicle platoon using the F1/10 racing cars"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Embedded Systems", "Robotics"],
+      "supervisors": ["Partha Roop"],
+      "cosupervisors": []
+    },
+    {
+      "id": "30",
+      "title": "Robust Sensor and App design for Biofeedback",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3187/",
+      "description": [
+        "Stress related depressive disorders affect the sympathetic tone, which is strongly correlated to low heart rate variability (HRV). In these conditions the heart rate goes up and the variability is minimal. There is mounting clinical evidence to this support the link between the lack of HRV and the stress related disorders [1-4].",
+        "Biofeedback is a recently studied technique to maximise heart rate variability (HRV). Slow and rhythmic breathing rate of approximately 6 breaths a minute has been shown to achieve maximum HRV. This project seeks to develop a continuous feedback loop for patients to monitor the breathing rate and heart rate through appropriate sensors and give visual feedback using an App to patients. While some recent commercial sensors are available for combined heart and beating rate, these are very expensive. We propose a much simpler sensor for this and will compare this to the commercially available Zypher device. Students will learn about new sensor design and also software design for biofeedback. This project is suited to both computer systems and software engineering students. This project will be co-supervised by Dr. Giresh Kanji, who is a clinician with extensive experience in HRV.",
+        "This project will be a continuation of the 2020 version of the project. Here, a PPG and Temperature sensors along with Arduino was used to design a system, which can obtain the heart rate and the breathing rate accurately when the subject is resting. An App was also designed that used to provide the necessary visual feedback to facilitate maximal HRV through resonant breathing. We also have ethics approval for trial of this sensor on human subjects, which will be carried out in the 2020 project.",
+        "There are several limitations of the 2020 implementation. First one is related to the fact that the sensor works only when the subject is not moving. We need to develop robust techniques to develop the sensor when the subject is moving by removing the motion artefacts. Also, the Arduino board can be eliminated so that the mobile device performs the necessary signal processing.",
+        "References",
+        "1. Farina et al. “Heart rate and heart rate variability modification in chronic insomnia.” Patients Behavioral Sleep Medicine, 12 (2014): 290–306).",
+        "2. Andre Pittig et al. “Heart rate and heart rate variability in panic, social anxiety, obsessive–compulsive, and generalized anxiety disorders at baseline and in response to relaxation and hyperventilation.” International Journal of Psychophysiology 87, 1 (2013): 19-27.",
+        "3. Robert Carney et al. “Depression, heart rate variability, and acute myocardial infarction.” Circulation 104 (2001): 2024-2028.",
+        "4. Marcus Agelink et al. “Relationship between major depression and heart rate variability. Clinical consequences and implications for antidepressive treatment.” Psychiatry Research 113, 1–2 (2002): 139–49."
+      ],
+      "outcomes": [
+        "A robust technique to design a biofeedback loop using a sensor and a mobile phone App",
+        "The App provides real-time visual feedback to the user to enhance HRV",
+        "To study the imact of this on stress reduction in human subjects"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Electrical and Electronic Engineering",
+        "Engineering Science"
+      ],
+      "categories": ["Embedded Systems", "Health & Well-being"],
+      "supervisors": ["Partha Roop"],
+      "cosupervisors": ["Nitish Patel"]
+    },
+    {
+      "id": "31",
+      "title": "Interactivity with hand tracking VR",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3189/",
+      "description": [
+        "This project will explore the latest technologies in virtual reality (VR) headsets. HTC and Oculus now include built-in hand tracking on some of their headsets (so there is no need for external devices such as the Leap Motion). They also provide developer APIs that will allow programmers to incorporate hand tracking into VR apps that they develop. For this project, you will be working alongside an exciting VR company that provides unique VR experiences for its users. As part of this project, you will be exploring the hand tracking API to develop cool VR app(s) that will demonstrate novel interactivity without requiring hand controllers. The educational value of the app will be of particular interest (i.e. in helping users learn something)."
+      ],
+      "outcomes": [
+        "Development of VR app(s) demonstrating novel value of hand tracking.",
+        "Evaluation and analysis on the impact of the app(s) and the value added from the hand tracking."
+      ],
+      "prerequisites": "Passion for VR technologies Passion for developing educational applications Strong object-oriented programming skills (bonus if have some C# experience)",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
+      "supervisors": ["Nasser Giacaman"],
+      "cosupervisors": []
+    },
+    {
+      "id": "32",
+      "title": "Investigation of non-blocking network (Benes Network) for the optimization of CNN",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3194/",
+      "description": [
+        "A non-blocking network is a network that can connect N inputs to N outputs in any combination. The most familiar use of switches of this type is in a telephone exchange. The term \"non-blocking\" means that if it is not defective, it can always make the connection. We would like to always have a minimal network. The term \"minimal\" means that it has the fewest possible components, and therefore the minimal expense.",
+        "The hardware implementation of CNN accelerator is very complicated. The dedicated processor is not flexible. The more general processors are not very fast because of the delay of data transfer between memory and processor. Good use of a non-blocking network can solve the problem."
+      ],
+      "outcomes": [
+        "To study the Benes Network comprehensively",
+        "To implement software to generate network configuration for different CNN layers"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Embedded Systems"],
+      "supervisors": ["Bruce Sham"],
+      "cosupervisors": []
+    },
+    {
+      "id": "33",
+      "title": "Investigation of non-blocking network (Banyan Network) for the optimization of CNN",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3195/",
+      "description": [
+        "A non-blocking network is a network that can connect N inputs to N outputs in any combination. The most familiar use of switches of this type is in a telephone exchange. The term \"non-blocking\" means that if it is not defective, it can always make the connection. We would like to always have a minimal network. The term \"minimal\" means that it has the fewest possible components, and therefore the minimal expense.",
+        "The hardware implementation of CNN accelerator is very complicated. The dedicated processor is not flexible. The more general processors are not very fast because of the delay of data transfer between memory and processor. Good use of a non-blocking network can solve the problem."
+      ],
+      "outcomes": [
+        "To study the Banyan Network comprehensively",
+        "To implement software to generate network configuration for different CNN layers"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Embedded Systems"],
+      "supervisors": ["Bruce Sham"],
+      "cosupervisors": []
+    },
+    {
+      "id": "34",
+      "title": "Where do they go? Predicting individual travel activities for contact tracing and emergency rescue",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3196/",
+      "description": [
+        "What it is?",
+        "The proliferation of big data in transportation, for instance Smart Card (e.g. AT Hop Card) data in public transport, has provided a tremendous opportunity for transport operators to support the eradication of COVID, through contact tracing, and through search and rescue during civil emergencies. Transport operators such as the Auckland Transport may use the Smart Card data to anticipate the current and future location of each individual passenger in their public transport system, given the consent from individual Smart Card users to access and use the data.",
+        "We plan to build a prediction model that can track and predict pubic transport passengers using deep learning data-sequence modelling algorithms. This task requires a significant amount of data pre-processing and transformation, and then experimental studies to build the initial prediction model. This pilot study will enable us to utilise the transformed data and model to prepare and apply for external funding applications seeking support to build the entire data-streaming and prediction system.",
+        "Why it is new?",
+        "Smart Card data has been used to explore individual travel activities in a large scale (Kieu et al. 2014, 2018), but the topic of modelling and predicting individual travel activities in public transport has been underdeveloped. The majority of existing studies in transport demand modelling, especially in public transport, has focused on an aggregated prediction of the demand, e.g. the number of people travelling from station A to station B, rather than individual locations. Predicting individual activities in real-time is challenging, due to the complexity and correlation in sequential travel activities data. A novel data processing and modelling pipeline and framework will need to be developed to process Smart Card data into prediction of individual location in real-time.",
+        "Skills Needed:",
+        "1. Programming",
+        "2. Data analytics",
+        "3. Familiarity with Machine Learnign and Deep Learning is desired. If not familair, you'll be guided to learn"
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": ["Civil Engineering", "Software Engineering"],
+      "categories": [
+        "AI & Machine learning",
+        "Intelligent Systems & Industrial Informatics",
+        "Machine Learning",
+        "Software Development Tools and Processes 1",
+        "Transportation Modelling"
+      ],
+      "supervisors": ["Reza Shahamiri"],
+      "cosupervisors": []
+    },
+    {
+      "id": "35",
+      "title": "Development of a Hybrid Transformer (HT)",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3199/",
+      "description": [
+        "To meet the energy demand in an efficient and sustainable manner, more and more renewable energy sources, such as solar, are integrated into electricity distribution networks. However with more penetration of renewable energy, voltage regulation of transformers by conventional means has become difficult and ineffective. This project aims to develop a hybrid transformer, comprising a conventional transformer and an integrated power electronic converter, to overcome this problem. Students of this project are expected to carry-out a thorough investigation into voltage regulation issues, and design and build a scaled down version of a HT to demonstrate its applicability. The project involves modelling, analysis, simulations and both software and hardware design."
+      ],
+      "outcomes": ["A prototype system"],
+      "prerequisites": "Design 203/310/311 and ELECTENG 734 (power electronics)",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Power Electronics & Electronics Systems"],
+      "supervisors": ["Udaya Madawala"],
+      "cosupervisors": ["Dariusz Kacprzak"]
+    },
+    {
+      "id": "36",
+      "title": "A wireless charger for underwater applications",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3200/",
+      "description": [
+        "Autonomous underwater vehicles, AUVs, are currently used in a wide range of marine applications such as offshore energy and marine research sectors. To power on-board equipment, as well as the drive of AUVs, batteries are used. This limits the range and capability of current AUV systems. Re-charging of these AUVs by wired means in an offshore marine environment has a number of disadvantages. This project aims to further develop a bi-directional wireless charging system that has been designed for this application. Students, assigned to this project, are expected to improve last year’s design and build a small scale bidirectional wireless charging system. The project involves modelling, analysis, simulations and both software and hardware design."
+      ],
+      "outcomes": ["A prototype system"],
+      "prerequisites": "ELECTENG 209/310/734",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Power Electronics & Electronics Systems"],
+      "supervisors": ["Udaya Madawala"],
+      "cosupervisors": ["Aiguo Patrick Hu"]
+    },
+    {
+      "id": "37",
+      "title": "A Solar-powered Garden Lighting System",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3201/",
+      "description": [
+        "Solar powered applications that range from high power renewable energy networks to low power sensor systems are on the rise. This projects aims to develop a smart solar powered garden lighting system with remote control. Students are expected to design this system to power multiple LEDs using an energy storage. The system must have a controller with maximum power tracking and individual brightness, colour and time control through a remote link. Students, assigned to this project, have the freedom to incorporate any other smart features and must build a prototype. The project involves modelling, analysis, simulations, both software and hardware design and testing."
+      ],
+      "outcomes": ["A prototype system"],
+      "prerequisites": "ELECTENG 209/309/310",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Green Energy Technologies"],
+      "supervisors": ["Udaya Madawala"],
+      "cosupervisors": ["Nitish Patel"]
+    },
+    {
+      "id": "38",
+      "title": "Authentic Behaviour in VR Forests",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3208/",
+      "description": [
+        "Virtual Reality (VR) is a useful tool for placing people in environments where it might normally be impractical for them to be (e.g. dangerous, inaccessible, or cost-prohibitive environments). One application of this is to conduct research on how people act and think within a particular environment, such as a forest containing endangered flora and fauna, without the associated ecological risks of taking large numbers of people into the real world environment.",
+        "However, if conducting research on how people act and think in a VR environment, it is important that their actions and thoughts accurately represent those that would occur in the real environment. This raises concerns about the effort needed to produce a sufficiently realistic environment (a particular concern with highly complex environments such as forests).",
+        "This project will have students develop algorithms for generating natural environments for use in VR and techniques for assessing how people act within them. The objective is to determine information such as the degree of realism or diversity of assets required to immerse subjects within the environment to the degree that they act in the virtual environment in a similar way to how they would act in a real one."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Human Computer Interactions"],
+      "supervisors": ["Alex Shaw"],
+      "cosupervisors": []
+    },
+    {
+      "id": "39",
+      "title": "Wearable Intelligence: A Virtual Personal Type 2 Diabetes Rehabilitation System",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3217/",
+      "description": [
+        "The rising popularity of fitness wearables has produced a plethora of data relating to users' exercising and biometrics. Despite the popularity, common wearable devices on the market focused only on passive data collection and lack of intelligent analytics towards the user information, which is one of the key factors preventing the long-term adoption of such wearables for many users. Users will be much more engaged with their own health using smart wearable devices if these devices can provide a personalised system to monitor themselves. Previous studies suggested supervised exercise training involving more vigorous exercise may be the most effective means to reduce hyperglycemia in type 2 diabetes. There is a potential to apply High-Intensity Interval Training (HIIT) for type 2 diabetes rehabilitation.",
+        "This project aims to develop a HIIT based rehabilitation system that fully utilizes the data collected by the wearables and apply data analytics into the AI expert domain for type 2 diabetes patients. AI techniques design a customized HIIT exercise plan and provide accurate rehabilitation exercise feedback to patients. The proposed system will be connected to the hospital system for doctors to monitor patients’ behaviours and provide accurate diagnosis on their rehabilitation. This study has the potential to help clinicians and researchers to have insights into type 2 diabetes rehabilitation and chronic disease management, so as to improve the healthcare professionals. In addition, this system could be extended to other domains such as elder care monitoring, virtual personal training etc."
+      ],
+      "outcomes": [
+        "Research Components:",
+        "1) Research and understand drawbacks of current exercise applications that use wearable devices to develop a better application experience.",
+        "2) Investigate AI/Machine Learning techniques that can utilise research in exercise physiology to provide exercise plans, and training advice for type 2 diabetes rehabilitation.",
+        "Implementation:",
+        "Develop a mobile and Internet based software application that realises the proposed solution."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Smart Phone & Tablet Applications"],
+      "supervisors": ["Jing Sun"],
+      "cosupervisors": ["Miao Qiao"]
+    },
+    {
+      "id": "40",
+      "title": "Investigation of PCB coils for medium to high power solutions",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3232/",
+      "description": [
+        "Electric vehicles (EVs) are becoming increasingly popular global manufacturers look towards EVs as a method to reduce emissions. Wireless charging is a method of improving the safety and convenience of charging these vehicles. Traditional solutions have large air gaps, and uses litz wire to construct the pads.",
+        "This project will investigate the potential of PCB coils instead of litz wires. PCB coils have the advantage of being robust, cheaper than litz, and are easily manufactured. Students will use ANSYS, ICEPAK, and LTSpice (or PLECs) to investigate the electrical and thermal performance of these PCB coils and compare them with existing solutions in the wireless charging space. This knowledge will be leveraged to build a medium to high power wireless charging system."
+      ],
+      "outcomes": [
+        "At the end of this project students will be confident in using ANSYS Maxwell and Icepak to get accurate electrical and thermal simulations. A new PCB coil pad will be built to validate these simulations."
+      ],
+      "prerequisites": "Ideally one student will have taken ELECTENG734",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": [
+        "Power Electronics & Electronics Systems",
+        "Wireless Power Technologies"
+      ],
+      "supervisors": ["Jackman Lin"],
+      "cosupervisors": ["Grant Covic"]
+    },
+    {
+      "id": "41",
+      "title": "Gesture set development for an AR/VR environment for building site consenting",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3239/",
+      "description": [
+        "Developing a gesture set for a particular scenario requires a deep understanding of how people preform a particular job and what their needs and requirements are. We are looking to support the consenting officers who check a building site to ensure that what is constructed matches the requirements specified by the council when the building was consented. This will require visualising and manipulating a 3D building model matching what is being constructed on site and checking that required conditions are being adhered to. The project will have a strong Human-Computer Interaction component to it to create a usable gesture set based on requirements of specialist consenting officers and then to test the usability of the developed gesture set. A previous Part IV project developed a gesture set to navigate a 3D building environment which may be used as a starting point for the project."
+      ],
+      "outcomes": [
+        "A gesture set that can be recognised in an AR/VR environment (e.g., through a LeapMotion controller afixed to an Oculus headset) with a Unity-based software system to allow gestures to be mapped to consenting functionality."
+      ],
+      "prerequisites": "SOFTENG 350 must have been taken by at least one student in the group.",
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Games & Education Aids 1",
+        "Human Computer Interactions",
+        "Image & Voice Processing",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Amor"],
+      "cosupervisors": ["Danielle Lottridge"]
+    },
+    {
+      "id": "42",
+      "title": "Multi-user VR-based disaster preparedness environment",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3240/",
+      "description": [
+        "The project will create a multi-user VR environment for earthquake disaster preparedness. Current VR-based training environments allow a single participant to be trained in disaster preparedness. However, for realistic training you would want to train with other members of your class or office, as well as with NPC (non-player characters) who would create particular scenarios to respond to. We have an existing earthquake training system developed in Unity and experienced with an Oculus VR headset. We wish to extend this system to allow for many participants to be present within the same training environment and to be able to interact with each other as they progress through their training session. There will be a significant Human-Computer Interaction component to the project to design the possible interactions between participants and to test the usability of the designed solution with a class of students."
+      ],
+      "outcomes": [
+        "A Unity game environment for multi-user disaster preparedness training."
+      ],
+      "prerequisites": "SOFTENG 350 or equivalent for at least one of the students in the project",
+      "specialisations": ["Civil Engineering", "Software Engineering"],
+      "categories": [
+        "Augmented/Virtual Reality",
+        "Games & Education Aids 1",
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Amor"],
+      "cosupervisors": ["Vicente Gonzalez"]
+    },
+    {
+      "id": "43",
+      "title": "Supporting choice of good identifiers",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3241/",
+      "description": [
+        "Every developer knows that good quality code has meaningful identifiers. However it can be difficult to decide how meaningful an identifier is, and this judgement can be subjective. Ideally there would be some form of measurement that tells us how good an identifier is, but the subjective nature of evaluating meaningfulness makes this difficult.Nevertheless there are heuristics and proposals for forms of measurements that are referred to when discussing what makes an identifier meaningful.The goal of this project is to explore means to provide support to developers to improve their choice of identifier. The project is fairly open-ended. There are several directions that it could take. Evaluating how good an identifier is will require the use of Information Retrieval (IR) and Natural Language Processing (NLP) techniques. One direction would be to explore which of these techniques work the best. There are online facilities to help determine information about words, such as WordNet (https://wordnet.princeton.edu). WordNet has an API allowing for programmatic access (http://www.lexicadb.com/lxserver/wn_http.html). Another direction might be to explore such facilities.Another direction might be to, rather than just provide some kind of score of goodness for a particular choice, to instead suggest alternatives. Such a recommender system could be based on existing code (of which there is a huge amount available for data mining).There are also different contexts that could be considered. It could be that the goal is to support developers to reduce the time the spend choosing identifiers, as there are reports that some spend quite a lot of time doing so. Another goal could be to provide automated feedback to students, and so helping them to learn to choose better identifiers."
+      ],
+      "outcomes": [
+        "Tool that supports choice of identifiers, or study that evaluates proposals for choosing good identifeirs."
+      ],
+      "prerequisites": "Completed SOFTENG306",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Software Development Tools and Processes 1"],
+      "supervisors": ["Ewan Tempero"],
+      "cosupervisors": []
+    },
+    {
+      "id": "44",
+      "title": "Visualising Building Management System (BMS) data in a 3D building model",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3243/",
+      "description": [
+        "The buildings we inhabit have sophisticated Building Management Systems (BMS) collecting data about the performance of the building and its various systems. Currently this is only visible and available to the facility managers of the buildings. This project looks to open this data to all building occupants by allowing it to be visualised in the context of a 3D model of the building (actually a BIM - Building Information Model). An example of commercial work in this area is at this link: http://www.autodeskresearch.com/projects/dasher"
+      ],
+      "outcomes": [
+        "A range of visualisations of BMS data (e.g., temperatures, CO2 levels, airflow temperatures, etc) within the context of a 3D model of a building."
+      ],
+      "prerequisites": "SOFTENG 350 or equivalent for at least one of the students in the project",
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Amor"],
+      "cosupervisors": []
+    },
+    {
+      "id": "45",
+      "title": "Code Hygiene Monitor",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3244/",
+      "description": [
+        "Robert C. Martin identifies a number of ways to make code \"clean\" [Mar09]. This project will conduct a study of existing Java code to determine to what degree such code is clean. For example, Martin recommends not leaving commented code in the code base. How often does this happen? Martin also makes recommendations of the size of methods, the number of parameters to a method, and the size of classes. How often are these recommendations ignored?The project will develop a tool or set of tools for analysing code and producing reports evaluating the \"hygiene\" of the code. The code to be analysed will be written in Java and be from the Qualitas Corpus (http://www.qualitascorpus.com). This has more than 100 different systems and overall several million lines of code. [Mar09] Robert C. Martin. Clean Code: A handbook of agile software craftmasship. Prentice Hall. 2009."
+      ],
+      "outcomes": ["Tool for analysing hygiene of code"],
+      "prerequisites": "Completed SOFTENG306",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Software Development Tools and Processes 1"],
+      "supervisors": ["Ewan Tempero"],
+      "cosupervisors": []
+    },
+    {
+      "id": "46",
+      "title": "VR simulation of war and conflict scenarios",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3245/",
+      "description": [
+        "How can students gain an accurate impression of war and conflict zones during their courses? Working with academics and students from Conflict and Terrorism Studies in the Faculty of Arts we wish to explore the development of a VR environment to present a realistic simulation of conflict situations. The Arts students worked on the development of scenarios that could be implemented in a VR environment. The scenario we will investigate is around hospitals including the impact of the bombing of a red-cross hospital; the impact of a cholera outbreak; etc. The system will be developed using the Unity game engine."
+      ],
+      "outcomes": [
+        "A VR environment which provides a compelling simulation of conflict scenarios utilising research into, and testing of, approaches to generate such impressions."
+      ],
+      "prerequisites": "SOFTENG 350 or equivalent for at least one of the students in the project",
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Amor"],
+      "cosupervisors": []
+    },
+    {
+      "id": "47",
+      "title": "Accurate Automated Measurement Facility for Wireless Charging",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3250/",
+      "description": [
+        "As power levels increase for electric vehicle charging it becomes more difficult to perform high power tests accurately and safely. Due to this reason, a motorized movement rig, which can be controlled externally withdata capture and analysis is required so that users do not need to be exposed to fields in operation or connect mutiple currents and voltage probes after each movement.",
+        "This project is to build on an existing automated test rig begun in 2020 for testing IPT systems suitable for EV charging and to enhance the data collection system for capture and display while adding power control and evauation means to the existing system. The test system aims to control the ground side system laterally to simulate parking misalignment of the electric vehicle and evalaute the impact. The ulitmate goal is a working system that performs coupling, efficiency, and leakage flux measurements remotely. The base of this system which is now automated needs to be finalised and able to be aligned, while a new vehicle side assembly will be placed above the existing system to enable manual height adjustment to simulate the variablity of vehicle distance to ground.",
+        "The vehicle rig needs modifications to comply with recommended practices so a steel sheet needs to be added to replicate the vehicle chasis together with the existing aluminium sheet, and provisions will need to be made for attaching peripheral devices such as thermal cameras, voltage, current and flux probes which will feed back into a data collection system."
+      ],
+      "outcomes": [
+        "The outcome of this project is a system that can automatically move the ground assembly in an EV charging system laterally while capturing data for display. Furthermore the system will need to be able to move within 1 mm accuracy and have provisions for computer control through USB. The students will need to demonstrate that they have the ability to use the system to perform some coupling measurements once the system is complete and compare this against simulated performance (which various PhD students can provide about such systems).",
+        "Ideally, a series of power tests should also be performed at multiple positions using the rig."
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": [
+        "Power Electronics & Electronics Systems",
+        "Wireless Power Technologies"
+      ],
+      "supervisors": ["Grant Covic"],
+      "cosupervisors": ["Jackman Lin"]
+    },
+    {
+      "id": "48",
+      "title": "Evaluation of Heavy Duty IPT EV Charging",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3263/",
+      "description": [
+        "While over the past two decades considerable effort has focused on wireless Inductive power transfer (IPT) for light duty electric vehicles, consumer devices and industry applications, until recently less effort has focused on improved high power wireless charging possibilities for heavy duty electric vehicles. Of particular concern is the weight and size that such high power systems need along with thermal, voltage and current constraints. In an attempt to reduce the cost and material of such an IPT system this project aims to investigate how much this can be practically be improved by reducing the charging gap and tolerance needed, while maintaining resonance for a 50kW system, using magnetic modelling in Ansys, to evaluate thermal and electrical impacts along with the power transfer capability, against a more traditional 50kW system. A prototype of the solution can be built at 5kW scale to verify the simulation findings."
+      ],
+      "outcomes": [
+        "Review of state of art wireles charging systems presently used in wireless charging heavy duty systems",
+        "Understanding of impacts of size and power transfer in IPT systems with practical constraints using magnetic simulation.",
+        "Understanding of wireless charging systems for EVs including thermal and electrical evaluations.",
+        "Understanding of how to build and measure IPT systems"
+      ],
+      "prerequisites": "At least one student should be enrolled in Electeng734 (Power Electronics).",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Wireless Power Technologies"],
+      "supervisors": ["Grant Covic"],
+      "cosupervisors": ["Seho Kim"]
+    },
+    {
+      "id": "49",
+      "title": "Exploring Human Movement in Dynamic Virtual Spaces",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3266/",
+      "description": [
+        "Constraints breed creativity, and the environment can constrain and shape human motion through it. This project will investigate how freeform movement (possibly including dance) in Virtual Reality (VR) is affected by the unpredictable constraints imposed by dynamically generated virtual environments.",
+        "In this project, students will investigate techniques to procedurally generate human-scale virtual environments and examine how environmental and visual complexity affects users' movement and experiences. These environments will be used in VR, in combination with full-body motion capture tools, to examine the use of these environments as a location for creative movement (and possibly dance) and the impact the constraints imposed by the environment has on the user's creativity and enjoyment.",
+        "Students working on this project will gain an understanding of VR and related technologies, as well as experience with procedural content generation techniques and user evaluation methodologies."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Human Computer Interactions"],
+      "supervisors": ["Alex Shaw"],
+      "cosupervisors": ["Danielle Lottridge"]
+    },
+    {
+      "id": "50",
+      "title": "Supporting code review by inexperienced reviewers",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3279/",
+      "description": [
+        "Code Review is an important part of developing high quality software. However its utility depends on the knowledge and experience of the reviewer. This project will explore what kind of support for the code review process can help less experienced reviewers, including those who are not themselves developers, to provide useful code reviews. The main deliverable will be a tool that takes the code under review, and presents it in a way tailored to the level of experience of the reviewer. For example, the tool might present all of the identifiers used in the code in a way that allows their meaningfulness to be evaluated without the distraction of the surround code. Or it might show the basic details of a class to allow its cohesion to be evaluated."
+      ],
+      "outcomes": ["A tool and process for supporting code review"],
+      "prerequisites": "Completed SOFTENG306",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Software Development Tools and Processes 1"],
+      "supervisors": ["Ewan Tempero"],
+      "cosupervisors": []
+    },
+    {
+      "id": "51",
+      "title": "Development of an immediate feedback assessment technique platform for collaborative learning",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3282/",
+      "description": [
+        "Due to the increase in class sizes in introductory courses, students are becoming more distant from both the instructors and their peers. Consequently, most learning becomes individualised, with less official opportunity for students to engage in debates, discussions, and justifications over conceptually difficult problems. Yet, these activities are what forms a crucial part of internalising disciplinary concepts. Furthermore, assessments aimed at recognising understanding over factual recall become resource intensive, requiring significant marking hours, quality control and administrative overheads. As such, there is a growing need for devising activities, and exercises, that is both scalable and facilitates autonomy while encouraging collaboration and retention of threshold concepts.",
+        "The immediate feedback assessment technique (IF-AT) is an assessment technique that is often used in a team-based learning environment to impart aspects of social constructivism in the learning process which has been shown to improve both academic and collaborative abilities. The IF-AT process involves getting the learners to (1) sit an individual readiness assurance test (usually consists of, but are not limited to, multichoice questions), (2) retake the test in teams and decide on team responses collectively, (3) receive immediate feedback permitting them to reattempt the questions (for reduced points) until the correct answers are selected/revealed. Both the individual and team marks contribute towards the final grade thereby promoting individual accountability and positive interdependence.",
+        "Traditionally, this form of assessment is usually done via scratch cards (like instant kiwi scratchies) with correct answers embedded. This is both resource intensive, limiting in question types and answer placements. Furthermore, little effort is usually spent on optimising team allocations in order to maximise the benefits of team-based learning. The purpose of this project is, therefore, to develop a platform which enables the facilitation of IF-AT electronically and investigate team allocation strategies for improved learning impacts.",
+        "The intended outcome of this project is a web-based application which",
+        "enables instructors to designate, and students to participate in, a customizable multichoice question platform for both individual and team-based readiness assurance test",
+        "create an optimal allocation of students taking into account of the individual test results",
+        "generate relevant analytics on student responses."
+      ],
+      "outcomes": [
+        "An investigation into current team-based learning techniques and allocation strategies for maximising learning impacts",
+        "An investigation into existing tools available for electronic facilitation of team-based learning assessments",
+        "An analysis of algorithms to generate optimal allocations",
+        "Design and implementation of a prototype for facilitating IF-AT",
+        "User evaluation (both student and course coordinator interface)",
+        "Evaluation of effectiveness"
+      ],
+      "prerequisites": "Experience or interest in web & database / full-stack development. Interest in developing applications for engineering education.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Games & Education Aids 1", "Web tools and Application"],
+      "supervisors": ["William Lee"],
+      "cosupervisors": ["Nasser Giacaman"]
+    },
+    {
+      "id": "52",
+      "title": "TeamUp - A student team allocation tool",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3285/",
+      "description": [
+        "There is a growing interest in incorporating collaboration into learning and teaching activities in the Faculty of Engineering at the University of Auckland in order to prepare our students for the increasing interdisciplinary, and hence social, complexity in the challenges faced by the profession. Existing design- and project-based courses attempt to capture aspects of collaborative learning by injecting peer- or group-assessed components in their coursework, but often these are designed to expect collaboration as a part of the learning (of the disciplinary content) rather than to foster collaborative skills (e.g., perspective taking, conflict resolution, positive interdependence, etc.) as one of the outcomes. Consequently, the allocation of student teams is often made based on convenience (e.g., random assignment or self-selection) rather than strategically to elicit the practice of teaming skills, and, therefore, undermines the full educational benefits associated with group work. On the other hand, allocating students in a heterogenous, fair, and constructive way is often a costly effort with significant administrative overheads and becomes non-trivial as the number of constraints (e.g., team size, academic ability, time availability, cultural/gender diversity, etc.) increases. There is, thus, a growing need for devising a scalable and cost-effective software solution for the allocation of students into appropriate teams in order to assists with the implementation of group activities that embed “learning to collaborate” on top of the disciplinary skills.",
+        "Currently, the allocation process is completed offline by collecting information from the students through a fillable form and manually assigning students into teams according to a pre-selected set of criteria. It is hoped that by automating the process, the allocation process can be made more flexible and accommodate more of, or variations in, the constraints (e.g., hobbies, learning styles, etc.) as well as alterations to the information collected from the students.",
+        "The intended outcome of this project is a web-based application which",
+        "enables instructors to create, and students to complete, a customisable form for collecting relevant information needed for team allocation enables instructors to define and/or select allocation criteria (e.g., team size range, number of available slots, gender distribution, number of prerequisite course grades to consider, etc.) generates an optimal team allocation subject to the chosen allocation criteria."
+      ],
+      "outcomes": [
+        "An Analysis of existing tools used for student team allocation or similar applications",
+        "An investigation into allocation criteria that elicit ‘learning to collaborate’",
+        "An investigation into algorithms to generate “optimal” allocations",
+        "Design and implementation of a prototype for simplifying the team allocation process",
+        "User evaluation (both student and course coordinator interface)",
+        "Evaluation of effectiveness"
+      ],
+      "prerequisites": "Experience or interest in web & database / full-stack development. Interest in developing applications for engineering education.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Games & Education Aids 1", "Web tools and Application"],
+      "supervisors": ["William Lee"],
+      "cosupervisors": ["Nasser Giacaman"]
+    },
+    {
+      "id": "53",
+      "title": "Hardware-software codesign from spiking neural networks",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3293/",
+      "description": [
+        "Spiking Neural Networks (SNNs) are well suited for Cyber-Physical Systems (CPSs) due to their inherent capability in exhibiting timing behaviour. Hence, SNN-based approaches are being used in safety-critical CPS such as autonomous vehicles. For obvious reasons, such SNN-based controllers require formal guarantees of soundness and time predictability. Hence, there is recent interest in formally verifying the timing behaviour of SNNs. However, two key challenges remain. First, the SNN models being verified are usually not linked to the design environments used in developing SNN applications. Second, there is no unifying methodology for the timing verification of SNNs which exhibit different spiking behaviour.",
+        "This work will attempt to bridge these gaps by proposing a model-based approach for the design of SNN-based controllers in CPS. We use Nengo, a well-known development platform for spiking neuron models. Controllers developed using Nengo will be transformed into a formal model called Hybrid Automata Modelling Language (HAML). A tool for this transformation has been already developed. Also, compilers already exist in our group for hardware-software co-design from HAML descriptions, i.e. there are compilers from HAML to VHDL and C. Therefore the main tasks in this project would be:",
+        "1) Creating a case study for a small part of an autonomous car. We will follow the approach similar to what is adopted by the Ghost platform: https://driveghost.com/. We will try to implement a small subset of the feature set, especially those involving real-time control. For this, mainly car following and lane changing will be considered.",
+        "2) Using the Nego to HAML tools to generate code and perform manual hardware/software co-design given a set of constraints.",
+        "3) Performing static verification to ensure correct behaviour using the HAML to Promela code generator.",
+        "References:",
+        "P.S.Roop, H.Pearce, and K.Monadjem,“Synchronous neural networks for cyber-physical systems,” in 2018 16th ACM/IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE). IEEE, 2018, pp. 1–10.",
+        "E.M.Izhikevich,“Simple model of spiking neurons”, IEEE Transactions on Neural Networks, vol. 14, no. 6, pp. 1569–1572, 2003.",
+        "https://www.nengo.ai/",
+        "N. Allen, Hybrid automata modelling language (HAML), last accessed on 09/01/2021. [Online]. Available: https://github.com/PRETgroup/modular-code-generation/ blob/master/specs/HAML.md.",
+        "N. Allen, Modular code generation (Piha), last accessed on 09/01/2021. [Online]. Available: https://github.com/PRETgroup/modular-code-generation."
+      ],
+      "outcomes": [
+        "1) Creating a case study for a small part of an autonomous car. We will follow the approach similar to what is adopted by the Ghost platform: https://driveghost.com/. We will try to implement a small subset of the feature set, especially those involving real-time control. For this, mainly car following and lane changing will be considered.",
+        "2) Using the Nego to HAML tools to generate code and perform manual hardware/software co-design given a set of constraints.",
+        "3) Performing static verification to ensure correct behaviour using the HAML to Promela code generator."
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Robotics",
+        "Software Development Tools and Processes 1",
+        "Transport Technology"
+      ],
+      "supervisors": ["Partha Roop"],
+      "cosupervisors": []
+    },
+    {
+      "id": "54",
+      "title": "Intelligent editor for a natural language type programming language",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3296/",
+      "description": [
+        "Remix is a language designed to make code read like a natural language, the following is a Remix function based on English to draw and solve a maze:",
+        "on standard (black) paper",
+        "prepare the maze grid",
+        "make the binary tree maze",
+        "mark the (start) with (blue)",
+        "mark the (finish) with (orange)",
+        "solve the maze from (start) to (finish)",
+        "In order to make Remix accessible to novice programmers it needs to have an intelligent editor. This project would consist of designing, implementing and testing an editor to maximise the ease with which readable programs can be produced in Remix. It is open to many different approaches including a frame-based editor."
+      ],
+      "outcomes": [
+        "A smart editor designed for the Remix programming language."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Sheehan"],
+      "cosupervisors": []
+    },
+    {
+      "id": "55",
+      "title": "Live coding environment for a natural language type programming language",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3297/",
+      "description": [
+        "Live coding is a form of artistic presentation where code is developed in front of a live audience. Remix is a language designed to make code read like a natural language. Remix could be an ideal live coding language in that even non computer experts could understand the code as it was being written.",
+        "The project would determine the best approach to be taken in creating a live coding environment based on Remix, starting with a REPL for the language and adding features to make the live interaction with language constructs efficient and clear. There is a lot of scope for originality in this project."
+      ],
+      "outcomes": [
+        "A live coding environment suitable for novice programmers."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Games & Education Aids 1",
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Sheehan"],
+      "cosupervisors": []
+    },
+    {
+      "id": "56",
+      "title": "Adding objects and event handling to a natural language type programming language",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3298/",
+      "description": [
+        "Remix is a language designed to make code read like a natural language, the following is a Remix function based on English to draw and solve a maze:",
+        "on standard (black) paper",
+        "prepare the maze grid",
+        "make the binary tree maze",
+        "mark the (start) with (blue)",
+        "mark the (finish) with (orange)",
+        "solve the maze from (start) to (finish)",
+        "This project would be to determine the best syntax to use for adding full object orientation and an event handling scheme to Remix in such a way that it still reads like a natural language. Then to implement and test the design. Associated with this is a requirement to provide meaningful error messages which would assist novices using the language to rapidly understand any problems in their code."
+      ],
+      "outcomes": [
+        "An extension to the Remix programming language providing method calls on objects and an event handling system."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Human Computer Interactions",
+        "Software Development Tools and Processes 1"
+      ],
+      "supervisors": ["Robert Sheehan"],
+      "cosupervisors": []
+    },
+    {
+      "id": "57",
+      "title": "A Gamified VR Training Tool for Spatial Reasoning Skills",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3312/",
+      "description": [
+        "Spatial skills are a significant predictor of achievement in STEM subjects (Science, Technology, Engineering, and Mathematics). Furthermore, it has been shown that improvements in spatial reasoning skills, can increase achievements in mathematics. In contrast to many other cognitive abilities, spatial skills can be trained. However, it is unclear how to make training effective and enjoyable for a wide range of users. In this research, we will develop and evaluate a VR training tool for spatial skills, which will be based on recent research in pedagogy and neuroscience. In order to make the application engaging, it will contain gamification elements."
+      ],
+      "outcomes": [
+        "- Analysis of the current state-of-the art in spatial reasoning skills training and their effectiveness",
+        "- Get familiar with VR technologies and game development tools (most likely Unity 3D).",
+        "- Analysis of gamification techniques and how they can be integrated in a teaching tool.",
+        "- Developing an engaging concept for spatial skills training and implementing it using a VR interface.",
+        "- Evaluating the VR spatial skills training tool",
+        "- Applying for ethics approval for the above study"
+      ],
+      "prerequisites": "Good self-learning abilities (get familiar with a game development tool) Interested in new technologies Creativity Proactive and able to work to deadlines (ethics deadlines, user study)",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Games & Education Aids 1",
+        "Games & Education Aids 2",
+        "Human Computer Interactions"
+      ],
+      "supervisors": ["Burkhard Wuensche"],
+      "cosupervisors": ["Danielle Lottridge"]
+    },
+    {
+      "id": "58",
+      "title": "AR/VR Embodied Spatial Training",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3316/",
+      "description": [
+        "Spatial skills are a significant predictor of achievement in STEM subjects (Science, Technology, Engineering, and Mathematics). Furthermore, it has been shown that improvements in spatial reasoning skills, can increase achievements in mathematics. In contrast to many other cognitive abilities, spatial skills can be trained.",
+        "In this project we will investigate how spatial reasoning skills can be trained in AR/VR by physically interacting with virtual or augmented objects, and whether training effects are improved when using physical motions (e.g. hand gestures) rather than mouse interactions. In addition, we also want to investigate the role of haptic feedback on spatial training in an AR/VR environment"
+      ],
+      "outcomes": [
+        "- Analysis and classification of the current state-of-the art in spatial reasoning skills training and their effectiveness – in particular with respect to the type of training / virtual vs. physical material / interactions / feedback",
+        "- Get familiar with VR technologies and 3D content development tools (most likely Unity 3D).",
+        "- Developing an engaging concept for spatial skills training and implementing it using different interaction techniques and display devices",
+        "- Evaluating the VR spatial skills training tool and the effect of different interaction techniques and display devices",
+        "- Applying for ethics approval for the above study"
+      ],
+      "prerequisites": "Good self-learning abilities (get familiar with a game development tool) Interested in new technologies Creativity Proactive and able to work to deadlines (ethics deadlines, user study)",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Games & Education Aids 1",
+        "Games & Education Aids 2",
+        "Human Computer Interactions"
+      ],
+      "supervisors": ["Burkhard Wuensche"],
+      "cosupervisors": ["Danielle Lottridge"]
+    },
+    {
+      "id": "59",
+      "title": "Web-based VR for education",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3320/",
+      "description": [
+        "This project will explore the development of web-based VR experiences. The idea is to allow students new to programming (and virtual reality) to experience both programming and VR development concepts by using a development environment that is much easier than the current VR development process (which requires much more technical skills). For this project, you will be working alongside an exciting VR company that provides unique VR experiences for its users. The educational value of the app will be of particular interest (i.e. in helping users learn something)."
+      ],
+      "outcomes": [
+        "Development of a simple web-based VR development environment to demonstrate the value of web-based VR.",
+        "Evaluation and analysis on the effectiveness of the developed solution."
+      ],
+      "prerequisites": "Passion for VR technologies Passion for developing educational applications Strong web-based development skills, particularly JavaScript and using extisting APIs. Strong object-oriented programming skills.",
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Software Development Tools and Processes 1",
+        "Web tools and Application"
+      ],
+      "supervisors": ["Nasser Giacaman"],
+      "cosupervisors": []
+    },
+    {
+      "id": "60",
+      "title": "Deepfakes for education",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3321/",
+      "description": [
+        "Most Deepfakes are used in a negative manner. However, can Deepfake technology be used for good reasons? This project will explore using Deepfake technology in the creation of educational content that hopes to improve engagement and motivation for learners. Please note that this will be a challenging project, and will require strong programming skills."
+      ],
+      "outcomes": [
+        "Use of Deepfake techniques to develop a range of educational videos.",
+        "Evaluation and analysis on the impact of Deepfakes on learners."
+      ],
+      "prerequisites": "Passion for AI/ML technologies Passion for developing educational applications Strong object-oriented programming skills.",
+      "specialisations": ["Software Engineering"],
+      "categories": ["AI & Machine learning", "Games & Education Aids 1"],
+      "supervisors": ["Nasser Giacaman"],
+      "cosupervisors": []
+    },
+    {
+      "id": "61",
+      "title": "Supporting Tertiary Students' Mental Health with an Adjunctive Smartphone App",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3324/",
+      "description": [
+        "Mental health disorders such as mild to moderate depression and anxiety are highly prevalent both in New Zealand, and globally, and due to a lack of accessible treatment options they often go untreated. Tertiary students are especially overrepresented in mental health statistics and many find it particularly challenging to access treatment due to a lack of resources such as time and money. Consequently, this group stands to benefit from an easily accessible, low cost, evidence-based treatment option. In December 2020, our research team was awarded a grant to develop an adjunctive smartphone based intervention package to be used alongside Focused Acceptance and Commitment Therapy (fACT), which is a brief behavioural therapy package that uses mindfulness and acceptance techniques for the treatment of mild to moderate depression and anxiety. Developing a smartphone app to use alongside therapy may help to overcome common barriers to treatment, and in some cases improve clinical efficacy. In this honours project, you will work alongside our team to help generate early stage app designs via iterative prototyping based on feedback from fACT practitioners, prospective users, and UX experts, and you will develop an MVP functional smartphone app."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Human Computer Interactions",
+        "Smart Phone & Tablet Applications"
+      ],
+      "supervisors": ["Danielle Lottridge"],
+      "cosupervisors": []
+    },
+    {
+      "id": "62",
+      "title": "Exploring Embodiment in Immersive XR",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3325/",
+      "description": [
+        "How do we engage the senses beyond the audio-visual in virtual and mixed-reality? \"Dancing in/Dancing With the Digital\" is an interdisciplinary project exploring the alternative sense of embodiment produced by real-time, immersive technologies. Working with partners from the Auckland Bioengineering Institute and Dance Studies department, you will have the opportunity to design and co-create immersive experiences that seek to increase creative movement potential and engage multisensory awareness in their audiences, with an aim to better understand human movement and perception in XR realms. Outputs include practical and creative VR/AR prototypes allowing for virtual sensing and moving together."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Human Computer Interactions"],
+      "supervisors": ["Danielle Lottridge"],
+      "cosupervisors": []
+    },
+    {
+      "id": "63",
+      "title": "Augmented reality for stroke rehabilitation based on socio-digital strategies and indigenous knowledge",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3326/",
+      "description": [
+        "We radically reconceptualise healthtech through exploring how to meld ‘addictive’ sociodigital algorithms with customized cultural content in augmented reality (AR), to motivate elders to exercise, with our exemplar being stroke rehabilitation. Keeping to an exercise plan is hard, particularly when rehabilitation exercises are, by necessity, repetitive and thereby lacking intrinsic interest. Researchers have begun to understand why social media keeps billions interested and coming back for more, through social sharing, social validation (i.e., “likes” on posts), and “infinite” user-generated- and rewarding content delivered with algorithmic precision. We imagine a future where keeping to your rehabilitation plan is deliberately as addictive as social media through harnessing the supportive and incentive power of the community.",
+        "The Māori model 'te whare tapa whā’ provides a fundamentally different starting point for healthtech innovation because it includes social, physical, mental and spiritual dimensions. We build from this starting point to investigate how to codesign interactive AR experiences that integrate all four dimensions."
+      ],
+      "outcomes": [
+        "This will be the first AR rehabilitation system based on indigenous knowledge to involve communities of care through socio-digital engagement strategies and algorithmic content delivery."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
+      "supervisors": ["Danielle Lottridge"],
+      "cosupervisors": []
+    },
+    {
+      "id": "64",
+      "title": "Is multitasking making us stupid? Experimental investigation into the effects of multitasking",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3329/",
+      "description": [
+        "Headlines assert that “multitasking makes you stupid” but no causality has been demonstrated between multitasking and cognition. If multitasking with technology is changing the very nature of how we think—particularly for the worse—it is imperative to find out so that we can address negative effects. Even before COVID-19 prompted increases in technology use, US adults spent on average 11 hours per day consuming media but as few as 11 seconds focused on any given task before switching to another. Multitasking is becoming the norm but has been correlated with poor cognitive control (i.e., fundamental executive function including switching tasks and managing working memory).",
+        "In this project you will develop and conduct an experiment to test whether multitasking worsens cognitive control.",
+        "This project will include",
+        "- developing a game theory task and the analysis",
+        "- facilitating experimental sessions with participants with a 20-channel EEG",
+        "- developing scripts for behvaioural and eeg data analysis, as well as analysis of multitasking data"
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Human Computer Interactions"],
+      "supervisors": ["Danielle Lottridge"],
+      "cosupervisors": []
+    },
+    {
+      "id": "65",
+      "title": "Advanced Graph Analytics for Human Brain Connectivity Framework",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3333/",
+      "description": [
+        "Understanding human brains, the main research focus of neuroscience, is a long-standing yet challengingscientific problem. Despite many years of scientific efforts, our understanding of the mechanismsunderlying brain function, cognition and disease is still far from sufficient. Recently, network neurosciencehas emerged as a promising discipline to represent, model, and analyze human brains. In networkneuroscience, the brain is naturally modeled as a graph with neurons/brain regions as nodes and theirconnections/interactions as edges.",
+        "This project aims at developing a framework for cutting-edge graph analytics approaches for modeling and analyzing brainnetworks. The framework will inegrate multi-model neuro-imaging data for sharing, access and processing."
+      ],
+      "outcomes": [
+        "The outcome of this research will include:",
+        "-Harmonize multi-modal neuro-imaging data from different sources.",
+        "-A data-sharing repository will be set up for general purposes.",
+        "-The data will preprocess with standard techniques such as realignment, normalization, etc."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Intelligent Systems & Industrial Informatics"],
+      "supervisors": ["Miao Qiao"],
+      "cosupervisors": ["Yun Sing Koh"]
+    },
+    {
+      "id": "66",
+      "title": "Web-scale Graph Analysis Application",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3335/",
+      "description": [
+        "Graph is ubiquitous nowadays: Facebook, LinkedIn, Google represent interconnect objects (e.g., people and webpages) using graphs. These graphs are often of large scale (millions of nodes and billions of edges) and require efficient specialized algorithms to analyze even for standard tasks.",
+        "This project aims at developing an open source big graph analysis application that can be assessed through a graphical user interface, standard terminal applicaitons or a Java API. The application can be potentially used for teaching, research and industrial applications, contains a plethora of built-in tools for standard large-scale graph processing and analytical tasks."
+      ],
+      "outcomes": [
+        "An open source big graph analysis application that can be assessed through a graphical user interface, standard terminal applicaitons or a Java API"
+      ],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Intelligent Systems & Industrial Informatics"],
+      "supervisors": ["Miao Qiao"],
+      "cosupervisors": ["Jing Sun"]
+    },
+    {
+      "id": "67",
+      "title": "Big data analytics and machine learning on the cluster of low-cost computers and FPGA nodes",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3341/",
+      "description": [
+        "The amount of data generated in Internet of Things (IoT) has increased considerably and reached what we categorise the big data. If all collected data is transported to Cloud, there are practically no constraints on computation resources. However, there are two major problems of huge communication bandwidth necessary to transfer all and with low latency and the storage becomes another bottleneck. These problems caused development of layered IoT supported infrastructure that consists not only of IoT end devices and Cloud, but also two intermediate layers called Edge and Fog, which enable processing and reduction of data on the way towards Cloud and potentially intermediate storage. Looking further, Edge and Fog layers can be even sufficient to provide fast near real-time processing necessary in many applications without participation of Cloud at all. The project will specifically focus on processing at Fog level with clusters of low-cost computers (Raspberry Pie, RPi) and hardware accelerators, (FPGA) which promise fulfilment of application requirements with near real-time performance. This becomes especially important for the applications that operate on huge number of streams of data coming from IoT end devices which are merged on Edge and Fog into big data streams. Specific technologies to look at are Apache Kafka, Hadoop and Spark, with the necessary extensions to programming languages (Java, Scala) and FPGA technologies."
+      ],
+      "outcomes": [
+        "Identifying requirements of typical IoT-based applications (e.g. smart city, public heath, transport) selecting a motivating example.",
+        "Developing a framework for big data analytics on the existing cluster of RPi and FPGA nodes that targets Fog layer.",
+        "Demonstrating the application of the framework on the motivating example."
+      ],
+      "prerequisites": "Completed Part 3 in CSE or SE.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Parallel & Cloud Computing"],
+      "supervisors": ["Zoran Salcic"],
+      "cosupervisors": []
+    },
+    {
+      "id": "68",
+      "title": "Dynamic Reconfigurability of Industrial Automation Processes Using New Software Paradigm",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3342/",
+      "description": [
+        "The project explores the extensions of existing software paradigm fused in development of control of industrial automation processes in context of Industry 4.0. As the starting point, it uses Beckhoff hardware and software platform for industrial control systems based on a network of industrial PCs and interfacing nodes connected through EtherCAT, an industrial proof networking system, and TwinCAT software framework for development of control systems. The new software paradigm uses SystemJ concurrent programming language for the development of control that supports (dynamic) reconfigurability to tackle specific scenarios such as failure of specific parts of the system and fail-safe continuation of its operation, change of production process and products, etc. The new paradigm will enable modelling the system operation before the deployment of software on the real platform with practically no changes of the developed controller model. As a testbed, prototype manufacturing system in Industrial Informatics lab will be used."
+      ],
+      "outcomes": [
+        "Analysing methodology of designing industrial automation systems using traditional tools, with particular focus on Beckhoff technology",
+        "Exploring extension of traditional tools with the SystemJ paradigm of design of distributed control systems",
+        "Developing control models based and demonstrating reconfigurability of system by using software only design methods"
+      ],
+      "prerequisites": "Completed Part 3 in given specialisations; knowledge of Java preferable.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Intelligent Systems & Industrial Informatics"],
+      "supervisors": ["Zoran Salcic"],
+      "cosupervisors": []
+    },
+    {
+      "id": "69",
+      "title": "Developing run-time system for concurrent programming language SystemGALS for RISC-V based platform",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3343/",
+      "description": [
+        "A new concurrent programming language called SystemGALS developed within Embedded Systems Research Group, which can be considered an extension of C programming language, requires a run-time system (support) to be able to run on traditional computer processors. System GALS allows designing concurrent programs that follow formal Globally Asynchronous Locally Synchronous (GALS) model of computation and is specifically targeting safety-critical embedded systems In the project, we are targeting a run-time system that would run on any traditional processor, but specifically exploring a variant of RISC-V suitable for embedded and real-time systems. Run-time system (RTS) is linked to the user application code after compilation of SystemGALS program. Some aspects of connection of the compiler and RTS will be looked at, too. Investigation of extending target platform to multiple RISC-V cores and, potentially, application specific cores connected via internal Network-on-Chip can be part of the project if time allows."
+      ],
+      "outcomes": [
+        "Understanding of SystemGALS programming language and its model of computation",
+        "Exploration of SystemGALS compiler and the requirements on RTS to run programs on traditional processor",
+        "Design of RTS and its implementation using C"
+      ],
+      "prerequisites": "Good knowledge of microprocessors and programming in C for embedded systems. Preferable some knowledge of run-time systems.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Embedded Systems"],
+      "supervisors": ["Zoran Salcic"],
+      "cosupervisors": []
+    },
+    {
+      "id": "70",
+      "title": "WIFIMESH - Edge-layer wireless network for monitoring Bluetooth enabled IoT devices in its range",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3344/",
+      "description": [
+        "Wireless devices such as smart phones and watches, vehicles and tags attached to assets have become common around us. These devices and their carriers enter, move in and exit certain spaces and crowed the space saturating it with RF signals (Bluetooth in our case). Monitoring the space, recording their presence, tracking and evaluating performance of wireless communications is the objective of this project. Creation of resilient low-cost monitoring network capable for detecting and identifying objects in its range will be first achieved by monitoring devices with certain standard wireless connectivity (Bluetooth). The monitoring network will use Wi-Fi as its primary communication standard and be able to detect devices that use Bluetooth (and Wi-Fi). The network, called WIFIMESH will be based on proprietary protocol to enable reliable transfer of information between its nodes in mesh type topology and exchange of information with the edge computer(s) placed at certain locations within the range of WIFIMESH. The data collected by the network will be transferred and to the Edge computers (in our case Raspberry Pie), where it will be analysed."
+      ],
+      "outcomes": [
+        "Investigation of proprietary protocols on Wi-Fi networks",
+        "Development of a protocol for creation of WIFIMESH with resilient behaviour with respect to loss of the network nodes",
+        "Algorithms for recognition of Bluetooth devices with standard wireless network in the range of WIFIMESH",
+        "Creation of recorded datasets for big data analytics",
+        "Creation of experimental WIFIMESH in Engineering Building (start with Embedded Systems Lab)",
+        "Development of rapid deployment strategy for WIFIMESH"
+      ],
+      "prerequisites": "Good knowledge of microprocessors, C programming, basic knowledge of communication protocols, some knowledge of real-time systems.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": ["Embedded Systems"],
+      "supervisors": ["Zoran Salcic"],
+      "cosupervisors": []
+    },
+    {
+      "id": "71",
+      "title": "Mobile air quality sensor for smart city applications",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3345/",
+      "description": [
+        "The internet of things technology enables distributed and mobile devices to be deployed across the entire city, offering intelligent services in our day to day lives. Air quality is one of the most important parameters to be monitored to ensure our surrounding environments are suitable for our physical activities (living, working, exercising, etc.). This project aims to design and develop a system that acquires air quality data from distributed and mobile sensors, aggregate the data periodically, and support visualisation of data as a time series for smart city monitoring application. Investigation of the pattern of city-wide air quality over time will also be conducted to demonstrate the practicality of a smart city air quality monitoring application. A reasonable knowledge of network/mobile/web programming and web-based visualisation is ideal."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Intelligent Systems & Industrial Informatics",
+        "Smart Phone & Tablet Applications",
+        "Web tools and Application"
+      ],
+      "supervisors": ["Kevin I-Kai Wang"],
+      "cosupervisors": []
+    },
+    {
+      "id": "72",
+      "title": "Millimeter-wave based Simultaneous Localization and Mapping (SLAM)",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3346/",
+      "description": [
+        "Simultaneous Localization and Mapping (SLAM) is a technique that is commonly applied in many domains such as robotics, UAVs, and autonomous vehicles for these mobile devices to learn and navigate around an unknown environment automatically. Depending on the sensor input (optical laser/LIDAR, ultrasonic, radio-base signal), different accuracy and performance can be achieved in SLAM. This project aims to investigate the potential of using the state-of-the-art millimeter-wave based radar as the sensor input for SLAM for applications such as intelligent indoor robot navigation."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Intelligent Systems & Industrial Informatics",
+        "Robotics"
+      ],
+      "supervisors": ["Kevin I-Kai Wang"],
+      "cosupervisors": []
+    },
+    {
+      "id": "73",
+      "title": "Gamification-based education platform for sustainable agricultural and environmental applications",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3348/",
+      "description": [
+        "The internet of things (IoT) technology enables distributed large-scale sensor deployment for applications such as smart city monitoring, emergency event detection, and environmental and agricultural monitoring. One of the purposes is to help to achieve more sustainable (or green) practices in our day to day actions (e.g., save water, reduce waste and carbon emission). However, there is a gap for people to understand and interpret a large amount of IoT data. This project aims to explore ways of using gamification to interpret IoT data (with expert knowledge/model) as a game to educate/train its players to achieve sustainable and green operations in applications such as the environment and agricultural monitoring."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Games & Education Aids 1",
+        "Intelligent Systems & Industrial Informatics",
+        "Smart Phone & Tablet Applications"
+      ],
+      "supervisors": ["Kevin I-Kai Wang"],
+      "cosupervisors": []
+    },
+    {
+      "id": "74",
+      "title": "ReType - The Game",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3350/",
+      "description": [],
+      "outcomes": [],
+      "prerequisites": "good programming skills",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
+      "supervisors": ["Gerald Weber"],
+      "cosupervisors": ["Robert Amor"]
+    },
+    {
+      "id": "75",
+      "title": "Software ecosystem explorer",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3360/",
+      "description": [
+        "Most modern software systems depend on other software components. These dependencies create networks of software projects (called software ecosystems). It is unknown how knowledge is spread across such ecosystems.",
+        "This project will develop a visualisation tool to support research on software ecosystems. The tool will visually display interconnected software projects and related software changes made across those projects. The project will employ machine learning techniques."
+      ],
+      "outcomes": [
+        "A visualisation tool which displays various aspects of software ecosystems to support researchers and software practitioners.",
+        "A research study on overlapping changes on at least one open source software ecosystem using the developed tool."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Software Development Tools and Processes 1",
+        "Software Development Tools and Processes 2"
+      ],
+      "supervisors": ["Kelly Blincoe"],
+      "cosupervisors": []
+    },
+    {
+      "id": "76",
+      "title": "Collaborative data labelling support tool",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3361/",
+      "description": [
+        "When training a supervised machine learning model, labeled training data is required. This project will develop a web-based software application for multiple distributed collaborators to manually label data for machine learning tasks. The application design must consider data security and privacy to ensure users have provenance over their data. Research will be undertaken to identify best practices to ensure data provenance. Research will also be undertaken to ensure the developed software application is fit for purpose."
+      ],
+      "outcomes": [
+        "Web-based software application to support collaborative data labelling tasks."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": ["Web tools and Application"],
+      "supervisors": ["Kelly Blincoe"],
+      "cosupervisors": []
+    },
+    {
+      "id": "77",
+      "title": "STEAM education for Young Maori-Pacific Learners",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3369/",
+      "description": [
+        "STEAM toys are fast gaining popularity among young children, where children get an early exposure to technology, in the hope that it will kindle an interest towards science, technology, engineering, Art and mathematics in future. However, many of these toys are designed in a more commercial sense and tend to have less educational quality and value. Work has already been carried out to develop education-rich activities to inspire young children, aged between 8 to 12 years, in electrical engineering. These activities allow young children explore the wonders of electronics and other hardware, giving them guided and well-informed exposure into engineering.",
+        "This project the aims to extend, enhance and redesign these activities to make them appealing in a Maori-Pacific context. Research will need to be conducted into the current learning trends, interests and engagement capabilities of young Maori-Pacific learners. Based on these findings the project will set out to redevelop and adapt the activities to suit these learners. Te Reo Maori is expected to be utilized in this context, to design the educational aids, experiment instructions etc. The use of Te Reo Maori in these activities will help non-Maori Pacific learners embrace the correct terminology, allowing Te Reo Maori to be extended further into science and technology education. These activities will then be tested among children with Maori-Pacific and non-Maori Pacific heritage. The long-term goal of this project is to attract more students from the Maori-Pacific communities into STEAM fields."
+      ],
+      "outcomes": [
+        "· Create an engaging platform to inspire young Maori-Pacific learners in electrical engineering and associated sciences. · Investigate learning trends, interest levels and engagement capabilities of young Maori-Pacific learners. · Identify ways to redesigns and adapt the existing STEAM activities, educational aids and experimental instructions to better suit the Maori-Pacific learners. · Adapt Te Reo Maori throughout the learning process, to make it equally appealing to both learners with and without Maori-Pacific heritage. · Test out the designed activities and gather information on each activity to reflect the success level of each activity in both learning groups. · Inspire more Maori-Pacific children to develop an interest in engineering at an early stage, through exposure and genuine interest and understanding."
+      ],
+      "prerequisites": "Ideally have a good understanding of Maori-Pacific culture and a reasonable command of Te Reo Maori. Students must consult the supervisor before bidding on the project.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": ["Games & Education Aids 1", "Games & Education Aids 2"],
+      "supervisors": ["Dulsha Kularatna-Abeywardana"],
+      "cosupervisors": []
+    },
+    {
+      "id": "78",
+      "title": "Supercapacitor assisted whiteware for renewable energy operation",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3370/",
+      "description": [
+        "Renewable energy generation is highly variable, and dependent upon the precise location, time of year and day, other environmental conditions and surrounding structures etc. Therefore, a great degree of regulation, power conversion and energy storage is required to produce a useful amount of renewable energy for household or commercial use. In the solar energy context, the power generation is in DC form, which then needs to be converted to AC power to align with the regular household mains supply. However, in most appliances the final consumer load actually requires DC power, requiring an internal AC to DC conversion stage. The DC generated solar energy needs to be converted to AC and then the opposite internally. Energy lost at each power conversion stage reduces the overall efficiency. Additionally, AC power transmission also leads to about 30% energy loss at each stage of transmission, and with declining popularity of AC load the need for AC power transmission is further reduced. By delivering most of the locally generated renewable energy to the final consumer loads, a much larger power output can be expected from such renewable sources.",
+        "A DC microgrid, allowing DC generated energy to be delivered directly to the load in the appliance, would significantly improve the overall energy efficiency allowing renewable sources to produce more output power. A supercapacitor bank and its associated long-time constant allows the renewable energy to be efficiently harnessed, stored and delivered to the load, while meeting the peak current demands of the load. This is a bottleneck in present battery based energy storage systems associated with renewable energy systems. This DC powered modern “inverter driven whiteware” such as refrigerators and heat pumps, will be powered directly via SCA converters energised by a DC bus derived from a solar or wind energy source. It will essentially mitigate the need for traditional large battery packs that are inevitably part of renewable energy generators and hence address the issues of the limited lifetime, a finite number of charge/discharge cycles and the need for responsible disposal at the end of their lifetime. Supercapacitors being a relatively new technology has a lot of potential to improve renewable energy storage."
+      ],
+      "outcomes": [
+        "· Investigate the power generation variations in Photo-Voltaic (PV) systems and how supercapacitors would be able to overcome these variations to successfully power appliances directly. · Develop a supercapacitor assisted energy storage system, which can be charged directly using the highly variable PV systems. · Develop the required hardware to deliver DC power directly to the DC load of the whiteware, while accommodating some of the limiting factors of supercapacitor technology."
+      ],
+      "prerequisites": "Students must consult the supervisor before bidding on the project.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Power Electronics & Electronics Systems"],
+      "supervisors": ["Dulsha Kularatna-Abeywardana"],
+      "cosupervisors": []
+    },
+    {
+      "id": "79",
+      "title": "Power factor and harmonics in dimmable LED lighting systems",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3372/",
+      "description": [
+        "Introduction of the LEDs to green building designs brought significant energy savings, as the LEDs deliver high luminous flux per watt. Moreover the LEDs can be dimmed to reduce their light output depending on the demand. This will further save energy. However a typical dimming process is frequently based on pulse width modulation technique (PWM), and introduced many harmonics as well as reduces the power factor of the luminaire. When luminaires are dimmed, the lighting system produces many harmonics (often >10%), and the power factor drop to as low as 0.6. These parameters put tremendous stress on the electrical network and the green star rating of the entire project.",
+        "In this research we will be investigating processes responsible for the power factor (and harmonics), and will propose a solution. This is an innovatory research, and there is very little of research done in this field (dimmable LEDs are relatively new products)."
+      ],
+      "outcomes": [
+        "Propose and test technique to supply dimmable LEDs and maintain high power factor."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Green Energy Technologies"],
+      "supervisors": ["Dariusz Kacprzak"],
+      "cosupervisors": ["Udaya Madawala"]
+    },
+    {
+      "id": "80",
+      "title": "Battery pack for laptop",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3373/",
+      "description": [
+        "Power packs are frequently used with low power devices, for example mobile phones. In this project we will develop a power pack working with a laptop, and to supply charging current for the laptop’s batteries.",
+        "As a research project, our approach is to explore many options and possibilities. These must be evaluated and most suitable techniques must be determined.",
+        "Next prototyping is expected, followed by testing and adequate evaluation."
+      ],
+      "outcomes": ["Deliver a working prototype and evaluate its performance."],
+      "prerequisites": [],
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Green Energy Technologies"],
+      "supervisors": ["Dariusz Kacprzak"],
+      "cosupervisors": ["Aiguo Patrick Hu"]
+    },
+    {
+      "id": "81",
+      "title": "Names Atlas",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3381/",
+      "description": [
+        "A multi media platform which will provide information about names ( including place, pronunciation, distribution over time) for the Taranaki/Westcoast region of New Zealand – which if successful could be extended to other parts of NZ, or any other global region. The project will involve the building of software-based tools that will search archival material from the Taranaki/West coast region , identify names and collate information on the commonness of the name over time, plus the geographical areas the name occurs. It also involves the maintenance of the already existing Names dictionary. Also involved is the creation of a client-server-based web app that will enable a user to input a name and be able to pull out information about the name such as pronunciation details, sources where name can be found, geographical location, and usage over time . The aim if to have this tool will be publicly available. The project will also involve ensure that the data storage solution ensures Taranaki/Westcoast maintains sovereignty over the names data."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "Human Computer Interactions",
+        "Web tools and Application"
+      ],
+      "supervisors": ["Catherine Watson"],
+      "cosupervisors": []
+    },
+    {
+      "id": "82",
+      "title": "An Oration assessment tool based on Deep Learning",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3382/",
+      "description": [
+        "The ability to have competency in te reo Māori is important in many aspects of professional life in New Zealand. The University of Auckland education paper EDUCM199 requires all students to pronounce well a preset 36 word Pepeha (speech). With student numbers of over 300, the marking of the Pepeha in EDUCM199 is a time consuming process. The purpose of this project is to create a platform which will enable the markers to be able to up load all the speeches, provide a markup for each speech which indicates which words were pronounced correctely and incorrectly, and a final mark. The platform would also enable a human marker to edit the decisions made by the autotmatic system if required. The automatic marking would be based on using a combination of speech recognition and deep learning techniques. If time allows it would also be very useful to have a practise module for the students , providing them feedback when they are practising the 36 word Speech. The skills learnt in this project would be audio processing, speech recognition, deep learnining, and GUI design, and working with a motivated client. The ability to speak te reo Māori is not necessary."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Games & Education Aids 2",
+        "Image & Voice Processing"
+      ],
+      "supervisors": ["Catherine Watson"],
+      "cosupervisors": ["Reza Shahamiri"]
+    },
+    {
+      "id": "83",
+      "title": "Multi-Lingual Speech Assessment using Deep learning",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3383/",
+      "description": [
+        "This project will investigate the use of deep learning for speech assessment, with the view to build a pronounciation assessment app for English and te reo Māori. Other languages would also be considered, but there would need to be corpora available on which to do the analysis. Feed back will be given to the user on how they are producing sounds. If the user is producing the sound incorrectly, feedback will be provided to the user on how to improve their production. The solution will involve deep learning. Machine learning has been used with great success in the field of speech recognition, so at one level sucess of the task is almost guaranteed. However this projects aims to take a more critical look at the solutions, and what is of most interest is the limitations and points of failure of the the solution. To be an effective speech assessment app, we need to know how sensitive the system is to speech errors. In addition if the application is to run on a smart device, the final solution must not take up an excessive amount of computional resources. Therefore processing power is also an important consideration for the final solution. The skills learnt in this project would be audio processing, speech recognition, deep learnining, and GUI design. The ability to speak te reo Māori is not necessary."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": [
+        "AI & Machine learning",
+        "Human Computer Interactions",
+        "Image & Voice Processing"
+      ],
+      "supervisors": ["Catherine Watson"],
+      "cosupervisors": ["Jesin James"]
+    },
+    {
+      "id": "84",
+      "title": "A comparison between traditional signal processing and machine learning methods in  speech analysis capturing time varying information",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3384/",
+      "description": [
+        "Machine learning is increasing being used in speech analysis for automatic speech feature extraction. It has immense appeal as many of the machine learning platforms are much easier to use than the traditional speech processing methods. When it comes to the recognition of speech machine learning has been used with great success. However the question is can machine learning techniques be used for accurate measurement of specific speech features which vary over time? This project investigates the use of machine learning in the identification of an important speech feature, called a formant, and compares the results to traditional formant tracking methods."
+      ],
+      "outcomes": [],
+      "prerequisites": [],
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering"
+      ],
+      "categories": ["AI & Machine learning", "Image & Voice Processing"],
+      "supervisors": ["Catherine Watson"],
+      "cosupervisors": ["Jesin James"]
+    },
+    {
+      "id": "85",
+      "title": "High-Performance Metasurface Waveguides",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3385/",
+      "description": [
+        "Waveguides for high-frequency signals have traditionally been realised using bulky three dimensional structures (e.g. coaxial cable, rectangular/circular waveguides supporting non-TEM modes, etc). However, recently there has been some interest in developing planar waveguiding structures using metasurfaces. Metasurfaces are two-dimensional equivalents of metamaterials, which are structures that contain a repeating microstructure - the elements of which are much smaller than a wavelength. Although the basic design of metasurfaces is well understood, high-performance designs (which have low loss and low dispersion) can be challenging to realise.",
+        "In 2017 a working prototype of a metasurface waveguide was sucessfully produced. This project will be extended this year to consider additional bend geometries and launching structures by (i) identifying appropriate implementation strategies; (ii) designing, modelling and optimising these structures using CST Studio Suite/Microwave Studio; and (iii) fabricating the design(s) and measuring their performance."
+      ],
+      "outcomes": [
+        "Designs of metasurface waveguide bends and launchers (from coaxial cable)."
+      ],
+      "prerequisites": "Prerequisite ELECTENG307, corequisite ELECTENG721.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Radio Systems", "Telecommunications"],
+      "supervisors": ["Michael Neve"],
+      "cosupervisors": []
+    },
+    {
+      "id": "86",
+      "title": "Cyber Secure and Resilient Energy Neighbourhood",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3386/",
+      "description": [
+        "The dependence on secure electricity supply to residential customers has been heightened during the COVID-19 pandemic globally. The decarbonization agenda also has accelerated the growth of PV generation and home storage installations. The introduction of new loads such as EVs containing built-in IoT components mean that the landscape for homes is quickly changing into a smarter, more-connected one.",
+        "In 2020, a project on Cyber seure smart homes was completed, which identified how standards that are applied to distribution substation could find its way for secure smart homes of the future. This was aimed to cyber-harden homes that could emerge as teh the weakest link of future smart grid networks and can act as a backdoor to neighbourhood networks. An OSI model was identified as a framework and a protoype attack-defend scenerio based situation was simulated. More future work was identified to be carried out in this space."
+      ],
+      "outcomes": [
+        "Research Components",
+        "● Investigate communication models/architectures that can be applied to smart homes and the smart grid network",
+        "● Evaluate cyber-security challenges in neighbourhood IoT infrastructure",
+        "● Analyse cybersecurity risks pertaining to different OSI levels",
+        "● Research different cyber-physical protection measures",
+        "● Develop a use-case for demonstration purposes"
+      ],
+      "prerequisites": "Preferably one student enrolled in ELECTENG 731 in semester 1 and ELECTENG 703 in semester 2 of 2020.",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Power Systems"],
+      "supervisors": ["Nirmal Nair"],
+      "cosupervisors": []
+    },
+    {
+      "id": "87",
+      "title": "Improved Coupler Design for High Frequency Leaky Waveguide Antennas",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3387/",
+      "description": [
+        "Leaky waveguide antennas are a promising type of antenna that may find application in future in-building millimetre wave communication systems. The half-mode substrate integrated waveguide (HMSIW) is an example of such an antenna, and can be used to provide a moveable point of radiation that can ameliorate the effects of shadowing in obstructed office environments. A key component of these antenna systems is the coupler, which is needed to connect ’standard’ coaxial transmission line systems to the waveguiding structure. To be effective, good coupler designs require low VSWR over a wide operating bandwidth and be of very low profile, and achieving all of these requirements simultaneously can be challenging.",
+        "This project will investigate coupler designs by (i) identifying appropriate implementation strategies; (ii) designing, modelling and optimising these structures using CST Studio Suite/Microwave Studio; and (iii) fabricating the design(s) and measuring their performance."
+      ],
+      "outcomes": ["Designs of leaky waveguide antenna couplers."],
+      "prerequisites": "Prerequisite ELECTENG307, corequisite ELECTENG721.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Radio Systems", "Telecommunications"],
+      "supervisors": ["Michael Neve"],
+      "cosupervisors": []
+    },
+    {
+      "id": "88",
+      "title": "CoXercise - Collaborative Exercise Games",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3388/",
+      "description": [
+        "COVID-19 has brought to light the importance of social interaction via online platforms in today’s environment. A large proportion of the population do not complete sufficient physical activity, but social interactions seem to provide motivation for physical activity. Although offline social games such as traditional sports are popular, as well as online exergaming such as Just Dance, there haven’t been much effort to encourage social collaboration for online games. The project proposes to design an exergame that encourages social interactions and collaboration (maybe some competition), and compare the results of offline and online modes of the game. The project hopes to shed some light into this new field of exergaming, and encourage positive collaboration amongst the comfort of the home."
+      ],
+      "outcomes": [
+        "- An exergame that has both offline (single-player) and online (collaborative) modes.- Comparisons between offline exergaming vs its online collaborative version."
+      ],
+      "prerequisites": "SOFTENG 350",
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Games & Education Aids 1",
+        "Games & Education Aids 2",
+        "Human Computer Interactions"
+      ],
+      "supervisors": ["Burkhard Wuensche"],
+      "cosupervisors": ["Alex Shaw"]
+    },
+    {
+      "id": "89",
+      "title": "Investigating the Effects of Diffraction for High Frequency Communication Systems Design",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3389/",
+      "description": [
+        "In the context of electromagnetics, diffraction is the bending of electromagnetic energy around corners and surfaces. It is a frequency dependent effect, and is known to become less significant as the frequency increases. However, it is still important to have an understanding of diffraction to allow system planners to assess whether it can be used to reliably communicate, or whether it can provide unwanted levels interference from adjacent co-channel transmitters due to inadequate shielding. Diffraction can basically be subdivided into two types - edge diffraction (which is the bending of electromagnetic energy around sharp edges, which may be curved and have arbitrary internal angles) or surface diffraction (in which the surfaces are considered smooth).",
+        "This project will investigate the effects of diffraction by (i) identifying techniques for modelling diffraction (likely based on the geometrical/uniform theories of diffraction); (ii) implementing a diffraction calculation code in MATLAB; and (iii) using this code (likely in conjunction with CST Studio Suite) to investigate a range of diffraction scenarios of relevance to high frequency communication system design."
+      ],
+      "outcomes": [
+        "MATLAB code for diffraction calculations, series of experimental results quantifying effects of diffraction for a range of geometries of relevance to indoor wireless systems design."
+      ],
+      "prerequisites": "Prerequisite ELECTENG307, corequisite ELECTENG721.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Radio Systems", "Telecommunications"],
+      "supervisors": ["Michael Neve"],
+      "cosupervisors": []
+    },
+    {
+      "id": "90",
+      "title": "Peer-to-Peer Transactive Energy Platform For Neighbourhoods",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3390/",
+      "description": [
+        "Increasingly homes and businesses are investing in solar PV, high-energy battery storage systems and EV's. There is a need to develop mechanisms, tools and framework to purchase electricity not only from the energy retailers but also to trade peer-to-peer amongst consumers. Block chain architecture, using Ethereum hard-fork implementation of Smart Contract, was a pathway that was conceptualized, developed and trialled using transactive energy framework, through a 2017 Part IV power system project. The proof-of-concept was demonstrated, using the two UoA 3-kW grid connected solar system, battery storage, smart meter, PLC, micro-grid simulator, New Zealand wholesale real-time electricity market display etc. available at the Power systems Lab and interacting with UoA property services for grid services.A subsquent 2018 project developed a conceptual peer-to-peer that explored implementing the concept of time-value [as per the following publication Zhang, Z. J., & Nair, N.-K. (2017). Distributor “time value” pricing framework to schedule distributed energy resources. International Transactions on Electrical Energy Systems, e2374-e2374. 10.1002/etep.2374.] This project explored integration of the developed concept using commercially available home-automation products (e.g. Apple Homekit, Nest etc.) through proprietary and standard-based protocols.",
+        "A recent publication from the group identified how this concept could be expanded across a wide geographical area with visibility from a distribution utility with improved distribution management system (DMS) funcationality.",
+        "Chopra, A. R., & Nair, N. K. C. (2020). A Review of Methodical Decentralisation of Energy and Energy Transactions Utilising Distributed Ledger via Transition Architecture Based Framework. 2020 IEEE Power and Energy Conference at Illinois (PECI) Champaign, IL, USA, USA: IEEE. 10.1109/peci48348.2020.9064650",
+        "The New Zealand Government has recently called for solutions to address the following objective that aligns with the previous projects that has been described earlier.",
+        "Innovative distribution and retail solutions to manage energy from the local generation and storage, for example peer-to-peer trading to share excess energy generation with other households.",
+        "The 2021 project aims to develop a prototype with the intent to address all practical issues such that it is possible to be commercially deployed to a neighbourhood in New Zealand."
+      ],
+      "outcomes": [
+        "A working prototype to be trialled and implemented across a neighbourhood.",
+        "Business-case development to assess the pricing and economics of the system.",
+        "Integrate the developed solution to Virtual Power Plant Model Research Literature",
+        "Assess the feasibility of how the neighbourhood solution could be integrated to Distribution network DERMS (Distributed Energy Resources Management System)"
+      ],
+      "prerequisites": "Preferable to have atleast one student of the group who is enrolled into Power system specialization of courses ( ELECTENG 309, ELECTENG 731 and ELECTENG 703)",
+      "specialisations": [
+        "Computer Systems Engineering",
+        "Electrical and Electronic Engineering",
+        "Software Engineering"
+      ],
+      "categories": ["Green Energy Technologies", "Power Systems"],
+      "supervisors": ["Nirmal Nair"],
+      "cosupervisors": []
+    },
+    {
+      "id": "91",
+      "title": "Measuring Separation of Concerns",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3391/",
+      "description": [
+        "Separation of Concerns is a principle for designing software. This project will examine what research has been done on this subject, in particular proposals for assessing designs according to how well they follow the separation of concerns principle. It will evaluate any proposals found and/or new proposals developed by applying them to a collection of existing designs for a small system. Specific tasks will be:",
+        "review the literature on separation of concerns manually evaluating a number of existing designs with respect to separation of concerns to establish a ground truth apply any proposals found or developed for measuring degree of separation of concerns"
+      ],
+      "outcomes": [
+        "Report describing results of proposals found or developed and their evaluation."
+      ],
+      "prerequisites": "Completed SOFTENG306",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Software Development Tools and Processes 1"],
+      "supervisors": ["Ewan Tempero"],
+      "cosupervisors": []
+    },
+    {
+      "id": "92",
+      "title": "Inteconnection Guidelines for Grid-following and Grid-forming AC Microgrids",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3392/",
+      "description": [
+        "Grid-interconnection of BESS (Battery Energy Storage Systems) to MV/LV distribution network would impact the distribution network voltage profile, thermal loading, power flow, safety, and protection. Grid-interconnections standards and guidelines mandate the interconnection requirements to regulate general technical requirements, power quality requirements and safety and protection requirements. There are no interconnection standard or guideline exclusively for BESS. A 2020 part-IV project foucssed on developing some best practices of guidelines that could be followed by NZ Distribution Utilities in this space.",
+        "Recently there has been development from IEEE on Grid-following and Grid-forming Microgrid architectures in IEEE publications. The implementation is primarily based on inverter-interfaced PV, storage and other micro-generation resources. There is a need to research into developing interconnection guidelines if these microgrid architecture become operational in NZ in the coming years which is the focus of this project."
+      ],
+      "outcomes": [
+        "Systematic review of Grid-Forming and Grid-following inverter-interfaced AC Microgrid",
+        "Emulation of Grid-following and Grid-forming equivalent Micro-grid networks in Power Systems Laboratory using Grid-and Battery Emulators",
+        "Identifying the emerging standards around grid-forming and grid-following inverters and testing some of the commercial inverters if they comply with expectation. (This scope will be attempted if there are no Lock-down due to COVID-19)",
+        "Potential case study for a Grid-following AC Microgrid for a New Zealand Distribution Utility."
+      ],
+      "prerequisites": "Preferably one student enrolled in ELECTENG 731 in semester 1 and ELECTENG 703 in semester 2 of 2020.",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Power Systems"],
+      "supervisors": ["Nirmal Nair"],
+      "cosupervisors": []
+    },
+    {
+      "id": "93",
+      "title": "Using Drone for Automated Garden Watering",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3393/",
+      "description": [
+        "The aim of this project is to program a small and low cost drone that is capable of identifying the plants in a garden (and storing their x,y,z coordinates), then flying over them periodically to water the plants. The navigation system of the drone will be implemented using embedded system platforms, where Inertial Measurement Units (IMU) and the GPS are used for drone stabilisation and to collect the coordinates of the plants. The required software to implement the sensors’ signal processing, drone’s navigation system algorithms and the required PCB will be developed in this project."
+      ],
+      "outcomes": [
+        "· Investigating drone stabilisation algorithms to allow it autonomously to hover over specified locations.",
+        "· Investigating IMU for drone stabilisation and its possible interaction with a GPS based system.",
+        "· Considering the required level of accuracy of the system to identify individual plant, compare the GPS based accuracy with other types of relevant sensor (such as cameras) and determine the cost effective and accurate enough sensor for this application.",
+        "· Design the required PCB and implement the system software. Test the final implemented system in a suitable environment."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Computer Systems Engineering"],
+      "categories": [
+        "Embedded Systems",
+        "Intelligent Systems & Industrial Informatics"
+      ],
+      "supervisors": ["Morteza Biglari-Abhari"],
+      "cosupervisors": []
+    },
+    {
+      "id": "94",
+      "title": "Synthesizer for low dexterity users",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3394/",
+      "description": [
+        "Music has proven to be an effective therapy for anxiety, pain, nausea etc. However, many patients are unable to create their own music for a variety of reasons, such as low dexterity due to age or disorders (e.g. Parkinson’s). Our team would like to address this problem by creating a synthesiser which can be used by children and elderly adults alike. The proposed unit is designed using sheets and sticks of graphite which control the frequency of different individual synthesisers, by dragging the lead across the graphite. This requires significantly less dexterity than instruments such as keyboard or guitars, which typically control synthesisers. The unit will also serve as an educational aide for physically impaired students with an interest in music. The intended outcome is to have a fully functioning prototype consisting of 3 individual synthesisers (square, triangle & sawtooth), stereo output and audio effects (delay and overdrive) to create a versatile instrument. The synthesisers will be analogue while the audio effects will be added by a microcontroller (ATMega328PB Microcontroller). In addition, the volume control will also be designed using graphite to ensure maximum comfort for the user."
+      ],
+      "outcomes": [
+        "• Research methods of designing synthesisers using analogue circuitry • Research the use of graphite as a variable resistor • Design a working square wave, triangle, and sawtooth synthesiser • Research methods of creating audio effects using a C-based microcontroller • Use a microcontroller to create audio effects • Creating a stereo output for the synthesiser • Testing concepts using software simulation • Building a fully functioning demo prototype"
+      ],
+      "prerequisites": [],
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Games & Education Aids 1"],
+      "supervisors": ["Dariusz Kacprzak"],
+      "cosupervisors": ["Andrew Austin"]
+    }
+  ],
+  "specialisations": [
+    "Computer Systems Engineering",
+    "Civil Engineering",
+    "Engineering Science",
+    "Software Engineering",
+    "Electrical and Electronic Engineering",
+    "Mechatronics Engineering"
+  ],
+  "categories": [
+    "Games & Education Aids 1",
+    "Parallel & Cloud Computing",
+    "Robotics",
+    "Health & Well-being",
+    "Power Electronics & Electronics Systems",
+    "Space Systems",
+    "Transportation Modelling",
+    "Acoustics",
+    "Software Development Tools and Processes 1",
+    "Games & Education Aids 2",
+    "Human Computer Interactions",
+    "AI & Machine learning",
+    "Image & Voice Processing",
+    "Green Energy Technologies",
+    "Signal Processing",
+    "Intelligent Systems & Industrial Informatics",
+    "Smart Phone & Tablet Applications",
+    "Software Development Tools and Processes 2",
+    "Telecommunications",
+    "Embedded Systems",
+    "Control Systems",
+    "Operations Research",
+    "Wireless Power Technologies",
+    "Optimisation",
+    "Power Systems",
+    "Transport Technology",
+    "Radio Systems",
+    "Web tools and Application",
+    "Machine Learning",
+    "Augmented/Virtual Reality",
+    "Computer Vision"
+  ],
+  "supervisors": [
+    "Jing Sun",
+    "Robert Amor",
+    "Seho Kim",
+    "Alex Shaw",
+    "Danielle Lottridge",
+    "Michael Neve",
+    "Aiguo Patrick Hu",
+    "Waleed Abdulla",
+    "Ewan Tempero",
+    "Grant Covic",
+    "Jackman Lin",
+    "Gerald Weber",
+    "Abhisek Ukil",
+    "Oliver Sinnen",
+    "Avinash Malik",
+    "Henry Williams",
+    "Reza Shahamiri",
+    "Catherine Watson",
+    "Zoran Salcic",
+    "Robert Sheehan",
+    "Kelly Blincoe",
+    "Nasser Giacaman",
+    "Morteza Biglari-Abhari",
+    "Miao Qiao",
+    "Burkhard Wuensche",
+    "Craig Sutherland",
+    "Bruce Sham",
+    "William Lee",
+    "Dariusz Kacprzak",
+    "Partha Roop",
+    "Udaya Madawala",
+    "Nirmal Nair",
+    "Kevin I-Kai Wang",
+    "Ho Seok AHN",
+    "Dulsha Kularatna-Abeywardana"
+  ],
+  "cosupervisors": [
+    "Jing Sun",
+    "Robert Amor",
+    "Jesin James",
+    "Seho Kim",
+    "Alex Shaw",
+    "Nitish Patel",
+    "Danielle Lottridge",
+    "Aiguo Patrick Hu",
+    "Grant Covic",
+    "Vicente Gonzalez",
+    "Jackman Lin",
+    "Catherine Watson",
+    "Reza Shahamiri",
+    "Jongyoon Lim",
+    "Nasser Giacaman",
+    "Miao Qiao",
+    "Bruce MacDonald",
+    "Dariusz Kacprzak",
+    "Christopher Lee",
+    "Yun Sing Koh",
+    "Udaya Madawala",
+    "Andrew Austin"
+  ]
+}

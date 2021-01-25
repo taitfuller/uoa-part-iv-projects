@@ -21,7 +21,7 @@ export default function Filter(props) {
     selectedSupervisors: [],
     selectedCosupervisors: [],
     selectedSpecialisations: [],
-    selectedTopics: [],
+    selectedCategories: [],
   })
 
   const handleChecked = (event) => {
@@ -123,20 +123,20 @@ export default function Filter(props) {
         </Grid>
         <Grid item>
           <FormControl className={classes.formControl}>
-            <InputLabel id="topic-filter-label">Topics</InputLabel>
+            <InputLabel id="category-filter-label">Categories</InputLabel>
             <Select
-              labelId="topic-filter-label"
-              id="topic-filter"
+              labelId="category-filter-label"
+              id="category-filter"
               multiple
-              value={state.selectedTopics}
+              value={state.selectedCategories}
               onChange={handleSelect}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
-              name="selectedTopics">
-              {props.topics.map((topic) => (
-                <MenuItem key={topic} value={topic}>
-                  <Checkbox checked={state.selectedTopics.indexOf(topic) > -1} />
-                  <ListItemText primary={topic} />
+              name="selectedCategories">
+              {props.categories.map((category) => (
+                <MenuItem key={category} value={category}>
+                  <Checkbox checked={state.selectedCategories.indexOf(category) > -1} />
+                  <ListItemText primary={category} />
                 </MenuItem>
               ))}
             </Select>
