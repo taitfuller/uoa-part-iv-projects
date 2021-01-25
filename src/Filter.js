@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Filter(props) {
   const [state, setState] = useState({
-    favourites: false,
+    toggledFavourites: false,
+    toggledUnallocated: true,
     selectedSupervisors: [],
     selectedCosupervisors: [],
     selectedSpecialisations: [],
@@ -51,12 +52,27 @@ export default function Filter(props) {
           <FormControlLabel
             control={
               <Switch
-                checked={state.favourites}
+                checked={state.toggledFavourites}
                 onChange={handleChecked}
-                name="favourites"
+                color="primary"
+                name="toggledFavourites"
               />
             }
-            label="Favourites" />
+            label="Favourites"
+            labelPlacement="top" />
+        </Grid>
+        <Grid item>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={state.toggledUnallocated}
+                onChange={handleChecked}
+                color="primary"
+                name="toggledUnallocated"
+              />
+            }
+            label="Unallocated"
+            labelPlacement="top" />
         </Grid>
         <Grid item>
           <FormControl className={classes.formControl}>
