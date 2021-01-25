@@ -1,19 +1,17 @@
 import React from 'react'
 
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import { Avatar, Button, Chip, Divider, Grid, Typography } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import { Avatar, Button, Chip, Divider, Grid, Typography } from '@material-ui/core'
+import { red } from '@material-ui/core/colors'
 
-import FavouriteButton from './FavouriteButton';
+import FavouriteButton from './FavouriteButton'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
     marginBottom: theme.spacing(4),
-    minWidth: 650,
-    maxWidth: 950,
   },
   section: {
     marginBottom: theme.spacing(2),
@@ -39,10 +37,10 @@ const useStyles = makeStyles((theme) => ({
   list: {
     marginTop: 0,
   },
-}));
+}))
 
 export default function Project() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   // Render the UI for your table
   return (
