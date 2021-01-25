@@ -97,7 +97,7 @@ function App() {
       <main>
         <div className={classes.appBarSpacer} />
         <Container className={classes.container}>
-          <Projects columns={columns} data={data} />
+          <Projects />
         </Container>
       </main>
     </div>
