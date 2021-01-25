@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Project() {
+export default function Project(props) {
   const classes = useStyles()
 
   // Render the UI for your table
@@ -48,29 +48,34 @@ export default function Project() {
       <div className={classes.section}>
         <Grid container spacing={2} alignItems="center" wrap="nowrap">
           <Grid item>
-            <Avatar className={classes.blue}>1</Avatar>
+            <Avatar className={classes.blue}>{props.project.id}</Avatar>
           </Grid>
           <Grid item>
-            <Typography variant="h5">Using large screen displays to support understanding program code</Typography>
+            <Typography variant="h5">{props.project.title}</Typography>
           </Grid>
           <Grid item className={classes.right}>
-            <Chip label="Allocated" className={classes.red}/>
+            {props.project.allocated
+              ? <Chip label="Allocated" className={classes.red} />
+              : <Chip label="Unallocated" />
+            }
           </Grid>
         </Grid>
       </div>
       <Divider/>
       <div className={classes.section}>
         <Typography variant="overline">Description</Typography>
-        <Typography>Trying to understand a large, unknown computer codebase is a challenging task. Currently, developers use Integrated Development Environments (IDEs) to navigate through a codebase whilst trying to connect different parts of the system together. Another approach would be to use people's spatial abilities to help with this process, but most computer screens are not large enough to display several code files simultaneously. This project will develop a huge screen viewer/editor that allows programmers to visualise multiple program files at the same time. It will use the large wall display in the centre for e-research to visualise the code."</Typography>
+        {props.project.description.map((description) => (
+          <Typography paragraph>{description}</Typography>
+        ))}
       </div>
       <Divider/>
       <div className={classes.section}>
         <Typography variant="overline">Outcomes</Typography>
         
         <ul className={classes.list}>
-          <li><Typography>User study of how developers read code on large screens</Typography></li>
-          <li><Typography>Development of a web-based system to display multiple code files on a huge-screen system</Typography></li>
-          <li><Typography>Evaluation and analysis of the impact of using the system on code comprehension</Typography></li>
+          {props.project.outcomes.map((outcome) => (
+            <li><Typography>{outcome}</Typography></li>
+          ))}
         </ul>
       </div>
       <Divider />
@@ -79,19 +84,25 @@ export default function Project() {
           <Grid item>
             <Typography variant="overline">Supervisor</Typography>
             <Grid container spacing={1} direction="column">
-              <Grid item>
-                <Chip label="Nasser Giacaman" />
-              </Grid>
+              {props.project.supervisors.map((supervisor) => (
+                <Grid item>
+                  <Chip label={supervisor} />
+                </Grid>
+              ))}
             </Grid>
           </Grid>
+          {props.project.cosupervisors.length > 0 &&
           <Grid item>
             <Typography variant="overline">Co-Supervisor</Typography>
             <Grid container spacing={1} direction="row">
-              <Grid item>
-                <Chip label="Catherine Watson" />
-              </Grid>
+              {props.project.cosupervisors.map((cosupervisor) => (
+                <Grid item>
+                  <Chip label={cosupervisor} />
+                </Grid>
+              ))}
             </Grid>
           </Grid>
+          }
         </Grid>
       </div>
       <Divider />
@@ -100,17 +111,13 @@ export default function Project() {
           <Grid item>
             <Grid container direction="column" spacing={1}>
               <Grid item>
-                <Typography variant="overline">Topics</Typography>
+                <Typography variant="overline">Categories</Typography>
               </Grid>
-              <Grid item>
-                <Chip label="Software Development Tools and Processes 1" />
-              </Grid>
-              <Grid item>
-                <Chip label="Software Development Tools and Processes 2" />
-              </Grid>
-              <Grid item>
-                <Chip label="Cool Stuff & That" />
-              </Grid>
+              {props.project.categories.map((category) => (
+                <Grid item>
+                  <Chip label={category} />
+                </Grid>
+              ))}
             </Grid>
           </Grid>
           <Grid item>
@@ -118,12 +125,11 @@ export default function Project() {
               <Grid item>
                 <Typography variant="overline">Specialisations</Typography>
               </Grid>
-              <Grid item>
-                <Chip label="Software Engineering" />
-              </Grid>
-              <Grid item>
-                <Chip label="Electrical Sucks" />
-              </Grid>
+              {props.project.specialisations.map((specialisation) => (
+                <Grid item>
+                  <Chip label={specialisation} />
+                </Grid>
+              ))}
             </Grid>
           </Grid>
         </Grid>
@@ -132,7 +138,7 @@ export default function Project() {
       <div className={classes.buttons}>
         <Grid container justify="space-between">
           <FavouriteButton />
-          <Button>
+          <Button onClick={() => window.open(props.project.url, '_blank')}>
             Go to Official Page
           </Button>
         </Grid>

@@ -19,7 +19,8 @@
         "Software Development Tools and Processes 2"
       ],
       "supervisors": ["Craig Sutherland"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "2",
@@ -36,7 +37,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Games & Education Aids 1", "Games & Education Aids 2"],
       "supervisors": ["Craig Sutherland"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "3",
@@ -55,7 +57,8 @@
       ],
       "categories": ["AI & Machine learning", "Human Computer Interactions"],
       "supervisors": ["Waleed Abdulla"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "4",
@@ -78,7 +81,8 @@
         "Human Computer Interactions"
       ],
       "supervisors": ["Alex Shaw"],
-      "cosupervisors": ["Robert Amor"]
+      "cosupervisors": ["Robert Amor"],
+      "allocated": false
     },
     {
       "id": "5",
@@ -98,7 +102,8 @@
       ],
       "categories": ["AI & Machine learning"],
       "supervisors": ["Waleed Abdulla"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "6",
@@ -121,7 +126,8 @@
         "Space Systems"
       ],
       "supervisors": ["Oliver Sinnen"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "7",
@@ -145,7 +151,8 @@
         "Parallel & Cloud Computing"
       ],
       "supervisors": ["Oliver Sinnen"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "8",
@@ -167,7 +174,8 @@
         "Parallel & Cloud Computing"
       ],
       "supervisors": ["Oliver Sinnen"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "9",
@@ -189,7 +197,8 @@
       ],
       "categories": ["Green Energy Technologies", "Power Systems"],
       "supervisors": ["Abhisek Ukil"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "10",
@@ -213,7 +222,8 @@
         "Robotics"
       ],
       "supervisors": ["Henry Williams"],
-      "cosupervisors": ["Bruce MacDonald"]
+      "cosupervisors": ["Bruce MacDonald"],
+      "allocated": false
     },
     {
       "id": "12",
@@ -232,7 +242,8 @@
       ],
       "categories": ["Signal Processing"],
       "supervisors": ["Waleed Abdulla"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "13",
@@ -258,7 +269,8 @@
       ],
       "categories": ["Acoustics", "Computer Vision", "Signal Processing"],
       "supervisors": ["Kevin I-Kai Wang"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": true
     },
     {
       "id": "14",
@@ -276,7 +288,8 @@
       "specialisations": ["Computer Systems Engineering"],
       "categories": ["AI & Machine learning"],
       "supervisors": ["Avinash Malik"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "15",
@@ -294,7 +307,8 @@
       "specialisations": ["Computer Systems Engineering"],
       "categories": ["Control Systems", "Embedded Systems"],
       "supervisors": ["Avinash Malik"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "16",
@@ -314,7 +328,8 @@
       ],
       "categories": ["AI & Machine learning"],
       "supervisors": ["Avinash Malik"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "17",
@@ -335,7 +350,8 @@
         "Wireless Power Technologies"
       ],
       "supervisors": ["Seho Kim"],
-      "cosupervisors": ["Grant Covic"]
+      "cosupervisors": ["Grant Covic"],
+      "allocated": true
     },
     {
       "id": "18",
@@ -352,7 +368,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Wireless Power Technologies"],
       "supervisors": ["Aiguo Patrick Hu"],
-      "cosupervisors": ["Andrew Austin"]
+      "cosupervisors": ["Andrew Austin"],
+      "allocated": false
     },
     {
       "id": "19",
@@ -369,7 +386,8 @@
       "specialisations": ["Computer Systems Engineering"],
       "categories": ["AI & Machine learning", "Embedded Systems"],
       "supervisors": ["Morteza Biglari-Abhari"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "20",
@@ -386,7 +404,8 @@
       "specialisations": ["Computer Systems Engineering"],
       "categories": ["AI & Machine learning", "Embedded Systems"],
       "supervisors": ["Morteza Biglari-Abhari"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "21",
@@ -404,7 +423,8 @@
       "specialisations": ["Computer Systems Engineering"],
       "categories": ["Embedded Systems"],
       "supervisors": ["Morteza Biglari-Abhari"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "22",
@@ -423,7 +443,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Reza Shahamiri"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "23",
@@ -444,7 +465,8 @@
         "Smart Phone & Tablet Applications"
       ],
       "supervisors": ["Reza Shahamiri"],
-      "cosupervisors": ["Catherine Watson"]
+      "cosupervisors": ["Catherine Watson"],
+      "allocated": true
     },
     {
       "id": "24",
@@ -469,7 +491,8 @@
         "Robotics"
       ],
       "supervisors": ["Ho Seok AHN"],
-      "cosupervisors": ["Jongyoon Lim"]
+      "cosupervisors": ["Jongyoon Lim"],
+      "allocated": true
     },
     {
       "id": "25",
@@ -489,7 +512,8 @@
       ],
       "categories": ["AI & Machine learning", "Robotics"],
       "supervisors": ["Ho Seok AHN"],
-      "cosupervisors": ["Jongyoon Lim"]
+      "cosupervisors": ["Jongyoon Lim"],
+      "allocated": false
     },
     {
       "id": "26",
@@ -519,7 +543,8 @@
         "Robotics"
       ],
       "supervisors": ["Ho Seok AHN"],
-      "cosupervisors": ["Christopher Lee"]
+      "cosupervisors": ["Christopher Lee"],
+      "allocated": true
     },
     {
       "id": "27",
@@ -554,7 +579,8 @@
       ],
       "categories": ["AI & Machine learning", "Robotics"],
       "supervisors": ["Ho Seok AHN"],
-      "cosupervisors": ["Christopher Lee"]
+      "cosupervisors": ["Christopher Lee"],
+      "allocated": true
     },
     {
       "id": "28",
@@ -575,7 +601,8 @@
       ],
       "categories": ["AI & Machine learning", "Embedded Systems", "Robotics"],
       "supervisors": ["Ho Seok AHN"],
-      "cosupervisors": ["Christopher Lee"]
+      "cosupervisors": ["Christopher Lee"],
+      "allocated": false
     },
     {
       "id": "29",
@@ -605,7 +632,8 @@
       ],
       "categories": ["AI & Machine learning", "Embedded Systems", "Robotics"],
       "supervisors": ["Partha Roop"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "30",
@@ -634,7 +662,8 @@
       ],
       "categories": ["Embedded Systems", "Health & Well-being"],
       "supervisors": ["Partha Roop"],
-      "cosupervisors": ["Nitish Patel"]
+      "cosupervisors": ["Nitish Patel"],
+      "allocated": true
     },
     {
       "id": "31",
@@ -651,7 +680,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
       "supervisors": ["Nasser Giacaman"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "32",
@@ -672,7 +702,8 @@
       ],
       "categories": ["AI & Machine learning", "Embedded Systems"],
       "supervisors": ["Bruce Sham"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "33",
@@ -693,7 +724,8 @@
       ],
       "categories": ["AI & Machine learning", "Embedded Systems"],
       "supervisors": ["Bruce Sham"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "34",
@@ -721,7 +753,8 @@
         "Transportation Modelling"
       ],
       "supervisors": ["Reza Shahamiri"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "35",
@@ -735,7 +768,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Power Electronics & Electronics Systems"],
       "supervisors": ["Udaya Madawala"],
-      "cosupervisors": ["Dariusz Kacprzak"]
+      "cosupervisors": ["Dariusz Kacprzak"],
+      "allocated": false
     },
     {
       "id": "36",
@@ -749,7 +783,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Power Electronics & Electronics Systems"],
       "supervisors": ["Udaya Madawala"],
-      "cosupervisors": ["Aiguo Patrick Hu"]
+      "cosupervisors": ["Aiguo Patrick Hu"],
+      "allocated": false
     },
     {
       "id": "37",
@@ -763,7 +798,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Green Energy Technologies"],
       "supervisors": ["Udaya Madawala"],
-      "cosupervisors": ["Nitish Patel"]
+      "cosupervisors": ["Nitish Patel"],
+      "allocated": false
     },
     {
       "id": "38",
@@ -782,7 +818,8 @@
       ],
       "categories": ["Human Computer Interactions"],
       "supervisors": ["Alex Shaw"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "39",
@@ -803,7 +840,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Smart Phone & Tablet Applications"],
       "supervisors": ["Jing Sun"],
-      "cosupervisors": ["Miao Qiao"]
+      "cosupervisors": ["Miao Qiao"],
+      "allocated": false
     },
     {
       "id": "40",
@@ -823,7 +861,8 @@
         "Wireless Power Technologies"
       ],
       "supervisors": ["Jackman Lin"],
-      "cosupervisors": ["Grant Covic"]
+      "cosupervisors": ["Grant Covic"],
+      "allocated": false
     },
     {
       "id": "41",
@@ -844,7 +883,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Amor"],
-      "cosupervisors": ["Danielle Lottridge"]
+      "cosupervisors": ["Danielle Lottridge"],
+      "allocated": false
     },
     {
       "id": "42",
@@ -865,7 +905,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Amor"],
-      "cosupervisors": ["Vicente Gonzalez"]
+      "cosupervisors": ["Vicente Gonzalez"],
+      "allocated": false
     },
     {
       "id": "43",
@@ -881,7 +922,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Software Development Tools and Processes 1"],
       "supervisors": ["Ewan Tempero"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "44",
@@ -900,7 +942,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Amor"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "45",
@@ -914,7 +957,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Software Development Tools and Processes 1"],
       "supervisors": ["Ewan Tempero"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "46",
@@ -933,7 +977,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Amor"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "47",
@@ -958,7 +1003,8 @@
         "Wireless Power Technologies"
       ],
       "supervisors": ["Grant Covic"],
-      "cosupervisors": ["Jackman Lin"]
+      "cosupervisors": ["Jackman Lin"],
+      "allocated": false
     },
     {
       "id": "48",
@@ -977,7 +1023,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Wireless Power Technologies"],
       "supervisors": ["Grant Covic"],
-      "cosupervisors": ["Seho Kim"]
+      "cosupervisors": ["Seho Kim"],
+      "allocated": false
     },
     {
       "id": "49",
@@ -996,7 +1043,8 @@
       ],
       "categories": ["Human Computer Interactions"],
       "supervisors": ["Alex Shaw"],
-      "cosupervisors": ["Danielle Lottridge"]
+      "cosupervisors": ["Danielle Lottridge"],
+      "allocated": false
     },
     {
       "id": "50",
@@ -1010,7 +1058,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Software Development Tools and Processes 1"],
       "supervisors": ["Ewan Tempero"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "51",
@@ -1040,7 +1089,8 @@
       ],
       "categories": ["Games & Education Aids 1", "Web tools and Application"],
       "supervisors": ["William Lee"],
-      "cosupervisors": ["Nasser Giacaman"]
+      "cosupervisors": ["Nasser Giacaman"],
+      "allocated": false
     },
     {
       "id": "52",
@@ -1067,7 +1117,8 @@
       ],
       "categories": ["Games & Education Aids 1", "Web tools and Application"],
       "supervisors": ["William Lee"],
-      "cosupervisors": ["Nasser Giacaman"]
+      "cosupervisors": ["Nasser Giacaman"],
+      "allocated": false
     },
     {
       "id": "53",
@@ -1104,7 +1155,8 @@
         "Transport Technology"
       ],
       "supervisors": ["Partha Roop"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "54",
@@ -1130,7 +1182,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Sheehan"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "55",
@@ -1151,7 +1204,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Sheehan"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "56",
@@ -1177,7 +1231,8 @@
         "Software Development Tools and Processes 1"
       ],
       "supervisors": ["Robert Sheehan"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "57",
@@ -1206,7 +1261,8 @@
         "Human Computer Interactions"
       ],
       "supervisors": ["Burkhard Wuensche"],
-      "cosupervisors": ["Danielle Lottridge"]
+      "cosupervisors": ["Danielle Lottridge"],
+      "allocated": false
     },
     {
       "id": "58",
@@ -1234,7 +1290,8 @@
         "Human Computer Interactions"
       ],
       "supervisors": ["Burkhard Wuensche"],
-      "cosupervisors": ["Danielle Lottridge"]
+      "cosupervisors": ["Danielle Lottridge"],
+      "allocated": false
     },
     {
       "id": "59",
@@ -1254,7 +1311,8 @@
         "Web tools and Application"
       ],
       "supervisors": ["Nasser Giacaman"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "60",
@@ -1271,7 +1329,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["AI & Machine learning", "Games & Education Aids 1"],
       "supervisors": ["Nasser Giacaman"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "61",
@@ -1288,7 +1347,8 @@
         "Smart Phone & Tablet Applications"
       ],
       "supervisors": ["Danielle Lottridge"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "62",
@@ -1302,7 +1362,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Human Computer Interactions"],
       "supervisors": ["Danielle Lottridge"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "63",
@@ -1319,7 +1380,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
       "supervisors": ["Danielle Lottridge"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "64",
@@ -1338,7 +1400,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Human Computer Interactions"],
       "supervisors": ["Danielle Lottridge"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "65",
@@ -1358,7 +1421,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Intelligent Systems & Industrial Informatics"],
       "supervisors": ["Miao Qiao"],
-      "cosupervisors": ["Yun Sing Koh"]
+      "cosupervisors": ["Yun Sing Koh"],
+      "allocated": false
     },
     {
       "id": "66",
@@ -1378,7 +1442,8 @@
       ],
       "categories": ["Intelligent Systems & Industrial Informatics"],
       "supervisors": ["Miao Qiao"],
-      "cosupervisors": ["Jing Sun"]
+      "cosupervisors": ["Jing Sun"],
+      "allocated": false
     },
     {
       "id": "67",
@@ -1399,7 +1464,8 @@
       ],
       "categories": ["Parallel & Cloud Computing"],
       "supervisors": ["Zoran Salcic"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "68",
@@ -1421,7 +1487,8 @@
       ],
       "categories": ["Intelligent Systems & Industrial Informatics"],
       "supervisors": ["Zoran Salcic"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "69",
@@ -1442,7 +1509,8 @@
       ],
       "categories": ["Embedded Systems"],
       "supervisors": ["Zoran Salcic"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "70",
@@ -1466,7 +1534,8 @@
       ],
       "categories": ["Embedded Systems"],
       "supervisors": ["Zoran Salcic"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "71",
@@ -1487,7 +1556,8 @@
         "Web tools and Application"
       ],
       "supervisors": ["Kevin I-Kai Wang"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "72",
@@ -1508,7 +1578,8 @@
         "Robotics"
       ],
       "supervisors": ["Kevin I-Kai Wang"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "73",
@@ -1529,7 +1600,8 @@
         "Smart Phone & Tablet Applications"
       ],
       "supervisors": ["Kevin I-Kai Wang"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "74",
@@ -1541,7 +1613,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Games & Education Aids 1", "Human Computer Interactions"],
       "supervisors": ["Gerald Weber"],
-      "cosupervisors": ["Robert Amor"]
+      "cosupervisors": ["Robert Amor"],
+      "allocated": false
     },
     {
       "id": "75",
@@ -1562,7 +1635,8 @@
         "Software Development Tools and Processes 2"
       ],
       "supervisors": ["Kelly Blincoe"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "76",
@@ -1578,7 +1652,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Web tools and Application"],
       "supervisors": ["Kelly Blincoe"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "77",
@@ -1598,7 +1673,8 @@
       ],
       "categories": ["Games & Education Aids 1", "Games & Education Aids 2"],
       "supervisors": ["Dulsha Kularatna-Abeywardana"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "78",
@@ -1615,7 +1691,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Power Electronics & Electronics Systems"],
       "supervisors": ["Dulsha Kularatna-Abeywardana"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "79",
@@ -1632,7 +1709,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Green Energy Technologies"],
       "supervisors": ["Dariusz Kacprzak"],
-      "cosupervisors": ["Udaya Madawala"]
+      "cosupervisors": ["Udaya Madawala"],
+      "allocated": false
     },
     {
       "id": "80",
@@ -1648,7 +1726,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Green Energy Technologies"],
       "supervisors": ["Dariusz Kacprzak"],
-      "cosupervisors": ["Aiguo Patrick Hu"]
+      "cosupervisors": ["Aiguo Patrick Hu"],
+      "allocated": false
     },
     {
       "id": "81",
@@ -1668,7 +1747,8 @@
         "Web tools and Application"
       ],
       "supervisors": ["Catherine Watson"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "82",
@@ -1689,7 +1769,8 @@
         "Image & Voice Processing"
       ],
       "supervisors": ["Catherine Watson"],
-      "cosupervisors": ["Reza Shahamiri"]
+      "cosupervisors": ["Reza Shahamiri"],
+      "allocated": false
     },
     {
       "id": "83",
@@ -1711,7 +1792,8 @@
         "Image & Voice Processing"
       ],
       "supervisors": ["Catherine Watson"],
-      "cosupervisors": ["Jesin James"]
+      "cosupervisors": ["Jesin James"],
+      "allocated": false
     },
     {
       "id": "84",
@@ -1728,7 +1810,8 @@
       ],
       "categories": ["AI & Machine learning", "Image & Voice Processing"],
       "supervisors": ["Catherine Watson"],
-      "cosupervisors": ["Jesin James"]
+      "cosupervisors": ["Jesin James"],
+      "allocated": false
     },
     {
       "id": "85",
@@ -1745,7 +1828,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Radio Systems", "Telecommunications"],
       "supervisors": ["Michael Neve"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "86",
@@ -1771,7 +1855,8 @@
       ],
       "categories": ["Power Systems"],
       "supervisors": ["Nirmal Nair"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "87",
@@ -1786,7 +1871,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Radio Systems", "Telecommunications"],
       "supervisors": ["Michael Neve"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "88",
@@ -1806,7 +1892,8 @@
         "Human Computer Interactions"
       ],
       "supervisors": ["Burkhard Wuensche"],
-      "cosupervisors": ["Alex Shaw"]
+      "cosupervisors": ["Alex Shaw"],
+      "allocated": true
     },
     {
       "id": "89",
@@ -1823,7 +1910,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Radio Systems", "Telecommunications"],
       "supervisors": ["Michael Neve"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "90",
@@ -1851,7 +1939,8 @@
       ],
       "categories": ["Green Energy Technologies", "Power Systems"],
       "supervisors": ["Nirmal Nair"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "91",
@@ -1868,7 +1957,8 @@
       "specialisations": ["Software Engineering"],
       "categories": ["Software Development Tools and Processes 1"],
       "supervisors": ["Ewan Tempero"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "92",
@@ -1888,7 +1978,8 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Power Systems"],
       "supervisors": ["Nirmal Nair"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": false
     },
     {
       "id": "93",
@@ -1910,7 +2001,8 @@
         "Intelligent Systems & Industrial Informatics"
       ],
       "supervisors": ["Morteza Biglari-Abhari"],
-      "cosupervisors": []
+      "cosupervisors": [],
+      "allocated": true
     },
     {
       "id": "94",
@@ -1926,109 +2018,192 @@
       "specialisations": ["Electrical and Electronic Engineering"],
       "categories": ["Games & Education Aids 1"],
       "supervisors": ["Dariusz Kacprzak"],
-      "cosupervisors": ["Andrew Austin"]
+      "cosupervisors": ["Andrew Austin"],
+      "allocated": true
+    },
+    {
+      "id": "95",
+      "title": "User feedback dashboard",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3399/",
+      "description": [
+        "Software user feedback is often used by developers to improve their software. This feedback can come from a variety of platforms, including app stores, social media, and software forums. Software users have reported different motivations to write feedback on different platforms. This research project will include a study of software user feedback on popular platforms to examine the differences of user feedback on each platform using machine learning and natural language processing techniques. The project will also develop a dashboard to display a summary of user feedback to a software team to help them identify software improvements."
+      ],
+      "outcomes": [
+        "An analysis of differences in user feedback across platforms. A web-based dashboard that summarizes user feedback."
+      ],
+      "prerequisites": [],
+      "specialisations": ["Software Engineering"],
+      "categories": [
+        "Software Development Tools and Processes 1",
+        "Software Development Tools and Processes 2"
+      ],
+      "supervisors": ["Kelly Blincoe"],
+      "cosupervisors": [],
+      "allocated": false
+    },
+    {
+      "id": "96",
+      "title": "INVECT – INteractive Visualisations for EduCation of Thermodynamics",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3402/",
+      "description": [
+        "An important component of an undergraduate chemistry curriculum is Thermodynamics. Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy. In particular, it describes how thermal energy is converted to and from other forms of energy and how it affects matter.",
+        "Thermodynamics is a difficult subject to learn due a large number of definitions, a lack of a clear distinction of different thermodynamics concepts, and a lack of suitable mental models and intuitive explanations, which easily causes misunderstandings. Also, the subject requires understanding of a wide variety of fields, reaching from atomic theory and quantum mechanics to probability and statistics. Finally, it has been claimed that the subject is hard to teach using the traditional bottom-up approach.",
+        "Visualisations have been successfully employed in education to improve understanding of complex data and relationships. Examples are molecular chemistry, anatomy, mathematics and algorithms.",
+        "In this research we will investigate the development and effectiveness of a visualization tool for teaching introductory university-level thermodynamics. We will analyse existing visualization tools in education and identify properties making them effective. We will investigate in more detail what makes thermodynamics heard to learn and based on this we will design and a evaluate a suitable visualization tool supporting learning.",
+        "Research Challenges",
+        "· Identify and categorise properties making visualisation tools effective for education.",
+        "· Identify key concepts in thermodynamics and suitable visual representations and processes to illustrate them.",
+        "· Develop mechanisms to provide feedback to students about learning progress.",
+        "· Make the tool motivational and intuitive to use so that it can be employed by students at home without instructor support.",
+        "· Investigate the effectiveness of the proposed solution."
+      ],
+      "outcomes": [
+        "· The creation of a visual tool that effectively makes Thermodynamic energy transfers more comprehensible. It must:",
+        "o Be relevant to undergraduate Thermodynamics education (we will use the University of Auckland curriculum).",
+        "o Does not already exist.",
+        "o Contributes to existing thermodynamic teaching tools in a meaningful way.",
+        "o Improves understanding of the subject."
+      ],
+      "prerequisites": "· Basic understanding of thermodynamics · Good mathematics / statistic skills recommended · Good communication skills recommended",
+      "specialisations": ["Software Engineering"],
+      "categories": ["Games & Education Aids 1", "Games & Education Aids 2"],
+      "supervisors": ["Burkhard Wuensche"],
+      "cosupervisors": [],
+      "allocated": true
+    },
+    {
+      "id": "97",
+      "title": "Development of a High Power Cryogenic Motor Driver",
+      "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3403/",
+      "description": [
+        "There is a strong push to electrify transportation. However, one of the major barriers to electrifying mass transport systems is the weight of the existing electric drive systems. As a solution, light and compact electric machines that use high temperature superconducting (HTS) material have been developed and continue to improve. The electrical system that drives these superconducting machines also need to be light and compact in order to help develop electric drive systems with sufficiently high power and energy densities.",
+        "Work done to-date shows that there are some advantages to operating wide bandgap semiconductors such as Gallium Nitride (GaN) at low temperatures, as it allows reducing losses and improving power density. Therefore, this research will look into developing a prototype motor driver, composed of a cryogenic GaN inverter and corresponding motor controller, for driving an electric motor and using this setup to evaluate its suitability for transport applications.",
+        "An application with the following specifications will be considered as a case study to evaluate the suitability of a GaN based inverter for driving a HTS motor.",
+        "- DC-link voltage: 475 V",
+        "- Rated motor voltage : 325 Vrms",
+        "- Rated motor power : 10 kW",
+        "- Motor type: PMSM"
+      ],
+      "outcomes": [
+        "Research Components:",
+        "● Understand how Gallium Nitride (GaN) inverters operate at room and cryogenic temperatures",
+        "● Development of a prototype GaN inverter and motor controller",
+        "● Evaluate the performance of the GaN inverter at 294K (i.e., room temperature) using an",
+        "inductive load",
+        "● Evaluate the performance of the GaN inverter at 77K using an inductive load",
+        "● Evaluate the performance of the motor controller at 294K",
+        "● Evaluate the performance of the motor controller at 77K",
+        "● Evaluate the advantages and disadvantages of using a GaN inverter to drive a HTS motor"
+      ],
+      "prerequisites": "ELECTENG 734",
+      "specialisations": ["Electrical and Electronic Engineering"],
+      "categories": ["Power Electronics & Electronics Systems"],
+      "supervisors": ["Duleepa Thrimawithana"],
+      "cosupervisors": ["Udaya Madawala"],
+      "allocated": true
     }
   ],
   "specialisations": [
     "Computer Systems Engineering",
-    "Civil Engineering",
-    "Engineering Science",
     "Software Engineering",
+    "Engineering Science",
+    "Mechatronics Engineering",
     "Electrical and Electronic Engineering",
-    "Mechatronics Engineering"
+    "Civil Engineering"
   ],
   "categories": [
-    "Games & Education Aids 1",
-    "Parallel & Cloud Computing",
-    "Robotics",
-    "Health & Well-being",
-    "Power Electronics & Electronics Systems",
-    "Space Systems",
-    "Transportation Modelling",
-    "Acoustics",
-    "Software Development Tools and Processes 1",
-    "Games & Education Aids 2",
-    "Human Computer Interactions",
-    "AI & Machine learning",
-    "Image & Voice Processing",
-    "Green Energy Technologies",
-    "Signal Processing",
-    "Intelligent Systems & Industrial Informatics",
-    "Smart Phone & Tablet Applications",
-    "Software Development Tools and Processes 2",
-    "Telecommunications",
     "Embedded Systems",
-    "Control Systems",
-    "Operations Research",
-    "Wireless Power Technologies",
-    "Optimisation",
     "Power Systems",
-    "Transport Technology",
-    "Radio Systems",
-    "Web tools and Application",
+    "Acoustics",
+    "Software Development Tools and Processes 2",
     "Machine Learning",
+    "Smart Phone & Tablet Applications",
+    "Green Energy Technologies",
+    "Games & Education Aids 1",
+    "Computer Vision",
+    "Signal Processing",
+    "Robotics",
+    "Intelligent Systems & Industrial Informatics",
+    "Health & Well-being",
+    "Transportation Modelling",
+    "Wireless Power Technologies",
+    "Parallel & Cloud Computing",
+    "Operations Research",
+    "Optimisation",
     "Augmented/Virtual Reality",
-    "Computer Vision"
+    "Radio Systems",
+    "Human Computer Interactions",
+    "Control Systems",
+    "Image & Voice Processing",
+    "Telecommunications",
+    "Transport Technology",
+    "Space Systems",
+    "Games & Education Aids 2",
+    "Software Development Tools and Processes 1",
+    "Power Electronics & Electronics Systems",
+    "AI & Machine learning",
+    "Web tools and Application"
   ],
   "supervisors": [
-    "Jing Sun",
-    "Robert Amor",
-    "Seho Kim",
-    "Alex Shaw",
-    "Danielle Lottridge",
-    "Michael Neve",
-    "Aiguo Patrick Hu",
-    "Waleed Abdulla",
-    "Ewan Tempero",
-    "Grant Covic",
-    "Jackman Lin",
-    "Gerald Weber",
-    "Abhisek Ukil",
-    "Oliver Sinnen",
-    "Avinash Malik",
-    "Henry Williams",
-    "Reza Shahamiri",
-    "Catherine Watson",
-    "Zoran Salcic",
     "Robert Sheehan",
-    "Kelly Blincoe",
-    "Nasser Giacaman",
     "Morteza Biglari-Abhari",
-    "Miao Qiao",
-    "Burkhard Wuensche",
-    "Craig Sutherland",
-    "Bruce Sham",
-    "William Lee",
     "Dariusz Kacprzak",
-    "Partha Roop",
-    "Udaya Madawala",
     "Nirmal Nair",
-    "Kevin I-Kai Wang",
+    "Miao Qiao",
+    "Reza Shahamiri",
+    "Partha Roop",
+    "Alex Shaw",
+    "Kelly Blincoe",
+    "Udaya Madawala",
+    "Danielle Lottridge",
+    "Nasser Giacaman",
+    "Robert Amor",
+    "Bruce Sham",
+    "Seho Kim",
+    "Catherine Watson",
+    "Jing Sun",
+    "Dulsha Kularatna-Abeywardana",
+    "Aiguo Patrick Hu",
+    "Zoran Salcic",
+    "William Lee",
+    "Burkhard Wuensche",
+    "Oliver Sinnen",
+    "Jackman Lin",
+    "Ewan Tempero",
+    "Henry Williams",
+    "Waleed Abdulla",
+    "Gerald Weber",
+    "Duleepa Thrimawithana",
+    "Grant Covic",
+    "Abhisek Ukil",
+    "Michael Neve",
     "Ho Seok AHN",
-    "Dulsha Kularatna-Abeywardana"
+    "Avinash Malik",
+    "Kevin I-Kai Wang",
+    "Craig Sutherland"
   ],
   "cosupervisors": [
-    "Jing Sun",
-    "Robert Amor",
-    "Jesin James",
-    "Seho Kim",
-    "Alex Shaw",
-    "Nitish Patel",
-    "Danielle Lottridge",
-    "Aiguo Patrick Hu",
-    "Grant Covic",
-    "Vicente Gonzalez",
-    "Jackman Lin",
-    "Catherine Watson",
-    "Reza Shahamiri",
-    "Jongyoon Lim",
-    "Nasser Giacaman",
-    "Miao Qiao",
     "Bruce MacDonald",
-    "Dariusz Kacprzak",
-    "Christopher Lee",
     "Yun Sing Koh",
+    "Andrew Austin",
+    "Dariusz Kacprzak",
+    "Miao Qiao",
+    "Christopher Lee",
+    "Reza Shahamiri",
+    "Alex Shaw",
     "Udaya Madawala",
-    "Andrew Austin"
+    "Danielle Lottridge",
+    "Nasser Giacaman",
+    "Robert Amor",
+    "Nitish Patel",
+    "Catherine Watson",
+    "Seho Kim",
+    "Jongyoon Lim",
+    "Jing Sun",
+    "Aiguo Patrick Hu",
+    "Jackman Lin",
+    "Jesin James",
+    "Grant Covic",
+    "Vicente Gonzalez"
   ]
 }

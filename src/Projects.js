@@ -11,9 +11,9 @@ export default function Projects(props) {
         cosupervisors={props.data.cosupervisors}
         specialisations={props.data.specialisations}
         categories={props.data.categories} />
-      <Project />
-      <Project />
-      <Project />
+      {props.data.projects.map((project) => (
+        <Project project={project} />
+      ))}
     </div>
   )
 }
