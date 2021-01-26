@@ -65,7 +65,7 @@ function App() {
       <CssBaseline />
       <AppBar className={classes.nav}>
         <Toolbar>
-          <Typography variant="h6">2021 Projects</Typography>
+          <Typography variant="h6">2021 Part IV Projects</Typography>
         </Toolbar>
       </AppBar>
       <main>
