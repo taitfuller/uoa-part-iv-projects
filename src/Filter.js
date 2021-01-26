@@ -27,7 +27,7 @@ export default function Filter(props) {
 
   return (
     <Paper className={classes.paper}>
-      <Grid container justify="space-between" wrap="nowrap" spacing={2} alignItems="center">
+      <Grid container justify="space-between" spacing={2} alignItems="center">
         <Grid item>
           <Grid container direction="column" alignItems="center" spacing={0} wrap="nowrap">
             <Grid item>
