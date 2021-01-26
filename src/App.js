@@ -47,7 +47,7 @@ function App() {
   if (data.length === 0) return (
     <div>
       <CssBaseline />
-      <Container className={classes.container, classes.fullHeight}>
+      <Container className={`${classes.container} ${classes.fullHeight}`}>
         <Grid container direction="column" justify="center" alignItems="center" spacing={4} className={classes.fullHeight}>
           <Grid item>
             <CircularProgress size={50} />
