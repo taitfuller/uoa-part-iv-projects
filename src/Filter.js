@@ -39,12 +39,12 @@ export default function Filter(props) {
     <Paper className={classes.paper}>
       <Grid container justify="space-between" wrap="nowrap" spacing={2} alignItems="center">
         <Grid item>
-          <Grid container alignItems="center" spacing={1} wrap="nowrap">
-            <Grid item>
-              <FilterListIcon />
-            </Grid>
+          <Grid container direction="column" alignItems="center" spacing={0} wrap="nowrap">
             <Grid item>
               <Typography variant="h6">Filter</Typography>
+            </Grid>
+            <Grid item>
+            <Typography variant="button" noWrap>({props.count})</Typography>
             </Grid>
           </Grid>
         </Grid>
