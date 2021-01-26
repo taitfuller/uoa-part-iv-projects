@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Checkbox, FormControl, FormControlLabel, Grid, Input, InputLabel, ListItemText, makeStyles, MenuItem, Paper, Select, Switch, Typography } from '@material-ui/core'
-import FilterListIcon from '@material-ui/icons/FilterList'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -16,21 +15,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Filter(props) {
-  const [state, setState] = useState({
-    toggledFavourites: false,
-    toggledUnallocated: true,
-    selectedSupervisors: [],
-    selectedCosupervisors: [],
-    selectedSpecialisations: [],
-    selectedCategories: [],
-  })
-
   const handleChecked = (event) => {
-    setState({...state, [event.target.name]: event.target.checked})
+    props.setSelectedFilters({...props.selectedFilters, [event.target.name]: event.target.checked})
   }
 
   const handleSelect = (event) => {
-    setState({...state, [event.target.name]: event.target.value})
+    props.setSelectedFilters({...props.selectedFilters, [event.target.name]: event.target.value})
   }
 
   const classes = useStyles()
@@ -52,7 +42,7 @@ export default function Filter(props) {
           <FormControlLabel
             control={
               <Switch
-                checked={state.toggledFavourites}
+                checked={props.selectedFilters.toggledFavourites}
                 onChange={handleChecked}
                 color="primary"
                 name="toggledFavourites"
@@ -65,7 +55,7 @@ export default function Filter(props) {
           <FormControlLabel
             control={
               <Switch
-                checked={state.toggledUnallocated}
+                checked={props.selectedFilters.toggledUnallocated}
                 onChange={handleChecked}
                 color="primary"
                 name="toggledUnallocated"
@@ -81,14 +71,14 @@ export default function Filter(props) {
               labelId="supervisor-filter-label"
               id="supervisor-filter"
               multiple
-              value={state.selectedSupervisors}
+              value={props.selectedFilters.selectedSupervisors}
               onChange={handleSelect}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
               name="selectedSupervisors">
               {props.supervisors.map((supervisor) => (
                 <MenuItem key={supervisor} value={supervisor}>
-                  <Checkbox checked={state.selectedSupervisors.indexOf(supervisor) > -1} />
+                  <Checkbox checked={props.selectedFilters.selectedSupervisors.indexOf(supervisor) > -1} />
                   <ListItemText primary={supervisor} />
                 </MenuItem>
               ))}
@@ -102,14 +92,14 @@ export default function Filter(props) {
               labelId="cosupervisor-filter-label"
               id="cosupervisor-filter"
               multiple
-              value={state.selectedCosupervisors}
+              value={props.selectedFilters.selectedCosupervisors}
               onChange={handleSelect}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
               name="selectedCosupervisors">
               {props.cosupervisors.map((cosupervisor) => (
                 <MenuItem key={cosupervisor} value={cosupervisor}>
-                  <Checkbox checked={state.selectedCosupervisors.indexOf(cosupervisor) > -1} />
+                  <Checkbox checked={props.selectedFilters.selectedCosupervisors.indexOf(cosupervisor) > -1} />
                   <ListItemText primary={cosupervisor} />
                 </MenuItem>
               ))}
@@ -123,14 +113,14 @@ export default function Filter(props) {
               labelId="specialisation-filter-label"
               id="specialisation-filter"
               multiple
-              value={state.selectedSpecialisations}
+              value={props.selectedFilters.selectedSpecialisations}
               onChange={handleSelect}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
               name="selectedSpecialisations">
               {props.specialisations.map((specialisation) => (
                 <MenuItem key={specialisation} value={specialisation}>
-                  <Checkbox checked={state.selectedSpecialisations.indexOf(specialisation) > -1} />
+                  <Checkbox checked={props.selectedFilters.selectedSpecialisations.indexOf(specialisation) > -1} />
                   <ListItemText primary={specialisation} />
                 </MenuItem>
               ))}
@@ -144,14 +134,14 @@ export default function Filter(props) {
               labelId="category-filter-label"
               id="category-filter"
               multiple
-              value={state.selectedCategories}
+              value={props.selectedFilters.selectedCategories}
               onChange={handleSelect}
               input={<Input />}
               renderValue={(selected) => selected.join(', ')}
               name="selectedCategories">
               {props.categories.map((category) => (
                 <MenuItem key={category} value={category}>
-                  <Checkbox checked={state.selectedCategories.indexOf(category) > -1} />
+                  <Checkbox checked={props.selectedFilters.selectedCategories.indexOf(category) > -1} />
                   <ListItemText primary={category} />
                 </MenuItem>
               ))}
