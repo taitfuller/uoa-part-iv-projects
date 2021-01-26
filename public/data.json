@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Using large screen displays to support understanding program code",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2940/",
       "description": [
@@ -23,7 +23,7 @@
       "allocated": false
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "Tangible-based Programming Environment for Robots",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2941/",
       "description": [
@@ -41,7 +41,7 @@
       "allocated": false
     },
     {
-      "id": "3",
+      "id": 3,
       "title": "Real-Time Face Recognition System using Modular Miniaturized Computer and Deep Neural Network",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2955/",
       "description": [
@@ -61,7 +61,7 @@
       "allocated": true
     },
     {
-      "id": "4",
+      "id": 4,
       "title": "Automated Building Generation",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/2997/",
       "description": [
@@ -85,7 +85,7 @@
       "allocated": false
     },
     {
-      "id": "5",
+      "id": 5,
       "title": "Realistic Voice Cloning with Deep Neural Networks",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3000/",
       "description": [
@@ -106,7 +106,7 @@
       "allocated": false
     },
     {
-      "id": "6",
+      "id": 6,
       "title": "Telescope scheduling",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3006/",
       "description": [
@@ -130,7 +130,7 @@
       "allocated": false
     },
     {
-      "id": "7",
+      "id": 7,
       "title": "Avoiding communication in parallel programs",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3007/",
       "description": [
@@ -155,7 +155,7 @@
       "allocated": false
     },
     {
-      "id": "8",
+      "id": 8,
       "title": "How much slack is in a multiprocessor schedule?",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3008/",
       "description": [
@@ -178,7 +178,7 @@
       "allocated": false
     },
     {
-      "id": "9",
+      "id": 9,
       "title": "Multi-Agent System Control for Smart Grid Connected Multi Energy Storage System",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3015/",
       "description": [
@@ -201,7 +201,7 @@
       "allocated": false
     },
     {
-      "id": "10",
+      "id": 10,
       "title": "Robotic Yield estimation of Apple Orchards",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3019/",
       "description": [
@@ -226,7 +226,7 @@
       "allocated": false
     },
     {
-      "id": "12",
+      "id": 12,
       "title": "Study the behavior of ultrasonic acoustic power transmission",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3028/",
       "description": [
@@ -246,7 +246,7 @@
       "allocated": false
     },
     {
-      "id": "13",
+      "id": 13,
       "title": "Developing an audio sensory device that allows blind people to “see”",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3056/",
       "description": [
@@ -273,7 +273,7 @@
       "allocated": true
     },
     {
-      "id": "14",
+      "id": 14,
       "title": "Deep learning the geometry of the inverse problem of electrocardiography",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3077/",
       "description": [
@@ -292,7 +292,7 @@
       "allocated": false
     },
     {
-      "id": "15",
+      "id": 15,
       "title": "Real-time embedded gastric pacemaker",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3078/",
       "description": [
@@ -311,7 +311,7 @@
       "allocated": false
     },
     {
-      "id": "16",
+      "id": 16,
       "title": "Sing to search",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3079/",
       "description": [
@@ -332,7 +332,7 @@
       "allocated": false
     },
     {
-      "id": "17",
+      "id": 17,
       "title": "Optimisation of magnetic material placement in IPT pads for EV charging",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3083/",
       "description": [
@@ -354,7 +354,7 @@
       "allocated": true
     },
     {
-      "id": "18",
+      "id": 18,
       "title": "Fundamental study of power loss on the coupling plates of Capacitive Power Transfer systems",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3109/",
       "description": [
@@ -372,7 +372,7 @@
       "allocated": false
     },
     {
-      "id": "19",
+      "id": 19,
       "title": "Multi-Processor System on Chip for Machine Learning based Object Recognition",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3110/",
       "description": [
@@ -390,7 +390,7 @@
       "allocated": false
     },
     {
-      "id": "20",
+      "id": 20,
       "title": "Reconfigurable Hardware Accelerator for Embedded Artificial Intelligence",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3111/",
       "description": [
@@ -408,7 +408,7 @@
       "allocated": false
     },
     {
-      "id": "21",
+      "id": 21,
       "title": "Run-Time Security Threat Detection for Embedded Systems Software",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3112/",
       "description": [
@@ -427,7 +427,7 @@
       "allocated": false
     },
     {
-      "id": "22",
+      "id": 22,
       "title": "Automated Software Test Oracles",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3129/",
       "description": [
@@ -447,7 +447,7 @@
       "allocated": false
     },
     {
-      "id": "23",
+      "id": 23,
       "title": "Automated Intelligibility Assessments of Dysarthric Individuals",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3130/",
       "description": [
@@ -469,7 +469,7 @@
       "allocated": true
     },
     {
-      "id": "24",
+      "id": 24,
       "title": "Sign-language understanding using Reinforcement learning and DNN",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3158/",
       "description": [
@@ -495,7 +495,7 @@
       "allocated": true
     },
     {
-      "id": "25",
+      "id": 25,
       "title": "Plant monitoring system with 3D reconstruction",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3160/",
       "description": [
@@ -516,7 +516,7 @@
       "allocated": false
     },
     {
-      "id": "26",
+      "id": 26,
       "title": "PhysiOid - A smartphone application connecting doctors and their patients",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3162/",
       "description": [
@@ -547,7 +547,7 @@
       "allocated": true
     },
     {
-      "id": "27",
+      "id": 27,
       "title": "Instantly train neural networks: One shot inverse reinforcement learning for robotic arm control",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3165/",
       "description": [
@@ -583,7 +583,7 @@
       "allocated": true
     },
     {
-      "id": "28",
+      "id": 28,
       "title": "Robot Soccer System",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3166/",
       "description": [
@@ -605,7 +605,7 @@
       "allocated": false
     },
     {
-      "id": "29",
+      "id": 29,
       "title": "Safe autonomy using synchronous AI and the F1/10 racing car",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3186/",
       "description": [
@@ -636,7 +636,7 @@
       "allocated": false
     },
     {
-      "id": "30",
+      "id": 30,
       "title": "Robust Sensor and App design for Biofeedback",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3187/",
       "description": [
@@ -666,7 +666,7 @@
       "allocated": true
     },
     {
-      "id": "31",
+      "id": 31,
       "title": "Interactivity with hand tracking VR",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3189/",
       "description": [
@@ -684,7 +684,7 @@
       "allocated": false
     },
     {
-      "id": "32",
+      "id": 32,
       "title": "Investigation of non-blocking network (Benes Network) for the optimization of CNN",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3194/",
       "description": [
@@ -706,7 +706,7 @@
       "allocated": false
     },
     {
-      "id": "33",
+      "id": 33,
       "title": "Investigation of non-blocking network (Banyan Network) for the optimization of CNN",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3195/",
       "description": [
@@ -728,7 +728,7 @@
       "allocated": false
     },
     {
-      "id": "34",
+      "id": 34,
       "title": "Where do they go? Predicting individual travel activities for contact tracing and emergency rescue",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3196/",
       "description": [
@@ -757,7 +757,7 @@
       "allocated": false
     },
     {
-      "id": "35",
+      "id": 35,
       "title": "Development of a Hybrid Transformer (HT)",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3199/",
       "description": [
@@ -772,7 +772,7 @@
       "allocated": false
     },
     {
-      "id": "36",
+      "id": 36,
       "title": "A wireless charger for underwater applications",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3200/",
       "description": [
@@ -787,7 +787,7 @@
       "allocated": false
     },
     {
-      "id": "37",
+      "id": 37,
       "title": "A Solar-powered Garden Lighting System",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3201/",
       "description": [
@@ -802,7 +802,7 @@
       "allocated": false
     },
     {
-      "id": "38",
+      "id": 38,
       "title": "Authentic Behaviour in VR Forests",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3208/",
       "description": [
@@ -822,7 +822,7 @@
       "allocated": false
     },
     {
-      "id": "39",
+      "id": 39,
       "title": "Wearable Intelligence: A Virtual Personal Type 2 Diabetes Rehabilitation System",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3217/",
       "description": [
@@ -844,7 +844,7 @@
       "allocated": false
     },
     {
-      "id": "40",
+      "id": 40,
       "title": "Investigation of PCB coils for medium to high power solutions",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3232/",
       "description": [
@@ -865,7 +865,7 @@
       "allocated": false
     },
     {
-      "id": "41",
+      "id": 41,
       "title": "Gesture set development for an AR/VR environment for building site consenting",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3239/",
       "description": [
@@ -887,7 +887,7 @@
       "allocated": false
     },
     {
-      "id": "42",
+      "id": 42,
       "title": "Multi-user VR-based disaster preparedness environment",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3240/",
       "description": [
@@ -909,7 +909,7 @@
       "allocated": false
     },
     {
-      "id": "43",
+      "id": 43,
       "title": "Supporting choice of good identifiers",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3241/",
       "description": [
@@ -926,7 +926,7 @@
       "allocated": false
     },
     {
-      "id": "44",
+      "id": 44,
       "title": "Visualising Building Management System (BMS) data in a 3D building model",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3243/",
       "description": [
@@ -946,7 +946,7 @@
       "allocated": false
     },
     {
-      "id": "45",
+      "id": 45,
       "title": "Code Hygiene Monitor",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3244/",
       "description": [
@@ -961,7 +961,7 @@
       "allocated": false
     },
     {
-      "id": "46",
+      "id": 46,
       "title": "VR simulation of war and conflict scenarios",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3245/",
       "description": [
@@ -981,7 +981,7 @@
       "allocated": false
     },
     {
-      "id": "47",
+      "id": 47,
       "title": "Accurate Automated Measurement Facility for Wireless Charging",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3250/",
       "description": [
@@ -1007,7 +1007,7 @@
       "allocated": false
     },
     {
-      "id": "48",
+      "id": 48,
       "title": "Evaluation of Heavy Duty IPT EV Charging",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3263/",
       "description": [
@@ -1027,7 +1027,7 @@
       "allocated": false
     },
     {
-      "id": "49",
+      "id": 49,
       "title": "Exploring Human Movement in Dynamic Virtual Spaces",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3266/",
       "description": [
@@ -1047,7 +1047,7 @@
       "allocated": false
     },
     {
-      "id": "50",
+      "id": 50,
       "title": "Supporting code review by inexperienced reviewers",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3279/",
       "description": [
@@ -1062,7 +1062,7 @@
       "allocated": false
     },
     {
-      "id": "51",
+      "id": 51,
       "title": "Development of an immediate feedback assessment technique platform for collaborative learning",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3282/",
       "description": [
@@ -1093,7 +1093,7 @@
       "allocated": false
     },
     {
-      "id": "52",
+      "id": 52,
       "title": "TeamUp - A student team allocation tool",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3285/",
       "description": [
@@ -1121,7 +1121,7 @@
       "allocated": false
     },
     {
-      "id": "53",
+      "id": 53,
       "title": "Hardware-software codesign from spiking neural networks",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3293/",
       "description": [
@@ -1159,7 +1159,7 @@
       "allocated": false
     },
     {
-      "id": "54",
+      "id": 54,
       "title": "Intelligent editor for a natural language type programming language",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3296/",
       "description": [
@@ -1186,7 +1186,7 @@
       "allocated": false
     },
     {
-      "id": "55",
+      "id": 55,
       "title": "Live coding environment for a natural language type programming language",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3297/",
       "description": [
@@ -1208,7 +1208,7 @@
       "allocated": false
     },
     {
-      "id": "56",
+      "id": 56,
       "title": "Adding objects and event handling to a natural language type programming language",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3298/",
       "description": [
@@ -1235,7 +1235,7 @@
       "allocated": false
     },
     {
-      "id": "57",
+      "id": 57,
       "title": "A Gamified VR Training Tool for Spatial Reasoning Skills",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3312/",
       "description": [
@@ -1265,7 +1265,7 @@
       "allocated": false
     },
     {
-      "id": "58",
+      "id": 58,
       "title": "AR/VR Embodied Spatial Training",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3316/",
       "description": [
@@ -1294,7 +1294,7 @@
       "allocated": false
     },
     {
-      "id": "59",
+      "id": 59,
       "title": "Web-based VR for education",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3320/",
       "description": [
@@ -1315,7 +1315,7 @@
       "allocated": false
     },
     {
-      "id": "60",
+      "id": 60,
       "title": "Deepfakes for education",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3321/",
       "description": [
@@ -1333,7 +1333,7 @@
       "allocated": false
     },
     {
-      "id": "61",
+      "id": 61,
       "title": "Supporting Tertiary Students' Mental Health with an Adjunctive Smartphone App",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3324/",
       "description": [
@@ -1351,7 +1351,7 @@
       "allocated": false
     },
     {
-      "id": "62",
+      "id": 62,
       "title": "Exploring Embodiment in Immersive XR",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3325/",
       "description": [
@@ -1366,7 +1366,7 @@
       "allocated": false
     },
     {
-      "id": "63",
+      "id": 63,
       "title": "Augmented reality for stroke rehabilitation based on socio-digital strategies and indigenous knowledge",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3326/",
       "description": [
@@ -1384,7 +1384,7 @@
       "allocated": false
     },
     {
-      "id": "64",
+      "id": 64,
       "title": "Is multitasking making us stupid? Experimental investigation into the effects of multitasking",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3329/",
       "description": [
@@ -1404,7 +1404,7 @@
       "allocated": false
     },
     {
-      "id": "65",
+      "id": 65,
       "title": "Advanced Graph Analytics for Human Brain Connectivity Framework",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3333/",
       "description": [
@@ -1425,7 +1425,7 @@
       "allocated": false
     },
     {
-      "id": "66",
+      "id": 66,
       "title": "Web-scale Graph Analysis Application",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3335/",
       "description": [
@@ -1446,7 +1446,7 @@
       "allocated": false
     },
     {
-      "id": "67",
+      "id": 67,
       "title": "Big data analytics and machine learning on the cluster of low-cost computers and FPGA nodes",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3341/",
       "description": [
@@ -1468,7 +1468,7 @@
       "allocated": false
     },
     {
-      "id": "68",
+      "id": 68,
       "title": "Dynamic Reconfigurability of Industrial Automation Processes Using New Software Paradigm",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3342/",
       "description": [
@@ -1491,7 +1491,7 @@
       "allocated": false
     },
     {
-      "id": "69",
+      "id": 69,
       "title": "Developing run-time system for concurrent programming language SystemGALS for RISC-V based platform",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3343/",
       "description": [
@@ -1513,7 +1513,7 @@
       "allocated": false
     },
     {
-      "id": "70",
+      "id": 70,
       "title": "WIFIMESH - Edge-layer wireless network for monitoring Bluetooth enabled IoT devices in its range",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3344/",
       "description": [
@@ -1538,7 +1538,7 @@
       "allocated": false
     },
     {
-      "id": "71",
+      "id": 71,
       "title": "Mobile air quality sensor for smart city applications",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3345/",
       "description": [
@@ -1560,7 +1560,7 @@
       "allocated": false
     },
     {
-      "id": "72",
+      "id": 72,
       "title": "Millimeter-wave based Simultaneous Localization and Mapping (SLAM)",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3346/",
       "description": [
@@ -1582,7 +1582,7 @@
       "allocated": false
     },
     {
-      "id": "73",
+      "id": 73,
       "title": "Gamification-based education platform for sustainable agricultural and environmental applications",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3348/",
       "description": [
@@ -1604,7 +1604,7 @@
       "allocated": false
     },
     {
-      "id": "74",
+      "id": 74,
       "title": "ReType - The Game",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3350/",
       "description": [],
@@ -1617,7 +1617,7 @@
       "allocated": false
     },
     {
-      "id": "75",
+      "id": 75,
       "title": "Software ecosystem explorer",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3360/",
       "description": [
@@ -1639,7 +1639,7 @@
       "allocated": false
     },
     {
-      "id": "76",
+      "id": 76,
       "title": "Collaborative data labelling support tool",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3361/",
       "description": [
@@ -1656,7 +1656,7 @@
       "allocated": false
     },
     {
-      "id": "77",
+      "id": 77,
       "title": "STEAM education for Young Maori-Pacific Learners",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3369/",
       "description": [
@@ -1677,7 +1677,7 @@
       "allocated": false
     },
     {
-      "id": "78",
+      "id": 78,
       "title": "Supercapacitor assisted whiteware for renewable energy operation",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3370/",
       "description": [
@@ -1695,7 +1695,7 @@
       "allocated": false
     },
     {
-      "id": "79",
+      "id": 79,
       "title": "Power factor and harmonics in dimmable LED lighting systems",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3372/",
       "description": [
@@ -1713,7 +1713,7 @@
       "allocated": false
     },
     {
-      "id": "80",
+      "id": 80,
       "title": "Battery pack for laptop",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3373/",
       "description": [
@@ -1730,7 +1730,7 @@
       "allocated": false
     },
     {
-      "id": "81",
+      "id": 81,
       "title": "Names Atlas",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3381/",
       "description": [
@@ -1751,7 +1751,7 @@
       "allocated": false
     },
     {
-      "id": "82",
+      "id": 82,
       "title": "An Oration assessment tool based on Deep Learning",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3382/",
       "description": [
@@ -1773,7 +1773,7 @@
       "allocated": false
     },
     {
-      "id": "83",
+      "id": 83,
       "title": "Multi-Lingual Speech Assessment using Deep learning",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3383/",
       "description": [
@@ -1796,7 +1796,7 @@
       "allocated": false
     },
     {
-      "id": "84",
+      "id": 84,
       "title": "A comparison between traditional signal processing and machine learning methods in  speech analysis capturing time varying information",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3384/",
       "description": [
@@ -1814,7 +1814,7 @@
       "allocated": false
     },
     {
-      "id": "85",
+      "id": 85,
       "title": "High-Performance Metasurface Waveguides",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3385/",
       "description": [
@@ -1832,7 +1832,7 @@
       "allocated": false
     },
     {
-      "id": "86",
+      "id": 86,
       "title": "Cyber Secure and Resilient Energy Neighbourhood",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3386/",
       "description": [
@@ -1859,7 +1859,7 @@
       "allocated": false
     },
     {
-      "id": "87",
+      "id": 87,
       "title": "Improved Coupler Design for High Frequency Leaky Waveguide Antennas",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3387/",
       "description": [
@@ -1875,7 +1875,7 @@
       "allocated": false
     },
     {
-      "id": "88",
+      "id": 88,
       "title": "CoXercise - Collaborative Exercise Games",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3388/",
       "description": [
@@ -1896,7 +1896,7 @@
       "allocated": true
     },
     {
-      "id": "89",
+      "id": 89,
       "title": "Investigating the Effects of Diffraction for High Frequency Communication Systems Design",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3389/",
       "description": [
@@ -1914,7 +1914,7 @@
       "allocated": false
     },
     {
-      "id": "90",
+      "id": 90,
       "title": "Peer-to-Peer Transactive Energy Platform For Neighbourhoods",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3390/",
       "description": [
@@ -1943,7 +1943,7 @@
       "allocated": false
     },
     {
-      "id": "91",
+      "id": 91,
       "title": "Measuring Separation of Concerns",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3391/",
       "description": [
@@ -1961,7 +1961,7 @@
       "allocated": false
     },
     {
-      "id": "92",
+      "id": 92,
       "title": "Inteconnection Guidelines for Grid-following and Grid-forming AC Microgrids",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3392/",
       "description": [
@@ -1982,7 +1982,7 @@
       "allocated": false
     },
     {
-      "id": "93",
+      "id": 93,
       "title": "Using Drone for Automated Garden Watering",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3393/",
       "description": [
@@ -2005,7 +2005,7 @@
       "allocated": true
     },
     {
-      "id": "94",
+      "id": 94,
       "title": "Synthesizer for low dexterity users",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3394/",
       "description": [
@@ -2022,7 +2022,7 @@
       "allocated": true
     },
     {
-      "id": "95",
+      "id": 95,
       "title": "User feedback dashboard",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3399/",
       "description": [
@@ -2042,7 +2042,7 @@
       "allocated": false
     },
     {
-      "id": "96",
+      "id": 96,
       "title": "INVECT – INteractive Visualisations for EduCation of Thermodynamics",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3402/",
       "description": [
@@ -2072,7 +2072,7 @@
       "allocated": true
     },
     {
-      "id": "97",
+      "id": 97,
       "title": "Development of a High Power Cryogenic Motor Driver",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3403/",
       "description": [
@@ -2103,7 +2103,7 @@
       "allocated": true
     },
     {
-      "id": "99",
+      "id": 99,
       "title": "AirBnB for Parking",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3405/",
       "description": [
@@ -2133,7 +2133,7 @@
       "allocated": true
     },
     {
-      "id": "100",
+      "id": 100,
       "title": "Application of Machine Learning on Automated Web Data Sourcing",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3406/",
       "description": [
@@ -2172,7 +2172,7 @@
       "allocated": true
     },
     {
-      "id": "101",
+      "id": 101,
       "title": "Chat bot for MInfoTech course recommender system",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3408/",
       "description": [
@@ -2194,7 +2194,7 @@
       "allocated": false
     },
     {
-      "id": "102",
+      "id": 102,
       "title": "An Educational Tool to Enhance Feedback for Code Style",
       "url": "https://part4project.foe.auckland.ac.nz/home/project/detail/3410/",
       "description": [
@@ -2222,110 +2222,110 @@
     }
   ],
   "specialisations": [
-    "Engineering Science",
     "Civil Engineering",
     "Computer Systems Engineering",
-    "Software Engineering",
     "Electrical and Electronic Engineering",
-    "Mechatronics Engineering"
+    "Engineering Science",
+    "Mechatronics Engineering",
+    "Software Engineering"
   ],
   "categories": [
-    "Embedded Systems",
-    "Machine Learning",
-    "Intelligent Systems & Industrial Informatics",
-    "Human Computer Interactions",
-    "Transportation Modelling",
-    "Smart Phone & Tablet Applications",
-    "Games & Education Aids 1",
-    "Web tools and Application",
-    "Games & Education Aids 2",
-    "Software Development Tools and Processes 1",
-    "Parallel & Cloud Computing",
     "AI & Machine learning",
-    "Augmented/Virtual Reality",
     "Acoustics",
-    "Image & Voice Processing",
-    "Operations Research",
-    "Software Development Tools and Processes 2",
-    "Control Systems",
-    "Health & Well-being",
-    "Telecommunications",
-    "Radio Systems",
+    "Augmented/Virtual Reality",
     "Computer Vision",
-    "Signal Processing",
-    "Space Systems",
+    "Control Systems",
+    "Embedded Systems",
+    "Games & Education Aids 1",
+    "Games & Education Aids 2",
     "Green Energy Technologies",
-    "Transport Technology",
+    "Health & Well-being",
+    "Human Computer Interactions",
+    "Image & Voice Processing",
+    "Intelligent Systems & Industrial Informatics",
+    "Machine Learning",
+    "Operations Research",
     "Optimisation",
+    "Parallel & Cloud Computing",
     "Power Electronics & Electronics Systems",
     "Power Systems",
+    "Radio Systems",
     "Robotics",
+    "Signal Processing",
+    "Smart Phone & Tablet Applications",
+    "Software Development Tools and Processes 1",
+    "Software Development Tools and Processes 2",
+    "Space Systems",
+    "Telecommunications",
+    "Transport Technology",
+    "Transportation Modelling",
+    "Web tools and Application",
     "Wireless Power Technologies"
   ],
   "supervisors": [
-    "Craig Sutherland",
-    "Robert Sheehan",
-    "Nasser Giacaman",
-    "Morteza Biglari-Abhari",
-    "Partha Roop",
-    "Ho Seok AHN",
-    "Seho Kim",
-    "Jing Sun",
-    "Nirmal Nair",
-    "Kevin I-Kai Wang",
-    "Dariusz Kacprzak",
-    "Miao Qiao",
     "Abhisek Ukil",
-    "Zoran Salcic",
-    "William Lee",
-    "Alex Shaw",
-    "Kelly Blincoe",
-    "Grant Covic",
-    "Udaya Madawala",
-    "Bruce Sham",
-    "Andrew Meads",
-    "Michael Neve",
-    "Reza Shahamiri",
-    "Waleed Abdulla",
-    "Henry Williams",
-    "Ewan Tempero",
-    "Avinash Malik",
     "Aiguo Patrick Hu",
-    "Oliver Sinnen",
+    "Alex Shaw",
+    "Andrew Meads",
+    "Avinash Malik",
+    "Bruce Sham",
+    "Burkhard Wuensche",
     "Catherine Watson",
-    "Dulsha Kularatna-Abeywardana",
-    "Duleepa Thrimawithana",
-    "Jackman Lin",
-    "Robert Amor",
+    "Craig Sutherland",
     "Danielle Lottridge",
+    "Dariusz Kacprzak",
+    "Duleepa Thrimawithana",
+    "Dulsha Kularatna-Abeywardana",
+    "Ewan Tempero",
     "Gerald Weber",
-    "Burkhard Wuensche"
+    "Grant Covic",
+    "Henry Williams",
+    "Ho Seok AHN",
+    "Jackman Lin",
+    "Jing Sun",
+    "Kelly Blincoe",
+    "Kevin I-Kai Wang",
+    "Miao Qiao",
+    "Michael Neve",
+    "Morteza Biglari-Abhari",
+    "Nasser Giacaman",
+    "Nirmal Nair",
+    "Oliver Sinnen",
+    "Partha Roop",
+    "Reza Shahamiri",
+    "Robert Amor",
+    "Robert Sheehan",
+    "Seho Kim",
+    "Udaya Madawala",
+    "Waleed Abdulla",
+    "William Lee",
+    "Zoran Salcic"
   ],
   "cosupervisors": [
-    "Andrew Austin",
-    "Nasser Giacaman",
-    "Christopher Lee",
-    "Seho Kim",
-    "Jing Sun",
-    "Yu-Cheng Tu",
-    "Yun Sing Koh",
-    "Jongyoon Lim",
-    "Dariusz Kacprzak",
-    "Miao Qiao",
-    "Alex Shaw",
-    "Grant Covic",
-    "Gill Dobbie",
-    "Bruce MacDonald",
-    "Vicente Gonzalez",
-    "Udaya Madawala",
-    "Jesin James",
-    "Reza Shahamiri",
-    "Ewan Tempero",
     "Aiguo Patrick Hu",
+    "Alex Shaw",
+    "Andrew Austin",
+    "Bruce MacDonald",
     "Catherine Watson",
-    "Robert Amor",
+    "Christopher Lee",
     "Danielle Lottridge",
+    "Dariusz Kacprzak",
+    "Ewan Tempero",
+    "Gill Dobbie",
+    "Grant Covic",
     "Jackman Lin",
-    "Nitish Patel"
+    "Jesin James",
+    "Jing Sun",
+    "Jongyoon Lim",
+    "Miao Qiao",
+    "Nasser Giacaman",
+    "Nitish Patel",
+    "Reza Shahamiri",
+    "Robert Amor",
+    "Seho Kim",
+    "Udaya Madawala",
+    "Vicente Gonzalez",
+    "Yu-Cheng Tu",
+    "Yun Sing Koh"
   ]
 }
