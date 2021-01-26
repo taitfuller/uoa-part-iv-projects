@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
@@ -39,7 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Project(props) {
+export default function Project({ project, isFavourite, toggleFavourite}) {
+  // const [toggled, setToggled] = useState(true)
+
   const classes = useStyles()
 
   // Render the UI for your table
@@ -48,13 +50,13 @@ export default function Project(props) {
       <div className={classes.section}>
         <Grid container spacing={2} alignItems="center" wrap="nowrap">
           <Grid item>
-            <Avatar className={classes.blue}>{props.project.id}</Avatar>
+            <Avatar className={classes.blue}>{project.id}</Avatar>
           </Grid>
           <Grid item>
-            <Typography variant="h5">{props.project.title}</Typography>
+            <Typography variant="h5">{project.title}</Typography>
           </Grid>
           <Grid item className={classes.right}>
-            {props.project.allocated
+            {project.allocated
               ? <Chip label="Allocated" className={classes.red} />
               : <Chip label="Unallocated" />
             }
@@ -64,7 +66,7 @@ export default function Project(props) {
       <Divider/>
       <div className={classes.section}>
         <Typography variant="overline">Description</Typography>
-        {props.project.description.map((description) => (
+        {project.description.map((description) => (
           <Typography paragraph>{description}</Typography>
         ))}
       </div>
@@ -73,7 +75,7 @@ export default function Project(props) {
         <Typography variant="overline">Outcomes</Typography>
         
         <ul className={classes.list}>
-          {props.project.outcomes.map((outcome) => (
+          {project.outcomes.map((outcome) => (
             <li><Typography>{outcome}</Typography></li>
           ))}
         </ul>
@@ -84,18 +86,18 @@ export default function Project(props) {
           <Grid item>
             <Typography variant="overline">Supervisor</Typography>
             <Grid container spacing={1} direction="column">
-              {props.project.supervisors.map((supervisor) => (
+              {project.supervisors.map((supervisor) => (
                 <Grid item>
                   <Chip label={supervisor} />
                 </Grid>
               ))}
             </Grid>
           </Grid>
-          {props.project.cosupervisors.length > 0 &&
+          {project.cosupervisors.length > 0 &&
           <Grid item>
             <Typography variant="overline">Co-Supervisor</Typography>
             <Grid container spacing={1} direction="row">
-              {props.project.cosupervisors.map((cosupervisor) => (
+              {project.cosupervisors.map((cosupervisor) => (
                 <Grid item>
                   <Chip label={cosupervisor} />
                 </Grid>
@@ -113,7 +115,7 @@ export default function Project(props) {
               <Grid item>
                 <Typography variant="overline">Categories</Typography>
               </Grid>
-              {props.project.categories.map((category) => (
+              {project.categories.map((category) => (
                 <Grid item>
                   <Chip label={category} />
                 </Grid>
@@ -125,7 +127,7 @@ export default function Project(props) {
               <Grid item>
                 <Typography variant="overline">Specialisations</Typography>
               </Grid>
-              {props.project.specialisations.map((specialisation) => (
+              {project.specialisations.map((specialisation) => (
                 <Grid item>
                   <Chip label={specialisation} />
                 </Grid>
@@ -137,8 +139,8 @@ export default function Project(props) {
       <Divider />
       <div className={classes.buttons}>
         <Grid container justify="space-between">
-          <FavouriteButton />
-          <Button onClick={() => window.open(props.project.url, '_blank')}>
+          <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
+          <Button onClick={() => window.open(project.url, '_blank')}>
             Go to Official Page
           </Button>
         </Grid>
