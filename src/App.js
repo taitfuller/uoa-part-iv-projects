@@ -24,12 +24,7 @@ function App() {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    fetch('./data.json', {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    })
+    fetch('https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json')
     .then((response) => {
       return response.json();
     })
