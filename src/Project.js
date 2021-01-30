@@ -140,7 +140,7 @@ export default function Project({ project, isFavourite, toggleFavourite}) {
       <div className={classes.buttons}>
         <Grid container justify="space-between">
           <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
-          <Button onClick={() => window.open(project.url, '_blank')}>
+          <Button href={project.url}>
             Go to Official Page
           </Button>
         </Grid>
