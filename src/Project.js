@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 
-import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import { Avatar, Button, Chip, Divider, Grid, Typography } from '@material-ui/core'
-import { red } from '@material-ui/core/colors'
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import {
+  Avatar,
+  Button,
+  Chip,
+  Divider,
+  Grid,
+  Typography,
+} from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
 
-import FavouriteButton from './FavouriteButton'
+import FavouriteButton from "./FavouriteButton";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    margin: 'auto',
+    margin: "auto",
     marginBottom: theme.spacing(4),
   },
   section: {
@@ -21,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
   },
   blue: {
     color: theme.palette.getContrastText(theme.palette.info.dark),
@@ -32,17 +39,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
   right: {
-    marginLeft: 'auto',
+    marginLeft: "auto",
   },
   list: {
     marginTop: 0,
   },
-}))
+}));
 
-export default function Project({ project, isFavourite, toggleFavourite}) {
+export default function Project({ project, isFavourite, toggleFavourite }) {
   // const [toggled, setToggled] = useState(true)
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   // Render the UI for your table
   return (
@@ -56,27 +63,30 @@ export default function Project({ project, isFavourite, toggleFavourite}) {
             <Typography variant="h5">{project.title}</Typography>
           </Grid>
           <Grid item className={classes.right}>
-            {project.allocated
-              ? <Chip label="Allocated" className={classes.red} />
-              : <Chip label="Unallocated" />
-            }
+            {project.allocated ? (
+              <Chip label="Allocated" className={classes.red} />
+            ) : (
+              <Chip label="Unallocated" />
+            )}
           </Grid>
         </Grid>
       </div>
-      <Divider/>
+      <Divider />
       <div className={classes.section}>
         <Typography variant="overline">Description</Typography>
         {project.description.map((description) => (
           <Typography paragraph>{description}</Typography>
         ))}
       </div>
-      <Divider/>
+      <Divider />
       <div className={classes.section}>
         <Typography variant="overline">Outcomes</Typography>
-        
+
         <ul className={classes.list}>
           {project.outcomes.map((outcome) => (
-            <li><Typography>{outcome}</Typography></li>
+            <li>
+              <Typography>{outcome}</Typography>
+            </li>
           ))}
         </ul>
       </div>
@@ -93,18 +103,18 @@ export default function Project({ project, isFavourite, toggleFavourite}) {
               ))}
             </Grid>
           </Grid>
-          {project.cosupervisors.length > 0 &&
-          <Grid item>
-            <Typography variant="overline">Co-Supervisor</Typography>
-            <Grid container spacing={1} direction="row">
-              {project.cosupervisors.map((cosupervisor) => (
-                <Grid item>
-                  <Chip label={cosupervisor} />
-                </Grid>
-              ))}
+          {project.cosupervisors.length > 0 && (
+            <Grid item>
+              <Typography variant="overline">Co-Supervisor</Typography>
+              <Grid container spacing={1} direction="row">
+                {project.cosupervisors.map((cosupervisor) => (
+                  <Grid item>
+                    <Chip label={cosupervisor} />
+                  </Grid>
+                ))}
+              </Grid>
             </Grid>
-          </Grid>
-          }
+          )}
         </Grid>
       </div>
       <Divider />
@@ -123,7 +133,12 @@ export default function Project({ project, isFavourite, toggleFavourite}) {
             </Grid>
           </Grid>
           <Grid item>
-            <Grid container direction="column" spacing={1} alignItems="flex-end">
+            <Grid
+              container
+              direction="column"
+              spacing={1}
+              alignItems="flex-end"
+            >
               <Grid item>
                 <Typography variant="overline">Specialisations</Typography>
               </Grid>
@@ -140,11 +155,9 @@ export default function Project({ project, isFavourite, toggleFavourite}) {
       <div className={classes.buttons}>
         <Grid container justify="space-between">
           <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
-          <Button href={project.url}>
-            Go to Official Page
-          </Button>
+          <Button href={project.url}>Go to Official Page</Button>
         </Grid>
       </div>
     </Paper>
-  )
+  );
 }

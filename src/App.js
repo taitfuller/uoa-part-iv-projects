@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-import { makeStyles } from '@material-ui/core/styles'
-import { AppBar, CircularProgress, Container, CssBaseline, Grid, Toolbar, Typography } from '@material-ui/core'
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  AppBar,
+  CircularProgress,
+  Container,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 
-import Projects from './Projects'
+import Projects from "./Projects";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,44 +24,54 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   fullHeight: {
-    height: '100%',
+    height: "100%",
   },
-}))
+}));
 
 function App() {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    fetch('https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json')
-    .then((response) => {
-      return response.json();
-    })
-    .then((myJson) => {
-      setData(myJson)
-    });
-  }
+    fetch(
+      "https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        setData(myJson);
+      });
+  };
 
-  useEffect(()=>{
-    getData()
-  },[])
+  useEffect(() => {
+    getData();
+  }, []);
 
-  const classes = useStyles()
+  const classes = useStyles();
 
-  if (data.length === 0) return (
-    <div>
-      <CssBaseline />
-      <Container className={`${classes.container} ${classes.fullHeight}`}>
-        <Grid container direction="column" justify="center" alignItems="center" spacing={4} className={classes.fullHeight}>
-          <Grid item>
-            <CircularProgress size={50} />
+  if (data.length === 0)
+    return (
+      <div>
+        <CssBaseline />
+        <Container className={`${classes.container} ${classes.fullHeight}`}>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            spacing={4}
+            className={classes.fullHeight}
+          >
+            <Grid item>
+              <CircularProgress size={50} />
+            </Grid>
+            <Grid item>
+              <Typography variant="h4">Loading Projects...</Typography>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Typography variant="h4">Loading Projects...</Typography>
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
-  )
+        </Container>
+      </div>
+    );
 
   return (
     <div>
@@ -70,7 +88,7 @@ function App() {
         </Container>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
