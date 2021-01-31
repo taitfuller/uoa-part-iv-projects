@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import { Container, Grid, Typography } from "@material-ui/core";
+import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+
 import Filter from "./Filter";
 import ProjectCard from "./ProjectCard";
 
@@ -62,14 +65,29 @@ export default function ExploreProjects({ data, favourites, setFavourites }) {
         specialisations={data.specialisations}
         categories={data.categories}
       />
-      {filteredProjects.map((project) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          isFavourite={favourites.has(project.id)}
-          toggleFavourite={() => toggleFavourite(project.id)}
-        />
-      ))}
+      {filteredProjects.length === 0 ? (
+        <Container style={{ marginTop: 80 }}>
+          <Grid container direction="column" alignItems="center" spacing={6}>
+            <Grid item>
+              <Typography variant="h4">
+                No projects found&nbsp;
+                <SentimentVeryDissatisfiedIcon
+                  style={{ fontSize: 60, marginBottom: -15 }}
+                />
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      ) : (
+        filteredProjects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            isFavourite={favourites.has(project.id)}
+            toggleFavourite={() => toggleFavourite(project.id)}
+          />
+        ))
+      )}
     </div>
   );
 }

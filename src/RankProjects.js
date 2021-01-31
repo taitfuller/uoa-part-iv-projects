@@ -4,8 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Avatar,
   Box,
+  Button,
   Chip,
   Collapse,
+  Container,
   Grid,
   IconButton,
   Paper,
@@ -19,8 +21,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import { Link } from "react-router-dom";
 
 import ProjectDetails from "./ProjectDetails";
 
@@ -48,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       borderBottom: "unset",
     },
+  },
+  fullHeight: {
+    height: "100%",
   },
 }));
 
@@ -157,6 +165,43 @@ export default function RankProjects({ projects, favourites, setFavourites }) {
   };
 
   const classes = useStyles();
+
+  if (filteredProjects.length === 0) {
+    return (
+      <Container style={{ marginTop: 80 }}>
+        <Grid container direction="column" alignItems="center" spacing={6}>
+          <Grid item>
+            <Typography variant="h4">
+              You don't have any favourite projects&nbsp;
+              <SentimentVeryDissatisfiedIcon
+                style={{ fontSize: 60, marginBottom: -15 }}
+              />
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6">
+              You can favourite projects by clicking{" "}
+              <FavoriteBorderIcon
+                style={{ marginBottom: -10 }}
+                fontSize="large"
+              />{" "}
+              on the Explore page
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Button
+              component={Link}
+              variant="contained"
+              size="large"
+              to="/explore"
+            >
+              Explore Projects
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
+    );
+  }
 
   return (
     <TableContainer component={Paper} className={classes.container}>
