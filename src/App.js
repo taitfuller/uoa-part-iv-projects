@@ -52,6 +52,18 @@ function App() {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
+  console.log(localStorage.getItem("showRankMessage"));
+
+  const [showRankMessage, setRankMessage] = useState(() =>
+    localStorage.getItem("showRankMessage") === null
+      ? true
+      : localStorage.getItem("showRankMessage")
+  );
+
+  useEffect(() => {
+    localStorage.setItem("showRankMessage", showRankMessage);
+  }, [showRankMessage]);
+
   const classes = useStyles();
 
   return (
@@ -102,6 +114,8 @@ function App() {
                       projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}
+                      showRankMessage={showRankMessage}
+                      setRankMessage={setRankMessage}
                     />
                   </Route>
                 </Switch>

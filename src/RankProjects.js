@@ -20,6 +20,7 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import ClearIcon from "@material-ui/icons/Clear";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -56,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   },
   fullHeight: {
     height: "100%",
+  },
+  alertMessage: {
+    marginBottom: theme.spacing(4),
   },
 }));
 
@@ -143,7 +147,13 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
   );
 }
 
-export default function RankProjects({ projects, favourites, setFavourites }) {
+export default function RankProjects({
+  projects,
+  favourites,
+  setFavourites,
+  showRankMessage,
+  setRankMessage,
+}) {
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
@@ -165,6 +175,8 @@ export default function RankProjects({ projects, favourites, setFavourites }) {
   };
 
   const classes = useStyles();
+
+  console.log(showRankMessage);
 
   if (filteredProjects.length === 0) {
     return (
@@ -204,29 +216,40 @@ export default function RankProjects({ projects, favourites, setFavourites }) {
   }
 
   return (
-    <TableContainer component={Paper} className={classes.container}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell align="center" className={classes.buttonColumn}>
-              Rank
-            </TableCell>
-            <TableCell colSpan="2">Project</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {filteredProjects.map((project, i) => (
-            <Row
-              key={project.id}
-              project={project}
-              i={i}
-              swapFavourites={swapFavourites}
-              removeFavourite={removeFavourite}
-              length={filteredProjects.length}
-            />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Container>
+      {showRankMessage === true && (
+        <Alert
+          severity="info"
+          onClose={() => setRankMessage(false)}
+          style={{ marginBottom: 30 }}
+        >
+          Your top 5 projects are highlighted
+        </Alert>
+      )}
+      <TableContainer component={Paper} className={classes.container}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell align="center" className={classes.buttonColumn}>
+                Rank
+              </TableCell>
+              <TableCell colSpan="2">Project</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {filteredProjects.map((project, i) => (
+              <Row
+                key={project.id}
+                project={project}
+                i={i}
+                swapFavourites={swapFavourites}
+                removeFavourite={removeFavourite}
+                length={filteredProjects.length}
+              />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 }
