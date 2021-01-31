@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+import { Container, Grid, Typography } from "@material-ui/core";
+import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
 import Filter from "./Filter";
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
 
-export default function Projects({ data }) {
+export default function ExploreProjects({ data, favourites, setFavourites }) {
   const [selectedFilters, setSelectedFilters] = useState({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -12,20 +15,6 @@ export default function Projects({ data }) {
     selectedSpecialisations: [],
     selectedCategories: [],
   });
-
-  const [favourites, setFavourites] = useState(
-    () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
-  );
-
-  useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify([...favourites]));
-  }, [favourites]);
-
-  const toggleFavourite = (id) => {
-    const update = new Set(favourites);
-    update.has(id) ? update.delete(id) : update.add(id);
-    setFavourites(update);
-  };
 
   const selectFilter = (projectItems, selectedItems) => {
     if (selectedItems.length > 0) {
@@ -59,6 +48,12 @@ export default function Projects({ data }) {
     filters.every((filter) => filter(project))
   );
 
+  const toggleFavourite = (id) => {
+    const update = new Set(favourites);
+    update.has(id) ? update.delete(id) : update.add(id);
+    setFavourites(update);
+  };
+
   return (
     <div>
       <Filter
@@ -70,13 +65,29 @@ export default function Projects({ data }) {
         specialisations={data.specialisations}
         categories={data.categories}
       />
-      {filteredProjects.map((project) => (
-        <Project
-          project={project}
-          isFavourite={favourites.has(project.id)}
-          toggleFavourite={() => toggleFavourite(project.id)}
-        />
-      ))}
+      {filteredProjects.length === 0 ? (
+        <Container style={{ marginTop: 80 }}>
+          <Grid container direction="column" alignItems="center" spacing={6}>
+            <Grid item>
+              <Typography variant="h4">
+                No projects found&nbsp;
+                <SentimentVeryDissatisfiedIcon
+                  style={{ fontSize: 60, marginBottom: -15 }}
+                />
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      ) : (
+        filteredProjects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            isFavourite={favourites.has(project.id)}
+            toggleFavourite={() => toggleFavourite(project.id)}
+          />
+        ))
+      )}
     </div>
   );
 }

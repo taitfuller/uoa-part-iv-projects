@@ -1,25 +1,12 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import {
-  Avatar,
-  Button,
-  Chip,
-  Divider,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Button, Chip, Divider, Grid, Typography } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
 import FavouriteButton from "./FavouriteButton";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    margin: "auto",
-    marginBottom: theme.spacing(4),
-  },
   section: {
     marginBottom: theme.spacing(2),
   },
@@ -30,52 +17,30 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
-  blue: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
   red: {
     color: theme.palette.getContrastText(red[500]),
     backgroundColor: red[500],
-  },
-  right: {
-    marginLeft: "auto",
   },
   list: {
     marginTop: 0,
   },
 }));
 
-export default function Project({ project, isFavourite, toggleFavourite }) {
-  // const [toggled, setToggled] = useState(true)
-
+export default function ProjectDetails({
+  project,
+  isFavourite,
+  toggleFavourite,
+}) {
   const classes = useStyles();
 
-  // Render the UI for your table
   return (
-    <Paper className={classes.paper}>
-      <div className={classes.section}>
-        <Grid container spacing={2} alignItems="center" wrap="nowrap">
-          <Grid item>
-            <Avatar className={classes.blue}>{project.id}</Avatar>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5">{project.title}</Typography>
-          </Grid>
-          <Grid item className={classes.right}>
-            {project.allocated ? (
-              <Chip label="Allocated" className={classes.red} />
-            ) : (
-              <Chip label="Unallocated" />
-            )}
-          </Grid>
-        </Grid>
-      </div>
-      <Divider />
+    <React.Fragment>
       <div className={classes.section}>
         <Typography variant="overline">Description</Typography>
-        {project.description.map((description) => (
-          <Typography paragraph>{description}</Typography>
+        {project.description.map((description, i) => (
+          <Typography paragraph key={i}>
+            {description}
+          </Typography>
         ))}
       </div>
       <Divider />
@@ -83,9 +48,9 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
         <Typography variant="overline">Outcomes</Typography>
 
         <ul className={classes.list}>
-          {project.outcomes.map((outcome) => (
-            <li>
-              <Typography>{outcome}</Typography>
+          {project.outcomes.map((outcome, i) => (
+            <li key={i}>
+              <Typography key={i}>{outcome}</Typography>
             </li>
           ))}
         </ul>
@@ -96,8 +61,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
           <Grid item>
             <Typography variant="overline">Supervisor</Typography>
             <Grid container spacing={1} direction="column">
-              {project.supervisors.map((supervisor) => (
-                <Grid item>
+              {project.supervisors.map((supervisor, i) => (
+                <Grid item key={i}>
                   <Chip label={supervisor} />
                 </Grid>
               ))}
@@ -107,8 +72,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
             <Grid item>
               <Typography variant="overline">Co-Supervisor</Typography>
               <Grid container spacing={1} direction="row">
-                {project.cosupervisors.map((cosupervisor) => (
-                  <Grid item>
+                {project.cosupervisors.map((cosupervisor, i) => (
+                  <Grid item key={i}>
                     <Chip label={cosupervisor} />
                   </Grid>
                 ))}
@@ -125,8 +90,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
               <Grid item>
                 <Typography variant="overline">Categories</Typography>
               </Grid>
-              {project.categories.map((category) => (
-                <Grid item>
+              {project.categories.map((category, i) => (
+                <Grid item key={i}>
                   <Chip label={category} />
                 </Grid>
               ))}
@@ -142,8 +107,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
               <Grid item>
                 <Typography variant="overline">Specialisations</Typography>
               </Grid>
-              {project.specialisations.map((specialisation) => (
-                <Grid item>
+              {project.specialisations.map((specialisation, i) => (
+                <Grid item key={i}>
                   <Chip label={specialisation} />
                 </Grid>
               ))}
@@ -155,9 +120,11 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
       <div className={classes.buttons}>
         <Grid container justify="space-between">
           <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
-          <Button href={project.url}>Go to Official Page</Button>
+          <Button href={project.url} target="_blank">
+            Go to Official Page
+          </Button>
         </Grid>
       </div>
-    </Paper>
+    </React.Fragment>
   );
 }
