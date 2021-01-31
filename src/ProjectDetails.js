@@ -120,7 +120,9 @@ export default function ProjectDetails({
       <div className={classes.buttons}>
         <Grid container justify="space-between">
           <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
-          <Button href={project.url}>Go to Official Page</Button>
+          <Button href={project.url} target="_blank">
+            Go to Official Page
+          </Button>
         </Grid>
       </div>
     </React.Fragment>
