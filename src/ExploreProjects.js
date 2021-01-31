@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Filter from "./Filter";
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
 
 export default function ExploreProjects({ data, favourites, setFavourites }) {
   const [selectedFilters, setSelectedFilters] = useState({
@@ -63,7 +63,7 @@ export default function ExploreProjects({ data, favourites, setFavourites }) {
         categories={data.categories}
       />
       {filteredProjects.map((project) => (
-        <Project
+        <ProjectCard
           key={project.id}
           project={project}
           isFavourite={favourites.has(project.id)}
