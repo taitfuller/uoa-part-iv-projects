@@ -7,10 +7,13 @@ import {
   Container,
   CssBaseline,
   Grid,
+  Tab,
+  Tabs,
   Toolbar,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 
 import Projects from "./Projects";
 
@@ -22,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     color: theme.palette.getContrastText(theme.palette.info.dark),
     backgroundColor: theme.palette.info.dark,
+  },
+  fullHeightTabs: {
+    ...theme.mixins.toolbar,
   },
   appBarSpacer: theme.mixins.toolbar,
   fullHeight: {
@@ -48,10 +54,19 @@ function App() {
     getData();
   }, []);
 
+  const centerNav = useMediaQuery("(min-width:780px)");
+
   const classes = useStyles();
 
   return (
     <BrowserRouter>
+      <Switch>
+        <Route path="/explore" />
+        <Route path="/rank" />
+        <Route path="/">
+          <Redirect to="/explore" />
+        </Route>
+      </Switch>
       <div>
         <CssBaseline />
         {data.length === 0 ? (
@@ -76,13 +91,49 @@ function App() {
           <div>
             <AppBar className={classes.nav}>
               <Toolbar>
-                <Typography variant="h6">2021 Part IV Projects</Typography>
+                <Grid container alignItems="center" justify="space-between">
+                  <Grid item xs>
+                    <Typography variant="h6">2021 Part IV Projects</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Route
+                      path="/"
+                      render={({ location }) => (
+                        <Tabs
+                          value={location.pathname}
+                          className={classes.fullHeightTabs}
+                        >
+                          <Tab
+                            label="Explore"
+                            className={classes.fullHeightTabs}
+                            component={Link}
+                            to="/explore"
+                            value="/explore"
+                          />
+                          <Tab
+                            label="Rank"
+                            className={classes.fullHeightTabs}
+                            component={Link}
+                            to="/rank"
+                            value="/rank"
+                          />
+                        </Tabs>
+                      )}
+                    />
+                  </Grid>
+                  {centerNav && <Grid item xs />}
+                </Grid>
               </Toolbar>
             </AppBar>
             <main>
               <div className={classes.appBarSpacer} />
               <Container className={classes.container}>
-                <Projects data={data} />
+                <Switch>
+                  <Route path="/explore">
+                    <Projects data={data} />
+                  </Route>
+                  <Route path="/rank">Rank Projects</Route>
+                </Switch>
               </Container>
             </main>
           </div>
