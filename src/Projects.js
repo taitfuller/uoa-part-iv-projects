@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import Project from "./Project";
 
-export default function Projects({ data }) {
+export default function Projects({ data, favourites, toggleFavourite }) {
   const [selectedFilters, setSelectedFilters] = useState({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -12,20 +12,6 @@ export default function Projects({ data }) {
     selectedSpecialisations: [],
     selectedCategories: [],
   });
-
-  const [favourites, setFavourites] = useState(
-    () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
-  );
-
-  useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify([...favourites]));
-  }, [favourites]);
-
-  const toggleFavourite = (id) => {
-    const update = new Set(favourites);
-    update.has(id) ? update.delete(id) : update.add(id);
-    setFavourites(update);
-  };
 
   const selectFilter = (projectItems, selectedItems) => {
     if (selectedItems.length > 0) {

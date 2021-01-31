@@ -54,6 +54,20 @@ function App() {
     getData();
   }, []);
 
+  const [favourites, setFavourites] = useState(
+    () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
+  );
+
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify([...favourites]));
+  }, [favourites]);
+
+  const toggleFavourite = (id) => {
+    const update = new Set(favourites);
+    update.has(id) ? update.delete(id) : update.add(id);
+    setFavourites(update);
+  };
+
   const centerNav = useMediaQuery("(min-width:780px)");
 
   const classes = useStyles();
@@ -130,7 +144,11 @@ function App() {
               <Container className={classes.container}>
                 <Switch>
                   <Route path="/explore">
-                    <Projects data={data} />
+                    <Projects
+                      data={data}
+                      favourites={favourites}
+                      toggleFavourite={toggleFavourite}
+                    />
                   </Route>
                   <Route path="/rank">Rank Projects</Route>
                 </Switch>
