@@ -99,7 +99,7 @@ function App() {
                   </Route>
                   <Route path="/rank">
                     <RankProjects
-                      data={data}
+                      projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}
                     />
