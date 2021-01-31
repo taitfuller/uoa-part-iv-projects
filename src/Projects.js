@@ -72,6 +72,7 @@ export default function Projects({ data }) {
       />
       {filteredProjects.map((project) => (
         <Project
+          key={project.id}
           project={project}
           isFavourite={favourites.has(project.id)}
           toggleFavourite={() => toggleFavourite(project.id)}

@@ -74,8 +74,10 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
       <Divider />
       <div className={classes.section}>
         <Typography variant="overline">Description</Typography>
-        {project.description.map((description) => (
-          <Typography paragraph>{description}</Typography>
+        {project.description.map((description, i) => (
+          <Typography paragraph key={i}>
+            {description}
+          </Typography>
         ))}
       </div>
       <Divider />
@@ -83,9 +85,9 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
         <Typography variant="overline">Outcomes</Typography>
 
         <ul className={classes.list}>
-          {project.outcomes.map((outcome) => (
-            <li>
-              <Typography>{outcome}</Typography>
+          {project.outcomes.map((outcome, i) => (
+            <li key={i}>
+              <Typography key={i}>{outcome}</Typography>
             </li>
           ))}
         </ul>
@@ -96,8 +98,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
           <Grid item>
             <Typography variant="overline">Supervisor</Typography>
             <Grid container spacing={1} direction="column">
-              {project.supervisors.map((supervisor) => (
-                <Grid item>
+              {project.supervisors.map((supervisor, i) => (
+                <Grid item key={i}>
                   <Chip label={supervisor} />
                 </Grid>
               ))}
@@ -107,8 +109,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
             <Grid item>
               <Typography variant="overline">Co-Supervisor</Typography>
               <Grid container spacing={1} direction="row">
-                {project.cosupervisors.map((cosupervisor) => (
-                  <Grid item>
+                {project.cosupervisors.map((cosupervisor, i) => (
+                  <Grid item key={i}>
                     <Chip label={cosupervisor} />
                   </Grid>
                 ))}
@@ -125,8 +127,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
               <Grid item>
                 <Typography variant="overline">Categories</Typography>
               </Grid>
-              {project.categories.map((category) => (
-                <Grid item>
+              {project.categories.map((category, i) => (
+                <Grid item key={i}>
                   <Chip label={category} />
                 </Grid>
               ))}
@@ -142,8 +144,8 @@ export default function Project({ project, isFavourite, toggleFavourite }) {
               <Grid item>
                 <Typography variant="overline">Specialisations</Typography>
               </Grid>
-              {project.specialisations.map((specialisation) => (
-                <Grid item>
+              {project.specialisations.map((specialisation, i) => (
+                <Grid item key={i}>
                   <Chip label={specialisation} />
                 </Grid>
               ))}
