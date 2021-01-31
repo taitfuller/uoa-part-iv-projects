@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Filter from "./Filter";
 import Project from "./Project";
 
-export default function Projects({ data, favourites, toggleFavourite }) {
+export default function ExploreProjects({ data, favourites, setFavourites }) {
   const [selectedFilters, setSelectedFilters] = useState({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -44,6 +44,12 @@ export default function Projects({ data, favourites, toggleFavourite }) {
   const filteredProjects = data.projects.filter((project) =>
     filters.every((filter) => filter(project))
   );
+
+  const toggleFavourite = (id) => {
+    const update = new Set(favourites);
+    update.has(id) ? update.delete(id) : update.add(id);
+    setFavourites(update);
+  };
 
   return (
     <div>

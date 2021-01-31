@@ -11,7 +11,8 @@ import {
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./Header";
-import Projects from "./Projects";
+import ExploreProjects from "./ExploreProjects";
+import RankProjects from "./RankProjects";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -50,12 +51,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
-
-  const toggleFavourite = (id) => {
-    const update = new Set(favourites);
-    update.has(id) ? update.delete(id) : update.add(id);
-    setFavourites(update);
-  };
 
   const classes = useStyles();
 
@@ -96,13 +91,19 @@ function App() {
               <Container className={classes.container}>
                 <Switch>
                   <Route path="/explore">
-                    <Projects
+                    <ExploreProjects
                       data={data}
                       favourites={favourites}
-                      toggleFavourite={toggleFavourite}
+                      setFavourites={setFavourites}
                     />
                   </Route>
-                  <Route path="/rank">Rank Projects</Route>
+                  <Route path="/rank">
+                    <RankProjects
+                      data={data}
+                      favourites={favourites}
+                      setFavourites={setFavourites}
+                    />
+                  </Route>
                 </Switch>
               </Container>
             </main>
