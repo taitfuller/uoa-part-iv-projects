@@ -10,6 +10,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import { BrowserRouter } from "react-router-dom";
 
 import Projects from "./Projects";
 
@@ -49,45 +50,45 @@ function App() {
 
   const classes = useStyles();
 
-  if (data.length === 0)
-    return (
+  return (
+    <BrowserRouter>
       <div>
         <CssBaseline />
-        <Container className={`${classes.container} ${classes.fullHeight}`}>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            spacing={4}
-            className={classes.fullHeight}
-          >
-            <Grid item>
-              <CircularProgress size={50} />
+        {data.length === 0 ? (
+          <Container className={`${classes.container} ${classes.fullHeight}`}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              spacing={4}
+              className={classes.fullHeight}
+            >
+              <Grid item>
+                <CircularProgress size={50} />
+              </Grid>
+              <Grid item>
+                <Typography variant="h4">Loading Projects...</Typography>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant="h4">Loading Projects...</Typography>
-            </Grid>
-          </Grid>
-        </Container>
+          </Container>
+        ) : (
+          <div>
+            <AppBar className={classes.nav}>
+              <Toolbar>
+                <Typography variant="h6">2021 Part IV Projects</Typography>
+              </Toolbar>
+            </AppBar>
+            <main>
+              <div className={classes.appBarSpacer} />
+              <Container className={classes.container}>
+                <Projects data={data} />
+              </Container>
+            </main>
+          </div>
+        )}
       </div>
-    );
-
-  return (
-    <div>
-      <CssBaseline />
-      <AppBar className={classes.nav}>
-        <Toolbar>
-          <Typography variant="h6">2021 Part IV Projects</Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        <div className={classes.appBarSpacer} />
-        <Container className={classes.container}>
-          <Projects data={data} />
-        </Container>
-      </main>
-    </div>
+    </BrowserRouter>
   );
 }
 
