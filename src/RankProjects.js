@@ -95,11 +95,6 @@ export default function RankProjects({
       >
         <Tab label="Personal" />
         <Tab label="Group" />
-        {rankView === 1 && socketConnected && (
-          <IconButton onClick={() => alert("Gday")}>
-            <SettingsIcon />
-          </IconButton>
-        )}
       </Tabs>
       {rankView === 1 && !socketConnected ? (
         <RankGroup
