@@ -25,9 +25,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+async function postData(url = "") {
+  const response = await fetch(url, {
+    method: "POST",
+  });
+  return response.json();
+}
+
 function App() {
   const [data, setData] = useState([]);
-
   const getData = () => {
     fetch(
       "https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json"
@@ -39,7 +45,6 @@ function App() {
         setData(myJson);
       });
   };
-
   useEffect(() => {
     getData();
   }, []);
@@ -47,14 +52,49 @@ function App() {
   const [favourites, setFavourites] = useState(
     () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
   );
-
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
+  const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
+  useEffect(() => {
+    localStorage.setItem("groupId", groupId);
+  }, [groupId]);
+
+  const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
+  useEffect(() => {
+    localStorage.setItem("userId", userId);
+  }, [userId]);
+
+  const createGroup = async () => {
+    const createGroupResponse = await postData(
+      "https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/create-group"
+    );
+    if (createGroupResponse.groupId) {
+      setGroupId(createGroupResponse.groupId);
+
+      const joinGroupResponse = await postData(
+        `https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/join-group?groupId=${createGroupResponse.groupId}`
+      );
+      if (joinGroupResponse.userId) {
+        setUserId(joinGroupResponse.userId);
+
+        // return createGroupResponse.groupId;
+      }
+    }
+    throw new Error("Whoops! Something went wrong - give it another go?");
+  };
+
   const [rankView, setRankView] = useState(0);
 
+  const [isGroupOwner, setIsGroupOwner] = useState(false);
+
   const [socketConnected, setSocketConnected] = useState(false);
+
+  const connect = () => {
+    console.log("Connect");
+    // setSocketConnected(true);
+  };
 
   const [showRankMessage, setRankMessage] = useState(() =>
     localStorage.getItem("showRankMessage") === null
@@ -113,14 +153,20 @@ function App() {
                   </Route>
                   <Route path="/rank">
                     <RankProjects
-                      rankView={rankView}
-                      setRankView={setRankView}
-                      socketConnected={socketConnected}
                       projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
+                      rankView={rankView}
+                      setRankView={setRankView}
+                      createGroup={createGroup}
+                      isGroupOwner={isGroupOwner}
+                      enableGroupOwner={() => setIsGroupOwner(true)}
+                      groupId={groupId}
+                      userId={userId}
+                      socketConnected={socketConnected}
+                      connect={connect}
                     />
                   </Route>
                 </Switch>

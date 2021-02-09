@@ -19,14 +19,20 @@ import RankGroup from "./RankGroup";
 import RankTable from "./RankTable";
 
 export default function RankProjects({
-  rankView,
-  setRankView,
-  socketConnected,
   projects,
   favourites,
   setFavourites,
   showRankMessage,
   setRankMessage,
+  rankView,
+  setRankView,
+  createGroup,
+  isGroupOwner,
+  enableGroupOwner,
+  groupId,
+  userId,
+  socketConnected,
+  connect,
 }) {
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
@@ -96,7 +102,14 @@ export default function RankProjects({
         )}
       </Tabs>
       {rankView === 1 && !socketConnected ? (
-        <RankGroup />
+        <RankGroup
+          createGroup={createGroup}
+          isGroupOwner={isGroupOwner}
+          enableGroupOwner={enableGroupOwner}
+          groupId={groupId}
+          userId={userId}
+          connect={connect}
+        />
       ) : (
         <RankTable
           projects={projects}
