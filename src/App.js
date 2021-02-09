@@ -52,7 +52,9 @@ function App() {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
-  console.log(localStorage.getItem("showRankMessage"));
+  const [rankView, setRankView] = useState(0);
+
+  const [socketConnected, setSocketConnected] = useState(false);
 
   const [showRankMessage, setRankMessage] = useState(() =>
     localStorage.getItem("showRankMessage") === null
@@ -111,6 +113,9 @@ function App() {
                   </Route>
                   <Route path="/rank">
                     <RankProjects
+                      rankView={rankView}
+                      setRankView={setRankView}
+                      socketConnected={socketConnected}
                       projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}

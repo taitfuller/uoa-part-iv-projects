@@ -1,65 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
 import {
-  Avatar,
-  Box,
   Button,
-  Chip,
-  Collapse,
   Container,
   Grid,
   IconButton,
-  TableCell,
-  TableRow,
-  Tooltip,
+  Tab,
+  Tabs,
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import ClearIcon from "@material-ui/icons/Clear";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import SettingsIcon from "@material-ui/icons/Settings";
 import { Link } from "react-router-dom";
 
-import ProjectDetails from "./ProjectDetails";
+import RankGroup from "./RankGroup";
 import RankTable from "./RankTable";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    overflowX: "hidden",
-  },
-  buttonColumn: {
-    width: "128px",
-  },
-  lowRank: {
-    backgroundColor: "#eee",
-  },
-  blue: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
-  right: {
-    marginLeft: "auto",
-  },
-  cursor: {
-    cursor: "pointer",
-  },
-  root: {
-    "& > *": {
-      borderBottom: "unset",
-    },
-  },
-  fullHeight: {
-    height: "100%",
-  },
-  alertMessage: {
-    marginBottom: theme.spacing(4),
-  },
-}));
-
 export default function RankProjects({
+  rankView,
+  setRankView,
+  socketConnected,
   projects,
   favourites,
   setFavourites,
@@ -120,11 +82,28 @@ export default function RankProjects({
           Your top 5 projects are highlighted
         </Alert>
       )}
-      <RankTable
-        projects={projects}
-        favourites={favourites}
-        setFavourites={setFavourites}
-      />
+      <Tabs
+        value={rankView}
+        onChange={(_event, newValue) => setRankView(newValue)}
+        centered
+      >
+        <Tab label="Personal" />
+        <Tab label="Group" />
+        {rankView === 1 && socketConnected && (
+          <IconButton onClick={() => alert("Gday")}>
+            <SettingsIcon />
+          </IconButton>
+        )}
+      </Tabs>
+      {rankView === 1 && !socketConnected ? (
+        <RankGroup />
+      ) : (
+        <RankTable
+          projects={projects}
+          favourites={favourites}
+          setFavourites={setFavourites}
+        />
+      )}
     </Container>
   );
 }

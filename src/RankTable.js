@@ -49,12 +49,6 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: "unset",
     },
   },
-  fullHeight: {
-    height: "100%",
-  },
-  alertMessage: {
-    marginBottom: theme.spacing(4),
-  },
 }));
 
 function Row({ project, i, swapFavourites, removeFavourite, length }) {
