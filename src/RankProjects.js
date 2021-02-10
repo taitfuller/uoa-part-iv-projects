@@ -2,11 +2,8 @@ import React from "react";
 
 import {
   Button,
-  CircularProgress,
   Container,
   Grid,
-  Tab,
-  Tabs,
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
@@ -14,7 +11,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
 
-import RankGroup from "./RankGroup";
 import RankTable from "./RankTable";
 
 export default function RankProjects({
@@ -24,24 +20,12 @@ export default function RankProjects({
   groupFavourites,
   showRankMessage,
   setRankMessage,
-  rankView,
-  setRankView,
-  createGroup,
-  joinGroup,
-  isGroupOwner,
-  enableGroupOwner,
-  groupId,
-  userId,
-  socketConnected,
-  connect,
 }) {
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
     .filter((project) => favourites.has(project.id))
     .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
-
-  const displayGroup = rankView === 1;
 
   if (filteredProjects.length === 0) {
     return (
@@ -91,15 +75,13 @@ export default function RankProjects({
           Your top 5 projects are highlighted
         </Alert>
       )}
-      <Tabs
-        value={rankView}
-        onChange={(_event, newValue) => setRankView(newValue)}
-        centered
-      >
-        <Tab label="Personal" />
-        <Tab label="Group" />
-      </Tabs>
-      {displayGroup && !socketConnected ? (
+      <RankTable
+        projects={projects}
+        favourites={favourites}
+        setFavourites={setFavourites}
+        groupFavourites={groupFavourites}
+      />
+      {/* {displayGroup && !socketConnected ? (
         <RankGroup
           createGroup={createGroup}
           joinGroup={joinGroup}
@@ -133,7 +115,7 @@ export default function RankProjects({
           groupFavourites={groupFavourites}
           displayGroup={displayGroup}
         />
-      )}
+      )} */}
     </Container>
   );
 }

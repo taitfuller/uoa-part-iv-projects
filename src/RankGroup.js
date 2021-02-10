@@ -16,6 +16,8 @@ import AddIcon from "@material-ui/icons/Add";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
+import RankProjects from "./RankProjects";
+
 const useStyles = makeStyles((theme) => ({
   fullHeight: {
     height: "100%",
@@ -60,14 +62,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RankProjects({
+export default function RankGroup({
   createGroup,
   joinGroup,
   isGroupOwner,
   enableGroupOwner,
   groupId,
   userId,
+  socketConnected,
   connect,
+  projects,
+  favourites,
+  setFavourites,
+  groupFavourites,
+  showRankMessage,
+  setRankMessage,
 }) {
   const [accessCode, setAccessCode] = useState(groupId);
 
@@ -109,197 +118,233 @@ export default function RankProjects({
       .catch((err) => setErrorMessage(err.message));
   };
 
-  return (
-    <Grid
-      container
-      direction="row"
-      spacing={4}
-      justify="center"
-      alignItems="stretch"
-      className={classes.groupCardContainer}
-    >
-      {userId !== "" && groupId !== "" ? (
-        isGroupOwner ? (
-          <Grid item xs className={classes.groupCardItem}>
-            <Paper className={classes.groupCard}>
-              <Grid
-                container
-                direction="column"
-                spacing={2}
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography variant="h6">You're all set!</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography>
-                    Share this Access Code with your partner:
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Paper
-                    component="form"
-                    className={classes.inputRoot}
-                    elevation={3}
-                    onSubmit={joinGroupHandler}
-                  >
-                    <Typography className={classes.accessCode} id="access-code">
-                      {groupId}
+  if (!socketConnected) {
+    return (
+      <Grid
+        container
+        direction="row"
+        spacing={4}
+        justify="center"
+        alignItems="stretch"
+        className={classes.groupCardContainer}
+      >
+        {userId !== "" && groupId !== "" ? (
+          isGroupOwner ? (
+            <Grid item xs className={classes.groupCardItem}>
+              <Paper className={classes.groupCard}>
+                <Grid
+                  container
+                  direction="column"
+                  spacing={2}
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Typography variant="h6">You're all set!</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography>
+                      Share this Access Code with your partner:
                     </Typography>
-                    <IconButton
-                      onClick={copyAccessCode}
-                      className={classes.inputSubmit}
+                  </Grid>
+                  <Grid item>
+                    <Paper
+                      component="form"
+                      className={classes.inputRoot}
+                      elevation={3}
+                      onSubmit={joinGroupHandler}
                     >
-                      <FileCopyIcon />
-                    </IconButton>
-                  </Paper>
-                </Grid>
-                <Grid item>
-                  <Button onClick={connect} variant="contained">
-                    Done
-                  </Button>
-                </Grid>
-              </Grid>
-            </Paper>
-            <Snackbar
-              open={showCopied}
-              autoHideDuration={3000}
-              onClose={() => setShowCopied(false)}
-            >
-              <Alert onClose={() => setShowCopied(false)} severity="success">
-                Access Code Copied!
-              </Alert>
-            </Snackbar>
-          </Grid>
-        ) : (
-          <Grid item xs className={classes.groupCardItem}>
-            <Paper className={classes.groupCard}>
-              <Grid
-                container
-                direction="column"
-                spacing={2}
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography variant="h6">Whoops!</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography>
-                    We couldn't connect to our server
-                    <SentimentVeryDissatisfiedIcon
-                      style={{ marginBottom: -5, marginLeft: 5 }}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Button
-                    variant="contained"
-                    onClick={connect}
-                    disabled={loadingJoinGroup || loadingCreateGroup}
-                  >
-                    Reconnect
-                  </Button>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-        )
-      ) : (
-        <React.Fragment>
-          <Grid item xs className={classes.groupCardItem}>
-            <Paper className={classes.groupCard}>
-              <Grid
-                container
-                direction="column"
-                spacing={2}
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography variant="h6">Join Group</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography>Enter your partners Access Code:</Typography>
-                </Grid>
-                <Grid item>
-                  <Paper
-                    component="form"
-                    className={classes.inputRoot}
-                    elevation={3}
-                    onSubmit={joinGroupHandler}
-                  >
-                    <InputBase
-                      className={classes.input}
-                      placeholder="Access Code"
-                      value={accessCode}
-                      onChange={(event) =>
-                        setAccessCode(event.target.value.toUpperCase())
-                      }
-                    />
-                    {loadingJoinGroup ? (
-                      <CircularProgress
-                        className={classes.inputSubmit}
-                        size={44}
-                      />
-                    ) : (
-                      <IconButton
-                        type="submit"
-                        className={classes.inputSubmit}
-                        disabled={accessCode === "" || loadingCreateGroup}
+                      <Typography
+                        className={classes.accessCode}
+                        id="access-code"
                       >
-                        <AddIcon />
+                        {groupId}
+                      </Typography>
+                      <IconButton
+                        onClick={copyAccessCode}
+                        className={classes.inputSubmit}
+                      >
+                        <FileCopyIcon />
                       </IconButton>
-                    )}
-                  </Paper>
+                    </Paper>
+                  </Grid>
+                  <Grid item>
+                    <Button onClick={connect} variant="contained">
+                      Done
+                    </Button>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-          <Grid item xs className={classes.groupCardItem}>
-            <Paper className={classes.groupCard}>
-              <Grid
-                container
-                className={classes.fullHeight}
-                direction="column"
-                alignItems="center"
-                justify="space-between"
+              </Paper>
+              <Snackbar
+                open={showCopied}
+                autoHideDuration={3000}
+                onClose={() => setShowCopied(false)}
               >
-                <Grid item>
-                  <Typography variant="h6">Create Group</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography>Don't have an Access Code?</Typography>
-                </Grid>
-                <Grid item>
-                  <div className={classes.createButtonWrapper}>
+                <Alert onClose={() => setShowCopied(false)} severity="success">
+                  Access Code Copied!
+                </Alert>
+              </Snackbar>
+            </Grid>
+          ) : (
+            <Grid item xs className={classes.groupCardItem}>
+              <Paper className={classes.groupCard}>
+                <Grid
+                  container
+                  direction="column"
+                  spacing={2}
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Typography variant="h6">Whoops!</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography>
+                      We couldn't connect to our server
+                      <SentimentVeryDissatisfiedIcon
+                        style={{ marginBottom: -5, marginLeft: 5 }}
+                      />
+                    </Typography>
+                  </Grid>
+                  <Grid item>
                     <Button
                       variant="contained"
-                      onClick={createGroupHandler}
+                      onClick={connect}
                       disabled={loadingJoinGroup || loadingCreateGroup}
                     >
-                      Create Group
+                      Reconnect
                     </Button>
-                    {loadingCreateGroup && (
-                      <CircularProgress
-                        size={24}
-                        className={classes.createButtonProgress}
-                      />
-                    )}
-                  </div>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-        </React.Fragment>
-      )}
-      <Snackbar
-        open={errorMessage !== ""}
-        autoHideDuration={3000}
-        onClose={() => setErrorMessage("")}
+              </Paper>
+            </Grid>
+          )
+        ) : (
+          <React.Fragment>
+            <Grid item xs className={classes.groupCardItem}>
+              <Paper className={classes.groupCard}>
+                <Grid
+                  container
+                  direction="column"
+                  spacing={2}
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Typography variant="h6">Join Group</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography>Enter your partners Access Code:</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Paper
+                      component="form"
+                      className={classes.inputRoot}
+                      elevation={3}
+                      onSubmit={joinGroupHandler}
+                    >
+                      <InputBase
+                        className={classes.input}
+                        placeholder="Access Code"
+                        value={accessCode}
+                        onChange={(event) =>
+                          setAccessCode(event.target.value.toUpperCase())
+                        }
+                      />
+                      {loadingJoinGroup ? (
+                        <CircularProgress
+                          className={classes.inputSubmit}
+                          size={44}
+                        />
+                      ) : (
+                        <IconButton
+                          type="submit"
+                          className={classes.inputSubmit}
+                          disabled={accessCode === "" || loadingCreateGroup}
+                        >
+                          <AddIcon />
+                        </IconButton>
+                      )}
+                    </Paper>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+            <Grid item xs className={classes.groupCardItem}>
+              <Paper className={classes.groupCard}>
+                <Grid
+                  container
+                  className={classes.fullHeight}
+                  direction="column"
+                  alignItems="center"
+                  justify="space-between"
+                >
+                  <Grid item>
+                    <Typography variant="h6">Create Group</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography>Don't have an Access Code?</Typography>
+                  </Grid>
+                  <Grid item>
+                    <div className={classes.createButtonWrapper}>
+                      <Button
+                        variant="contained"
+                        onClick={createGroupHandler}
+                        disabled={loadingJoinGroup || loadingCreateGroup}
+                      >
+                        Create Group
+                      </Button>
+                      {loadingCreateGroup && (
+                        <CircularProgress
+                          size={24}
+                          className={classes.createButtonProgress}
+                        />
+                      )}
+                    </div>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+          </React.Fragment>
+        )}
+        <Snackbar
+          open={errorMessage !== ""}
+          autoHideDuration={3000}
+          onClose={() => setErrorMessage("")}
+        >
+          <Alert onClose={() => setErrorMessage("")} severity="error">
+            {errorMessage}
+          </Alert>
+        </Snackbar>
+      </Grid>
+    );
+  }
+
+  if (!!groupFavourites) {
+    return (
+      <Grid
+        container
+        direction="column"
+        justify="space-around"
+        alignItems="center"
+        spacing={4}
+        style={{ marginTop: 80 }}
       >
-        <Alert onClose={() => setErrorMessage("")} severity="error">
-          {errorMessage}
-        </Alert>
-      </Snackbar>
-    </Grid>
+        <Grid item>
+          <CircularProgress size={40} />
+        </Grid>
+        <Grid item>
+          <Typography variant="h5">Loading Group Data...</Typography>
+        </Grid>
+      </Grid>
+    );
+  }
+
+  return (
+    <RankProjects
+      projects={projects}
+      favourites={favourites}
+      setFavourites={setFavourites}
+      groupFavourites={groupFavourites}
+      showRankMessage={showRankMessage}
+      setRankMessage={setRankMessage}
+    />
   );
 }

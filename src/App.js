@@ -12,6 +12,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./Header";
 import ExploreProjects from "./ExploreProjects";
+import RankGroup from "./RankGroup";
 import RankProjects from "./RankProjects";
 
 const useStyles = makeStyles((theme) => ({
@@ -101,8 +102,6 @@ function App() {
     }
   };
 
-  const [rankView, setRankView] = useState(0);
-
   const [isGroupOwner, setIsGroupOwner] = useState(false);
 
   const [socketConnected, setSocketConnected] = useState(false);
@@ -177,8 +176,6 @@ function App() {
                       groupFavourites={groupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
-                      rankView={rankView}
-                      setRankView={setRankView}
                       createGroup={createGroup}
                       joinGroup={joinGroup}
                       isGroupOwner={isGroupOwner}
@@ -190,15 +187,13 @@ function App() {
                     />
                   </Route>
                   <Route path="/group-ranking">
-                    <RankProjects
+                    <RankGroup
                       projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}
                       groupFavourites={groupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
-                      rankView={rankView}
-                      setRankView={setRankView}
                       createGroup={createGroup}
                       joinGroup={joinGroup}
                       isGroupOwner={isGroupOwner}
