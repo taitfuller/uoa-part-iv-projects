@@ -10,22 +10,21 @@ import RankTable from "./RankTable";
 
 export default function RankProjects({
   projects,
-  favourites,
+  userFavourites,
   toggleFavourite,
   swapFavourites,
   groupFavourites,
   showRankMessage,
   setRankMessage,
 }) {
+  const favourites =
+    groupFavourites && groupFavourites.size ? groupFavourites : userFavourites;
+  console.log(favourites);
+  console.log(groupFavourites && groupFavourites.size);
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
-    .filter((project) => {
-      if (groupFavourites && groupFavourites.size) {
-        return groupFavourites.has(project.id);
-      }
-      return favourites.has(project.id);
-    })
+    .filter((project) => favourites.has(project.id))
     .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
 
   if (filteredProjects.length === 0) {
@@ -78,7 +77,7 @@ export default function RankProjects({
       )}
       <RankTable
         projects={filteredProjects}
-        favourites={favourites}
+        userFavourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapFavourites}
       />

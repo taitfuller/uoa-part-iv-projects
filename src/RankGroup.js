@@ -72,10 +72,10 @@ export default function RankGroup({
   socketConnected,
   connect,
   projects,
-  favourites,
+  userFavourites,
+  groupFavourites,
   toggleFavourite,
   swapGroupFavourites,
-  groupFavourites,
   showRankMessage,
   setRankMessage,
 }) {
@@ -341,7 +341,7 @@ export default function RankGroup({
   return (
     <RankProjects
       projects={projects}
-      favourites={favourites}
+      userFavourites={userFavourites}
       toggleFavourite={toggleFavourite}
       swapFavourites={swapGroupFavourites}
       groupFavourites={groupFavourites}

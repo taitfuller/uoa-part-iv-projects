@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 function Row({
   project,
   i,
-  favourites,
+  userFavourites,
   toggleFavourite,
   swapFavourites,
   length,
@@ -62,6 +62,8 @@ function Row({
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
+
+  console.log(swapFavourites);
 
   return (
     <React.Fragment>
@@ -118,7 +120,7 @@ function Row({
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
           </Tooltip>
-          {favourites.has(project.id) && (
+          {userFavourites.has(project.id) && (
             <Tooltip title="Remove">
               <IconButton onClick={() => toggleFavourite(project.id)}>
                 <ClearIcon />
@@ -133,7 +135,7 @@ function Row({
             <Box margin={1}>
               <ProjectDetails
                 project={project}
-                isFavourite={favourites.has(project.id)}
+                isFavourite={userFavourites.has(project.id)}
                 toggleFavourite={() => toggleFavourite(project.id)}
               />
             </Box>
@@ -144,7 +146,7 @@ function Row({
   );
 }
 
-export default function RankTable({ projects, favourites, toggleFavourite, swapFavourites }) {
+export default function RankTable({ projects, userFavourites, toggleFavourite, swapFavourites }) {
   const classes = useStyles();
 
   return (
@@ -164,7 +166,7 @@ export default function RankTable({ projects, favourites, toggleFavourite, swapF
               key={project.id}
               project={project}
               i={i}
-              favourites={favourites}
+              userFavourites={userFavourites}
               toggleFavourite={toggleFavourite}
               swapFavourites={swapFavourites}
               length={projects.length}

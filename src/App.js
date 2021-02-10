@@ -116,6 +116,14 @@ function App() {
     }
   };
 
+  const socketUpdateFavourites = (favourites) => {
+    const data = JSON.stringify({
+      action: "updateUserFavourites",
+      data: [...favourites],
+    });
+    socket.send(data);
+  };
+
   const connect = () => {
     setSocketConnected(true);
 
@@ -124,16 +132,13 @@ function App() {
     );
 
     socket.onopen = () => {
-      const data = JSON.stringify({
-        action: "updateUserFavourites",
-        data: [...favourites],
-      });
-      socket.send(data);
+      socketUpdateFavourites(favourites);
     };
 
     socket.onmessage = (event) => {
       if (event.data) {
         const data = JSON.parse(event.data);
+        console.log(data);
         if (data.favouritesList) {
           setGroupFavourites(new Set(data.favouritesList));
         }
@@ -169,10 +174,13 @@ function App() {
     const update = new Set(favourites);
     update.has(id) ? update.delete(id) : update.add(id);
     setFavourites(update);
+    if (socket) {
+      socketUpdateFavourites(update);
+    }
   };
 
   const swapFavourites = (indexA, indexB) => {
-    const update = Array.from(favourites);
+    const update = [...favourites];
     const temp = update[indexA];
     update[indexA] = update[indexB];
     update[indexB] = temp;
@@ -180,11 +188,26 @@ function App() {
   };
 
   const swapGroupFavourites = (indexA, indexB) => {
-    const update = Array.from(groupFavourites);
-    const temp = update[indexA];
-    update[indexA] = update[indexB];
-    update[indexB] = temp;
+    const update = [...groupFavourites];
+    const valueA = update[indexA];
+    const valueB = update[indexB];
+    update[indexA] = valueB;
+    update[indexB] = valueA;
     setGroupFavourites(new Set(update));
+    const data = {
+      action: "updateGroupFavourites",
+      data: {
+        a: {
+          index: indexA,
+          value: valueA,
+        },
+        b: {
+          index: indexB,
+          value: valueB,
+        },
+      },
+    };
+    socket.send(JSON.stringify(data));
   };
 
   const classes = useStyles();
@@ -236,7 +259,7 @@ function App() {
                   <Route path="/my-ranking">
                     <RankProjects
                       projects={data.projects}
-                      favourites={favourites}
+                      userFavourites={favourites}
                       toggleFavourite={toggleFavourite}
                       swapFavourites={swapFavourites}
                       showRankMessage={showRankMessage}
@@ -254,10 +277,10 @@ function App() {
                       socketConnected={socketConnected}
                       connect={connect}
                       projects={data.projects}
-                      favourites={favourites}
+                      userFavourites={favourites}
+                      groupFavourites={groupFavourites}
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}
-                      groupFavourites={groupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
                     />
