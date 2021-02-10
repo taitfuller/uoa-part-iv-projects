@@ -129,7 +129,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/explore" />
-        <Route path="/rank" />
+        <Route path="/my-ranking" />
+        <Route path="/group-ranking" />
         <Route path="/">
           <Redirect to="/explore" />
         </Route>
@@ -168,7 +169,27 @@ function App() {
                       setFavourites={setFavourites}
                     />
                   </Route>
-                  <Route path="/rank">
+                  <Route path="/my-ranking">
+                    <RankProjects
+                      projects={data.projects}
+                      favourites={favourites}
+                      setFavourites={setFavourites}
+                      groupFavourites={groupFavourites}
+                      showRankMessage={showRankMessage}
+                      setRankMessage={setRankMessage}
+                      rankView={rankView}
+                      setRankView={setRankView}
+                      createGroup={createGroup}
+                      joinGroup={joinGroup}
+                      isGroupOwner={isGroupOwner}
+                      enableGroupOwner={() => setIsGroupOwner(true)}
+                      groupId={groupId}
+                      userId={userId}
+                      socketConnected={socketConnected}
+                      connect={connect}
+                    />
+                  </Route>
+                  <Route path="/group-ranking">
                     <RankProjects
                       projects={data.projects}
                       favourites={favourites}
