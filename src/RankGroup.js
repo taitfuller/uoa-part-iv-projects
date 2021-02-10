@@ -73,7 +73,8 @@ export default function RankGroup({
   connect,
   projects,
   favourites,
-  setFavourites,
+  toggleFavourite,
+  swapGroupFavourites,
   groupFavourites,
   showRankMessage,
   setRankMessage,
@@ -317,7 +318,7 @@ export default function RankGroup({
     );
   }
 
-  if (!groupFavourites.length) {
+  if (!groupFavourites.size) {
     return (
       <Grid
         container
@@ -341,7 +342,8 @@ export default function RankGroup({
     <RankProjects
       projects={projects}
       favourites={favourites}
-      setFavourites={setFavourites}
+      toggleFavourite={toggleFavourite}
+      swapFavourites={swapGroupFavourites}
       groupFavourites={groupFavourites}
       showRankMessage={showRankMessage}
       setRankMessage={setRankMessage}

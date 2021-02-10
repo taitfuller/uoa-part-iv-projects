@@ -1,11 +1,6 @@
 import React from "react";
 
-import {
-  Button,
-  Container,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
@@ -16,7 +11,8 @@ import RankTable from "./RankTable";
 export default function RankProjects({
   projects,
   favourites,
-  setFavourites,
+  toggleFavourite,
+  swapFavourites,
   groupFavourites,
   showRankMessage,
   setRankMessage,
@@ -24,7 +20,12 @@ export default function RankProjects({
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
-    .filter((project) => favourites.has(project.id))
+    .filter((project) => {
+      if (groupFavourites && groupFavourites.size) {
+        return groupFavourites.has(project.id);
+      }
+      return favourites.has(project.id);
+    })
     .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
 
   if (filteredProjects.length === 0) {
@@ -76,46 +77,11 @@ export default function RankProjects({
         </Alert>
       )}
       <RankTable
-        projects={projects}
+        projects={filteredProjects}
         favourites={favourites}
-        setFavourites={setFavourites}
-        groupFavourites={groupFavourites}
+        toggleFavourite={toggleFavourite}
+        swapFavourites={swapFavourites}
       />
-      {/* {displayGroup && !socketConnected ? (
-        <RankGroup
-          createGroup={createGroup}
-          joinGroup={joinGroup}
-          isGroupOwner={isGroupOwner}
-          enableGroupOwner={enableGroupOwner}
-          groupId={groupId}
-          userId={userId}
-          connect={connect}
-        />
-      ) : displayGroup && !!groupFavourites ? (
-        <Grid
-          container
-          direction="column"
-          justify="space-around"
-          alignItems="center"
-          spacing={4}
-          style={{marginTop: 80}}
-        >
-          <Grid item>
-            <CircularProgress size={40} />
-          </Grid>
-          <Grid item>
-            <Typography variant="h5">Loading Group...</Typography>
-          </Grid>
-        </Grid>
-      ) : (
-        <RankTable
-          projects={projects}
-          favourites={favourites}
-          setFavourites={setFavourites}
-          groupFavourites={groupFavourites}
-          displayGroup={displayGroup}
-        />
-      )} */}
     </Container>
   );
 }

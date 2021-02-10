@@ -51,7 +51,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Row({ project, i, swapFavourites, removeFavourite, length }) {
+function Row({
+  project,
+  i,
+  favourites,
+  toggleFavourite,
+  swapFavourites,
+  length,
+}) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -111,11 +118,13 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
           </Tooltip>
-          <Tooltip title="Remove">
-            <IconButton onClick={() => removeFavourite(project.id)}>
-              <ClearIcon />
-            </IconButton>
-          </Tooltip>
+          {favourites.has(project.id) && (
+            <Tooltip title="Remove">
+              <IconButton onClick={() => toggleFavourite(project.id)}>
+                <ClearIcon />
+              </IconButton>
+            </Tooltip>
+          )}
         </TableCell>
       </TableRow>
       <TableRow>
@@ -124,8 +133,8 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
             <Box margin={1}>
               <ProjectDetails
                 project={project}
-                isFavourite={true}
-                toggleFavourite={() => removeFavourite(project.id)}
+                isFavourite={favourites.has(project.id)}
+                toggleFavourite={() => toggleFavourite(project.id)}
               />
             </Box>
           </Collapse>
@@ -135,27 +144,7 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
   );
 }
 
-export default function RankTable({ projects, favourites, setFavourites }) {
-  const favouritesIndexes = new Map();
-  Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
-  const filteredProjects = projects
-    .filter((project) => favourites.has(project.id))
-    .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
-
-  const swapFavourites = (indexA, indexB) => {
-    const update = Array.from(favourites);
-    const temp = update[indexA];
-    update[indexA] = update[indexB];
-    update[indexB] = temp;
-    setFavourites(new Set(update));
-  };
-
-  const removeFavourite = (id) => {
-    const update = new Set(favourites);
-    update.delete(id);
-    setFavourites(update);
-  };
-
+export default function RankTable({ projects, favourites, toggleFavourite, swapFavourites }) {
   const classes = useStyles();
 
   return (
@@ -170,14 +159,15 @@ export default function RankTable({ projects, favourites, setFavourites }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredProjects.map((project, i) => (
+          {projects.map((project, i) => (
             <Row
               key={project.id}
               project={project}
               i={i}
+              favourites={favourites}
+              toggleFavourite={toggleFavourite}
               swapFavourites={swapFavourites}
-              removeFavourite={removeFavourite}
-              length={filteredProjects.length}
+              length={projects.length}
             />
           ))}
         </TableBody>

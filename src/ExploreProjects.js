@@ -6,7 +6,7 @@ import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissa
 import Filter from "./Filter";
 import ProjectCard from "./ProjectCard";
 
-export default function ExploreProjects({ data, favourites, setFavourites }) {
+export default function ExploreProjects({ data, favourites, toggleFavourite }) {
   const [selectedFilters, setSelectedFilters] = useState({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -47,12 +47,6 @@ export default function ExploreProjects({ data, favourites, setFavourites }) {
   const filteredProjects = data.projects.filter((project) =>
     filters.every((filter) => filter(project))
   );
-
-  const toggleFavourite = (id) => {
-    const update = new Set(favourites);
-    update.has(id) ? update.delete(id) : update.add(id);
-    setFavourites(update);
-  };
 
   return (
     <div>

@@ -67,7 +67,7 @@ function App() {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
-  const [groupFavourites, setGroupFavourites] = useState([]);
+  const [groupFavourites, setGroupFavourites] = useState(new Set());
 
   const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
   useEffect(() => {
@@ -135,7 +135,7 @@ function App() {
       if (event.data) {
         const data = JSON.parse(event.data);
         if (data.favouritesList) {
-          setGroupFavourites(data.favouritesList);
+          setGroupFavourites(new Set(data.favouritesList));
         }
       }
     };
@@ -164,6 +164,28 @@ function App() {
       }
     }
   });
+
+  const toggleFavourite = (id) => {
+    const update = new Set(favourites);
+    update.has(id) ? update.delete(id) : update.add(id);
+    setFavourites(update);
+  };
+
+  const swapFavourites = (indexA, indexB) => {
+    const update = Array.from(favourites);
+    const temp = update[indexA];
+    update[indexA] = update[indexB];
+    update[indexB] = temp;
+    setFavourites(new Set(update));
+  };
+
+  const swapGroupFavourites = (indexA, indexB) => {
+    const update = Array.from(groupFavourites);
+    const temp = update[indexA];
+    update[indexA] = update[indexB];
+    update[indexB] = temp;
+    setGroupFavourites(new Set(update));
+  };
 
   const classes = useStyles();
 
@@ -208,35 +230,21 @@ function App() {
                     <ExploreProjects
                       data={data}
                       favourites={favourites}
-                      setFavourites={setFavourites}
+                      toggleFavourite={toggleFavourite}
                     />
                   </Route>
                   <Route path="/my-ranking">
                     <RankProjects
                       projects={data.projects}
                       favourites={favourites}
-                      setFavourites={setFavourites}
-                      groupFavourites={groupFavourites}
+                      toggleFavourite={toggleFavourite}
+                      swapFavourites={swapFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
-                      createGroup={createGroup}
-                      joinGroup={joinGroup}
-                      isGroupOwner={isGroupOwner}
-                      enableGroupOwner={() => setIsGroupOwner(true)}
-                      groupId={groupId}
-                      userId={userId}
-                      socketConnected={socketConnected}
-                      connect={connect}
                     />
                   </Route>
                   <Route path="/group-ranking">
                     <RankGroup
-                      projects={data.projects}
-                      favourites={favourites}
-                      setFavourites={setFavourites}
-                      groupFavourites={groupFavourites}
-                      showRankMessage={showRankMessage}
-                      setRankMessage={setRankMessage}
                       createGroup={createGroup}
                       joinGroup={joinGroup}
                       isGroupOwner={isGroupOwner}
@@ -245,6 +253,13 @@ function App() {
                       userId={userId}
                       socketConnected={socketConnected}
                       connect={connect}
+                      projects={data.projects}
+                      favourites={favourites}
+                      toggleFavourite={toggleFavourite}
+                      swapGroupFavourites={swapGroupFavourites}
+                      groupFavourites={groupFavourites}
+                      showRankMessage={showRankMessage}
+                      setRankMessage={setRankMessage}
                     />
                   </Route>
                 </Switch>
