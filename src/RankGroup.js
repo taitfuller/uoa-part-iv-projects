@@ -317,7 +317,7 @@ export default function RankGroup({
     );
   }
 
-  if (!!groupFavourites) {
+  if (!groupFavourites.length) {
     return (
       <Grid
         container

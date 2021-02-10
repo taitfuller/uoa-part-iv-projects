@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -14,6 +14,15 @@ import Header from "./Header";
 import ExploreProjects from "./ExploreProjects";
 import RankGroup from "./RankGroup";
 import RankProjects from "./RankProjects";
+
+const useDidMount = () => {
+  const didMountRef = useRef(true);
+
+  useEffect(() => {
+    didMountRef.current = false;
+  }, []);
+  return didMountRef.current;
+};
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -33,7 +42,11 @@ async function postData(url = "") {
   return response.json();
 }
 
+let socket = null;
+
 function App() {
+  const didMount = useDidMount();
+
   const [data, setData] = useState([]);
   const getData = () => {
     fetch(
@@ -46,9 +59,6 @@ function App() {
         setData(myJson);
       });
   };
-  useEffect(() => {
-    getData();
-  }, []);
 
   const [favourites, setFavourites] = useState(
     () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
@@ -68,6 +78,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("userId", userId);
   }, [userId]);
+
+  const [isGroupOwner, setIsGroupOwner] = useState(false);
+
+  const [socketConnected, setSocketConnected] = useState(false);
 
   const createGroup = async () => {
     try {
@@ -102,14 +116,34 @@ function App() {
     }
   };
 
-  const [isGroupOwner, setIsGroupOwner] = useState(false);
-
-  const [socketConnected, setSocketConnected] = useState(false);
-
   const connect = () => {
-    console.log("Connect");
     setSocketConnected(true);
-    setGroupFavourites([]);
+
+    socket = new WebSocket(
+      `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
+    );
+
+    socket.onopen = () => {
+      const data = JSON.stringify({
+        action: "updateUserFavourites",
+        data: [...favourites],
+      });
+      socket.send(data);
+    };
+
+    socket.onmessage = (event) => {
+      if (event.data) {
+        const data = JSON.parse(event.data);
+        if (data.favouritesList) {
+          setGroupFavourites(data.favouritesList);
+        }
+      }
+    };
+
+    socket.onclose = socket.onerror = () => {
+      setSocketConnected(false);
+      socket = null;
+    };
   };
 
   const [showRankMessage, setRankMessage] = useState(() =>
@@ -121,6 +155,15 @@ function App() {
   useEffect(() => {
     localStorage.setItem("showRankMessage", showRankMessage);
   }, [showRankMessage]);
+
+  useEffect(() => {
+    if (didMount) {
+      getData();
+      if (!socket && !!groupId && !!userId) {
+        connect();
+      }
+    }
+  });
 
   const classes = useStyles();
 
