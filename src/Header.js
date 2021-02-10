@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
-  Chip,
   Drawer,
   Grid,
   IconButton,
@@ -55,8 +54,6 @@ export default function Header() {
   const centerNav = useMediaQuery("(min-width:940px)");
   const burgerMenu = useMediaQuery("(max-width:740px)");
 
-  console.log(burgerOpen);
-
   return (
     <React.Fragment>
       <AppBar className={classes.nav}>
@@ -93,6 +90,7 @@ export default function Header() {
                           component={Link}
                           to={page.route}
                           value={page.route}
+                          key={page.name}
                         />
                       ))}
                     </Tabs>
