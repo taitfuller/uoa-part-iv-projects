@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   groupCardItem: {
-    maxWidth: "350px",
+    maxWidth: "400px",
   },
   groupCard: {
     height: "105%",
@@ -62,13 +62,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RankProjects({
   createGroup,
+  joinGroup,
   isGroupOwner,
   enableGroupOwner,
   groupId,
   userId,
   connect,
 }) {
-  const [newGroupId, setNewGroupId] = useState(groupId);
+  const [accessCode, setAccessCode] = useState(groupId);
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
   const [loadingCreateGroup, setLoadingCreateGroup] = useState(false);
@@ -78,10 +79,16 @@ export default function RankProjects({
 
   const classes = useStyles();
 
-  const joinGroup = (event) => {
+  const joinGroupHandler = async (event) => {
     event.preventDefault();
     setLoadingJoinGroup(true);
-    setTimeout(() => setLoadingJoinGroup(false), 1000);
+    try {
+      await joinGroup(accessCode);
+      connect();
+    } catch (err) {
+      setErrorMessage(err.message);
+    }
+    setLoadingJoinGroup(false);
   };
 
   const createGroupHandler = async () => {
@@ -90,7 +97,6 @@ export default function RankProjects({
     try {
       await createGroup();
     } catch (err) {
-      console.log(err);
       setErrorMessage(err.message);
     }
     setLoadingCreateGroup(false);
@@ -127,7 +133,7 @@ export default function RankProjects({
                 </Grid>
                 <Grid item>
                   <Typography>
-                    Give this access code to your partner:
+                    Share this Access Code with your partner:
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -135,7 +141,7 @@ export default function RankProjects({
                     component="form"
                     className={classes.inputRoot}
                     elevation={3}
-                    onSubmit={joinGroup}
+                    onSubmit={joinGroupHandler}
                   >
                     <Typography className={classes.accessCode} id="access-code">
                       {groupId}
@@ -212,23 +218,21 @@ export default function RankProjects({
                   <Typography variant="h6">Join Group</Typography>
                 </Grid>
                 <Grid item>
-                  <Typography>
-                    Enter your partners access code to join their group
-                  </Typography>
+                  <Typography>Enter your partners Access Code:</Typography>
                 </Grid>
                 <Grid item>
                   <Paper
                     component="form"
                     className={classes.inputRoot}
                     elevation={3}
-                    onSubmit={joinGroup}
+                    onSubmit={joinGroupHandler}
                   >
                     <InputBase
                       className={classes.input}
                       placeholder="Access Code"
-                      value={newGroupId}
+                      value={accessCode}
                       onChange={(event) =>
-                        setNewGroupId(event.target.value.toUpperCase())
+                        setAccessCode(event.target.value.toUpperCase())
                       }
                     />
                     {loadingJoinGroup ? (
@@ -240,7 +244,7 @@ export default function RankProjects({
                       <IconButton
                         type="submit"
                         className={classes.inputSubmit}
-                        disabled={newGroupId === "" || loadingCreateGroup}
+                        disabled={accessCode === "" || loadingCreateGroup}
                       >
                         <AddIcon />
                       </IconButton>
@@ -256,7 +260,6 @@ export default function RankProjects({
                 container
                 className={classes.fullHeight}
                 direction="column"
-                spacing={2}
                 alignItems="center"
                 justify="space-between"
               >
@@ -264,7 +267,7 @@ export default function RankProjects({
                   <Typography variant="h6">Create Group</Typography>
                 </Grid>
                 <Grid item>
-                  <Typography>Don't have an access code?</Typography>
+                  <Typography>Don't have an Access Code?</Typography>
                 </Grid>
                 <Grid item>
                   <div className={classes.createButtonWrapper}>

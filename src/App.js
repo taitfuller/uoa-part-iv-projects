@@ -56,6 +56,8 @@ function App() {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
+  const [groupFavourites, setGroupFavourites] = useState([]);
+
   const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
   useEffect(() => {
     localStorage.setItem("groupId", groupId);
@@ -67,22 +69,36 @@ function App() {
   }, [userId]);
 
   const createGroup = async () => {
-    const createGroupResponse = await postData(
-      "https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/create-group"
-    );
-    if (createGroupResponse.groupId) {
-      setGroupId(createGroupResponse.groupId);
+    try {
+      const createGroupResponse = await postData(
+        "https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/create-group"
+      );
+      if (createGroupResponse.groupId) {
+        setGroupId(createGroupResponse.groupId);
 
+        await joinGroup(createGroupResponse.groupId);
+
+        return createGroupResponse.groupId;
+      }
+    } catch (_err) {
+      throw new Error("Whoops! Something went wrong - give it another go?");
+    }
+  };
+
+  const joinGroup = async (joinGroupId) => {
+    try {
       const joinGroupResponse = await postData(
-        `https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/join-group?groupId=${createGroupResponse.groupId}`
+        `https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/join-group?groupId=${joinGroupId}`
       );
       if (joinGroupResponse.userId) {
+        if (groupId !== joinGroupId) setGroupId(joinGroupId);
         setUserId(joinGroupResponse.userId);
 
-        // return createGroupResponse.groupId;
+        return;
       }
+    } catch (_err) {
+      throw new Error("Whoops! Looks like you entered an invalid Access Code");
     }
-    throw new Error("Whoops! Something went wrong - give it another go?");
   };
 
   const [rankView, setRankView] = useState(0);
@@ -93,7 +109,8 @@ function App() {
 
   const connect = () => {
     console.log("Connect");
-    // setSocketConnected(true);
+    setSocketConnected(true);
+    setGroupFavourites([]);
   };
 
   const [showRankMessage, setRankMessage] = useState(() =>
@@ -156,11 +173,13 @@ function App() {
                       projects={data.projects}
                       favourites={favourites}
                       setFavourites={setFavourites}
+                      groupFavourites={groupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
                       rankView={rankView}
                       setRankView={setRankView}
                       createGroup={createGroup}
+                      joinGroup={joinGroup}
                       isGroupOwner={isGroupOwner}
                       enableGroupOwner={() => setIsGroupOwner(true)}
                       groupId={groupId}

@@ -2,9 +2,9 @@ import React from "react";
 
 import {
   Button,
+  CircularProgress,
   Container,
   Grid,
-  IconButton,
   Tab,
   Tabs,
   Typography,
@@ -12,7 +12,6 @@ import {
 import Alert from "@material-ui/lab/Alert";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
-import SettingsIcon from "@material-ui/icons/Settings";
 import { Link } from "react-router-dom";
 
 import RankGroup from "./RankGroup";
@@ -22,11 +21,13 @@ export default function RankProjects({
   projects,
   favourites,
   setFavourites,
+  groupFavourites,
   showRankMessage,
   setRankMessage,
   rankView,
   setRankView,
   createGroup,
+  joinGroup,
   isGroupOwner,
   enableGroupOwner,
   groupId,
@@ -39,6 +40,8 @@ export default function RankProjects({
   const filteredProjects = projects
     .filter((project) => favourites.has(project.id))
     .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
+
+  const displayGroup = rankView === 1;
 
   if (filteredProjects.length === 0) {
     return (
@@ -96,20 +99,39 @@ export default function RankProjects({
         <Tab label="Personal" />
         <Tab label="Group" />
       </Tabs>
-      {rankView === 1 && !socketConnected ? (
+      {displayGroup && !socketConnected ? (
         <RankGroup
           createGroup={createGroup}
+          joinGroup={joinGroup}
           isGroupOwner={isGroupOwner}
           enableGroupOwner={enableGroupOwner}
           groupId={groupId}
           userId={userId}
           connect={connect}
         />
+      ) : displayGroup && !!groupFavourites ? (
+        <Grid
+          container
+          direction="column"
+          justify="space-around"
+          alignItems="center"
+          spacing={4}
+          style={{marginTop: 80}}
+        >
+          <Grid item>
+            <CircularProgress size={40} />
+          </Grid>
+          <Grid item>
+            <Typography variant="h5">Loading Group...</Typography>
+          </Grid>
+        </Grid>
       ) : (
         <RankTable
           projects={projects}
           favourites={favourites}
           setFavourites={setFavourites}
+          groupFavourites={groupFavourites}
+          displayGroup={displayGroup}
         />
       )}
     </Container>
