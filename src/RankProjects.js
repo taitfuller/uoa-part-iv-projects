@@ -19,6 +19,7 @@ export default function RankProjects({
   setRankMessage,
   setLeaveGroupDialog,
   isGroup,
+  copyAccessCode,
 }) {
   const favourites = isGroup ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
@@ -83,6 +84,7 @@ export default function RankProjects({
         setLeaveGroupDialog={setLeaveGroupDialog}
         isGroup={isGroup}
         userCount={userCount}
+        copyAccessCode={copyAccessCode}
       />
     </Container>
   );

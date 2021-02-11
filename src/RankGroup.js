@@ -8,11 +8,9 @@ import {
   IconButton,
   InputBase,
   Paper,
-  Snackbar,
   Tooltip,
   Typography,
 } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
 import AddIcon from "@material-ui/icons/Add";
 import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
@@ -82,15 +80,14 @@ export default function RankGroup({
   swapGroupFavourites,
   showRankMessage,
   setRankMessage,
+  setErrorMessage,
   setLeaveGroupDialog,
+  copyAccessCode,
 }) {
   const [accessCode, setAccessCode] = useState(groupId);
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
   const [loadingCreateGroup, setLoadingCreateGroup] = useState(false);
-
-  const [showCopied, setShowCopied] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const classes = useStyles();
 
@@ -98,9 +95,7 @@ export default function RankGroup({
     event.preventDefault();
     setLoadingJoinGroup(true);
     try {
-      console.log("join group");
       const userId = await joinGroup(accessCode);
-      console.log("connect");
       connect(accessCode, userId);
     } catch (err) {
       setErrorMessage(err.message);
@@ -117,13 +112,6 @@ export default function RankGroup({
       setErrorMessage(err.message);
     }
     setLoadingCreateGroup(false);
-  };
-
-  const copyAccessCode = () => {
-    navigator.clipboard
-      .writeText(groupId)
-      .then(() => setShowCopied(true))
-      .catch((err) => setErrorMessage(err.message));
   };
 
   if (!socketConnected) {
@@ -180,15 +168,6 @@ export default function RankGroup({
                   </Grid>
                 </Grid>
               </Paper>
-              <Snackbar
-                open={showCopied}
-                autoHideDuration={3000}
-                onClose={() => setShowCopied(false)}
-              >
-                <Alert onClose={() => setShowCopied(false)} severity="success">
-                  Access Code Copied!
-                </Alert>
-              </Snackbar>
             </Grid>
           ) : (
             <Grid item xs className={classes.groupCardItem}>
@@ -317,15 +296,6 @@ export default function RankGroup({
             </Grid>
           </React.Fragment>
         )}
-        <Snackbar
-          open={errorMessage !== ""}
-          autoHideDuration={3000}
-          onClose={() => setErrorMessage("")}
-        >
-          <Alert onClose={() => setErrorMessage("")} severity="error">
-            {errorMessage}
-          </Alert>
-        </Snackbar>
       </Grid>
     );
   }
@@ -362,6 +332,7 @@ export default function RankGroup({
       setRankMessage={setRankMessage}
       setLeaveGroupDialog={setLeaveGroupDialog}
       isGroup={true}
+      copyAccessCode={copyAccessCode}
     />
   );
 }

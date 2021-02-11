@@ -10,6 +10,7 @@ import {
   DialogActions,
   DialogTitle,
   Grid,
+  Snackbar,
   Typography,
 } from "@material-ui/core";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
@@ -18,6 +19,7 @@ import Header from "./Header";
 import ExploreProjects from "./ExploreProjects";
 import RankGroup from "./RankGroup";
 import RankProjects from "./RankProjects";
+import Alert from "@material-ui/lab/Alert";
 
 const useDidMount = () => {
   const didMountRef = useRef(true);
@@ -237,6 +239,16 @@ function App() {
     socket.send(JSON.stringify(data));
   };
 
+  const [showCopied, setShowCopied] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const copyAccessCode = () => {
+    navigator.clipboard
+      .writeText(groupId)
+      .then(() => setShowCopied(true))
+      .catch((err) => setErrorMessage(err.message));
+  };
+
   const classes = useStyles();
 
   return (
@@ -312,7 +324,9 @@ function App() {
                       swapGroupFavourites={swapGroupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
+                      setErrorMessage={setErrorMessage}
                       setLeaveGroupDialog={setLeaveGroupDialog}
+                      copyAccessCode={copyAccessCode}
                     />
                   </Route>
                 </Switch>
@@ -333,6 +347,24 @@ function App() {
                   </Button>
                 </DialogActions>
               </Dialog>
+              <Snackbar
+                open={showCopied}
+                autoHideDuration={3000}
+                onClose={() => setShowCopied(false)}
+              >
+                <Alert onClose={() => setShowCopied(false)} severity="success">
+                  Access Code Copied!
+                </Alert>
+              </Snackbar>
+              <Snackbar
+                open={errorMessage !== ""}
+                autoHideDuration={3000}
+                onClose={() => setErrorMessage("")}
+              >
+                <Alert onClose={() => setErrorMessage("")} severity="error">
+                  {errorMessage}
+                </Alert>
+              </Snackbar>
             </main>
           </div>
         )}

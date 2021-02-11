@@ -20,6 +20,7 @@ import {
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -154,6 +155,7 @@ export default function RankTable({
   setLeaveGroupDialog,
   isGroup,
   userCount,
+  copyAccessCode,
 }) {
   const classes = useStyles();
 
@@ -173,7 +175,16 @@ export default function RankTable({
                 {isGroup && (
                   <React.Fragment>
                     <Grid item>
-                      <Tooltip title={`${userCount} Members`}>
+                      <Tooltip title="Copy Access Code">
+                        <IconButton onClick={copyAccessCode}>
+                          <FileCopyIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item>
+                      <Tooltip
+                        title={`${userCount} Member${userCount > 1 ? "s" : ""}`}
+                      >
                         <Chip icon={<VisibilityIcon />} label={userCount} />
                       </Tooltip>
                     </Grid>
