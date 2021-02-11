@@ -19,8 +19,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
+import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import ProjectDetails from "./ProjectDetails";
 
@@ -146,7 +148,14 @@ function Row({
   );
 }
 
-export default function RankTable({ projects, userFavourites, toggleFavourite, swapFavourites }) {
+export default function RankTable({
+  projects,
+  userFavourites,
+  toggleFavourite,
+  swapFavourites,
+  setLeaveGroupDialog,
+  isGroup,
+}) {
   const classes = useStyles();
 
   return (
@@ -157,7 +166,22 @@ export default function RankTable({ projects, userFavourites, toggleFavourite, s
             <TableCell align="center" className={classes.buttonColumn}>
               Rank
             </TableCell>
-            <TableCell colSpan="2">Project</TableCell>
+            <TableCell colSpan="2">
+              <Grid container direction="row" alignItems="center" spacing={2}>
+                <Grid item xs>
+                  Project
+                </Grid>
+                {isGroup && (
+                  <Grid item>
+                    <Tooltip title="Leave Group">
+                      <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                        <DirectionsRunIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </Grid>
+                )}
+              </Grid>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

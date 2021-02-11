@@ -2,9 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Button,
   CircularProgress,
   Container,
   CssBaseline,
+  Dialog,
+  DialogActions,
+  DialogTitle,
   Grid,
   Typography,
 } from "@material-ui/core";
@@ -155,11 +159,24 @@ function App() {
     };
   };
 
+  const disconnect = () => {
+    if (socket) {
+      socketUpdateFavourites([]);
+    }
+    setGroupId("");
+    setUserId("");
+    setSocketConnected(false);
+    socket = null;
+    setLeaveGroupDialog(false);
+  };
+
   const [showRankMessage, setRankMessage] = useState(() =>
     localStorage.getItem("showRankMessage") === null
       ? true
       : localStorage.getItem("showRankMessage")
   );
+
+  const [showLeaveGroupDialog, setLeaveGroupDialog] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("showRankMessage", showRankMessage);
@@ -288,10 +305,27 @@ function App() {
                       swapGroupFavourites={swapGroupFavourites}
                       showRankMessage={showRankMessage}
                       setRankMessage={setRankMessage}
+                      setLeaveGroupDialog={setLeaveGroupDialog}
                     />
                   </Route>
                 </Switch>
               </Container>
+              <Dialog
+                open={showLeaveGroupDialog}
+                onClose={() => setLeaveGroupDialog(false)}
+              >
+                <DialogTitle>
+                  Are you sure you want to leave this group?
+                </DialogTitle>
+                <DialogActions>
+                  <Button onClick={disconnect} style={{ color: "red" }}>
+                    Leave Group
+                  </Button>
+                  <Button onClick={() => setLeaveGroupDialog(false)}>
+                    Cancel
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </main>
           </div>
         )}

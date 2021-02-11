@@ -16,9 +16,10 @@ export default function RankProjects({
   groupFavourites,
   showRankMessage,
   setRankMessage,
+  setLeaveGroupDialog,
+  isGroup,
 }) {
-  const favourites =
-    groupFavourites && groupFavourites.size ? groupFavourites : userFavourites;
+  const favourites = isGroup ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
@@ -78,6 +79,8 @@ export default function RankProjects({
         userFavourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapFavourites}
+        setLeaveGroupDialog={setLeaveGroupDialog}
+        isGroup={isGroup}
       />
     </Container>
   );

@@ -9,10 +9,12 @@ import {
   InputBase,
   Paper,
   Snackbar,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import AddIcon from "@material-ui/icons/Add";
+import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
@@ -79,6 +81,7 @@ export default function RankGroup({
   swapGroupFavourites,
   showRankMessage,
   setRankMessage,
+  setLeaveGroupDialog,
 }) {
   const [accessCode, setAccessCode] = useState(groupId);
 
@@ -215,6 +218,13 @@ export default function RankGroup({
                       Reconnect
                     </Button>
                   </Grid>
+                  <Grid item>
+                    <Tooltip title="Leave Group">
+                      <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                        <DirectionsRunIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </Grid>
                 </Grid>
               </Paper>
             </Grid>
@@ -348,6 +358,8 @@ export default function RankGroup({
       groupFavourites={groupFavourites}
       showRankMessage={showRankMessage}
       setRankMessage={setRankMessage}
+      setLeaveGroupDialog={setLeaveGroupDialog}
+      isGroup={true}
     />
   );
 }
