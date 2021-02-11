@@ -111,7 +111,7 @@ function App() {
         if (groupId !== joinGroupId) setGroupId(joinGroupId);
         setUserId(joinGroupResponse.userId);
 
-        return;
+        return joinGroupResponse.userId;
       }
     } catch (_err) {
       throw new Error("Whoops! Looks like you entered an invalid Access Code");
@@ -126,12 +126,14 @@ function App() {
     socket.send(data);
   };
 
-  const connect = () => {
+  const connect = (groupId, userId) => {
     setSocketConnected(true);
 
     socket = new WebSocket(
       `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
     );
+
+    console.log(socket);
 
     socket.onopen = () => {
       socketUpdateFavourites(favourites);

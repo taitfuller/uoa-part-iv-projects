@@ -94,8 +94,10 @@ export default function RankGroup({
     event.preventDefault();
     setLoadingJoinGroup(true);
     try {
-      await joinGroup(accessCode);
-      connect();
+      console.log("join group");
+      const userId = await joinGroup(accessCode);
+      console.log("connect");
+      connect(accessCode, userId);
     } catch (err) {
       setErrorMessage(err.message);
     }
@@ -149,12 +151,7 @@ export default function RankGroup({
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <Paper
-                      component="form"
-                      className={classes.inputRoot}
-                      elevation={3}
-                      onSubmit={joinGroupHandler}
-                    >
+                    <Paper className={classes.inputRoot} elevation={3}>
                       <Typography
                         className={classes.accessCode}
                         id="access-code"
@@ -170,7 +167,10 @@ export default function RankGroup({
                     </Paper>
                   </Grid>
                   <Grid item>
-                    <Button onClick={connect} variant="contained">
+                    <Button
+                      onClick={() => connect(groupId, userId)}
+                      variant="contained"
+                    >
                       Done
                     </Button>
                   </Grid>
