@@ -69,6 +69,8 @@ function App() {
 
   const [groupFavourites, setGroupFavourites] = useState(new Set());
 
+  const [groupHasLoaded, setGroupHasLoaded] = useState(false);
+
   const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
   useEffect(() => {
     localStorage.setItem("groupId", groupId);
@@ -138,9 +140,11 @@ function App() {
     socket.onmessage = (event) => {
       if (event.data) {
         const data = JSON.parse(event.data);
-        console.log(data);
         if (data.favouritesList) {
           setGroupFavourites(new Set(data.favouritesList));
+          if (!groupHasLoaded) {
+            setGroupHasLoaded(true);
+          }
         }
       }
     };
@@ -279,6 +283,7 @@ function App() {
                       projects={data.projects}
                       userFavourites={favourites}
                       groupFavourites={groupFavourites}
+                      groupHasLoaded={groupHasLoaded}
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}
                       showRankMessage={showRankMessage}

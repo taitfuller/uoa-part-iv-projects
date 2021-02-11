@@ -19,8 +19,6 @@ export default function RankProjects({
 }) {
   const favourites =
     groupFavourites && groupFavourites.size ? groupFavourites : userFavourites;
-  console.log(favourites);
-  console.log(groupFavourites && groupFavourites.size);
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects

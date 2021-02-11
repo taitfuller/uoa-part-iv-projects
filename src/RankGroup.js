@@ -74,6 +74,7 @@ export default function RankGroup({
   projects,
   userFavourites,
   groupFavourites,
+  groupHasLoaded,
   toggleFavourite,
   swapGroupFavourites,
   showRankMessage,
@@ -318,7 +319,7 @@ export default function RankGroup({
     );
   }
 
-  if (!groupFavourites.size) {
+  if (!groupHasLoaded) {
     return (
       <Grid
         container
