@@ -133,8 +133,6 @@ function App() {
       `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
     );
 
-    console.log(socket);
-
     socket.onopen = () => {
       socketUpdateFavourites(favourites);
     };
@@ -171,7 +169,7 @@ function App() {
     if (didMount) {
       getData();
       if (!socket && !!groupId && !!userId) {
-        connect();
+        connect(groupId, userId);
       }
     }
   });
