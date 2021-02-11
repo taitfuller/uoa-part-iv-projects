@@ -73,6 +73,8 @@ function App() {
 
   const [groupFavourites, setGroupFavourites] = useState(new Set());
 
+  const [userCount, setUserCount] = useState(1);
+
   const [groupHasLoaded, setGroupHasLoaded] = useState(false);
 
   const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
@@ -150,6 +152,9 @@ function App() {
             setGroupHasLoaded(true);
           }
         }
+        if (data.userCount) {
+          setUserCount(data.userCount);
+        }
       }
     };
 
@@ -162,6 +167,7 @@ function App() {
   const disconnect = () => {
     if (socket) {
       socketUpdateFavourites([]);
+      socket.close();
     }
     setGroupId("");
     setUserId("");
@@ -300,6 +306,7 @@ function App() {
                       projects={data.projects}
                       userFavourites={favourites}
                       groupFavourites={groupFavourites}
+                      userCount={userCount}
                       groupHasLoaded={groupHasLoaded}
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}

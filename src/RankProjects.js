@@ -14,6 +14,7 @@ export default function RankProjects({
   toggleFavourite,
   swapFavourites,
   groupFavourites,
+  userCount,
   showRankMessage,
   setRankMessage,
   setLeaveGroupDialog,
@@ -81,6 +82,7 @@ export default function RankProjects({
         swapFavourites={swapFavourites}
         setLeaveGroupDialog={setLeaveGroupDialog}
         isGroup={isGroup}
+        userCount={userCount}
       />
     </Container>
   );

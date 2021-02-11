@@ -76,6 +76,7 @@ export default function RankGroup({
   projects,
   userFavourites,
   groupFavourites,
+  userCount,
   groupHasLoaded,
   toggleFavourite,
   swapGroupFavourites,
@@ -356,6 +357,7 @@ export default function RankGroup({
       toggleFavourite={toggleFavourite}
       swapFavourites={swapGroupFavourites}
       groupFavourites={groupFavourites}
+      userCount={userCount}
       showRankMessage={showRankMessage}
       setRankMessage={setRankMessage}
       setLeaveGroupDialog={setLeaveGroupDialog}

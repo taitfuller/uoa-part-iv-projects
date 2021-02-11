@@ -65,8 +65,6 @@ function Row({
 
   const classes = useStyles();
 
-  console.log(swapFavourites);
-
   return (
     <React.Fragment>
       <TableRow
@@ -155,6 +153,7 @@ export default function RankTable({
   swapFavourites,
   setLeaveGroupDialog,
   isGroup,
+  userCount,
 }) {
   const classes = useStyles();
 
@@ -172,13 +171,20 @@ export default function RankTable({
                   Project
                 </Grid>
                 {isGroup && (
-                  <Grid item>
-                    <Tooltip title="Leave Group">
-                      <IconButton onClick={() => setLeaveGroupDialog(true)}>
-                        <DirectionsRunIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </Grid>
+                  <React.Fragment>
+                    <Grid item>
+                      <Tooltip title={`${userCount} Members`}>
+                        <Chip icon={<VisibilityIcon />} label={userCount} />
+                      </Tooltip>
+                    </Grid>
+                    <Grid item>
+                      <Tooltip title="Leave Group">
+                        <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                          <DirectionsRunIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                  </React.Fragment>
                 )}
               </Grid>
             </TableCell>
