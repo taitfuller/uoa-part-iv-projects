@@ -19,8 +19,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
+import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import ProjectDetails from "./ProjectDetails";
 
@@ -49,15 +52,16 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: "unset",
     },
   },
-  fullHeight: {
-    height: "100%",
-  },
-  alertMessage: {
-    marginBottom: theme.spacing(4),
-  },
 }));
 
-function Row({ project, i, swapFavourites, removeFavourite, length }) {
+function Row({
+  project,
+  i,
+  userFavourites,
+  toggleFavourite,
+  swapFavourites,
+  length,
+}) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -117,11 +121,13 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
           </Tooltip>
-          <Tooltip title="Remove">
-            <IconButton onClick={() => removeFavourite(project.id)}>
-              <ClearIcon />
-            </IconButton>
-          </Tooltip>
+          {userFavourites.has(project.id) && (
+            <Tooltip title="Remove">
+              <IconButton onClick={() => toggleFavourite(project.id)}>
+                <ClearIcon />
+              </IconButton>
+            </Tooltip>
+          )}
         </TableCell>
       </TableRow>
       <TableRow>
@@ -130,8 +136,8 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
             <Box margin={1}>
               <ProjectDetails
                 project={project}
-                isFavourite={true}
-                toggleFavourite={() => removeFavourite(project.id)}
+                isFavourite={userFavourites.has(project.id)}
+                toggleFavourite={() => toggleFavourite(project.id)}
               />
             </Box>
           </Collapse>
@@ -141,27 +147,16 @@ function Row({ project, i, swapFavourites, removeFavourite, length }) {
   );
 }
 
-export default function RankTable({ projects, favourites, setFavourites }) {
-  const favouritesIndexes = new Map();
-  Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
-  const filteredProjects = projects
-    .filter((project) => favourites.has(project.id))
-    .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
-
-  const swapFavourites = (indexA, indexB) => {
-    const update = Array.from(favourites);
-    const temp = update[indexA];
-    update[indexA] = update[indexB];
-    update[indexB] = temp;
-    setFavourites(new Set(update));
-  };
-
-  const removeFavourite = (id) => {
-    const update = new Set(favourites);
-    update.delete(id);
-    setFavourites(update);
-  };
-
+export default function RankTable({
+  projects,
+  userFavourites,
+  toggleFavourite,
+  swapFavourites,
+  setLeaveGroupDialog,
+  isGroup,
+  userCount,
+  copyAccessCode,
+}) {
   const classes = useStyles();
 
   return (
@@ -172,18 +167,50 @@ export default function RankTable({ projects, favourites, setFavourites }) {
             <TableCell align="center" className={classes.buttonColumn}>
               Rank
             </TableCell>
-            <TableCell colSpan="2">Project</TableCell>
+            <TableCell colSpan="2">
+              <Grid container direction="row" alignItems="center" spacing={2}>
+                <Grid item xs>
+                  Project
+                </Grid>
+                {isGroup && (
+                  <React.Fragment>
+                    <Grid item>
+                      <Tooltip title="Copy Access Code">
+                        <IconButton onClick={copyAccessCode}>
+                          <FileCopyIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                    <Grid item>
+                      <Tooltip
+                        title={`${userCount} Member${userCount > 1 ? "s" : ""}`}
+                      >
+                        <Chip icon={<VisibilityIcon />} label={userCount} />
+                      </Tooltip>
+                    </Grid>
+                    <Grid item>
+                      <Tooltip title="Leave Group">
+                        <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                          <DirectionsRunIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                  </React.Fragment>
+                )}
+              </Grid>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredProjects.map((project, i) => (
+          {projects.map((project, i) => (
             <Row
               key={project.id}
               project={project}
               i={i}
+              userFavourites={userFavourites}
+              toggleFavourite={toggleFavourite}
               swapFavourites={swapFavourites}
-              removeFavourite={removeFavourite}
-              length={filteredProjects.length}
+              length={projects.length}
             />
           ))}
         </TableBody>

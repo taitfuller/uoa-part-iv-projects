@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
+  Drawer,
   Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
   Tab,
   Tabs,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 import { Link, Route } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,49 +26,117 @@ const useStyles = makeStyles((theme) => ({
   fullHeightTabs: {
     ...theme.mixins.toolbar,
   },
+  drawerPaper: {
+    width: 240,
+  },
 }));
+
+const pages = [
+  {
+    name: "Explore",
+    route: "/explore",
+  },
+  {
+    name: "My Ranking",
+    route: "/my-ranking",
+  },
+  {
+    name: "Group Ranking",
+    route: "/group-ranking",
+  },
+];
 
 export default function Header() {
   const classes = useStyles();
 
-  const centerNav = useMediaQuery("(min-width:780px)");
+  const [burgerOpen, setBurgerOpen] = useState(false);
+
+  const centerNav = useMediaQuery("(min-width:940px)");
+  const burgerMenu = useMediaQuery("(max-width:740px)");
 
   return (
-    <AppBar className={classes.nav}>
-      <Toolbar>
-        <Grid container alignItems="center" justify="space-between">
-          <Grid item xs>
-            <Typography variant="h6">2021 Part IV Projects</Typography>
-          </Grid>
-          <Grid item>
-            <Route
-              path="/"
-              render={({ location }) => (
-                <Tabs
-                  value={location.pathname}
-                  className={classes.fullHeightTabs}
+    <React.Fragment>
+      <AppBar className={classes.nav}>
+        <Toolbar>
+          <Grid
+            container
+            direction={burgerMenu ? "row-reverse" : "row"}
+            alignItems="center"
+            justify="space-between"
+          >
+            <Grid item xs={!burgerMenu}>
+              <Typography variant="h6">2021 Part IV Projects</Typography>
+            </Grid>
+            <Grid item xs={burgerMenu}>
+              {burgerMenu ? (
+                <IconButton
+                  color="inherit"
+                  onClick={() => setBurgerOpen(!burgerOpen)}
                 >
-                  <Tab
-                    label="Explore"
-                    className={classes.fullHeightTabs}
-                    component={Link}
-                    to="/explore"
-                    value="/explore"
-                  />
-                  <Tab
-                    label="Rank"
-                    className={classes.fullHeightTabs}
-                    component={Link}
-                    to="/rank"
-                    value="/rank"
-                  />
-                </Tabs>
+                  <MenuIcon />
+                </IconButton>
+              ) : (
+                <Route
+                  path="/"
+                  render={({ location }) => (
+                    <Tabs
+                      value={location.pathname}
+                      className={classes.fullHeightTabs}
+                    >
+                      {pages.map((page) => (
+                        <Tab
+                          label={page.name}
+                          className={classes.fullHeightTabs}
+                          component={Link}
+                          to={page.route}
+                          value={page.route}
+                          key={page.name}
+                        />
+                      ))}
+                    </Tabs>
+                  )}
+                />
               )}
-            />
+            </Grid>
+            {centerNav && <Grid item xs />}
           </Grid>
-          {centerNav && <Grid item xs />}
-        </Grid>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      {burgerMenu && (
+        <nav>
+          <Route
+            path="/"
+            render={({ location }) => (
+              <Drawer
+                variant="temporary"
+                anchor="left"
+                open={burgerOpen}
+                onClose={() => setBurgerOpen(false)}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                ModalProps={{
+                  keepMounted: true,
+                }}
+              >
+                <List>
+                  {pages.map((page) => (
+                    <ListItem
+                      button
+                      component={Link}
+                      to={page.route}
+                      selected={page.route === location.pathname}
+                      key={page.name}
+                    >
+                      <ListItemText primary={page.name} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Drawer>
+            )}
+          />
+        </nav>
+      )}
+    </React.Fragment>
   );
 }

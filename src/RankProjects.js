@@ -1,71 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Avatar,
-  Box,
-  Button,
-  Chip,
-  Collapse,
-  Container,
-  Grid,
-  IconButton,
-  TableCell,
-  TableRow,
-  Tooltip,
-  Typography,
-} from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import ClearIcon from "@material-ui/icons/Clear";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
 
-import ProjectDetails from "./ProjectDetails";
 import RankTable from "./RankTable";
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    overflowX: "hidden",
-  },
-  buttonColumn: {
-    width: "128px",
-  },
-  lowRank: {
-    backgroundColor: "#eee",
-  },
-  blue: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
-  right: {
-    marginLeft: "auto",
-  },
-  cursor: {
-    cursor: "pointer",
-  },
-  root: {
-    "& > *": {
-      borderBottom: "unset",
-    },
-  },
-  fullHeight: {
-    height: "100%",
-  },
-  alertMessage: {
-    marginBottom: theme.spacing(4),
-  },
-}));
 
 export default function RankProjects({
   projects,
-  favourites,
-  setFavourites,
+  userFavourites,
+  toggleFavourite,
+  swapFavourites,
+  groupFavourites,
+  userCount,
   showRankMessage,
   setRankMessage,
+  setLeaveGroupDialog,
+  isGroup,
+  copyAccessCode,
 }) {
+  const favourites = isGroup ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
@@ -121,9 +77,14 @@ export default function RankProjects({
         </Alert>
       )}
       <RankTable
-        projects={projects}
-        favourites={favourites}
-        setFavourites={setFavourites}
+        projects={filteredProjects}
+        userFavourites={userFavourites}
+        toggleFavourite={toggleFavourite}
+        swapFavourites={swapFavourites}
+        setLeaveGroupDialog={setLeaveGroupDialog}
+        isGroup={isGroup}
+        userCount={userCount}
+        copyAccessCode={copyAccessCode}
       />
     </Container>
   );
