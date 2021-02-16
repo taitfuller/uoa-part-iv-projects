@@ -1,7 +1,15 @@
 import React from "react";
 
-import { Button, Container, Grid, Typography } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
@@ -60,6 +68,15 @@ export default function RankProjects({
               Explore Projects
             </Button>
           </Grid>
+          {isGroup && (
+            <Grid item>
+              <Tooltip title="Leave Group">
+                <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                  <DirectionsRunIcon />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          )}
         </Grid>
       </Container>
     );
