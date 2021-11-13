@@ -15,10 +15,10 @@ import {
 } from "@material-ui/core";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import Header from "./Header";
-import ExploreProjects from "./ExploreProjects";
-import RankGroup from "./RankGroup";
-import RankProjects from "./RankProjects";
+import Header from "./components/Header";
+import ExploreProjects from "./components/ExploreProjects";
+import RankGroup from "./components/RankGroup";
+import RankProjects from "./components/RankProjects";
 import Alert from "@material-ui/lab/Alert";
 
 const useDidMount = () => {
