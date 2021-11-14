@@ -14,24 +14,16 @@ interface FavouriteButtonProps {
 const FavouriteButton: React.FC<FavouriteButtonProps> = ({
   active,
   toggle,
-}) => {
-  if (active) {
-    return (
-      <Tooltip title="Unfavourite">
-        <IconButton aria-label="favourite" onClick={toggle}>
-          <FavoriteIcon fontSize="large" style={{ color: red[500] }} />
-        </IconButton>
-      </Tooltip>
-    );
-  } else {
-    return (
-      <Tooltip title="Favourite">
-        <IconButton aria-label="favourite" onClick={() => toggle()}>
-          <FavoriteBorderIcon fontSize="large" />
-        </IconButton>
-      </Tooltip>
-    );
-  }
-};
+}) => (
+  <Tooltip title={active ? "Unfavourite" : "Favourite"}>
+    <IconButton onClick={toggle}>
+      {active ? (
+        <FavoriteIcon fontSize="large" style={{ color: red[500] }} />
+      ) : (
+        <FavoriteBorderIcon fontSize="large" />
+      )}
+    </IconButton>
+  </Tooltip>
+);
 
 export default FavouriteButton;
