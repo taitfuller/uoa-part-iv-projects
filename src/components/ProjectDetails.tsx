@@ -28,16 +28,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface ProjectDetailsProps {
-  project: Project
-  isFavourite: boolean
-  toggleFavourite: () => void
+  project: Project;
+  isFavourite: boolean;
+  toggleFavourite: () => void;
 }
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   project,
   isFavourite,
   toggleFavourite,
-}: ProjectDetailsProps) => {
+}) => {
   const classes = useStyles();
 
   return (
@@ -134,6 +134,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       </div>
     </React.Fragment>
   );
-}
+};
 
-export default ProjectDetails
+export default ProjectDetails;

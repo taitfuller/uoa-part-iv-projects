@@ -64,26 +64,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface RankGroupProps {
-  createGroup: () => void
-  joinGroup: (accessCode: string) => Promise<string>
-  isGroupOwner: boolean
-  enableGroupOwner: () => void
-  groupId: string
-  userId: string
+  createGroup: () => void;
+  joinGroup: (accessCode: string) => Promise<string>;
+  isGroupOwner: boolean;
+  enableGroupOwner: () => void;
+  groupId: string;
+  userId: string;
   socketConnected: boolean;
   connect: (accessCode: string, userId: string) => void;
   projects: Project[];
   userFavourites: Set<Project["id"]>;
   groupFavourites: Set<Project["id"]>;
-  userCount: number
-  groupHasLoaded: boolean
-  toggleFavourite: (id: Project["id"]) => void
-  swapGroupFavourites: (a: number, b: number) => void
-  showRankMessage: boolean
-  setShowRankMessage: (show: boolean) => void
-  setErrorMessage: (message: string) => void
-  setShowLeaveGroupDialog: (show: boolean) => void
-  copyAccessCode: () => void
+  userCount: number;
+  groupHasLoaded: boolean;
+  toggleFavourite: (id: Project["id"]) => void;
+  swapGroupFavourites: (a: number, b: number) => void;
+  showRankMessage: boolean;
+  setShowRankMessage: (show: boolean) => void;
+  setErrorMessage: (message: string) => void;
+  setShowLeaveGroupDialog: (show: boolean) => void;
+  copyAccessCode: () => void;
 }
 
 const RankGroup: React.FC<RankGroupProps> = ({
@@ -107,7 +107,7 @@ const RankGroup: React.FC<RankGroupProps> = ({
   setErrorMessage,
   setShowLeaveGroupDialog,
   copyAccessCode,
-}: RankGroupProps) => {
+}) => {
   const [accessCode, setAccessCode] = useState(groupId);
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
@@ -359,6 +359,6 @@ const RankGroup: React.FC<RankGroupProps> = ({
       copyAccessCode={copyAccessCode}
     />
   );
-}
+};
 
 export default RankGroup;

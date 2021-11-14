@@ -2,13 +2,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import {
-  Avatar,
-  Chip,
-  Divider,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Avatar, Chip, Divider, Grid, Typography } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
 import ProjectDetails from "./ProjectDetails";
@@ -44,12 +38,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface ProjectCardProps {
-  project: Project
-  isFavourite: boolean
-  toggleFavourite: () => void
+  project: Project;
+  isFavourite: boolean;
+  toggleFavourite: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFavourite, toggleFavourite }: ProjectCardProps) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  isFavourite,
+  toggleFavourite,
+}) => {
   const classes = useStyles();
 
   return (
@@ -81,6 +79,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFavourite, toggleF
       />
     </Paper>
   );
-}
+};
 
-export default ProjectCard
+export default ProjectCard;

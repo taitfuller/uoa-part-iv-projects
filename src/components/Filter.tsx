@@ -29,34 +29,42 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type SelectedFilters = {
-  toggledFavourites: boolean,
-    toggledUnallocated: boolean,
-    selectedSupervisors: string[],
-    selectedCosupervisors: string[],
-    selectedSpecialisations: string[],
-    selectedCategories: string[],
-}
+  toggledFavourites: boolean;
+  toggledUnallocated: boolean;
+  selectedSupervisors: string[];
+  selectedCosupervisors: string[];
+  selectedSpecialisations: string[];
+  selectedCategories: string[];
+};
 interface FilterProps {
-  selectedFilters: SelectedFilters
-  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>
+  selectedFilters: SelectedFilters;
+  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
   supervisors: string[];
   cosupervisors: string[];
   specialisations: string[];
-  categories: string[]
+  categories: string[];
   count: number;
 }
 
-const Filter: React.FC<FilterProps> = (props: FilterProps) => {
+const Filter: React.FC<FilterProps> = ({
+  selectedFilters,
+  setSelectedFilters,
+  supervisors,
+  cosupervisors,
+  specialisations,
+  categories,
+  count,
+}) => {
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-    props.setSelectedFilters({
-      ...props.selectedFilters,
+    setSelectedFilters({
+      ...selectedFilters,
       [event.target.name]: event.target.checked,
     });
   };
 
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    props.setSelectedFilters({
-      ...props.selectedFilters,
+    setSelectedFilters({
+      ...selectedFilters,
       [event.target.name]: event.target.value,
     });
   };
@@ -79,7 +87,7 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
             </Grid>
             <Grid item>
               <Typography variant="button" noWrap>
-                ({props.count})
+                ({count})
               </Typography>
             </Grid>
           </Grid>
@@ -88,7 +96,7 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
           <FormControlLabel
             control={
               <Switch
-                checked={props.selectedFilters.toggledFavourites}
+                checked={selectedFilters.toggledFavourites}
                 onChange={handleChecked}
                 color="primary"
                 name="toggledFavourites"
@@ -102,7 +110,7 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
           <FormControlLabel
             control={
               <Switch
-                checked={props.selectedFilters.toggledUnallocated}
+                checked={selectedFilters.toggledUnallocated}
                 onChange={handleChecked}
                 color="primary"
                 name="toggledUnallocated"
@@ -119,19 +127,18 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
               labelId="supervisor-filter-label"
               id="supervisor-filter"
               multiple
-              value={props.selectedFilters.selectedSupervisors}
+              value={selectedFilters.selectedSupervisors}
               onChange={handleSelect as never}
               input={<Input />}
               renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedSupervisors"
             >
-              {props.supervisors.map((supervisor) => (
+              {supervisors.map((supervisor) => (
                 <MenuItem key={supervisor} value={supervisor}>
                   <Checkbox
                     checked={
-                      props.selectedFilters.selectedSupervisors.indexOf(
-                        supervisor
-                      ) > -1
+                      selectedFilters.selectedSupervisors.indexOf(supervisor) >
+                      -1
                     }
                   />
                   <ListItemText primary={supervisor} />
@@ -149,17 +156,17 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
               labelId="cosupervisor-filter-label"
               id="cosupervisor-filter"
               multiple
-              value={props.selectedFilters.selectedCosupervisors}
+              value={selectedFilters.selectedCosupervisors}
               onChange={handleSelect as never}
               input={<Input />}
               renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedCosupervisors"
             >
-              {props.cosupervisors.map((cosupervisor) => (
+              {cosupervisors.map((cosupervisor) => (
                 <MenuItem key={cosupervisor} value={cosupervisor}>
                   <Checkbox
                     checked={
-                      props.selectedFilters.selectedCosupervisors.indexOf(
+                      selectedFilters.selectedCosupervisors.indexOf(
                         cosupervisor
                       ) > -1
                     }
@@ -177,17 +184,17 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
               labelId="specialisation-filter-label"
               id="specialisation-filter"
               multiple
-              value={props.selectedFilters.selectedSpecialisations}
+              value={selectedFilters.selectedSpecialisations}
               onChange={handleSelect as never}
               input={<Input />}
               renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedSpecialisations"
             >
-              {props.specialisations.map((specialisation) => (
+              {specialisations.map((specialisation) => (
                 <MenuItem key={specialisation} value={specialisation}>
                   <Checkbox
                     checked={
-                      props.selectedFilters.selectedSpecialisations.indexOf(
+                      selectedFilters.selectedSpecialisations.indexOf(
                         specialisation
                       ) > -1
                     }
@@ -205,19 +212,17 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
               labelId="category-filter-label"
               id="category-filter"
               multiple
-              value={props.selectedFilters.selectedCategories}
+              value={selectedFilters.selectedCategories}
               onChange={handleSelect as never}
               input={<Input />}
               renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedCategories"
             >
-              {props.categories.map((category) => (
+              {categories.map((category) => (
                 <MenuItem key={category} value={category}>
                   <Checkbox
                     checked={
-                      props.selectedFilters.selectedCategories.indexOf(
-                        category
-                      ) > -1
+                      selectedFilters.selectedCategories.indexOf(category) > -1
                     }
                   />
                   <ListItemText primary={category} />
@@ -229,6 +234,6 @@ const Filter: React.FC<FilterProps> = (props: FilterProps) => {
       </Grid>
     </Paper>
   );
-}
+};
 
 export default Filter;

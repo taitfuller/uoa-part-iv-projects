@@ -68,24 +68,35 @@ const App: React.FC = () => {
   };
 
   const [favourites, setFavourites] = useState<Set<Project["id"]>>(
-    () => new Set(JSON.parse(localStorage.getItem("favourites") as string) as Project["id"][])
+    () =>
+      new Set(
+        JSON.parse(
+          localStorage.getItem("favourites") as string
+        ) as Project["id"][]
+      )
   );
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
-  const [groupFavourites, setGroupFavourites] = useState<Set<Project["id"]>>(new Set());
+  const [groupFavourites, setGroupFavourites] = useState<Set<Project["id"]>>(
+    new Set()
+  );
 
   const [userCount, setUserCount] = useState(1);
 
   const [groupHasLoaded, setGroupHasLoaded] = useState(false);
 
-  const [groupId, setGroupId] = useState<string>(localStorage.getItem("groupId") || "");
+  const [groupId, setGroupId] = useState<string>(
+    localStorage.getItem("groupId") || ""
+  );
   useEffect(() => {
     localStorage.setItem("groupId", groupId);
   }, [groupId]);
 
-  const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
+  const [userId, setUserId] = useState<string>(
+    localStorage.getItem("userId") || ""
+  );
   useEffect(() => {
     localStorage.setItem("userId", userId);
   }, [userId]);
@@ -188,7 +199,10 @@ const App: React.FC = () => {
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("showRankMessage", showRankMessage as unknown as string);
+    localStorage.setItem(
+      "showRankMessage",
+      showRankMessage as unknown as string
+    );
   }, [showRankMessage]);
 
   useEffect(() => {
@@ -372,6 +386,6 @@ const App: React.FC = () => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

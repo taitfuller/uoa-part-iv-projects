@@ -1,10 +1,10 @@
 export type Data = {
-  projects: Project[]
-  supervisors: string[]
-  cosupervisors: string[]
-  specialisations: string[]
-  categories: string[]
-}
+  projects: Project[];
+  supervisors: string[];
+  cosupervisors: string[];
+  specialisations: string[];
+  categories: string[];
+};
 
 export type Project = {
   id: string;
@@ -17,4 +17,4 @@ export type Project = {
   categories: string[];
   specialisations: string[];
   url: string;
-}
+};

@@ -30,44 +30,46 @@ import ProjectDetails from "./ProjectDetails";
 import { Project } from "../types";
 import red from "@material-ui/core/colors/red";
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  container: {
-    overflowX: "hidden",
-  },
-  buttonColumn: {
-    width: "128px",
-  },
-  lowRank: {
-    backgroundColor: "#eee",
-  },
-  blue: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
-  red: {
-    color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
-  },
-  right: {
-    marginLeft: "auto",
-  },
-  cursor: {
-    cursor: "pointer",
-  },
-  root: {
-    "& > *": {
-      borderBottom: "unset",
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      overflowX: "hidden",
     },
-  },
-}));
+    buttonColumn: {
+      width: "128px",
+    },
+    lowRank: {
+      backgroundColor: "#eee",
+    },
+    blue: {
+      color: theme.palette.getContrastText(theme.palette.info.dark),
+      backgroundColor: theme.palette.info.dark,
+    },
+    red: {
+      color: theme.palette.getContrastText(red[500]),
+      backgroundColor: red[500],
+    },
+    right: {
+      marginLeft: "auto",
+    },
+    cursor: {
+      cursor: "pointer",
+    },
+    root: {
+      "& > *": {
+        borderBottom: "unset",
+      },
+    },
+  })
+);
 
 interface RowProps {
-  project: Project
-  i: number
-  userFavourites: Set<Project["id"]>
-  toggleFavourite: (id: Project["id"]) => void
-  swapFavourites: (a: number, b: number) => void
-  length: number
+  project: Project;
+  i: number;
+  userFavourites: Set<Project["id"]>;
+  toggleFavourite: (id: Project["id"]) => void;
+  swapFavourites: (a: number, b: number) => void;
+  length: number;
 }
 
 const Row: React.FC<RowProps> = ({
@@ -161,20 +163,20 @@ const Row: React.FC<RowProps> = ({
       </TableRow>
     </React.Fragment>
   );
-}
+};
 
 interface RankTableProps {
-  projects: Project[]
-  userFavourites: Set<Project["id"]>
-  toggleFavourite: (id: Project["id"]) => void
-  swapFavourites: (a: number, b: number) => void
-  setShowLeaveGroupDialog?: (show: boolean) => void
-  isGroup?: boolean
-  userCount?: number
-  copyAccessCode?: () => void
+  projects: Project[];
+  userFavourites: Set<Project["id"]>;
+  toggleFavourite: (id: Project["id"]) => void;
+  swapFavourites: (a: number, b: number) => void;
+  setShowLeaveGroupDialog?: (show: boolean) => void;
+  isGroup?: boolean;
+  userCount?: number;
+  copyAccessCode?: () => void;
 }
 
-const RankTable: React.FC<RankTableProps>  = ({
+const RankTable: React.FC<RankTableProps> = ({
   projects,
   userFavourites,
   toggleFavourite,
@@ -183,7 +185,7 @@ const RankTable: React.FC<RankTableProps>  = ({
   isGroup,
   userCount,
   copyAccessCode,
-}: RankTableProps) => {
+}) => {
   const classes = useStyles();
 
   return (
@@ -217,7 +219,9 @@ const RankTable: React.FC<RankTableProps>  = ({
                     </Grid>
                     <Grid item>
                       <Tooltip title="Leave Group">
-                        <IconButton onClick={() => setShowLeaveGroupDialog(true)}>
+                        <IconButton
+                          onClick={() => setShowLeaveGroupDialog(true)}
+                        >
                           <DirectionsRunIcon />
                         </IconButton>
                       </Tooltip>
@@ -244,6 +248,6 @@ const RankTable: React.FC<RankTableProps>  = ({
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default RankTable;

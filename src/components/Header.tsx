@@ -139,6 +139,6 @@ const Header: React.FC = () => {
       )}
     </React.Fragment>
   );
-}
+};
 
 export default Header;

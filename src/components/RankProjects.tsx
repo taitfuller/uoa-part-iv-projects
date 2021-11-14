@@ -19,16 +19,16 @@ import { Project } from "../types";
 
 interface RankProjectsProps {
   projects: Project[];
-  userFavourites: Set<Project["id"]>
-  toggleFavourite: (id: Project["id"]) => void
-  swapFavourites: (a: number, b: number) => void
-  groupFavourites?: Set<Project["id"]>
-  userCount?: number,
+  userFavourites: Set<Project["id"]>;
+  toggleFavourite: (id: Project["id"]) => void;
+  swapFavourites: (a: number, b: number) => void;
+  groupFavourites?: Set<Project["id"]>;
+  userCount?: number;
   showRankMessage: boolean;
   setShowRankMessage: (show: boolean) => void;
-  setShowLeaveGroupDialog?: (show: boolean) => void,
-  isGroup?: boolean,
-  copyAccessCode?: () => void
+  setShowLeaveGroupDialog?: (show: boolean) => void;
+  isGroup?: boolean;
+  copyAccessCode?: () => void;
 }
 
 const RankProjects: React.FC<RankProjectsProps> = ({
@@ -43,8 +43,9 @@ const RankProjects: React.FC<RankProjectsProps> = ({
   setShowLeaveGroupDialog,
   isGroup,
   copyAccessCode,
-}: RankProjectsProps) => {
-  const favourites: Set<Project["id"]> = isGroup && groupFavourites ? groupFavourites : userFavourites;
+}) => {
+  const favourites: Set<Project["id"]> =
+    isGroup && groupFavourites ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
@@ -120,6 +121,6 @@ const RankProjects: React.FC<RankProjectsProps> = ({
       />
     </Container>
   );
-}
+};
 
-export default RankProjects
+export default RankProjects;

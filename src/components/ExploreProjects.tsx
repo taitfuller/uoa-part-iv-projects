@@ -8,20 +8,24 @@ import ProjectCard from "./ProjectCard";
 import { Data, Project } from "../types";
 
 type SelectedFilters = {
-  toggledFavourites: boolean,
-    toggledUnallocated: boolean,
-    selectedSupervisors: string[],
-    selectedCosupervisors: string[],
-    selectedSpecialisations: string[],
-    selectedCategories: string[],
-}
+  toggledFavourites: boolean;
+  toggledUnallocated: boolean;
+  selectedSupervisors: string[];
+  selectedCosupervisors: string[];
+  selectedSpecialisations: string[];
+  selectedCategories: string[];
+};
 interface ExploreProjectsProps {
   data: Data;
   favourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
 }
 
-const ExploreProjects: React.FC<ExploreProjectsProps> = ({ data, favourites, toggleFavourite }: ExploreProjectsProps) => {
+const ExploreProjects: React.FC<ExploreProjectsProps> = ({
+  data,
+  favourites,
+  toggleFavourite,
+}) => {
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -99,6 +103,6 @@ const ExploreProjects: React.FC<ExploreProjectsProps> = ({ data, favourites, tog
       )}
     </div>
   );
-}
+};
 
-export default ExploreProjects
+export default ExploreProjects;

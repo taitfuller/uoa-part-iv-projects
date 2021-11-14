@@ -7,11 +7,14 @@ import { red } from "@material-ui/core/colors";
 import { Tooltip } from "@material-ui/core";
 
 interface FavouriteButtonProps {
-  active: boolean
-  toggle: () => void
+  active: boolean;
+  toggle: () => void;
 }
 
-const FavouriteButton: React.FC<FavouriteButtonProps> = ({ active, toggle }: FavouriteButtonProps) => {
+const FavouriteButton: React.FC<FavouriteButtonProps> = ({
+  active,
+  toggle,
+}) => {
   if (active) {
     return (
       <Tooltip title="Unfavourite">
@@ -29,6 +32,6 @@ const FavouriteButton: React.FC<FavouriteButtonProps> = ({ active, toggle }: Fav
       </Tooltip>
     );
   }
-}
+};
 
-export default FavouriteButton
+export default FavouriteButton;
