@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 import Header from "./components/Header";
 import Alert from "@material-ui/lab/Alert";
@@ -21,15 +22,7 @@ import { Data, Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
-
-const useDidMount = () => {
-  const didMountRef = useRef(true);
-
-  useEffect(() => {
-    didMountRef.current = false;
-  }, []);
-  return didMountRef.current;
-};
+import JoinGroupPage from "./pages/JoinGroupPage";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -52,8 +45,6 @@ async function postData(url = "") {
 let socket: WebSocket | undefined;
 
 const App: React.FC = () => {
-  const didMount = useDidMount();
-
   const [data, setData] = useState<Data>();
   const getData = () => {
     fetch(
@@ -87,23 +78,9 @@ const App: React.FC = () => {
 
   const [groupHasLoaded, setGroupHasLoaded] = useState(false);
 
-  const [groupId, setGroupId] = useState<string>(
-    localStorage.getItem("groupId") || ""
-  );
-  useEffect(() => {
-    localStorage.setItem("groupId", groupId);
-  }, [groupId]);
+  const [groupId, setGroupId] = useLocalStorage("groupId", "");
 
-  const [userId, setUserId] = useState<string>(
-    localStorage.getItem("userId") || ""
-  );
-  useEffect(() => {
-    localStorage.setItem("userId", userId);
-  }, [userId]);
-
-  const [isGroupOwner, setIsGroupOwner] = useState(false);
-
-  const [socketConnected, setSocketConnected] = useState(false);
+  const [userId, setUserId] = useLocalStorage("userId", "");
 
   const createGroup = async () => {
     try {
@@ -146,37 +123,37 @@ const App: React.FC = () => {
     socket?.send(data);
   };
 
-  const connect = (groupId: string, userId: string) => {
-    setSocketConnected(true);
+  const connect = useCallback(
+    (groupId: string, userId: string) => {
+      socket = new WebSocket(
+        `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
+      );
 
-    socket = new WebSocket(
-      `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
-    );
+      socket.onopen = () => {
+        socketUpdateFavourites(favourites);
+      };
 
-    socket.onopen = () => {
-      socketUpdateFavourites(favourites);
-    };
-
-    socket.onmessage = (event) => {
-      if (event.data) {
-        const data = JSON.parse(event.data);
-        if (data.favouritesList) {
-          setGroupFavourites(new Set(data.favouritesList));
-          if (!groupHasLoaded) {
-            setGroupHasLoaded(true);
+      socket.onmessage = (event) => {
+        if (event.data) {
+          const data = JSON.parse(event.data);
+          if (data.favouritesList) {
+            setGroupFavourites(new Set(data.favouritesList));
+            if (!groupHasLoaded) {
+              setGroupHasLoaded(true);
+            }
+          }
+          if (data.userCount) {
+            setUserCount(data.userCount);
           }
         }
-        if (data.userCount) {
-          setUserCount(data.userCount);
-        }
-      }
-    };
+      };
 
-    socket.onclose = socket.onerror = () => {
-      setSocketConnected(false);
-      socket = undefined;
-    };
-  };
+      socket.onclose = socket.onerror = () => {
+        socket = undefined;
+      };
+    },
+    [favourites, groupHasLoaded]
+  );
 
   const disconnect = () => {
     if (socket) {
@@ -185,7 +162,6 @@ const App: React.FC = () => {
     }
     setGroupId("");
     setUserId("");
-    setSocketConnected(false);
     socket = undefined;
     setShowLeaveGroupDialog(false);
   };
@@ -193,13 +169,12 @@ const App: React.FC = () => {
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
   useEffect(() => {
-    if (didMount) {
-      getData();
-      if (!socket && !!groupId && !!userId) {
-        connect(groupId, userId);
-      }
-    }
-  });
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if (!socket && groupId && userId) connect(groupId, userId);
+  }, [connect, groupId, userId]);
 
   const toggleFavourite = (id: Project["id"]) => {
     const update = new Set(favourites);
@@ -258,7 +233,10 @@ const App: React.FC = () => {
       <Switch>
         <Route path="/explore" />
         <Route path="/my-ranking" />
-        <Route path="/group-ranking" />
+        <Route path="/group-ranking">
+          {(!groupId || !userId) && <Redirect to="/join-group" />}
+        </Route>
+        <Route path="/join-group" />
         <Route path="/">
           <Redirect to="/explore" />
         </Route>
@@ -307,14 +285,6 @@ const App: React.FC = () => {
                   </Route>
                   <Route path="/group-ranking">
                     <GroupRankingPage
-                      createGroup={createGroup}
-                      joinGroup={joinGroup}
-                      isGroupOwner={isGroupOwner}
-                      enableGroupOwner={() => setIsGroupOwner(true)}
-                      groupId={groupId}
-                      userId={userId}
-                      socketConnected={socketConnected}
-                      connect={connect}
                       projects={data.projects}
                       userFavourites={favourites}
                       groupFavourites={groupFavourites}
@@ -322,8 +292,18 @@ const App: React.FC = () => {
                       groupHasLoaded={groupHasLoaded}
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}
-                      setErrorMessage={setErrorMessage}
                       setShowLeaveGroupDialog={setShowLeaveGroupDialog}
+                      copyAccessCode={copyAccessCode}
+                    />
+                  </Route>
+                  <Route path="/join-group">
+                    <JoinGroupPage
+                      createGroup={createGroup}
+                      joinGroup={joinGroup}
+                      groupId={groupId}
+                      userId={userId}
+                      connect={connect}
+                      setErrorMessage={setErrorMessage}
                       copyAccessCode={copyAccessCode}
                     />
                   </Route>

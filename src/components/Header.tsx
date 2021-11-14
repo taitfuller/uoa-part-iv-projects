@@ -34,15 +34,18 @@ const useStyles = makeStyles((theme) => ({
 const pages = [
   {
     name: "Explore",
-    route: "/explore",
+    href: "/explore",
+    paths: ["/explore"],
   },
   {
     name: "My Ranking",
-    route: "/my-ranking",
+    href: "/my-ranking",
+    paths: ["/my-ranking"],
   },
   {
     name: "Group Ranking",
-    route: "/group-ranking",
+    href: "/group-ranking",
+    paths: ["/group-ranking", "/join-group"],
   },
 ];
 
@@ -80,16 +83,20 @@ const Header: React.FC = () => {
                   path="/"
                   render={({ location }) => (
                     <Tabs
-                      value={location.pathname}
+                      value={
+                        pages.findIndex((page) =>
+                          page.paths.includes(location.pathname)
+                        ) ?? -1
+                      }
                       className={classes.fullHeightTabs}
                     >
-                      {pages.map((page) => (
+                      {pages.map((page, i) => (
                         <Tab
                           label={page.name}
                           className={classes.fullHeightTabs}
                           component={Link}
-                          to={page.route}
-                          value={page.route}
+                          to={page.href}
+                          value={i}
                           key={page.name}
                         />
                       ))}
@@ -124,8 +131,8 @@ const Header: React.FC = () => {
                     <ListItem
                       button
                       component={Link}
-                      to={page.route}
-                      selected={page.route === location.pathname}
+                      to={page.href}
+                      selected={page.paths.includes(location.pathname)}
                       key={page.name}
                     >
                       <ListItemText primary={page.name} />
