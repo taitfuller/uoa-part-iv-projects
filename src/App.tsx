@@ -13,11 +13,11 @@ import {
   Snackbar,
   Typography,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 
 import Header from "./components/Header";
-import Alert from "@material-ui/lab/Alert";
 import { Data, Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
@@ -50,12 +50,8 @@ const App: React.FC = () => {
     fetch(
       "https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json"
     )
-      .then((response) => {
-        return response.json();
-      })
-      .then((myJson) => {
-        setData(myJson);
-      });
+      .then((response) => response.json())
+      .then((myJson) => setData(myJson));
   };
 
   const [favourites, setFavourites] = useState<Set<Project["id"]>>(
@@ -230,123 +226,110 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/explore" />
-        <Route path="/my-ranking" />
-        <Route path="/group-ranking">
-          {(!groupId || !userId) && <Redirect to="/join-group" />}
-        </Route>
-        <Route path="/join-group" />
-        <Route path="/">
-          <Redirect to="/explore" />
-        </Route>
-      </Switch>
-      <div>
-        <CssBaseline />
-        {data === undefined ? (
-          <Container className={`${classes.container} ${classes.fullHeight}`}>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              spacing={4}
-              className={classes.fullHeight}
-            >
-              <Grid item>
-                <CircularProgress size={50} />
-              </Grid>
-              <Grid item>
-                <Typography variant="h4">Loading Projects...</Typography>
-              </Grid>
+      <CssBaseline />
+      {!data ? (
+        <Container className={`${classes.container} ${classes.fullHeight}`}>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            spacing={4}
+            className={classes.fullHeight}
+          >
+            <Grid item>
+              <CircularProgress size={50} />
             </Grid>
-          </Container>
-        ) : (
-          <div>
-            <Header />
-            <main>
-              <div className={classes.appBarSpacer} />
-              <Container className={classes.container}>
-                <Switch>
-                  <Route path="/explore">
-                    <ExplorePage
-                      data={data}
-                      favourites={favourites}
-                      toggleFavourite={toggleFavourite}
-                    />
-                  </Route>
-                  <Route path="/my-ranking">
-                    <RankingPage
-                      projects={data?.projects}
-                      userFavourites={favourites}
-                      toggleFavourite={toggleFavourite}
-                      swapFavourites={swapFavourites}
-                    />
-                  </Route>
-                  <Route path="/group-ranking">
-                    <GroupRankingPage
-                      projects={data.projects}
-                      userFavourites={favourites}
-                      groupFavourites={groupFavourites}
-                      userCount={userCount}
-                      groupHasLoaded={groupHasLoaded}
-                      toggleFavourite={toggleFavourite}
-                      swapGroupFavourites={swapGroupFavourites}
-                      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
-                      copyAccessCode={copyAccessCode}
-                    />
-                  </Route>
-                  <Route path="/join-group">
-                    <JoinGroupPage
-                      createGroup={createGroup}
-                      joinGroup={joinGroup}
-                      groupId={groupId}
-                      userId={userId}
-                      connect={connect}
-                      setErrorMessage={setErrorMessage}
-                      copyAccessCode={copyAccessCode}
-                    />
-                  </Route>
-                </Switch>
-              </Container>
-              <Dialog
-                open={showLeaveGroupDialog}
-                onClose={() => setShowLeaveGroupDialog(false)}
-              >
-                <DialogTitle>
-                  Are you sure you want to leave this group?
-                </DialogTitle>
-                <DialogActions>
-                  <Button onClick={disconnect} style={{ color: "red" }}>
-                    Leave Group
-                  </Button>
-                  <Button onClick={() => setShowLeaveGroupDialog(false)}>
-                    Cancel
-                  </Button>
-                </DialogActions>
-              </Dialog>
-              <Snackbar
-                open={showCopied}
-                autoHideDuration={3000}
-                onClose={() => setShowCopied(false)}
-              >
-                <Alert onClose={() => setShowCopied(false)} severity="success">
-                  Access Code Copied!
-                </Alert>
-              </Snackbar>
-              <Snackbar
-                open={errorMessage !== ""}
-                autoHideDuration={3000}
-                onClose={() => setErrorMessage("")}
-              >
-                <Alert onClose={() => setErrorMessage("")} severity="error">
-                  {errorMessage}
-                </Alert>
-              </Snackbar>
-            </main>
-          </div>
-        )}
-      </div>
+            <Grid item>
+              <Typography variant="h4">Loading Projects...</Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      ) : (
+        <>
+          <Header />
+          <main>
+            <div className={classes.appBarSpacer} />
+            <Container className={classes.container}>
+              <Switch>
+                <Route path="/explore">
+                  <ExplorePage
+                    data={data}
+                    favourites={favourites}
+                    toggleFavourite={toggleFavourite}
+                  />
+                </Route>
+                <Route path="/my-ranking">
+                  <RankingPage
+                    projects={data?.projects}
+                    userFavourites={favourites}
+                    toggleFavourite={toggleFavourite}
+                    swapFavourites={swapFavourites}
+                  />
+                </Route>
+                <Route path="/group-ranking">
+                  {(!groupId || !userId) && <Redirect to="/join-group" />}
+                  <GroupRankingPage
+                    projects={data.projects}
+                    userFavourites={favourites}
+                    groupFavourites={groupFavourites}
+                    userCount={userCount}
+                    groupHasLoaded={groupHasLoaded}
+                    toggleFavourite={toggleFavourite}
+                    swapGroupFavourites={swapGroupFavourites}
+                    setShowLeaveGroupDialog={setShowLeaveGroupDialog}
+                    copyAccessCode={copyAccessCode}
+                  />
+                </Route>
+                <Route path="/join-group">
+                  <JoinGroupPage
+                    createGroup={createGroup}
+                    joinGroup={joinGroup}
+                    groupId={groupId}
+                    userId={userId}
+                    connect={connect}
+                    setErrorMessage={setErrorMessage}
+                    copyAccessCode={copyAccessCode}
+                  />
+                </Route>
+                <Route path="/">
+                  <Redirect to="/explore" />
+                </Route>
+              </Switch>
+            </Container>
+          </main>
+        </>
+      )}
+      <Dialog
+        open={showLeaveGroupDialog}
+        onClose={() => setShowLeaveGroupDialog(false)}
+      >
+        <DialogTitle>Are you sure you want to leave this group?</DialogTitle>
+        <DialogActions>
+          <Button onClick={disconnect} style={{ color: "red" }}>
+            Leave Group
+          </Button>
+          <Button onClick={() => setShowLeaveGroupDialog(false)}>Cancel</Button>
+        </DialogActions>
+      </Dialog>
+      <Snackbar
+        open={showCopied}
+        autoHideDuration={3000}
+        onClose={() => setShowCopied(false)}
+      >
+        <Alert onClose={() => setShowCopied(false)} severity="success">
+          Access Code Copied!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorMessage !== ""}
+        autoHideDuration={3000}
+        onClose={() => setErrorMessage("")}
+      >
+        <Alert onClose={() => setErrorMessage("")} severity="error">
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </BrowserRouter>
   );
 };
