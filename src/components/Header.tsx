@@ -46,7 +46,7 @@ const pages = [
   },
 ];
 
-export default function Header() {
+const Header: React.FC = () => {
   const classes = useStyles();
 
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -140,3 +140,5 @@ export default function Header() {
     </React.Fragment>
   );
 }
+
+export default Header;

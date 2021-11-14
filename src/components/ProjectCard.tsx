@@ -12,6 +12,7 @@ import {
 import { red } from "@material-ui/core/colors";
 
 import ProjectDetails from "./ProjectDetails";
+import { Project } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,7 +43,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProjectCard({ project, isFavourite, toggleFavourite }) {
+interface ProjectCardProps {
+  project: Project
+  isFavourite: boolean
+  toggleFavourite: () => void
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFavourite, toggleFavourite }: ProjectCardProps) => {
   const classes = useStyles();
 
   return (
@@ -75,3 +82,5 @@ export default function ProjectCard({ project, isFavourite, toggleFavourite }) {
     </Paper>
   );
 }
+
+export default ProjectCard

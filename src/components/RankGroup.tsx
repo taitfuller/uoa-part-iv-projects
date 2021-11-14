@@ -17,6 +17,7 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
 import RankProjects from "./RankProjects";
+import { Project } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   fullHeight: {
@@ -62,7 +63,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RankGroup({
+interface RankGroupProps {
+  createGroup: () => void
+  joinGroup: (accessCode: string) => Promise<string>
+  isGroupOwner: boolean
+  enableGroupOwner: () => void
+  groupId: string
+  userId: string
+  socketConnected: boolean;
+  connect: (accessCode: string, userId: string) => void;
+  projects: Project[];
+  userFavourites: Set<Project["id"]>;
+  groupFavourites: Set<Project["id"]>;
+  userCount: number
+  groupHasLoaded: boolean
+  toggleFavourite: (id: Project["id"]) => void
+  swapGroupFavourites: (a: number, b: number) => void
+  showRankMessage: boolean
+  setShowRankMessage: (show: boolean) => void
+  setErrorMessage: (message: string) => void
+  setShowLeaveGroupDialog: (show: boolean) => void
+  copyAccessCode: () => void
+}
+
+const RankGroup: React.FC<RankGroupProps> = ({
   createGroup,
   joinGroup,
   isGroupOwner,
@@ -79,11 +103,11 @@ export default function RankGroup({
   toggleFavourite,
   swapGroupFavourites,
   showRankMessage,
-  setRankMessage,
+  setShowRankMessage,
   setErrorMessage,
-  setLeaveGroupDialog,
+  setShowLeaveGroupDialog,
   copyAccessCode,
-}) {
+}: RankGroupProps) => {
   const [accessCode, setAccessCode] = useState(groupId);
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
@@ -91,14 +115,14 @@ export default function RankGroup({
 
   const classes = useStyles();
 
-  const joinGroupHandler = async (event) => {
+  const joinGroupHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoadingJoinGroup(true);
     try {
       const userId = await joinGroup(accessCode);
       connect(accessCode, userId);
     } catch (err) {
-      setErrorMessage(err.message);
+      setErrorMessage((err as Error).message);
     }
     setLoadingJoinGroup(false);
   };
@@ -109,7 +133,7 @@ export default function RankGroup({
     try {
       await createGroup();
     } catch (err) {
-      setErrorMessage(err.message);
+      setErrorMessage((err as Error).message);
     }
     setLoadingCreateGroup(false);
   };
@@ -135,7 +159,7 @@ export default function RankGroup({
                   alignItems="center"
                 >
                   <Grid item>
-                    <Typography variant="h6">You're all set!</Typography>
+                    <Typography variant="h6">You&apos;re all set!</Typography>
                   </Grid>
                   <Grid item>
                     <Typography>
@@ -183,7 +207,7 @@ export default function RankGroup({
                   </Grid>
                   <Grid item>
                     <Typography>
-                      We couldn't connect to our server
+                      We couldn&apos;t connect to our server
                       <SentimentVeryDissatisfiedIcon
                         style={{ marginBottom: -5, marginLeft: 5 }}
                       />
@@ -192,7 +216,7 @@ export default function RankGroup({
                   <Grid item>
                     <Button
                       variant="contained"
-                      onClick={connect}
+                      onClick={() => connect}
                       disabled={loadingJoinGroup || loadingCreateGroup}
                     >
                       Reconnect
@@ -200,7 +224,7 @@ export default function RankGroup({
                   </Grid>
                   <Grid item>
                     <Tooltip title="Leave Group">
-                      <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                      <IconButton onClick={() => setShowLeaveGroupDialog(true)}>
                         <DirectionsRunIcon />
                       </IconButton>
                     </Tooltip>
@@ -272,7 +296,7 @@ export default function RankGroup({
                     <Typography variant="h6">Create Group</Typography>
                   </Grid>
                   <Grid item>
-                    <Typography>Don't have an Access Code?</Typography>
+                    <Typography>Don&apos;t have an Access Code?</Typography>
                   </Grid>
                   <Grid item>
                     <div className={classes.createButtonWrapper}>
@@ -329,10 +353,12 @@ export default function RankGroup({
       groupFavourites={groupFavourites}
       userCount={userCount}
       showRankMessage={showRankMessage}
-      setRankMessage={setRankMessage}
-      setLeaveGroupDialog={setLeaveGroupDialog}
+      setShowRankMessage={setShowRankMessage}
+      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
       isGroup={true}
       copyAccessCode={copyAccessCode}
     />
   );
 }
+
+export default RankGroup;

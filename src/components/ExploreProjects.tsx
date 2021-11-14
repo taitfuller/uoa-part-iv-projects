@@ -5,9 +5,24 @@ import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissa
 
 import Filter from "./Filter";
 import ProjectCard from "./ProjectCard";
+import { Data, Project } from "../types";
 
-export default function ExploreProjects({ data, favourites, toggleFavourite }) {
-  const [selectedFilters, setSelectedFilters] = useState({
+type SelectedFilters = {
+  toggledFavourites: boolean,
+    toggledUnallocated: boolean,
+    selectedSupervisors: string[],
+    selectedCosupervisors: string[],
+    selectedSpecialisations: string[],
+    selectedCategories: string[],
+}
+interface ExploreProjectsProps {
+  data: Data;
+  favourites: Set<Project["id"]>;
+  toggleFavourite: (id: Project["id"]) => void;
+}
+
+const ExploreProjects: React.FC<ExploreProjectsProps> = ({ data, favourites, toggleFavourite }: ExploreProjectsProps) => {
+  const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     toggledFavourites: false,
     toggledUnallocated: true,
     selectedSupervisors: [],
@@ -16,7 +31,7 @@ export default function ExploreProjects({ data, favourites, toggleFavourite }) {
     selectedCategories: [],
   });
 
-  const selectFilter = (projectItems, selectedItems) => {
+  const selectFilter = (projectItems: string[], selectedItems: string[]) => {
     if (selectedItems.length > 0) {
       return !selectedItems.every((item) => !projectItems.includes(item));
     }
@@ -24,23 +39,23 @@ export default function ExploreProjects({ data, favourites, toggleFavourite }) {
   };
 
   const filters = [
-    (project) =>
+    (project: Project) =>
       selectedFilters.toggledFavourites ? favourites.has(project.id) : true,
-    (project) =>
+    (project: Project) =>
       selectedFilters.toggledUnallocated ? !project.allocated : true,
-    (project) =>
+    (project: Project) =>
       selectFilter(project.supervisors, selectedFilters.selectedSupervisors),
-    (project) =>
+    (project: Project) =>
       selectFilter(
         project.cosupervisors,
         selectedFilters.selectedCosupervisors
       ),
-    (project) =>
+    (project: Project) =>
       selectFilter(
         project.specialisations,
         selectedFilters.selectedSpecialisations
       ),
-    (project) =>
+    (project: Project) =>
       selectFilter(project.categories, selectedFilters.selectedCategories),
   ];
 
@@ -85,3 +100,5 @@ export default function ExploreProjects({ data, favourites, toggleFavourite }) {
     </div>
   );
 }
+
+export default ExploreProjects

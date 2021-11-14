@@ -5,6 +5,7 @@ import { Button, Chip, Divider, Grid, Typography } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
 import FavouriteButton from "./FavouriteButton";
+import { Project } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -26,11 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProjectDetails({
+interface ProjectDetailsProps {
+  project: Project
+  isFavourite: boolean
+  toggleFavourite: () => void
+}
+
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   project,
   isFavourite,
   toggleFavourite,
-}) {
+}: ProjectDetailsProps) => {
   const classes = useStyles();
 
   return (
@@ -128,3 +135,5 @@ export default function ProjectDetails({
     </React.Fragment>
   );
 }
+
+export default ProjectDetails

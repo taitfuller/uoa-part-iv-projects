@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import {
   Avatar,
   Box,
@@ -15,6 +15,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Theme,
   Tooltip,
   Typography,
 } from "@material-ui/core";
@@ -26,8 +27,10 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import ProjectDetails from "./ProjectDetails";
+import { Project } from "../types";
+import red from "@material-ui/core/colors/red";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => createStyles({
   container: {
     overflowX: "hidden",
   },
@@ -40,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
   blue: {
     color: theme.palette.getContrastText(theme.palette.info.dark),
     backgroundColor: theme.palette.info.dark,
+  },
+  red: {
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: red[500],
   },
   right: {
     marginLeft: "auto",
@@ -54,14 +61,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Row({
+interface RowProps {
+  project: Project
+  i: number
+  userFavourites: Set<Project["id"]>
+  toggleFavourite: (id: Project["id"]) => void
+  swapFavourites: (a: number, b: number) => void
+  length: number
+}
+
+const Row: React.FC<RowProps> = ({
   project,
   i,
   userFavourites,
   toggleFavourite,
   swapFavourites,
   length,
-}) {
+}: RowProps) => {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -72,7 +88,7 @@ function Row({
         className={`${classes.root} ${i >= 5 ? classes.lowRank : ""}`}
         hover
       >
-        <TableCell align="center" className={classes.rankingColumn}>
+        <TableCell align="center">
           {i === 0 ? (
             <IconButton disabled>
               <KeyboardArrowUpIcon />
@@ -147,16 +163,27 @@ function Row({
   );
 }
 
-export default function RankTable({
+interface RankTableProps {
+  projects: Project[]
+  userFavourites: Set<Project["id"]>
+  toggleFavourite: (id: Project["id"]) => void
+  swapFavourites: (a: number, b: number) => void
+  setShowLeaveGroupDialog?: (show: boolean) => void
+  isGroup?: boolean
+  userCount?: number
+  copyAccessCode?: () => void
+}
+
+const RankTable: React.FC<RankTableProps>  = ({
   projects,
   userFavourites,
   toggleFavourite,
   swapFavourites,
-  setLeaveGroupDialog,
+  setShowLeaveGroupDialog,
   isGroup,
   userCount,
   copyAccessCode,
-}) {
+}: RankTableProps) => {
   const classes = useStyles();
 
   return (
@@ -167,12 +194,12 @@ export default function RankTable({
             <TableCell align="center" className={classes.buttonColumn}>
               Rank
             </TableCell>
-            <TableCell colSpan="2">
+            <TableCell colSpan={2}>
               <Grid container direction="row" alignItems="center" spacing={2}>
                 <Grid item xs>
                   Project
                 </Grid>
-                {isGroup && (
+                {isGroup && userCount && setShowLeaveGroupDialog && (
                   <React.Fragment>
                     <Grid item>
                       <Tooltip title="Copy Access Code">
@@ -190,7 +217,7 @@ export default function RankTable({
                     </Grid>
                     <Grid item>
                       <Tooltip title="Leave Group">
-                        <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                        <IconButton onClick={() => setShowLeaveGroupDialog(true)}>
                           <DirectionsRunIcon />
                         </IconButton>
                       </Tooltip>
@@ -218,3 +245,5 @@ export default function RankTable({
     </TableContainer>
   );
 }
+
+export default RankTable;

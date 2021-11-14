@@ -15,8 +15,23 @@ import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissa
 import { Link } from "react-router-dom";
 
 import RankTable from "./RankTable";
+import { Project } from "../types";
 
-export default function RankProjects({
+interface RankProjectsProps {
+  projects: Project[];
+  userFavourites: Set<Project["id"]>
+  toggleFavourite: (id: Project["id"]) => void
+  swapFavourites: (a: number, b: number) => void
+  groupFavourites?: Set<Project["id"]>
+  userCount?: number,
+  showRankMessage: boolean;
+  setShowRankMessage: (show: boolean) => void;
+  setShowLeaveGroupDialog?: (show: boolean) => void,
+  isGroup?: boolean,
+  copyAccessCode?: () => void
+}
+
+const RankProjects: React.FC<RankProjectsProps> = ({
   projects,
   userFavourites,
   toggleFavourite,
@@ -24,12 +39,12 @@ export default function RankProjects({
   groupFavourites,
   userCount,
   showRankMessage,
-  setRankMessage,
-  setLeaveGroupDialog,
+  setShowRankMessage,
+  setShowLeaveGroupDialog,
   isGroup,
   copyAccessCode,
-}) {
-  const favourites = isGroup ? groupFavourites : userFavourites;
+}: RankProjectsProps) => {
+  const favourites: Set<Project["id"]> = isGroup && groupFavourites ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects
@@ -42,7 +57,7 @@ export default function RankProjects({
         <Grid container direction="column" alignItems="center" spacing={6}>
           <Grid item>
             <Typography variant="h4">
-              You don't have any favourite projects&nbsp;
+              You don&apos;t have any favourite projects&nbsp;
               <SentimentVeryDissatisfiedIcon
                 style={{ fontSize: 60, marginBottom: -15 }}
               />
@@ -68,10 +83,10 @@ export default function RankProjects({
               Explore Projects
             </Button>
           </Grid>
-          {isGroup && (
+          {isGroup && setShowLeaveGroupDialog && (
             <Grid item>
               <Tooltip title="Leave Group">
-                <IconButton onClick={() => setLeaveGroupDialog(true)}>
+                <IconButton onClick={() => setShowLeaveGroupDialog(true)}>
                   <DirectionsRunIcon />
                 </IconButton>
               </Tooltip>
@@ -87,7 +102,7 @@ export default function RankProjects({
       {showRankMessage === true && (
         <Alert
           severity="info"
-          onClose={() => setRankMessage(false)}
+          onClose={() => setShowRankMessage(false)}
           style={{ marginBottom: 30 }}
         >
           Your top 5 projects are highlighted
@@ -98,7 +113,7 @@ export default function RankProjects({
         userFavourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapFavourites}
-        setLeaveGroupDialog={setLeaveGroupDialog}
+        setShowLeaveGroupDialog={setShowLeaveGroupDialog}
         isGroup={isGroup}
         userCount={userCount}
         copyAccessCode={copyAccessCode}
@@ -106,3 +121,5 @@ export default function RankProjects({
     </Container>
   );
 }
+
+export default RankProjects

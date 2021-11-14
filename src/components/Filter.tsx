@@ -28,15 +28,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Filter(props) {
-  const handleChecked = (event) => {
+type SelectedFilters = {
+  toggledFavourites: boolean,
+    toggledUnallocated: boolean,
+    selectedSupervisors: string[],
+    selectedCosupervisors: string[],
+    selectedSpecialisations: string[],
+    selectedCategories: string[],
+}
+interface FilterProps {
+  selectedFilters: SelectedFilters
+  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>
+  supervisors: string[];
+  cosupervisors: string[];
+  specialisations: string[];
+  categories: string[]
+  count: number;
+}
+
+const Filter: React.FC<FilterProps> = (props: FilterProps) => {
+  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.setSelectedFilters({
       ...props.selectedFilters,
       [event.target.name]: event.target.checked,
     });
   };
 
-  const handleSelect = (event) => {
+  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     props.setSelectedFilters({
       ...props.selectedFilters,
       [event.target.name]: event.target.value,
@@ -102,9 +120,9 @@ export default function Filter(props) {
               id="supervisor-filter"
               multiple
               value={props.selectedFilters.selectedSupervisors}
-              onChange={handleSelect}
+              onChange={handleSelect as never}
               input={<Input />}
-              renderValue={(selected) => selected.join(", ")}
+              renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedSupervisors"
             >
               {props.supervisors.map((supervisor) => (
@@ -132,9 +150,9 @@ export default function Filter(props) {
               id="cosupervisor-filter"
               multiple
               value={props.selectedFilters.selectedCosupervisors}
-              onChange={handleSelect}
+              onChange={handleSelect as never}
               input={<Input />}
-              renderValue={(selected) => selected.join(", ")}
+              renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedCosupervisors"
             >
               {props.cosupervisors.map((cosupervisor) => (
@@ -160,9 +178,9 @@ export default function Filter(props) {
               id="specialisation-filter"
               multiple
               value={props.selectedFilters.selectedSpecialisations}
-              onChange={handleSelect}
+              onChange={handleSelect as never}
               input={<Input />}
-              renderValue={(selected) => selected.join(", ")}
+              renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedSpecialisations"
             >
               {props.specialisations.map((specialisation) => (
@@ -188,9 +206,9 @@ export default function Filter(props) {
               id="category-filter"
               multiple
               value={props.selectedFilters.selectedCategories}
-              onChange={handleSelect}
+              onChange={handleSelect as never}
               input={<Input />}
-              renderValue={(selected) => selected.join(", ")}
+              renderValue={(selected) => (selected as string[]).join(", ")}
               name="selectedCategories"
             >
               {props.categories.map((category) => (
@@ -212,3 +230,5 @@ export default function Filter(props) {
     </Paper>
   );
 }
+
+export default Filter;

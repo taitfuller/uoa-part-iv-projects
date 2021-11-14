@@ -20,6 +20,7 @@ import ExploreProjects from "./components/ExploreProjects";
 import RankGroup from "./components/RankGroup";
 import RankProjects from "./components/RankProjects";
 import Alert from "@material-ui/lab/Alert";
+import { Data, Project } from "./types";
 
 const useDidMount = () => {
   const didMountRef = useRef(true);
@@ -48,12 +49,12 @@ async function postData(url = "") {
   return response.json();
 }
 
-let socket = null;
+let socket: WebSocket | undefined;
 
-function App() {
+const App: React.FC = () => {
   const didMount = useDidMount();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Data>();
   const getData = () => {
     fetch(
       "https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json"
@@ -66,25 +67,25 @@ function App() {
       });
   };
 
-  const [favourites, setFavourites] = useState(
-    () => new Set(JSON.parse(localStorage.getItem("favourites"))) || new Set()
+  const [favourites, setFavourites] = useState<Set<Project["id"]>>(
+    () => new Set(JSON.parse(localStorage.getItem("favourites") as string) as Project["id"][])
   );
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify([...favourites]));
   }, [favourites]);
 
-  const [groupFavourites, setGroupFavourites] = useState(new Set());
+  const [groupFavourites, setGroupFavourites] = useState<Set<Project["id"]>>(new Set());
 
   const [userCount, setUserCount] = useState(1);
 
   const [groupHasLoaded, setGroupHasLoaded] = useState(false);
 
-  const [groupId, setGroupId] = useState(localStorage.getItem("groupId") || "");
+  const [groupId, setGroupId] = useState<string>(localStorage.getItem("groupId") || "");
   useEffect(() => {
     localStorage.setItem("groupId", groupId);
   }, [groupId]);
 
-  const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
+  const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
   useEffect(() => {
     localStorage.setItem("userId", userId);
   }, [userId]);
@@ -110,7 +111,7 @@ function App() {
     }
   };
 
-  const joinGroup = async (joinGroupId) => {
+  const joinGroup = async (joinGroupId: string) => {
     try {
       const joinGroupResponse = await postData(
         `https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/join-group?groupId=${joinGroupId}`
@@ -126,15 +127,15 @@ function App() {
     }
   };
 
-  const socketUpdateFavourites = (favourites) => {
+  const socketUpdateFavourites = (favourites: Set<Project["id"]>) => {
     const data = JSON.stringify({
       action: "updateUserFavourites",
       data: [...favourites],
     });
-    socket.send(data);
+    socket?.send(data);
   };
 
-  const connect = (groupId, userId) => {
+  const connect = (groupId: string, userId: string) => {
     setSocketConnected(true);
 
     socket = new WebSocket(
@@ -162,32 +163,32 @@ function App() {
 
     socket.onclose = socket.onerror = () => {
       setSocketConnected(false);
-      socket = null;
+      socket = undefined;
     };
   };
 
   const disconnect = () => {
     if (socket) {
-      socketUpdateFavourites([]);
+      socketUpdateFavourites(new Set());
       socket.close();
     }
     setGroupId("");
     setUserId("");
     setSocketConnected(false);
-    socket = null;
-    setLeaveGroupDialog(false);
+    socket = undefined;
+    setShowLeaveGroupDialog(false);
   };
 
-  const [showRankMessage, setRankMessage] = useState(() =>
+  const [showRankMessage, setShowRankMessage] = useState<boolean>(() =>
     localStorage.getItem("showRankMessage") === null
       ? true
-      : localStorage.getItem("showRankMessage")
+      : !!localStorage.getItem("showRankMessage")
   );
 
-  const [showLeaveGroupDialog, setLeaveGroupDialog] = useState(false);
+  const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("showRankMessage", showRankMessage);
+    localStorage.setItem("showRankMessage", showRankMessage as unknown as string);
   }, [showRankMessage]);
 
   useEffect(() => {
@@ -199,7 +200,7 @@ function App() {
     }
   });
 
-  const toggleFavourite = (id) => {
+  const toggleFavourite = (id: Project["id"]) => {
     const update = new Set(favourites);
     update.has(id) ? update.delete(id) : update.add(id);
     setFavourites(update);
@@ -208,7 +209,7 @@ function App() {
     }
   };
 
-  const swapFavourites = (indexA, indexB) => {
+  const swapFavourites = (indexA: number, indexB: number) => {
     const update = [...favourites];
     const temp = update[indexA];
     update[indexA] = update[indexB];
@@ -216,7 +217,7 @@ function App() {
     setFavourites(new Set(update));
   };
 
-  const swapGroupFavourites = (indexA, indexB) => {
+  const swapGroupFavourites = (indexA: number, indexB: number) => {
     const update = [...groupFavourites];
     const valueA = update[indexA];
     const valueB = update[indexB];
@@ -236,7 +237,7 @@ function App() {
         },
       },
     };
-    socket.send(JSON.stringify(data));
+    socket?.send(JSON.stringify(data));
   };
 
   const [showCopied, setShowCopied] = useState(false);
@@ -263,7 +264,7 @@ function App() {
       </Switch>
       <div>
         <CssBaseline />
-        {data.length === 0 ? (
+        {data === undefined ? (
           <Container className={`${classes.container} ${classes.fullHeight}`}>
             <Grid
               container
@@ -297,12 +298,12 @@ function App() {
                   </Route>
                   <Route path="/my-ranking">
                     <RankProjects
-                      projects={data.projects}
+                      projects={data?.projects}
                       userFavourites={favourites}
                       toggleFavourite={toggleFavourite}
                       swapFavourites={swapFavourites}
                       showRankMessage={showRankMessage}
-                      setRankMessage={setRankMessage}
+                      setShowRankMessage={setShowRankMessage}
                     />
                   </Route>
                   <Route path="/group-ranking">
@@ -323,9 +324,9 @@ function App() {
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}
                       showRankMessage={showRankMessage}
-                      setRankMessage={setRankMessage}
+                      setShowRankMessage={setShowRankMessage}
                       setErrorMessage={setErrorMessage}
-                      setLeaveGroupDialog={setLeaveGroupDialog}
+                      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
                       copyAccessCode={copyAccessCode}
                     />
                   </Route>
@@ -333,7 +334,7 @@ function App() {
               </Container>
               <Dialog
                 open={showLeaveGroupDialog}
-                onClose={() => setLeaveGroupDialog(false)}
+                onClose={() => setShowLeaveGroupDialog(false)}
               >
                 <DialogTitle>
                   Are you sure you want to leave this group?
@@ -342,7 +343,7 @@ function App() {
                   <Button onClick={disconnect} style={{ color: "red" }}>
                     Leave Group
                   </Button>
-                  <Button onClick={() => setLeaveGroupDialog(false)}>
+                  <Button onClick={() => setShowLeaveGroupDialog(false)}>
                     Cancel
                   </Button>
                 </DialogActions>

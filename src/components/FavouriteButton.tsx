@@ -6,11 +6,16 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { red } from "@material-ui/core/colors";
 import { Tooltip } from "@material-ui/core";
 
-export default function FavouriteButton({ active, toggle }) {
+interface FavouriteButtonProps {
+  active: boolean
+  toggle: () => void
+}
+
+const FavouriteButton: React.FC<FavouriteButtonProps> = ({ active, toggle }: FavouriteButtonProps) => {
   if (active) {
     return (
       <Tooltip title="Unfavourite">
-        <IconButton aria-label="favourite" onClick={() => toggle()}>
+        <IconButton aria-label="favourite" onClick={toggle}>
           <FavoriteIcon fontSize="large" style={{ color: red[500] }} />
         </IconButton>
       </Tooltip>
@@ -25,3 +30,5 @@ export default function FavouriteButton({ active, toggle }) {
     );
   }
 }
+
+export default FavouriteButton
