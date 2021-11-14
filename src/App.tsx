@@ -16,11 +16,11 @@ import {
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
-import RankGroup from "./components/RankGroup";
 import Alert from "@material-ui/lab/Alert";
 import { Data, Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
+import GroupRankingPage from "./pages/GroupRankingPage";
 
 const useDidMount = () => {
   const didMountRef = useRef(true);
@@ -321,7 +321,7 @@ const App: React.FC = () => {
                     />
                   </Route>
                   <Route path="/group-ranking">
-                    <RankGroup
+                    <GroupRankingPage
                       createGroup={createGroup}
                       joinGroup={joinGroup}
                       isGroupOwner={isGroupOwner}

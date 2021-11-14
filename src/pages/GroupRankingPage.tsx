@@ -16,7 +16,7 @@ import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
-import RankingPage from "../pages/RankingPage";
+import RankingPage from "./RankingPage";
 import { Project } from "../types";
 
 const useStyles = makeStyles((theme) => ({
