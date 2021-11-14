@@ -16,11 +16,11 @@ import {
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
-import ExploreProjects from "./components/ExploreProjects";
 import RankGroup from "./components/RankGroup";
 import RankProjects from "./components/RankProjects";
 import Alert from "@material-ui/lab/Alert";
 import { Data, Project } from "./types";
+import ExplorePage from "./pages/ExplorePage";
 
 const useDidMount = () => {
   const didMountRef = useRef(true);
@@ -304,7 +304,7 @@ const App: React.FC = () => {
               <Container className={classes.container}>
                 <Switch>
                   <Route path="/explore">
-                    <ExploreProjects
+                    <ExplorePage
                       data={data}
                       favourites={favourites}
                       toggleFavourite={toggleFavourite}

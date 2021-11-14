@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
-import Filter from "./Filter";
-import ProjectCard from "./ProjectCard";
+import Filter from "../components/Filter";
+import ProjectCard from "../components/ProjectCard";
 import { Data, Project } from "../types";
 
 type SelectedFilters = {
@@ -15,13 +15,13 @@ type SelectedFilters = {
   selectedSpecialisations: string[];
   selectedCategories: string[];
 };
-interface ExploreProjectsProps {
+interface ExplorePageProps {
   data: Data;
   favourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
 }
 
-const ExploreProjects: React.FC<ExploreProjectsProps> = ({
+const ExplorePage: React.FC<ExplorePageProps> = ({
   data,
   favourites,
   toggleFavourite,
@@ -105,4 +105,4 @@ const ExploreProjects: React.FC<ExploreProjectsProps> = ({
   );
 };
 
-export default ExploreProjects;
+export default ExplorePage;
