@@ -14,10 +14,10 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
 
-import RankTable from "./RankTable";
+import RankTable from "../components/RankTable";
 import { Project } from "../types";
 
-interface RankProjectsProps {
+interface RankingPageProps {
   projects: Project[];
   userFavourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
@@ -31,7 +31,7 @@ interface RankProjectsProps {
   copyAccessCode?: () => void;
 }
 
-const RankProjects: React.FC<RankProjectsProps> = ({
+const RankingPage: React.FC<RankingPageProps> = ({
   projects,
   userFavourites,
   toggleFavourite,
@@ -123,4 +123,4 @@ const RankProjects: React.FC<RankProjectsProps> = ({
   );
 };
 
-export default RankProjects;
+export default RankingPage;

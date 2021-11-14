@@ -17,10 +17,10 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
 import RankGroup from "./components/RankGroup";
-import RankProjects from "./components/RankProjects";
 import Alert from "@material-ui/lab/Alert";
 import { Data, Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
+import RankingPage from "./pages/RankingPage";
 
 const useDidMount = () => {
   const didMountRef = useRef(true);
@@ -311,7 +311,7 @@ const App: React.FC = () => {
                     />
                   </Route>
                   <Route path="/my-ranking">
-                    <RankProjects
+                    <RankingPage
                       projects={data?.projects}
                       userFavourites={favourites}
                       toggleFavourite={toggleFavourite}

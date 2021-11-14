@@ -16,7 +16,7 @@ import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
-import RankProjects from "./RankProjects";
+import RankingPage from "../pages/RankingPage";
 import { Project } from "../types";
 
 const useStyles = makeStyles((theme) => ({
@@ -345,7 +345,7 @@ const RankGroup: React.FC<RankGroupProps> = ({
   }
 
   return (
-    <RankProjects
+    <RankingPage
       projects={projects}
       userFavourites={userFavourites}
       toggleFavourite={toggleFavourite}
