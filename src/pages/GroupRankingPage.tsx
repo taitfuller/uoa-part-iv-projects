@@ -79,8 +79,6 @@ interface RankGroupProps {
   groupHasLoaded: boolean;
   toggleFavourite: (id: Project["id"]) => void;
   swapGroupFavourites: (a: number, b: number) => void;
-  showRankMessage: boolean;
-  setShowRankMessage: (show: boolean) => void;
   setErrorMessage: (message: string) => void;
   setShowLeaveGroupDialog: (show: boolean) => void;
   copyAccessCode: () => void;
@@ -102,8 +100,6 @@ const RankGroup: React.FC<RankGroupProps> = ({
   groupHasLoaded,
   toggleFavourite,
   swapGroupFavourites,
-  showRankMessage,
-  setShowRankMessage,
   setErrorMessage,
   setShowLeaveGroupDialog,
   copyAccessCode,
@@ -352,8 +348,6 @@ const RankGroup: React.FC<RankGroupProps> = ({
       swapFavourites={swapGroupFavourites}
       groupFavourites={groupFavourites}
       userCount={userCount}
-      showRankMessage={showRankMessage}
-      setShowRankMessage={setShowRankMessage}
       setShowLeaveGroupDialog={setShowLeaveGroupDialog}
       isGroup={true}
       copyAccessCode={copyAccessCode}

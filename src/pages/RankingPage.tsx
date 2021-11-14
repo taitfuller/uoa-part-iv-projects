@@ -13,6 +13,7 @@ import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 import RankTable from "../components/RankTable";
 import { Project } from "../types";
@@ -24,8 +25,6 @@ interface RankingPageProps {
   swapFavourites: (a: number, b: number) => void;
   groupFavourites?: Set<Project["id"]>;
   userCount?: number;
-  showRankMessage: boolean;
-  setShowRankMessage: (show: boolean) => void;
   setShowLeaveGroupDialog?: (show: boolean) => void;
   isGroup?: boolean;
   copyAccessCode?: () => void;
@@ -38,12 +37,15 @@ const RankingPage: React.FC<RankingPageProps> = ({
   swapFavourites,
   groupFavourites,
   userCount,
-  showRankMessage,
-  setShowRankMessage,
   setShowLeaveGroupDialog,
   isGroup,
   copyAccessCode,
 }) => {
+  const [showRankMessage, setShowRankMessage] = useLocalStorage(
+    "showRankMessage",
+    "true"
+  );
+
   const favourites: Set<Project["id"]> =
     isGroup && groupFavourites ? groupFavourites : userFavourites;
   const favouritesIndexes = new Map();
@@ -100,10 +102,10 @@ const RankingPage: React.FC<RankingPageProps> = ({
 
   return (
     <Container>
-      {showRankMessage === true && (
+      {showRankMessage === "true" && (
         <Alert
           severity="info"
-          onClose={() => setShowRankMessage(false)}
+          onClose={() => setShowRankMessage("false")}
           style={{ marginBottom: 30 }}
         >
           Your top 5 projects are highlighted

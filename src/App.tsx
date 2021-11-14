@@ -190,20 +190,7 @@ const App: React.FC = () => {
     setShowLeaveGroupDialog(false);
   };
 
-  const [showRankMessage, setShowRankMessage] = useState<boolean>(() =>
-    localStorage.getItem("showRankMessage") === null
-      ? true
-      : !!localStorage.getItem("showRankMessage")
-  );
-
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem(
-      "showRankMessage",
-      showRankMessage as unknown as string
-    );
-  }, [showRankMessage]);
 
   useEffect(() => {
     if (didMount) {
@@ -316,8 +303,6 @@ const App: React.FC = () => {
                       userFavourites={favourites}
                       toggleFavourite={toggleFavourite}
                       swapFavourites={swapFavourites}
-                      showRankMessage={showRankMessage}
-                      setShowRankMessage={setShowRankMessage}
                     />
                   </Route>
                   <Route path="/group-ranking">
@@ -337,8 +322,6 @@ const App: React.FC = () => {
                       groupHasLoaded={groupHasLoaded}
                       toggleFavourite={toggleFavourite}
                       swapGroupFavourites={swapGroupFavourites}
-                      showRankMessage={showRankMessage}
-                      setShowRankMessage={setShowRankMessage}
                       setErrorMessage={setErrorMessage}
                       setShowLeaveGroupDialog={setShowLeaveGroupDialog}
                       copyAccessCode={copyAccessCode}
