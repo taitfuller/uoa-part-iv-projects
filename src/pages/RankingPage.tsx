@@ -13,7 +13,7 @@ import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
+import useLocalStorage from "use-local-storage";
 
 import RankTable from "../components/RankTable";
 import { Project } from "../types";

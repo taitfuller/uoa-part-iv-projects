@@ -15,7 +15,7 @@ import {
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
+import useLocalStorage from "use-local-storage";
 
 import Header from "./components/Header";
 import { Project } from "./types";
