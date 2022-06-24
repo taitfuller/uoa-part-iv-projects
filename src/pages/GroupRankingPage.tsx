@@ -6,7 +6,6 @@ import RankingPage from "./RankingPage";
 import { Project } from "../types";
 
 interface RankGroupProps {
-  projects: Project[];
   userFavourites: Set<Project["id"]>;
   groupFavourites: Set<Project["id"]>;
   userCount: number;
@@ -18,7 +17,6 @@ interface RankGroupProps {
 }
 
 const RankGroup: React.FC<RankGroupProps> = ({
-  projects,
   userFavourites,
   groupFavourites,
   userCount,
@@ -50,7 +48,6 @@ const RankGroup: React.FC<RankGroupProps> = ({
 
   return (
     <RankingPage
-      projects={projects}
       userFavourites={userFavourites}
       toggleFavourite={toggleFavourite}
       swapFavourites={swapGroupFavourites}

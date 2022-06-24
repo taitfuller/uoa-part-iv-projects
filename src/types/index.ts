@@ -1,11 +1,3 @@
-export type Data = {
-  projects: Project[];
-  supervisors: string[];
-  cosupervisors: string[];
-  specialisations: string[];
-  categories: string[];
-};
-
 export type Project = {
   id: string;
   title: string;

@@ -18,11 +18,12 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 
 import Header from "./components/Header";
-import { Data, Project } from "./types";
+import { Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
+import { useProjects } from "./context/Projects";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -45,14 +46,7 @@ async function postData(url = "") {
 let socket: WebSocket | undefined;
 
 const App: React.FC = () => {
-  const [data, setData] = useState<Data>();
-  const getData = () => {
-    fetch(
-      "https://uoa-part-iv-projects.s3-ap-southeast-2.amazonaws.com/projects.json"
-    )
-      .then((response) => response.json())
-      .then((myJson) => setData(myJson));
-  };
+  const { isLoading } = useProjects();
 
   const [favourites, setFavourites] = useState<Set<Project["id"]>>(
     () =>
@@ -165,10 +159,6 @@ const App: React.FC = () => {
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
   useEffect(() => {
-    getData();
-  }, []);
-
-  useEffect(() => {
     if (!socket && groupId && userId) connect(groupId, userId);
   }, [connect, groupId, userId]);
 
@@ -227,7 +217,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <CssBaseline />
-      {!data ? (
+      {isLoading ? (
         <Container className={`${classes.container} ${classes.fullHeight}`}>
           <Grid
             container
@@ -254,14 +244,12 @@ const App: React.FC = () => {
               <Switch>
                 <Route path="/explore">
                   <ExplorePage
-                    data={data}
                     favourites={favourites}
                     toggleFavourite={toggleFavourite}
                   />
                 </Route>
                 <Route path="/my-ranking">
                   <RankingPage
-                    projects={data?.projects}
                     userFavourites={favourites}
                     toggleFavourite={toggleFavourite}
                     swapFavourites={swapFavourites}
@@ -270,7 +258,6 @@ const App: React.FC = () => {
                 <Route path="/group-ranking">
                   {(!groupId || !userId) && <Redirect to="/join-group" />}
                   <GroupRankingPage
-                    projects={data.projects}
                     userFavourites={favourites}
                     groupFavourites={groupFavourites}
                     userCount={userCount}

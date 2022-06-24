@@ -5,7 +5,8 @@ import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissa
 
 import Filter from "../components/Filter";
 import ProjectCard from "../components/ProjectCard";
-import { Data, Project } from "../types";
+import { Project } from "../types";
+import { useProjects } from "../context/Projects";
 
 type SelectedFilters = {
   toggledFavourites: boolean;
@@ -16,16 +17,17 @@ type SelectedFilters = {
   selectedCategories: string[];
 };
 interface ExplorePageProps {
-  data: Data;
   favourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
 }
 
 const ExplorePage: React.FC<ExplorePageProps> = ({
-  data,
   favourites,
   toggleFavourite,
 }) => {
+  const { projects, supervisors, cosupervisors, specialisations, categories } =
+    useProjects();
+
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     toggledFavourites: false,
     toggledUnallocated: true,
@@ -63,7 +65,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({
       selectFilter(project.categories, selectedFilters.selectedCategories),
   ];
 
-  const filteredProjects = data.projects.filter((project) =>
+  const filteredProjects = projects.filter((project) =>
     filters.every((filter) => filter(project))
   );
 
@@ -73,10 +75,10 @@ const ExplorePage: React.FC<ExplorePageProps> = ({
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
         count={filteredProjects.length}
-        supervisors={data.supervisors}
-        cosupervisors={data.cosupervisors}
-        specialisations={data.specialisations}
-        categories={data.categories}
+        supervisors={supervisors}
+        cosupervisors={cosupervisors}
+        specialisations={specialisations}
+        categories={categories}
       />
       {filteredProjects.length === 0 ? (
         <Container style={{ marginTop: 80 }}>

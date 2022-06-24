@@ -17,9 +17,9 @@ import useLocalStorage from "react-use-localstorage";
 
 import RankTable from "../components/RankTable";
 import { Project } from "../types";
+import { useProjects } from "../context/Projects";
 
 interface RankingPageProps {
-  projects: Project[];
   userFavourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
   swapFavourites: (a: number, b: number) => void;
@@ -31,7 +31,6 @@ interface RankingPageProps {
 }
 
 const RankingPage: React.FC<RankingPageProps> = ({
-  projects,
   userFavourites,
   toggleFavourite,
   swapFavourites,
@@ -41,6 +40,8 @@ const RankingPage: React.FC<RankingPageProps> = ({
   isGroup,
   copyAccessCode,
 }) => {
+  const { projects } = useProjects();
+
   const [showRankMessage, setShowRankMessage] = useLocalStorage(
     "showRankMessage",
     "true"
