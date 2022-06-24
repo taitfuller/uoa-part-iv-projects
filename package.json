@@ -37,8 +37,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.0.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "prettier": "2.4.1"
   },
   "browserslist": {
@@ -52,9 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx}": "eslint --fix --cache --max-warnings=0",
-    "*": "prettier --ignore-unknown --write"
   }
 }
