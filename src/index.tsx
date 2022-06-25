@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { ProjectsProvider } from "./context/Projects";
 import { GroupProvider } from "./context/Group";
 import { FavouritesProvider } from "./context/Favourites";
+import { ConnectionProvider } from "./context/Connection";
 
 ReactDOM.render(
   <React.StrictMode>
     <ProjectsProvider>
       <GroupProvider>
         <FavouritesProvider>
-          <App />
+          <ConnectionProvider>
+            <App />
+          </ConnectionProvider>
         </FavouritesProvider>
       </GroupProvider>
     </ProjectsProvider>

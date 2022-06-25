@@ -14,7 +14,7 @@ interface GroupContextType {
   userCount: number;
   groupHasLoaded: boolean;
   createGroup: () => Promise<void>;
-  joinGroup: (groupId: string) => Promise<string>;
+  joinGroup: (groupId: string) => Promise<void>;
   connect: (
     onOpen: (socket: WebSocket) => void,
     onMessage: (data: unknown) => void
@@ -51,7 +51,6 @@ export const GroupProvider: React.FC = ({ children }) => {
         if (joinGroupResponse.userId) {
           setGroupId(groupId);
           setUserId(joinGroupResponse.userId);
-          return joinGroupResponse.userId;
         }
       } catch (_err) {
         throw new Error(

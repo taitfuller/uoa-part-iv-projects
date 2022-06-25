@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -21,11 +21,9 @@ import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
-import { useFavourites } from "./context/Favourites";
 import { useGroup } from "./context/Group";
 import { useProjects } from "./context/Projects";
-import hasOwnProperty from "./types/hasOwnProperty";
-import { useUpdateUserFavourites } from "./hooks/update";
+import { useConnection } from "./context/Connection";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -40,9 +38,8 @@ const useStyles = makeStyles((theme) => ({
 
 const App: React.FC = () => {
   const { isLoading } = useProjects();
-  const { socket, groupId, userId, connect, disconnect } = useGroup();
-  const { userFavourites, setGroupFavourites } = useFavourites();
-  const updateUserFavourites = useUpdateUserFavourites();
+  const { groupId, userId } = useGroup();
+  const { disconnectGroup } = useConnection();
 
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
@@ -55,37 +52,6 @@ const App: React.FC = () => {
       .then(() => setShowCopied(true))
       .catch((err) => setErrorMessage(err.message));
   };
-
-  const connectGroup = useCallback(() => {
-    const onOpen = (socket: WebSocket) => {
-      updateUserFavourites(socket, userFavourites);
-    };
-
-    const onMessage = (data: unknown) => {
-      if (
-        data &&
-        typeof data === "object" &&
-        hasOwnProperty(data, "favouritesList") &&
-        Array.isArray(data.favouritesList)
-      ) {
-        setGroupFavourites(new Set(data.favouritesList));
-      }
-    };
-
-    connect(onOpen, onMessage);
-  }, [connect, updateUserFavourites, userFavourites, setGroupFavourites]);
-
-  const disconnectGroup = useCallback(() => {
-    if (socket) {
-      updateUserFavourites(socket, new Set());
-    }
-    disconnect();
-    setShowLeaveGroupDialog(false);
-  }, [disconnect, socket, updateUserFavourites]);
-
-  useEffect(() => {
-    if (!socket && groupId && userId) connectGroup();
-  }, [connectGroup, groupId, socket, userId]);
 
   const classes = useStyles();
 
@@ -132,7 +98,6 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/join-group">
                   <JoinGroupPage
-                    connect={connectGroup}
                     setErrorMessage={setErrorMessage}
                     copyAccessCode={copyAccessCode}
                   />
@@ -151,7 +116,13 @@ const App: React.FC = () => {
       >
         <DialogTitle>Are you sure you want to leave this group?</DialogTitle>
         <DialogActions>
-          <Button onClick={disconnectGroup} style={{ color: "red" }}>
+          <Button
+            onClick={() => {
+              disconnectGroup();
+              setShowLeaveGroupDialog(false);
+            }}
+            style={{ color: "red" }}
+          >
             Leave Group
           </Button>
           <Button onClick={() => setShowLeaveGroupDialog(false)}>Cancel</Button>
