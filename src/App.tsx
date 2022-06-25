@@ -25,6 +25,10 @@ import JoinGroupPage from "./pages/JoinGroupPage";
 import { useProjects } from "./context/Projects";
 import { useGroup } from "./context/Group";
 import hasOwnProperty from "./types/hasOwnProperty";
+import {
+  useUpdateGroupFavourites,
+  useUpdateUserFavourites,
+} from "./hooks/update";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -40,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
 const App: React.FC = () => {
   const { isLoading } = useProjects();
   const { socket, groupId, userId, connect, disconnect } = useGroup();
+  const updateUserFavourites = useUpdateUserFavourites();
+  const updateGroupFavourites = useUpdateGroupFavourites();
 
   const [favourites, setFavourites] = useState<Set<Project["id"]>>(
     () =>
@@ -57,17 +63,6 @@ const App: React.FC = () => {
     new Set()
   );
 
-  const socketUpdateFavourites = useCallback(
-    (socket: WebSocket, favourites: Set<Project["id"]>) => {
-      const data = JSON.stringify({
-        action: "updateUserFavourites",
-        data: [...favourites],
-      });
-      socket.send(data);
-    },
-    []
-  );
-
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
 
   const toggleFavourite = (id: Project["id"]) => {
@@ -75,7 +70,7 @@ const App: React.FC = () => {
     update.has(id) ? update.delete(id) : update.add(id);
     setFavourites(update);
     if (socket) {
-      socketUpdateFavourites(socket, update);
+      updateUserFavourites(socket, update);
     }
   };
 
@@ -94,20 +89,9 @@ const App: React.FC = () => {
     update[indexA] = valueB;
     update[indexB] = valueA;
     setGroupFavourites(new Set(update));
-    const data = {
-      action: "updateGroupFavourites",
-      data: {
-        a: {
-          index: indexA,
-          value: valueA,
-        },
-        b: {
-          index: indexB,
-          value: valueB,
-        },
-      },
-    };
-    socket?.send(JSON.stringify(data));
+    if (socket) {
+      updateGroupFavourites(socket, indexA, valueA, indexB, valueB);
+    }
   };
 
   const [showCopied, setShowCopied] = useState(false);
@@ -122,7 +106,7 @@ const App: React.FC = () => {
 
   const connectGroup = useCallback(() => {
     const onOpen = (socket: WebSocket) => {
-      socketUpdateFavourites(socket, favourites);
+      updateUserFavourites(socket, favourites);
     };
 
     const onMessage = (data: unknown) => {
@@ -137,15 +121,15 @@ const App: React.FC = () => {
     };
 
     connect(onOpen, onMessage);
-  }, [connect, favourites, socketUpdateFavourites]);
+  }, [connect, favourites, updateUserFavourites]);
 
   const disconnectGroup = useCallback(() => {
     if (socket) {
-      socketUpdateFavourites(socket, new Set());
+      updateUserFavourites(socket, new Set());
     }
     disconnect();
     setShowLeaveGroupDialog(false);
-  }, [disconnect, socket, socketUpdateFavourites]);
+  }, [disconnect, socket, updateUserFavourites]);
 
   useEffect(() => {
     if (!socket && groupId && userId) connectGroup();
