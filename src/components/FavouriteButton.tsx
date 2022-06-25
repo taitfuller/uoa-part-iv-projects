@@ -1,10 +1,10 @@
 import React from "react";
 
-import IconButton from "@material-ui/core/IconButton";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import { red } from "@material-ui/core/colors";
-import { Tooltip } from "@material-ui/core";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { red } from "@mui/material/colors";
+import { Tooltip } from "@mui/material";
 
 interface FavouriteButtonProps {
   active: boolean;
@@ -16,9 +16,9 @@ const FavouriteButton: React.VFC<FavouriteButtonProps> = ({
   toggle,
 }) => (
   <Tooltip title={active ? "Unfavourite" : "Favourite"}>
-    <IconButton onClick={toggle}>
+    <IconButton onClick={toggle} size="large">
       {active ? (
-        <FavoriteIcon fontSize="large" style={{ color: red[500] }} />
+        <FavoriteIcon fontSize="large" sx={{ color: red[500] }} />
       ) : (
         <FavoriteBorderIcon fontSize="large" />
       )}

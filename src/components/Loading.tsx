@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, Grid, Typography } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@mui/material";
 
 interface LoadingProps {
   message: string;
@@ -9,7 +9,7 @@ const Loading: React.VFC<LoadingProps> = ({ message }) => (
   <Grid
     container
     direction="column"
-    justify="space-around"
+    justifyContent="space-around"
     alignItems="center"
     spacing={4}
     style={{ marginTop: 80 }}

@@ -7,11 +7,11 @@ import {
   IconButton,
   Tooltip,
   Typography,
-} from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
-import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+} from "@mui/material";
+import Alert from "@mui/material/Alert";
+import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { Link } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 

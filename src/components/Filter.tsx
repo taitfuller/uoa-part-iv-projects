@@ -8,13 +8,14 @@ import {
   Input,
   InputLabel,
   ListItemText,
-  makeStyles,
   MenuItem,
   Paper,
   Select,
   Switch,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
+
+import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -73,7 +74,12 @@ const Filter: React.VFC<FilterProps> = ({
 
   return (
     <Paper className={classes.paper}>
-      <Grid container justify="space-between" spacing={2} alignItems="center">
+      <Grid
+        container
+        justifyContent="space-between"
+        spacing={2}
+        alignItems="center"
+      >
         <Grid item>
           <Grid
             container

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Drawer,
@@ -9,27 +8,16 @@ import {
   List,
   ListItem,
   ListItemText,
+  styled,
   Tab,
+  TabProps,
   Tabs,
   Toolbar,
   Typography,
   useMediaQuery,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Link, Route } from "react-router-dom";
-
-const useStyles = makeStyles((theme) => ({
-  nav: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
-  fullHeightTabs: {
-    ...theme.mixins.toolbar,
-  },
-  drawerPaper: {
-    width: 240,
-  },
-}));
 
 const pages = [
   {
@@ -49,9 +37,11 @@ const pages = [
   },
 ];
 
-const Header: React.VFC = () => {
-  const classes = useStyles();
+const ToolbarTab = styled(Tab)<TabProps<Link>>(({ theme }) => ({
+  ...theme.mixins.toolbar,
+}));
 
+const Header: React.VFC = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
 
   const centerNav = useMediaQuery("(min-width:940px)");
@@ -59,13 +49,13 @@ const Header: React.VFC = () => {
 
   return (
     <React.Fragment>
-      <AppBar className={classes.nav}>
+      <AppBar component="nav" color="default">
         <Toolbar>
           <Grid
             container
             direction={burgerMenu ? "row-reverse" : "row"}
             alignItems="center"
-            justify="space-between"
+            justifyContent="space-between"
           >
             <Grid item xs={!burgerMenu}>
               <Typography variant="h6">2021 Part IV Projects</Typography>
@@ -75,6 +65,7 @@ const Header: React.VFC = () => {
                 <IconButton
                   color="inherit"
                   onClick={() => setBurgerOpen(!burgerOpen)}
+                  size="large"
                 >
                   <MenuIcon />
                 </IconButton>
@@ -88,12 +79,10 @@ const Header: React.VFC = () => {
                           page.paths.includes(location.pathname)
                         ) ?? -1
                       }
-                      className={classes.fullHeightTabs}
                     >
                       {pages.map((page, i) => (
-                        <Tab
+                        <ToolbarTab
                           label={page.name}
-                          className={classes.fullHeightTabs}
                           component={Link}
                           to={page.href}
                           value={i}
@@ -116,15 +105,10 @@ const Header: React.VFC = () => {
             render={({ location }) => (
               <Drawer
                 variant="temporary"
-                anchor="left"
                 open={burgerOpen}
                 onClose={() => setBurgerOpen(false)}
-                classes={{
-                  paper: classes.drawerPaper,
-                }}
-                ModalProps={{
-                  keepMounted: true,
-                }}
+                ModalProps={{ keepMounted: true }}
+                sx={{ "& .MuiDrawer-paper": { width: 240 } }}
               >
                 <List>
                   {pages.map((page) => (

@@ -1,9 +1,8 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import { Avatar, Chip, Divider, Grid, Typography } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
+import makeStyles from "@mui/styles/makeStyles";
+import { Avatar, Chip, Divider, Grid, Paper, Typography } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 import ProjectDetails from "./ProjectDetails";
 import { Project } from "../types";
@@ -55,7 +54,7 @@ const ProjectCard: React.VFC<ProjectCardProps> = ({
       <div className={classes.section}>
         <Grid container spacing={2} alignItems="center" wrap="nowrap">
           <Grid item>
-            <Avatar className={classes.blue}>{project.id}</Avatar>
+            <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
           </Grid>
           <Grid item>
             <Typography variant="h5" className={classes.bold}>

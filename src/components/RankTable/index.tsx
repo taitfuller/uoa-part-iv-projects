@@ -1,6 +1,7 @@
 import React from "react";
 
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 import {
   Chip,
   Grid,
@@ -14,15 +15,15 @@ import {
   TableRow,
   Theme,
   Tooltip,
-} from "@material-ui/core";
-import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
-import VisibilityIcon from "@material-ui/icons/Visibility";
+} from "@mui/material";
+import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 import { Project } from "../../types";
-import red from "@material-ui/core/colors/red";
 import Row from "./Row";
 import { useLeaveGroupDialog } from "../../hooks/dialog";
+import { red } from "@mui/material/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

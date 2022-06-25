@@ -1,8 +1,8 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import { Button, Chip, Divider, Grid, Typography } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
+import makeStyles from "@mui/styles/makeStyles";
+import { Button, Chip, Divider, Grid, Typography } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 import FavouriteButton from "./FavouriteButton";
 import { Project } from "../types";
@@ -91,7 +91,7 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
       </div>
       <Divider />
       <div className={classes.section}>
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           <Grid item>
             <Grid container direction="column" spacing={1}>
               <Grid item>
@@ -125,7 +125,7 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
       </div>
       <Divider />
       <div className={classes.buttons}>
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
           <Button href={project.url} target="_blank">
             Go to Official Page

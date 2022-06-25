@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { Container, Grid, Typography } from "@material-ui/core";
-import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import { Container, Grid, Typography } from "@mui/material";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 import Filter from "../components/Filter";
 import ProjectCard from "../components/ProjectCard";

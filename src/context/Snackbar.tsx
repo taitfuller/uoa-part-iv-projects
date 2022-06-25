@@ -1,10 +1,10 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
-import { Snackbar } from "@material-ui/core";
-import { Alert, Color } from "@material-ui/lab";
+import { AlertColor, Snackbar } from "@mui/material";
+import { Alert } from "@mui/material";
 
 type SnackbarContextType = (
   message: string,
-  severity?: Color,
+  severity?: AlertColor,
   autoHideDuration?: number
 ) => void;
 
@@ -15,7 +15,7 @@ const SnackbarContext = createContext<SnackbarContextType | undefined>(
 type SnackbarState = {
   isOpen: boolean;
   message?: string;
-  severity?: Color;
+  severity?: AlertColor;
   autoHideDuration?: number;
 };
 
@@ -24,7 +24,7 @@ export const SnackbarProvider: React.FC = ({ children }) => {
     useState<SnackbarState>({ isOpen: false });
 
   const openSnackbar = useCallback(
-    (message: string, severity: Color = "info", autoHideDuration = 3000) =>
+    (message: string, severity: AlertColor = "info", autoHideDuration = 3000) =>
       setState({ isOpen: true, message, severity, autoHideDuration }),
     []
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import {
   Button,
   CircularProgress,
@@ -9,9 +9,9 @@ import {
   InputBase,
   Paper,
   Typography,
-} from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
 import { useHistory } from "react-router";
 import { useGroup } from "../context/Group";
 import { useConnection } from "../context/Connection";
@@ -105,7 +105,7 @@ const JoinGroupPage: React.VFC = () => {
       container
       direction="row"
       spacing={4}
-      justify="center"
+      justifyContent="center"
       alignItems="stretch"
       className={classes.groupCardContainer}
     >
@@ -129,6 +129,7 @@ const JoinGroupPage: React.VFC = () => {
                   <IconButton
                     onClick={copyAccessCode}
                     className={classes.inputSubmit}
+                    size="large"
                   >
                     <FileCopyIcon />
                   </IconButton>
@@ -186,6 +187,7 @@ const JoinGroupPage: React.VFC = () => {
                         type="submit"
                         className={classes.inputSubmit}
                         disabled={accessCode === "" || loadingCreateGroup}
+                        size="large"
                       >
                         <AddIcon />
                       </IconButton>
@@ -202,7 +204,7 @@ const JoinGroupPage: React.VFC = () => {
                 className={classes.fullHeight}
                 direction="column"
                 alignItems="center"
-                justify="space-between"
+                justifyContent="space-between"
               >
                 <Grid item>
                   <Typography variant="h6">Create Group</Typography>

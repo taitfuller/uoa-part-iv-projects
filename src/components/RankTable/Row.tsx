@@ -11,15 +11,16 @@ import {
   Theme,
   Tooltip,
   Typography,
-} from "@material-ui/core";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import ClearIcon from "@material-ui/icons/Clear";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import red from "@material-ui/core/colors/red";
-
+} from "@mui/material";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
+import ClearIcon from "@mui/icons-material/Clear";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Project } from "../../types";
+
 import ProjectDetails from "../ProjectDetails";
+import { red } from "@mui/material/colors";
 
 interface RowProps {
   project: Project;
@@ -83,23 +84,23 @@ const Row: React.VFC<RowProps> = ({
       >
         <TableCell align="center">
           {i === 0 ? (
-            <IconButton disabled>
+            <IconButton disabled size="large">
               <KeyboardArrowUpIcon />
             </IconButton>
           ) : (
             <Tooltip title="Increase">
-              <IconButton onClick={() => swapFavourites(i, i - 1)}>
+              <IconButton onClick={() => swapFavourites(i, i - 1)} size="large">
                 <KeyboardArrowUpIcon />
               </IconButton>
             </Tooltip>
           )}
           {i === length - 1 ? (
-            <IconButton disabled>
+            <IconButton disabled size="large">
               <KeyboardArrowDownIcon />
             </IconButton>
           ) : (
             <Tooltip title="Decrease">
-              <IconButton onClick={() => swapFavourites(i, i + 1)}>
+              <IconButton onClick={() => swapFavourites(i, i + 1)} size="large">
                 <KeyboardArrowDownIcon />
               </IconButton>
             </Tooltip>
@@ -108,7 +109,7 @@ const Row: React.VFC<RowProps> = ({
         <TableCell className={classes.cursor} onClick={() => setOpen(!open)}>
           <Grid container spacing={2} alignItems="center" wrap="nowrap">
             <Grid item>
-              <Avatar className={i < 5 ? classes.blue : ""}>
+              <Avatar sx={{ bgcolor: i < 5 ? "primary.main" : "" }}>
                 {project.id}
               </Avatar>
             </Grid>
@@ -126,13 +127,16 @@ const Row: React.VFC<RowProps> = ({
         </TableCell>
         <TableCell className={classes.buttonColumn}>
           <Tooltip title="Show More">
-            <IconButton onClick={() => setOpen(!open)}>
+            <IconButton onClick={() => setOpen(!open)} size="large">
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
           </Tooltip>
           {userFavourites.has(project.id) && (
             <Tooltip title="Remove">
-              <IconButton onClick={() => toggleFavourite(project.id)}>
+              <IconButton
+                onClick={() => toggleFavourite(project.id)}
+                size="large"
+              >
                 <ClearIcon />
               </IconButton>
             </Tooltip>
