@@ -15,7 +15,6 @@ import {
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import useLocalStorage from "use-local-storage";
 
 import Header from "./components/Header";
 import { Project } from "./types";
@@ -24,6 +23,8 @@ import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
 import { useProjects } from "./context/Projects";
+import { useGroup } from "./context/Group";
+import hasOwnProperty from "./types/hasOwnProperty";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -36,17 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-async function postData(url = "") {
-  const response = await fetch(url, {
-    method: "POST",
-  });
-  return response.json();
-}
-
-let socket: WebSocket | undefined;
-
 const App: React.FC = () => {
   const { isLoading } = useProjects();
+  const { socket, groupId, userId, connect, disconnect } = useGroup();
 
   const [favourites, setFavourites] = useState<Set<Project["id"]>>(
     () =>
@@ -64,110 +57,25 @@ const App: React.FC = () => {
     new Set()
   );
 
-  const [userCount, setUserCount] = useState(1);
-
-  const [groupHasLoaded, setGroupHasLoaded] = useState(false);
-
-  const [groupId, setGroupId] = useLocalStorage("groupId", "");
-
-  const [userId, setUserId] = useLocalStorage("userId", "");
-
-  const createGroup = async () => {
-    try {
-      const createGroupResponse = await postData(
-        "https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/create-group"
-      );
-      if (createGroupResponse.groupId) {
-        setGroupId(createGroupResponse.groupId);
-
-        await joinGroup(createGroupResponse.groupId);
-
-        return createGroupResponse.groupId;
-      }
-    } catch (_err) {
-      throw new Error("Whoops! Something went wrong - give it another go?");
-    }
-  };
-
-  const joinGroup = async (joinGroupId: string) => {
-    try {
-      const joinGroupResponse = await postData(
-        `https://p64bn61v3m.execute-api.ap-southeast-2.amazonaws.com/join-group?groupId=${joinGroupId}`
-      );
-      if (joinGroupResponse.userId) {
-        if (groupId !== joinGroupId) setGroupId(joinGroupId);
-        setUserId(joinGroupResponse.userId);
-
-        return joinGroupResponse.userId;
-      }
-    } catch (_err) {
-      throw new Error("Whoops! Looks like you entered an invalid Access Code");
-    }
-  };
-
-  const socketUpdateFavourites = (favourites: Set<Project["id"]>) => {
-    const data = JSON.stringify({
-      action: "updateUserFavourites",
-      data: [...favourites],
-    });
-    socket?.send(data);
-  };
-
-  const connect = useCallback(
-    (groupId: string, userId: string) => {
-      socket = new WebSocket(
-        `wss://bs4wohdona.execute-api.ap-southeast-2.amazonaws.com/production?groupId=${groupId}&userId=${userId}`
-      );
-
-      socket.onopen = () => {
-        socketUpdateFavourites(favourites);
-      };
-
-      socket.onmessage = (event) => {
-        if (event.data) {
-          const data = JSON.parse(event.data);
-          if (data.favouritesList) {
-            setGroupFavourites(new Set(data.favouritesList));
-            if (!groupHasLoaded) {
-              setGroupHasLoaded(true);
-            }
-          }
-          if (data.userCount) {
-            setUserCount(data.userCount);
-          }
-        }
-      };
-
-      socket.onclose = socket.onerror = () => {
-        socket = undefined;
-      };
+  const socketUpdateFavourites = useCallback(
+    (socket: WebSocket, favourites: Set<Project["id"]>) => {
+      const data = JSON.stringify({
+        action: "updateUserFavourites",
+        data: [...favourites],
+      });
+      socket.send(data);
     },
-    [favourites, groupHasLoaded]
+    []
   );
 
-  const disconnect = () => {
-    if (socket) {
-      socketUpdateFavourites(new Set());
-      socket.close();
-    }
-    setGroupId("");
-    setUserId("");
-    socket = undefined;
-    setShowLeaveGroupDialog(false);
-  };
-
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
-
-  useEffect(() => {
-    if (!socket && groupId && userId) connect(groupId, userId);
-  }, [connect, groupId, userId]);
 
   const toggleFavourite = (id: Project["id"]) => {
     const update = new Set(favourites);
     update.has(id) ? update.delete(id) : update.add(id);
     setFavourites(update);
     if (socket) {
-      socketUpdateFavourites(update);
+      socketUpdateFavourites(socket, update);
     }
   };
 
@@ -211,6 +119,37 @@ const App: React.FC = () => {
       .then(() => setShowCopied(true))
       .catch((err) => setErrorMessage(err.message));
   };
+
+  const connectGroup = useCallback(() => {
+    const onOpen = (socket: WebSocket) => {
+      socketUpdateFavourites(socket, favourites);
+    };
+
+    const onMessage = (data: unknown) => {
+      if (
+        data &&
+        typeof data === "object" &&
+        hasOwnProperty(data, "favouritesList") &&
+        Array.isArray(data.favouritesList)
+      ) {
+        setGroupFavourites(new Set(data.favouritesList));
+      }
+    };
+
+    connect(onOpen, onMessage);
+  }, [connect, favourites, socketUpdateFavourites]);
+
+  const disconnectGroup = useCallback(() => {
+    if (socket) {
+      socketUpdateFavourites(socket, new Set());
+    }
+    disconnect();
+    setShowLeaveGroupDialog(false);
+  }, [disconnect, socket, socketUpdateFavourites]);
+
+  useEffect(() => {
+    if (!socket && groupId && userId) connectGroup();
+  }, [connectGroup, groupId, socket, userId]);
 
   const classes = useStyles();
 
@@ -260,8 +199,6 @@ const App: React.FC = () => {
                   <GroupRankingPage
                     userFavourites={favourites}
                     groupFavourites={groupFavourites}
-                    userCount={userCount}
-                    groupHasLoaded={groupHasLoaded}
                     toggleFavourite={toggleFavourite}
                     swapGroupFavourites={swapGroupFavourites}
                     setShowLeaveGroupDialog={setShowLeaveGroupDialog}
@@ -270,11 +207,7 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/join-group">
                   <JoinGroupPage
-                    createGroup={createGroup}
-                    joinGroup={joinGroup}
-                    groupId={groupId}
-                    userId={userId}
-                    connect={connect}
+                    connect={connectGroup}
                     setErrorMessage={setErrorMessage}
                     copyAccessCode={copyAccessCode}
                   />
@@ -293,7 +226,7 @@ const App: React.FC = () => {
       >
         <DialogTitle>Are you sure you want to leave this group?</DialogTitle>
         <DialogActions>
-          <Button onClick={disconnect} style={{ color: "red" }}>
+          <Button onClick={disconnectGroup} style={{ color: "red" }}>
             Leave Group
           </Button>
           <Button onClick={() => setShowLeaveGroupDialog(false)}>Cancel</Button>

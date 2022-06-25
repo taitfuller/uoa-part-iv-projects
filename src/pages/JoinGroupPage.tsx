@@ -13,6 +13,7 @@ import {
 import AddIcon from "@material-ui/icons/Add";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import { useHistory } from "react-router";
+import { useGroup } from "../context/Group";
 
 const useStyles = makeStyles((theme) => ({
   fullHeight: {
@@ -59,24 +60,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface JoinGroupPageProps {
-  createGroup: () => void;
-  joinGroup: (accessCode: string) => Promise<string>;
-  groupId: string;
-  userId: string;
   connect: (accessCode: string, userId: string) => void;
   setErrorMessage: (message: string) => void;
   copyAccessCode: () => void;
 }
 
 const JoinGroupPage: React.FC<JoinGroupPageProps> = ({
-  createGroup,
-  joinGroup,
-  groupId,
-  userId,
   connect,
   setErrorMessage,
   copyAccessCode,
 }) => {
+  const { createGroup, joinGroup, groupId, userId } = useGroup();
   const history = useHistory();
 
   const [accessCode, setAccessCode] = useState(groupId);

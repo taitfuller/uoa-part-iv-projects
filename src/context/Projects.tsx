@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { Project } from "../types";
 
-export type ProjectsContextType = {
+interface ProjectsContextType {
   projects: Project[];
   supervisors: string[];
   cosupervisors: string[];
   specialisations: string[];
   categories: string[];
   isLoading: boolean;
-};
+}
 
-const ProjectsContext = React.createContext<ProjectsContextType | undefined>(
+const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined
 );
 
