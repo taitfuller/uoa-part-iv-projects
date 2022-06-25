@@ -1,13 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  CircularProgress,
-  Container,
-  CssBaseline,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Container, CssBaseline } from "@material-ui/core";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -19,6 +13,7 @@ import { useGroup } from "./context/Group";
 import { useProjects } from "./context/Projects";
 import { SnackbarProvider } from "./context/Snackbar";
 import { DialogProvider } from "./context/Dialog";
+import Loading from "./components/Loading";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -42,30 +37,14 @@ const App: React.FC = () => {
       <CssBaseline />
       <DialogProvider>
         <SnackbarProvider>
-          {isLoading ? (
-            <Container className={`${classes.container} ${classes.fullHeight}`}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                spacing={4}
-                className={classes.fullHeight}
-              >
-                <Grid item>
-                  <CircularProgress size={50} />
-                </Grid>
-                <Grid item>
-                  <Typography variant="h4">Loading Projects...</Typography>
-                </Grid>
-              </Grid>
-            </Container>
-          ) : (
-            <>
-              <Header />
-              <main>
-                <div className={classes.appBarSpacer} />
-                <Container className={classes.container}>
+          <>
+            <Header />
+            <main>
+              <div className={classes.appBarSpacer} />
+              <Container className={classes.container}>
+                {isLoading ? (
+                  <Loading message="Loading Projects..." />
+                ) : (
                   <Switch>
                     <Route path="/explore">
                       <ExplorePage />
@@ -84,10 +63,10 @@ const App: React.FC = () => {
                       <Redirect to="/explore" />
                     </Route>
                   </Switch>
-                </Container>
-              </main>
-            </>
-          )}
+                )}
+              </Container>
+            </main>
+          </>
         </SnackbarProvider>
       </DialogProvider>
     </BrowserRouter>
