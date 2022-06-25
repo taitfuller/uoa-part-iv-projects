@@ -6,11 +6,7 @@ import RankingPage from "./RankingPage";
 import { useGroup } from "../context/Group";
 import { useCopyAccessCode } from "../hooks/copy";
 
-interface RankGroupProps {
-  setShowLeaveGroupDialog: (show: boolean) => void;
-}
-
-const RankGroup: React.FC<RankGroupProps> = ({ setShowLeaveGroupDialog }) => {
+const RankGroup: React.VFC = () => {
   const { groupHasLoaded } = useGroup();
   const copyAccessCode = useCopyAccessCode();
 
@@ -34,13 +30,7 @@ const RankGroup: React.FC<RankGroupProps> = ({ setShowLeaveGroupDialog }) => {
     );
   }
 
-  return (
-    <RankingPage
-      isGroup={true}
-      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
-      copyAccessCode={copyAccessCode}
-    />
-  );
+  return <RankingPage isGroup={true} copyAccessCode={copyAccessCode} />;
 };
 
 export default RankGroup;

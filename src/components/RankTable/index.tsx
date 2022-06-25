@@ -22,6 +22,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import { Project } from "../../types";
 import red from "@material-ui/core/colors/red";
 import Row from "./Row";
+import { useLeaveGroupDialog } from "../../hooks/dialog";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,7 +62,6 @@ interface RankTableProps {
   userFavourites: Set<Project["id"]>;
   toggleFavourite: (id: Project["id"]) => void;
   swapFavourites: (a: number, b: number) => void;
-  setShowLeaveGroupDialog?: (show: boolean) => void;
   isGroup?: boolean;
   userCount?: number;
   copyAccessCode?: () => void;
@@ -72,11 +72,12 @@ const RankTable: React.FC<RankTableProps> = ({
   userFavourites,
   toggleFavourite,
   swapFavourites,
-  setShowLeaveGroupDialog,
   isGroup,
   userCount,
   copyAccessCode,
 }) => {
+  const handleLeaveGroup = useLeaveGroupDialog();
+
   const classes = useStyles();
 
   return (
@@ -92,7 +93,7 @@ const RankTable: React.FC<RankTableProps> = ({
                 <Grid item xs>
                   Project
                 </Grid>
-                {isGroup && userCount && setShowLeaveGroupDialog && (
+                {isGroup && (
                   <React.Fragment>
                     <Grid item>
                       <Tooltip title="Copy Access Code">
@@ -103,16 +104,16 @@ const RankTable: React.FC<RankTableProps> = ({
                     </Grid>
                     <Grid item>
                       <Tooltip
-                        title={`${userCount} Member${userCount > 1 ? "s" : ""}`}
+                        title={`${userCount} Member${
+                          userCount ?? 0 > 1 ? "s" : ""
+                        }`}
                       >
                         <Chip icon={<VisibilityIcon />} label={userCount} />
                       </Tooltip>
                     </Grid>
                     <Grid item>
                       <Tooltip title="Leave Group">
-                        <IconButton
-                          onClick={() => setShowLeaveGroupDialog(true)}
-                        >
+                        <IconButton onClick={handleLeaveGroup}>
                           <DirectionsRunIcon />
                         </IconButton>
                       </Tooltip>

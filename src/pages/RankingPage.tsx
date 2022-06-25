@@ -20,16 +20,15 @@ import { Project } from "../types";
 import { useProjects } from "../context/Projects";
 import { useFavourites } from "../context/Favourites";
 import { useGroup } from "../context/Group";
+import { useLeaveGroupDialog } from "../hooks/dialog";
 
 interface RankingPageProps {
   isGroup?: boolean;
-  setShowLeaveGroupDialog?: (show: boolean) => void;
   copyAccessCode?: () => void;
 }
 
 const RankingPage: React.FC<RankingPageProps> = ({
   isGroup,
-  setShowLeaveGroupDialog,
   copyAccessCode,
 }) => {
   const { projects } = useProjects();
@@ -41,6 +40,7 @@ const RankingPage: React.FC<RankingPageProps> = ({
     swapGroupFavourites,
   } = useFavourites();
   const { userCount } = useGroup();
+  const handleLeaveGroup = useLeaveGroupDialog();
 
   const [showRankMessage, setShowRankMessage] = useLocalStorage(
     "showRankMessage",
@@ -89,10 +89,10 @@ const RankingPage: React.FC<RankingPageProps> = ({
               Explore Projects
             </Button>
           </Grid>
-          {isGroup && setShowLeaveGroupDialog && (
+          {isGroup && (
             <Grid item>
               <Tooltip title="Leave Group">
-                <IconButton onClick={() => setShowLeaveGroupDialog(true)}>
+                <IconButton onClick={handleLeaveGroup}>
                   <DirectionsRunIcon />
                 </IconButton>
               </Tooltip>
@@ -119,7 +119,6 @@ const RankingPage: React.FC<RankingPageProps> = ({
         userFavourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapFavourites}
-        setShowLeaveGroupDialog={setShowLeaveGroupDialog}
         isGroup={isGroup}
         userCount={userCount}
         copyAccessCode={copyAccessCode}
