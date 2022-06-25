@@ -1,8 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, CssBaseline } from "@material-ui/core";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Container } from "@material-ui/core";
 
 import Header from "./components/Header";
 import ExplorePage from "./pages/ExplorePage";
@@ -11,9 +10,8 @@ import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
 import { useGroup } from "./context/Group";
 import { useProjects } from "./context/Projects";
-import { SnackbarProvider } from "./context/Snackbar";
-import { DialogProvider } from "./context/Dialog";
 import Loading from "./components/Loading";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -33,43 +31,36 @@ const App: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <BrowserRouter>
-      <CssBaseline />
-      <DialogProvider>
-        <SnackbarProvider>
-          <>
-            <Header />
-            <main>
-              <div className={classes.appBarSpacer} />
-              <Container className={classes.container}>
-                {isLoading ? (
-                  <Loading message="Loading Projects..." />
-                ) : (
-                  <Switch>
-                    <Route path="/explore">
-                      <ExplorePage />
-                    </Route>
-                    <Route path="/my-ranking">
-                      <RankingPage />
-                    </Route>
-                    <Route path="/group-ranking">
-                      {(!groupId || !userId) && <Redirect to="/join-group" />}
-                      <GroupRankingPage />
-                    </Route>
-                    <Route path="/join-group">
-                      <JoinGroupPage />
-                    </Route>
-                    <Route path="/">
-                      <Redirect to="/explore" />
-                    </Route>
-                  </Switch>
-                )}
-              </Container>
-            </main>
-          </>
-        </SnackbarProvider>
-      </DialogProvider>
-    </BrowserRouter>
+    <>
+      <Header />
+      <main>
+        <div className={classes.appBarSpacer} />
+        <Container className={classes.container}>
+          {isLoading ? (
+            <Loading message="Loading Projects..." />
+          ) : (
+            <Switch>
+              <Route path="/explore">
+                <ExplorePage />
+              </Route>
+              <Route path="/my-ranking">
+                <RankingPage />
+              </Route>
+              <Route path="/group-ranking">
+                {(!groupId || !userId) && <Redirect to="/join-group" />}
+                <GroupRankingPage />
+              </Route>
+              <Route path="/join-group">
+                <JoinGroupPage />
+              </Route>
+              <Route path="/">
+                <Redirect to="/explore" />
+              </Route>
+            </Switch>
+          )}
+        </Container>
+      </main>
+    </>
   );
 };
 

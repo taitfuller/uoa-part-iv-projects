@@ -7,18 +7,29 @@ import { ProjectsProvider } from "./context/Projects";
 import { GroupProvider } from "./context/Group";
 import { FavouritesProvider } from "./context/Favourites";
 import { ConnectionProvider } from "./context/Connection";
+import { CssBaseline } from "@material-ui/core";
+import { BrowserRouter } from "react-router-dom";
+import { DialogProvider } from "./context/Dialog";
+import { SnackbarProvider } from "./context/Snackbar";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProjectsProvider>
-      <GroupProvider>
-        <FavouritesProvider>
-          <ConnectionProvider>
-            <App />
-          </ConnectionProvider>
-        </FavouritesProvider>
-      </GroupProvider>
-    </ProjectsProvider>
+    <BrowserRouter>
+      <ProjectsProvider>
+        <GroupProvider>
+          <FavouritesProvider>
+            <ConnectionProvider>
+              <CssBaseline />
+              <DialogProvider>
+                <SnackbarProvider>
+                  <App />
+                </SnackbarProvider>
+              </DialogProvider>
+            </ConnectionProvider>
+          </FavouritesProvider>
+        </GroupProvider>
+      </ProjectsProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
