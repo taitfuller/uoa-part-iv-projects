@@ -33,7 +33,7 @@ interface ProjectDetailsProps {
   toggleFavourite: () => void;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({
+const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
   project,
   isFavourite,
   toggleFavourite,

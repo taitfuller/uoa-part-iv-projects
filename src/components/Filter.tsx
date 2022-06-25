@@ -46,7 +46,7 @@ interface FilterProps {
   count: number;
 }
 
-const Filter: React.FC<FilterProps> = ({
+const Filter: React.VFC<FilterProps> = ({
   selectedFilters,
   setSelectedFilters,
   supervisors,

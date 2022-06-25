@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Row: React.FC<RowProps> = ({
+const Row: React.VFC<RowProps> = ({
   project,
   i,
   userFavourites,

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const App: React.FC = () => {
+const App: React.VFC = () => {
   const { isLoading } = useProjects();
   const { groupId, userId } = useGroup();
 

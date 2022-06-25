@@ -21,16 +21,13 @@ import { useProjects } from "../context/Projects";
 import { useFavourites } from "../context/Favourites";
 import { useGroup } from "../context/Group";
 import { useLeaveGroupDialog } from "../hooks/dialog";
+import { useCopyAccessCode } from "../hooks/copy";
 
 interface RankingPageProps {
   isGroup?: boolean;
-  copyAccessCode?: () => void;
 }
 
-const RankingPage: React.FC<RankingPageProps> = ({
-  isGroup,
-  copyAccessCode,
-}) => {
+const RankingPage: React.VFC<RankingPageProps> = ({ isGroup }) => {
   const { projects } = useProjects();
   const {
     userFavourites,
@@ -41,6 +38,7 @@ const RankingPage: React.FC<RankingPageProps> = ({
   } = useFavourites();
   const { userCount } = useGroup();
   const handleLeaveGroup = useLeaveGroupDialog();
+  const copyAccessCode = useCopyAccessCode();
 
   const [showRankMessage, setShowRankMessage] = useLocalStorage(
     "showRankMessage",

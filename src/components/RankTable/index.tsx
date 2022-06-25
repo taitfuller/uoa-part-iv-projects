@@ -67,7 +67,7 @@ interface RankTableProps {
   copyAccessCode?: () => void;
 }
 
-const RankTable: React.FC<RankTableProps> = ({
+const RankTable: React.VFC<RankTableProps> = ({
   projects,
   userFavourites,
   toggleFavourite,

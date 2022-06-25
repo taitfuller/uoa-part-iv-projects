@@ -49,7 +49,7 @@ const pages = [
   },
 ];
 
-const Header: React.FC = () => {
+const Header: React.VFC = () => {
   const classes = useStyles();
 
   const [burgerOpen, setBurgerOpen] = useState(false);
