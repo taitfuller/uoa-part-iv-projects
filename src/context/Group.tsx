@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import useLocalStorage from "use-local-storage";
 
-interface GroupContextType {
+type GroupContextType = {
   socket: WebSocket | undefined;
   groupId: string;
   userId: string;
@@ -20,7 +20,7 @@ interface GroupContextType {
     onMessage: (data: unknown) => void
   ) => void;
   disconnect: () => void;
-}
+};
 
 const GroupContext = createContext<GroupContextType | undefined>(undefined);
 

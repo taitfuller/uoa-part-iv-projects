@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Project } from "../types";
 
-interface ProjectsContextType {
+type ProjectsContextType = {
   projects: Project[];
   supervisors: string[];
   cosupervisors: string[];
   specialisations: string[];
   categories: string[];
   isLoading: boolean;
-}
+};
 
 const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined

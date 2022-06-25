@@ -10,10 +10,10 @@ import hasOwnProperty from "../types/hasOwnProperty";
 import { useFavourites } from "./Favourites";
 import { useGroup } from "./Group";
 
-interface ConnectionContextType {
+type ConnectionContextType = {
   connectGroup: () => void;
   disconnectGroup: () => void;
-}
+};
 
 const ConnectionContext = createContext<ConnectionContextType | undefined>(
   undefined

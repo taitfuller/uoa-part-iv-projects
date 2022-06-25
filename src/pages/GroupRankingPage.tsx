@@ -4,17 +4,15 @@ import { CircularProgress, Grid, Typography } from "@material-ui/core";
 
 import RankingPage from "./RankingPage";
 import { useGroup } from "../context/Group";
+import { useCopyAccessCode } from "../hooks/copy";
 
 interface RankGroupProps {
   setShowLeaveGroupDialog: (show: boolean) => void;
-  copyAccessCode: () => void;
 }
 
-const RankGroup: React.FC<RankGroupProps> = ({
-  setShowLeaveGroupDialog,
-  copyAccessCode,
-}) => {
+const RankGroup: React.FC<RankGroupProps> = ({ setShowLeaveGroupDialog }) => {
   const { groupHasLoaded } = useGroup();
+  const copyAccessCode = useCopyAccessCode();
 
   if (!groupHasLoaded) {
     return (

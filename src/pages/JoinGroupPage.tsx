@@ -15,6 +15,8 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import { useHistory } from "react-router";
 import { useGroup } from "../context/Group";
 import { useConnection } from "../context/Connection";
+import { useSnackbar } from "../context/Snackbar";
+import { useCopyAccessCode } from "../hooks/copy";
 
 const useStyles = makeStyles((theme) => ({
   fullHeight: {
@@ -60,17 +62,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface JoinGroupPageProps {
-  setErrorMessage: (message: string) => void;
-  copyAccessCode: () => void;
-}
-
-const JoinGroupPage: React.FC<JoinGroupPageProps> = ({
-  setErrorMessage,
-  copyAccessCode,
-}) => {
+const JoinGroupPage: React.VFC = () => {
   const { createGroup, joinGroup, groupId, userId } = useGroup();
   const { connectGroup } = useConnection();
+  const openSnackbar = useSnackbar();
+  const copyAccessCode = useCopyAccessCode();
+
   const history = useHistory();
 
   const [accessCode, setAccessCode] = useState(groupId);
@@ -87,7 +84,7 @@ const JoinGroupPage: React.FC<JoinGroupPageProps> = ({
       await joinGroup(accessCode);
       connectGroup();
     } catch (err) {
-      setErrorMessage((err as Error).message);
+      openSnackbar((err as Error).message, "error");
     }
     setLoadingJoinGroup(false);
     history.replace("/group-ranking");
@@ -98,7 +95,7 @@ const JoinGroupPage: React.FC<JoinGroupPageProps> = ({
     try {
       await createGroup();
     } catch (err) {
-      setErrorMessage((err as Error).message);
+      openSnackbar((err as Error).message, "error");
     }
     setLoadingCreateGroup(false);
   };

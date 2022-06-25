@@ -13,14 +13,14 @@ import {
 import { Project } from "../types";
 import { useGroup } from "./Group";
 
-interface FavouritesContextType {
+type FavouritesContextType = {
   userFavourites: Set<Project["id"]>;
   groupFavourites: Set<Project["id"]>;
   setGroupFavourites: React.Dispatch<React.SetStateAction<Set<Project["id"]>>>;
   toggleFavourite: (id: Project["id"]) => void;
   swapUserFavourites: (indexA: number, indexB: number) => void;
   swapGroupFavourites: (indexA: number, indexB: number) => void;
-}
+};
 
 const FavouritesContext = createContext<FavouritesContextType | undefined>(
   undefined
