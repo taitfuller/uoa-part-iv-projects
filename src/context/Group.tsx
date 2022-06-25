@@ -51,7 +51,6 @@ export const GroupProvider: React.FC = ({ children }) => {
         if (joinGroupResponse.userId) {
           setGroupId(groupId);
           setUserId(joinGroupResponse.userId);
-
           return joinGroupResponse.userId;
         }
       } catch (_err) {
@@ -66,7 +65,7 @@ export const GroupProvider: React.FC = ({ children }) => {
   const createGroup = useCallback(async () => {
     try {
       const createGroupResponse = await postData(
-        `$process.env.REACT_APP_REST_URL}/create-group`
+        `${process.env.REACT_APP_REST_URL}/create-group`
       );
       if (createGroupResponse.groupId) {
         setGroupId(createGroupResponse.groupId);
@@ -152,7 +151,7 @@ export const GroupProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useGroup = () => {
+export const useGroup = (): GroupContextType => {
   const groupInstance = useContext(GroupContext);
 
   if (groupInstance === undefined) {

@@ -7,6 +7,7 @@ import Filter from "../components/Filter";
 import ProjectCard from "../components/ProjectCard";
 import { Project } from "../types";
 import { useProjects } from "../context/Projects";
+import { useFavourites } from "../context/Favourites";
 
 type SelectedFilters = {
   toggledFavourites: boolean;
@@ -16,17 +17,11 @@ type SelectedFilters = {
   selectedSpecialisations: string[];
   selectedCategories: string[];
 };
-interface ExplorePageProps {
-  favourites: Set<Project["id"]>;
-  toggleFavourite: (id: Project["id"]) => void;
-}
 
-const ExplorePage: React.FC<ExplorePageProps> = ({
-  favourites,
-  toggleFavourite,
-}) => {
+const ExplorePage: React.VFC = () => {
   const { projects, supervisors, cosupervisors, specialisations, categories } =
     useProjects();
+  const { userFavourites, toggleFavourite } = useFavourites();
 
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
     toggledFavourites: false,
@@ -46,7 +41,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({
 
   const filters = [
     (project: Project) =>
-      selectedFilters.toggledFavourites ? favourites.has(project.id) : true,
+      selectedFilters.toggledFavourites ? userFavourites.has(project.id) : true,
     (project: Project) =>
       selectedFilters.toggledUnallocated ? !project.allocated : true,
     (project: Project) =>
@@ -98,7 +93,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({
           <ProjectCard
             key={project.id}
             project={project}
-            isFavourite={favourites.has(project.id)}
+            isFavourite={userFavourites.has(project.id)}
             toggleFavourite={() => toggleFavourite(project.id)}
           />
         ))

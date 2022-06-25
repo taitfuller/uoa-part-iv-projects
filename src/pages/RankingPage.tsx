@@ -18,29 +18,29 @@ import useLocalStorage from "use-local-storage";
 import RankTable from "../components/RankTable";
 import { Project } from "../types";
 import { useProjects } from "../context/Projects";
+import { useFavourites } from "../context/Favourites";
+import { useGroup } from "../context/Group";
 
 interface RankingPageProps {
-  userFavourites: Set<Project["id"]>;
-  toggleFavourite: (id: Project["id"]) => void;
-  swapFavourites: (a: number, b: number) => void;
-  groupFavourites?: Set<Project["id"]>;
-  userCount?: number;
-  setShowLeaveGroupDialog?: (show: boolean) => void;
   isGroup?: boolean;
+  setShowLeaveGroupDialog?: (show: boolean) => void;
   copyAccessCode?: () => void;
 }
 
 const RankingPage: React.FC<RankingPageProps> = ({
-  userFavourites,
-  toggleFavourite,
-  swapFavourites,
-  groupFavourites,
-  userCount,
-  setShowLeaveGroupDialog,
   isGroup,
+  setShowLeaveGroupDialog,
   copyAccessCode,
 }) => {
   const { projects } = useProjects();
+  const {
+    userFavourites,
+    groupFavourites,
+    toggleFavourite,
+    swapUserFavourites,
+    swapGroupFavourites,
+  } = useFavourites();
+  const { userCount } = useGroup();
 
   const [showRankMessage, setShowRankMessage] = useLocalStorage(
     "showRankMessage",
@@ -49,6 +49,8 @@ const RankingPage: React.FC<RankingPageProps> = ({
 
   const favourites: Set<Project["id"]> =
     isGroup && groupFavourites ? groupFavourites : userFavourites;
+  const swapFavourites = isGroup ? swapGroupFavourites : swapUserFavourites;
+
   const favouritesIndexes = new Map();
   Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
   const filteredProjects = projects

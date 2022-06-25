@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ProjectsProvider } from "./context/Projects";
 import { GroupProvider } from "./context/Group";
+import { FavouritesProvider } from "./context/Favourites";
 
 ReactDOM.render(
   <React.StrictMode>
     <ProjectsProvider>
       <GroupProvider>
-        <App />
+        <FavouritesProvider>
+          <App />
+        </FavouritesProvider>
       </GroupProvider>
     </ProjectsProvider>
   </React.StrictMode>,

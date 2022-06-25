@@ -3,11 +3,11 @@ import { Project } from "../types";
 
 export const useUpdateUserFavourites = () =>
   useCallback((socket: WebSocket, favourites: Set<Project["id"]>) => {
-    const data = JSON.stringify({
+    const data = {
       action: "updateUserFavourites",
       data: [...favourites],
-    });
-    socket.send(data);
+    };
+    socket.send(JSON.stringify(data));
   }, []);
 
 export const useUpdateGroupFavourites = () =>
@@ -24,15 +24,15 @@ export const useUpdateGroupFavourites = () =>
         data: {
           a: {
             index: indexA,
-            value: valueA,
+            value: valueB,
           },
           b: {
             index: indexB,
-            value: valueB,
+            value: valueA,
           },
         },
       };
-      socket?.send(JSON.stringify(data));
+      socket.send(JSON.stringify(data));
     },
     []
   );

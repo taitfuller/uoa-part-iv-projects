@@ -3,27 +3,18 @@ import React from "react";
 import { CircularProgress, Grid, Typography } from "@material-ui/core";
 
 import RankingPage from "./RankingPage";
-import { Project } from "../types";
 import { useGroup } from "../context/Group";
 
 interface RankGroupProps {
-  userFavourites: Set<Project["id"]>;
-  groupFavourites: Set<Project["id"]>;
-  toggleFavourite: (id: Project["id"]) => void;
-  swapGroupFavourites: (a: number, b: number) => void;
   setShowLeaveGroupDialog: (show: boolean) => void;
   copyAccessCode: () => void;
 }
 
 const RankGroup: React.FC<RankGroupProps> = ({
-  userFavourites,
-  groupFavourites,
-  toggleFavourite,
-  swapGroupFavourites,
   setShowLeaveGroupDialog,
   copyAccessCode,
 }) => {
-  const { groupHasLoaded, userCount } = useGroup();
+  const { groupHasLoaded } = useGroup();
 
   if (!groupHasLoaded) {
     return (
@@ -47,13 +38,8 @@ const RankGroup: React.FC<RankGroupProps> = ({
 
   return (
     <RankingPage
-      userFavourites={userFavourites}
-      toggleFavourite={toggleFavourite}
-      swapFavourites={swapGroupFavourites}
-      groupFavourites={groupFavourites}
-      userCount={userCount}
-      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
       isGroup={true}
+      setShowLeaveGroupDialog={setShowLeaveGroupDialog}
       copyAccessCode={copyAccessCode}
     />
   );

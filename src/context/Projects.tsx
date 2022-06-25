@@ -40,7 +40,7 @@ export const ProjectsProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useProjects = () => {
+export const useProjects = (): ProjectsContextType => {
   const projectsInstance = useContext(ProjectsContext);
 
   if (projectsInstance === undefined) {

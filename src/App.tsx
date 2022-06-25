@@ -17,18 +17,15 @@ import Alert from "@material-ui/lab/Alert";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
-import { Project } from "./types";
 import ExplorePage from "./pages/ExplorePage";
 import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
-import { useProjects } from "./context/Projects";
+import { useFavourites } from "./context/Favourites";
 import { useGroup } from "./context/Group";
+import { useProjects } from "./context/Projects";
 import hasOwnProperty from "./types/hasOwnProperty";
-import {
-  useUpdateGroupFavourites,
-  useUpdateUserFavourites,
-} from "./hooks/update";
+import { useUpdateUserFavourites } from "./hooks/update";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -44,55 +41,10 @@ const useStyles = makeStyles((theme) => ({
 const App: React.FC = () => {
   const { isLoading } = useProjects();
   const { socket, groupId, userId, connect, disconnect } = useGroup();
+  const { userFavourites, setGroupFavourites } = useFavourites();
   const updateUserFavourites = useUpdateUserFavourites();
-  const updateGroupFavourites = useUpdateGroupFavourites();
-
-  const [favourites, setFavourites] = useState<Set<Project["id"]>>(
-    () =>
-      new Set(
-        JSON.parse(
-          localStorage.getItem("favourites") as string
-        ) as Project["id"][]
-      )
-  );
-  useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify([...favourites]));
-  }, [favourites]);
-
-  const [groupFavourites, setGroupFavourites] = useState<Set<Project["id"]>>(
-    new Set()
-  );
 
   const [showLeaveGroupDialog, setShowLeaveGroupDialog] = useState(false);
-
-  const toggleFavourite = (id: Project["id"]) => {
-    const update = new Set(favourites);
-    update.has(id) ? update.delete(id) : update.add(id);
-    setFavourites(update);
-    if (socket) {
-      updateUserFavourites(socket, update);
-    }
-  };
-
-  const swapFavourites = (indexA: number, indexB: number) => {
-    const update = [...favourites];
-    const temp = update[indexA];
-    update[indexA] = update[indexB];
-    update[indexB] = temp;
-    setFavourites(new Set(update));
-  };
-
-  const swapGroupFavourites = (indexA: number, indexB: number) => {
-    const update = [...groupFavourites];
-    const valueA = update[indexA];
-    const valueB = update[indexB];
-    update[indexA] = valueB;
-    update[indexB] = valueA;
-    setGroupFavourites(new Set(update));
-    if (socket) {
-      updateGroupFavourites(socket, indexA, valueA, indexB, valueB);
-    }
-  };
 
   const [showCopied, setShowCopied] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -106,7 +58,7 @@ const App: React.FC = () => {
 
   const connectGroup = useCallback(() => {
     const onOpen = (socket: WebSocket) => {
-      updateUserFavourites(socket, favourites);
+      updateUserFavourites(socket, userFavourites);
     };
 
     const onMessage = (data: unknown) => {
@@ -121,7 +73,7 @@ const App: React.FC = () => {
     };
 
     connect(onOpen, onMessage);
-  }, [connect, favourites, updateUserFavourites]);
+  }, [connect, updateUserFavourites, userFavourites, setGroupFavourites]);
 
   const disconnectGroup = useCallback(() => {
     if (socket) {
@@ -166,25 +118,14 @@ const App: React.FC = () => {
             <Container className={classes.container}>
               <Switch>
                 <Route path="/explore">
-                  <ExplorePage
-                    favourites={favourites}
-                    toggleFavourite={toggleFavourite}
-                  />
+                  <ExplorePage />
                 </Route>
                 <Route path="/my-ranking">
-                  <RankingPage
-                    userFavourites={favourites}
-                    toggleFavourite={toggleFavourite}
-                    swapFavourites={swapFavourites}
-                  />
+                  <RankingPage />
                 </Route>
                 <Route path="/group-ranking">
                   {(!groupId || !userId) && <Redirect to="/join-group" />}
                   <GroupRankingPage
-                    userFavourites={favourites}
-                    groupFavourites={groupFavourites}
-                    toggleFavourite={toggleFavourite}
-                    swapGroupFavourites={swapGroupFavourites}
                     setShowLeaveGroupDialog={setShowLeaveGroupDialog}
                     copyAccessCode={copyAccessCode}
                   />
