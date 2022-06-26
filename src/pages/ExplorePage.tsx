@@ -86,7 +86,7 @@ const ExplorePage: React.VFC = () => {
             key={project.id}
             project={project}
             isFavourite={userFavourites.has(project.id)}
-            toggleFavourite={() => toggleFavourite(project.id)}
+            toggleFavourite={toggleFavourite}
           />
         ))
       )}

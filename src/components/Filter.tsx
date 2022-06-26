@@ -231,7 +231,7 @@ const Filter: React.VFC<FilterProps> = ({
         />
         {isDesktop && selectControls}
         {!isDesktop && (
-          <Tooltip title="Show More">
+          <Tooltip title={`Show ${isCollapseOpen ? "Less" : "More"}`}>
             <IconButton onClick={toggleCollapseOpen} size="large">
               {isCollapseOpen ? (
                 <KeyboardArrowUpIcon />

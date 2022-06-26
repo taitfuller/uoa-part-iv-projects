@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   Avatar,
   Box,
@@ -72,7 +72,12 @@ const Row: React.VFC<RowProps> = ({
   swapFavourites,
   length,
 }: RowProps) => {
-  const [open, setOpen] = useState(false);
+  const [isDetailOpen, setDetailOpen] = useState(false);
+
+  const toggleDetailOpen = useCallback(
+    () => setDetailOpen((isDetailOpen) => !isDetailOpen),
+    []
+  );
 
   const classes = useStyles();
 
@@ -106,7 +111,10 @@ const Row: React.VFC<RowProps> = ({
             </Tooltip>
           )}
         </TableCell>
-        <TableCell className={classes.cursor} onClick={() => setOpen(!open)}>
+        <TableCell
+          className={classes.cursor}
+          onClick={() => setDetailOpen(!isDetailOpen)}
+        >
           <Grid container spacing={2} alignItems="center" wrap="nowrap">
             <Grid item>
               <Avatar sx={{ bgcolor: i < 5 ? "primary.main" : "" }}>
@@ -126,9 +134,13 @@ const Row: React.VFC<RowProps> = ({
           </Grid>
         </TableCell>
         <TableCell className={classes.buttonColumn}>
-          <Tooltip title="Show More">
-            <IconButton onClick={() => setOpen(!open)} size="large">
-              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          <Tooltip title={`Show ${isDetailOpen ? "Less" : "More"}`}>
+            <IconButton onClick={toggleDetailOpen} size="large">
+              {isDetailOpen ? (
+                <KeyboardArrowUpIcon />
+              ) : (
+                <KeyboardArrowDownIcon />
+              )}
             </IconButton>
           </Tooltip>
           {userFavourites.has(project.id) && (
@@ -145,8 +157,8 @@ const Row: React.VFC<RowProps> = ({
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} unmountOnExit>
-            <Box margin={1}>
+          <Collapse in={isDetailOpen} unmountOnExit>
+            <Box sx={{ m: 1 }}>
               <ProjectDetails
                 project={project}
                 isFavourite={userFavourites.has(project.id)}

@@ -35,7 +35,7 @@ interface HeaderProps {
 const Header: React.VFC<HeaderProps> = ({ pages }) => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
-  const isDesktop = useMediaQuery("(min-width:1200px)");
+  const isDesktop = useMediaQuery("(min-width:980px)");
   const isMobile = useMediaQuery("(max-width:740px)");
 
   useEffect(() => {

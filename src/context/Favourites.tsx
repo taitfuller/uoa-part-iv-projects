@@ -2,6 +2,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -16,7 +17,7 @@ import { useGroup } from "./Group";
 type FavouritesContextType = {
   userFavourites: Set<Project["id"]>;
   groupFavourites: Set<Project["id"]>;
-  setGroupFavourites: React.Dispatch<React.SetStateAction<Set<Project["id"]>>>;
+  setGroupFavourites: (favourites: Set<Project["id"]>) => void;
   toggleFavourite: (id: Project["id"]) => void;
   swapUserFavourites: (indexA: number, indexB: number) => void;
   swapGroupFavourites: (indexA: number, indexB: number) => void;
@@ -44,17 +45,20 @@ export const FavouritesProvider: React.FC = ({ children }) => {
 
   const toggleFavourite = useCallback(
     (id: Project["id"]) => {
-      console.log("start toggle");
-      const update = new Set(userFavourites);
-      update.has(id) ? update.delete(id) : update.add(id);
-      setUserFavourites(update);
-      if (socket) {
-        updateUserFavourites(socket, update);
-      }
-      console.log("end toggle");
+      setUserFavourites((userFavourites) => {
+        const update = new Set(userFavourites);
+        update.has(id) ? update.delete(id) : update.add(id);
+        return update;
+      });
     },
-    [setUserFavourites, socket, updateUserFavourites, userFavourites]
+    [setUserFavourites]
   );
+
+  useEffect(() => {
+    if (socket && socket.readyState === socket.OPEN) {
+      updateUserFavourites(socket, userFavourites);
+    }
+  }, [socket, updateUserFavourites, userFavourites]);
 
   const swapUserFavourites = useCallback(
     (indexA: number, indexB: number) => {
