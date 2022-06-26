@@ -33,9 +33,9 @@ interface HeaderProps {
 }
 
 const Header: React.VFC<HeaderProps> = ({ pages }) => {
-  const [burgerOpen, setBurgerOpen] = useState(false);
+  const [isBurgerOpen, setBurgerOpen] = useState(false);
 
-  const isDesktop = useMediaQuery("(min-width:940px)");
+  const isDesktop = useMediaQuery("(min-width:1200px)");
   const isMobile = useMediaQuery("(max-width:740px)");
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
   }, [isMobile]);
 
   const toggleBurgerOpen = useCallback(
-    () => setBurgerOpen((state) => !state),
+    () => setBurgerOpen((isOpen) => !isOpen),
     []
   );
 
@@ -89,7 +89,7 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
       <Box component="nav">
         <Drawer
           variant="temporary"
-          open={burgerOpen}
+          open={isBurgerOpen}
           onClose={toggleBurgerOpen}
           ModalProps={{ keepMounted: true }}
           sx={{ "& .MuiDrawer-paper": { width: 240 } }}

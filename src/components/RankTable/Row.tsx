@@ -145,7 +145,7 @@ const Row: React.VFC<RowProps> = ({
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
+          <Collapse in={open} unmountOnExit>
             <Box margin={1}>
               <ProjectDetails
                 project={project}
