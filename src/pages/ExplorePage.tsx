@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 import Filter from "../components/Filter";
@@ -65,7 +65,7 @@ const ExplorePage: React.VFC = () => {
   );
 
   return (
-    <div>
+    <>
       <Filter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
@@ -76,18 +76,10 @@ const ExplorePage: React.VFC = () => {
         categories={categories}
       />
       {filteredProjects.length === 0 ? (
-        <Container style={{ marginTop: 80 }}>
-          <Grid container direction="column" alignItems="center" spacing={6}>
-            <Grid item>
-              <Typography variant="h4">
-                No projects found&nbsp;
-                <SentimentVeryDissatisfiedIcon
-                  style={{ fontSize: 60, marginBottom: -15 }}
-                />
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
+        <Typography variant="h4" align="center" sx={{ mt: 10 }}>
+          No projects found&nbsp;
+          <SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, mb: -2 }} />
+        </Typography>
       ) : (
         filteredProjects.map((project) => (
           <ProjectCard
@@ -98,7 +90,7 @@ const ExplorePage: React.VFC = () => {
           />
         ))
       )}
-    </div>
+    </>
   );
 };
 

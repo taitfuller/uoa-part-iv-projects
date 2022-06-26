@@ -1,14 +1,6 @@
 import React from "react";
 
-import {
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import Alert from "@mui/material/Alert";
+import { Alert, Box, Button, Typography } from "@mui/material";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
@@ -49,60 +41,56 @@ const RankingPage: React.VFC<RankingPageProps> = ({ isGroup }) => {
     isGroup && groupFavourites ? groupFavourites : userFavourites;
   const swapFavourites = isGroup ? swapGroupFavourites : swapUserFavourites;
 
-  const favouritesIndexes = new Map();
-  Array.from(favourites).forEach((id, i) => favouritesIndexes.set(id, i));
-  const filteredProjects = projects
+  const favouritesIndexes = [...favourites].reduce(
+    (favouritesIndexes, id, i) => favouritesIndexes.set(id, i),
+    new Map<Project["id"], number>()
+  );
+  const favouriteProjects = projects
     .filter((project) => favourites.has(project.id))
-    .sort((a, b) => favouritesIndexes.get(a.id) - favouritesIndexes.get(b.id));
-
-  if (filteredProjects.length === 0) {
-    return (
-      <Container style={{ marginTop: 80 }}>
-        <Grid container direction="column" alignItems="center" spacing={6}>
-          <Grid item>
-            <Typography variant="h4">
-              You don&apos;t have any favourite projects&nbsp;
-              <SentimentVeryDissatisfiedIcon
-                style={{ fontSize: 60, marginBottom: -15 }}
-              />
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6">
-              You can favourite projects by clicking{" "}
-              <FavoriteBorderIcon
-                style={{ marginBottom: -10 }}
-                fontSize="large"
-              />{" "}
-              on the Explore page
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Button
-              component={Link}
-              variant="contained"
-              size="large"
-              to="/explore"
-            >
-              Explore Projects
-            </Button>
-          </Grid>
-          {isGroup && (
-            <Grid item>
-              <Tooltip title="Leave Group">
-                <IconButton onClick={handleLeaveGroup}>
-                  <DirectionsRunIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-          )}
-        </Grid>
-      </Container>
+    .sort(
+      (a, b) =>
+        (favouritesIndexes.get(a.id) ?? 0) - (favouritesIndexes.get(b.id) ?? 0)
     );
-  }
+
+  if (favouriteProjects.length === 0)
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          rowGap: 6,
+          mt: 10,
+        }}
+      >
+        <Typography variant="h4">
+          You don&apos;t have any favourite projects&nbsp;
+          <SentimentVeryDissatisfiedIcon
+            style={{ fontSize: 60, marginBottom: -15 }}
+          />
+        </Typography>
+        <Typography variant="h6">
+          You can favourite projects by clicking{" "}
+          <FavoriteBorderIcon style={{ marginBottom: -10 }} fontSize="large" />{" "}
+          on the Explore page
+        </Typography>
+        <Button component={Link} variant="contained" size="large" to="/explore">
+          Explore Projects
+        </Button>
+        {isGroup && (
+          <Button
+            onClick={handleLeaveGroup}
+            startIcon={<DirectionsRunIcon />}
+            color="inherit"
+          >
+            Leave Group
+          </Button>
+        )}
+      </Box>
+    );
 
   return (
-    <Container>
+    <>
       {showRankMessage === "true" && (
         <Alert
           severity="info"
@@ -113,7 +101,7 @@ const RankingPage: React.VFC<RankingPageProps> = ({ isGroup }) => {
         </Alert>
       )}
       <RankTable
-        projects={filteredProjects}
+        projects={favouriteProjects}
         userFavourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapFavourites}
@@ -121,7 +109,7 @@ const RankingPage: React.VFC<RankingPageProps> = ({ isGroup }) => {
         userCount={userCount}
         copyAccessCode={copyAccessCode}
       />
-    </Container>
+    </>
   );
 };
 
