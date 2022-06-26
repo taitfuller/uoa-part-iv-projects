@@ -1,31 +1,39 @@
 import React from "react";
 
-import makeStyles from "@mui/styles/makeStyles";
-import { Button, Chip, Divider, Grid, Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { Box, Button, Chip, Divider, styled, Typography } from "@mui/material";
 
 import FavouriteButton from "./FavouriteButton";
 import { Project } from "../types";
 
-const useStyles = makeStyles((theme) => ({
-  section: {
-    marginBottom: theme.spacing(2),
-  },
-  buttons: {
-    marginTop: theme.spacing(2),
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  red: {
-    color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
-  },
-  list: {
-    marginTop: 0,
-  },
+const Section = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(1),
+  marginBottom: theme.spacing(2),
 }));
+
+const DualSection = styled(Section)({
+  display: "flex",
+  justifyContent: "space-between",
+});
+
+const Column = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  rowGap: theme.spacing(1),
+}));
+
+const List = styled("ul")({ marginTop: 0 });
+
+interface ChipListProps {
+  items: string[];
+}
+
+const ChipList: React.VFC<ChipListProps> = ({ items }) => (
+  <>
+    {items.map((item, i) => (
+      <Chip key={i} label={item} />
+    ))}
+  </>
+);
 
 interface ProjectDetailsProps {
   project: Project;
@@ -38,101 +46,71 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
   isFavourite,
   toggleFavourite,
 }) => {
-  const classes = useStyles();
-
   return (
-    <React.Fragment>
-      <div className={classes.section}>
+    <>
+      <Section>
         <Typography variant="overline">Description</Typography>
         {project.description.map((description, i) => (
           <Typography paragraph key={i}>
             {description}
           </Typography>
         ))}
-      </div>
+      </Section>
       <Divider />
-      <div className={classes.section}>
-        <Typography variant="overline">Outcomes</Typography>
-
-        <ul className={classes.list}>
-          {project.outcomes.map((outcome, i) => (
-            <li key={i}>
-              <Typography key={i}>{outcome}</Typography>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <Divider />
-      <div className={classes.section}>
-        <Grid container spacing={8}>
-          <Grid item>
-            <Typography variant="overline">Supervisor</Typography>
-            <Grid container spacing={1} direction="column">
-              {project.supervisors.map((supervisor, i) => (
-                <Grid item key={i}>
-                  <Chip label={supervisor} />
-                </Grid>
+      {project.outcomes.length > 0 && (
+        <>
+          <Section>
+            <Typography variant="overline">Outcomes</Typography>
+            <List>
+              {project.outcomes.map((outcome, i) => (
+                <li key={i}>
+                  <Typography key={i}>{outcome}</Typography>
+                </li>
               ))}
-            </Grid>
-          </Grid>
-          {project.cosupervisors.length > 0 && (
-            <Grid item>
-              <Typography variant="overline">Co-Supervisor</Typography>
-              <Grid container spacing={1} direction="row">
-                {project.cosupervisors.map((cosupervisor, i) => (
-                  <Grid item key={i}>
-                    <Chip label={cosupervisor} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          )}
-        </Grid>
-      </div>
+            </List>
+          </Section>
+          <Divider />
+        </>
+      )}
+      <DualSection>
+        <Column sx={{ alignItems: "flex-start" }}>
+          <Typography variant="overline" sx={{ mb: -1 }}>
+            Supervisor
+          </Typography>
+          <ChipList items={project.supervisors} />
+        </Column>
+        {project.cosupervisors.length > 0 && (
+          <Column>
+            <Typography variant="overline" sx={{ mb: -1 }}>
+              Co-Supervisor
+            </Typography>
+            <ChipList items={project.cosupervisors} />
+          </Column>
+        )}
+      </DualSection>
       <Divider />
-      <div className={classes.section}>
-        <Grid container justifyContent="space-between">
-          <Grid item>
-            <Grid container direction="column" spacing={1}>
-              <Grid item>
-                <Typography variant="overline">Categories</Typography>
-              </Grid>
-              {project.categories.map((category, i) => (
-                <Grid item key={i}>
-                  <Chip label={category} />
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              spacing={1}
-              alignItems="flex-end"
-            >
-              <Grid item>
-                <Typography variant="overline">Specialisations</Typography>
-              </Grid>
-              {project.specialisations.map((specialisation, i) => (
-                <Grid item key={i}>
-                  <Chip label={specialisation} />
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-        </Grid>
-      </div>
+      <DualSection>
+        <Column sx={{ alignItems: "flex-start" }}>
+          <Typography variant="overline" sx={{ mb: -1 }}>
+            Categories
+          </Typography>
+          <ChipList items={project.categories} />
+        </Column>
+        <Column sx={{ alignItems: "flex-end" }}>
+          <Typography variant="overline" sx={{ mb: -1 }}>
+            Specialisations
+          </Typography>
+          <ChipList items={project.specialisations} />
+        </Column>
+      </DualSection>
       <Divider />
-      <div className={classes.buttons}>
-        <Grid container justifyContent="space-between">
-          <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
-          <Button href={project.url} target="_blank">
-            Go to Official Page
-          </Button>
-        </Grid>
-      </div>
-    </React.Fragment>
+      <DualSection sx={{ mb: 0 }}>
+        <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
+        <Button href={project.url} target="_blank">
+          Go to Official Page
+        </Button>
+      </DualSection>
+    </>
   );
 };
 

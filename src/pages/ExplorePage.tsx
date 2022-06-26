@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 import Filter from "../components/Filter";
@@ -65,7 +65,7 @@ const ExplorePage: React.VFC = () => {
   );
 
   return (
-    <>
+    <Box sx={{ display: "flex", flexDirection: "column", rowGap: 4 }}>
       <Filter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
@@ -90,7 +90,7 @@ const ExplorePage: React.VFC = () => {
           />
         ))
       )}
-    </>
+    </Box>
   );
 };
 

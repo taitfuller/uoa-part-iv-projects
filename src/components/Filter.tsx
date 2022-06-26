@@ -20,8 +20,6 @@ import makeStyles from "@mui/styles/makeStyles";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    margin: "auto",
-    marginBottom: theme.spacing(4),
   },
   formControl: {
     margin: theme.spacing(1),

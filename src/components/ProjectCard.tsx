@@ -1,40 +1,9 @@
 import React from "react";
 
-import makeStyles from "@mui/styles/makeStyles";
-import { Avatar, Chip, Divider, Grid, Paper, Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { Avatar, Box, Chip, Divider, Paper, Typography } from "@mui/material";
 
 import ProjectDetails from "./ProjectDetails";
 import { Project } from "../types";
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    margin: "auto",
-    marginBottom: theme.spacing(4),
-  },
-  section: {
-    marginBottom: theme.spacing(2),
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  blue: {
-    color: theme.palette.getContrastText(theme.palette.info.dark),
-    backgroundColor: theme.palette.info.dark,
-  },
-  red: {
-    color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
-  },
-  right: {
-    marginLeft: "auto",
-  },
-  bold: {
-    fontWeight: "bold",
-  },
-}));
 
 interface ProjectCardProps {
   project: Project;
@@ -46,38 +15,33 @@ const ProjectCard: React.VFC<ProjectCardProps> = ({
   project,
   isFavourite,
   toggleFavourite,
-}) => {
-  const classes = useStyles();
-
-  return (
-    <Paper className={classes.paper}>
-      <div className={classes.section}>
-        <Grid container spacing={2} alignItems="center" wrap="nowrap">
-          <Grid item>
-            <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
-          </Grid>
-          <Grid item>
-            <Typography variant="h5" className={classes.bold}>
-              {project.title}
-            </Typography>
-          </Grid>
-          <Grid item className={classes.right}>
-            {project.allocated ? (
-              <Chip label="Allocated" className={classes.red} />
-            ) : (
-              <Chip label="Unallocated" />
-            )}
-          </Grid>
-        </Grid>
-      </div>
-      <Divider />
-      <ProjectDetails
-        project={project}
-        isFavourite={isFavourite}
-        toggleFavourite={toggleFavourite}
-      />
-    </Paper>
-  );
-};
+}) => (
+  <Paper sx={{ p: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        columnGap: 2,
+        mb: 2,
+      }}
+    >
+      <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
+      <Typography variant="h5" sx={{ flex: 1, fontWeight: "bold" }}>
+        {project.title}
+      </Typography>
+      {project.allocated ? (
+        <Chip label="Allocated" />
+      ) : (
+        <Chip label="Unallocated" color="primary" />
+      )}
+    </Box>
+    <Divider />
+    <ProjectDetails
+      project={project}
+      isFavourite={isFavourite}
+      toggleFavourite={toggleFavourite}
+    />
+  </Paper>
+);
 
 export default ProjectCard;
