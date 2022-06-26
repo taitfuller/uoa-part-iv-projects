@@ -1,26 +1,24 @@
 import React from "react";
-import { CircularProgress, Grid, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 interface LoadingProps {
   message: string;
 }
 
 const Loading: React.VFC<LoadingProps> = ({ message }) => (
-  <Grid
-    container
-    direction="column"
-    justifyContent="space-around"
-    alignItems="center"
-    spacing={4}
-    style={{ marginTop: 80 }}
+  <Box
+    sx={{
+      mt: 10,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-around",
+      alignItems: "center",
+      rowGap: 4,
+    }}
   >
-    <Grid item>
-      <CircularProgress size={40} />
-    </Grid>
-    <Grid item>
-      <Typography variant="h5">{message}</Typography>
-    </Grid>
-  </Grid>
+    <CircularProgress size={40} />
+    <Typography variant="h5">{message}</Typography>
+  </Box>
 );
 
 export default Loading;

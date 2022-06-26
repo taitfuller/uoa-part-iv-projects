@@ -11,6 +11,24 @@ import { useGroup } from "./context/Group";
 import { useProjects } from "./context/Projects";
 import Loading from "./components/Loading";
 
+const pages = [
+  {
+    name: "Explore",
+    href: "/explore",
+    paths: ["/explore"],
+  },
+  {
+    name: "My Ranking",
+    href: "/my-ranking",
+    paths: ["/my-ranking"],
+  },
+  {
+    name: "Group Ranking",
+    href: "/group-ranking",
+    paths: ["/group-ranking", "/join-group"],
+  },
+];
+
 const HeaderOffset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 const App: React.VFC = () => {
@@ -19,9 +37,9 @@ const App: React.VFC = () => {
 
   return (
     <>
-      <Header />
-      <HeaderOffset />
+      <Header pages={pages} />
       <Container component="main" sx={{ minHeight: "100%", py: 4 }}>
+        <HeaderOffset />
         {isLoading ? (
           <Loading message="Loading Projects..." />
         ) : (
