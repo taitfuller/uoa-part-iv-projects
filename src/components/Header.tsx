@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import {
   AppBar,
@@ -8,21 +8,52 @@ import {
   IconButton,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
   styled,
   Tab,
   TabProps,
   Tabs,
+  ToggleButton,
+  ToggleButtonGroup,
   Toolbar,
+  Tooltip,
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import { SvgIconComponent } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import { Link, Route } from "react-router-dom";
+
+import { useTheme, ThemePreference } from "../context/Theme";
 
 const ToolbarTab = styled(Tab)<TabProps<Link>>(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
+
+const themeOptions: {
+  name: string;
+  key: ThemePreference;
+  icon: SvgIconComponent;
+}[] = [
+  { name: "Light", key: "light", icon: LightModeIcon },
+  { name: "System", key: "system", icon: SettingsBrightnessIcon },
+  { name: "Dark", key: "dark", icon: DarkModeIcon },
+];
+
+interface ThemeIconProps {
+  icon: SvgIconComponent;
+}
+
+const ThemeIcon: React.VFC<ThemeIconProps> = ({ icon }) => {
+  const Icon = icon;
+  return <Icon />;
+};
 
 interface HeaderProps {
   pages: {
@@ -38,13 +69,36 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
   const isDesktop = useMediaQuery("(min-width:980px)");
   const isMobile = useMediaQuery("(max-width:740px)");
 
+  const { themePreference, setThemePreference } = useTheme();
+
+  const [themeMenuAnchor, setThemeMenuAnchor] =
+    React.useState<null | HTMLElement>(null);
+
+  const isThemeMenuOpen = useMemo(() => !!themeMenuAnchor, [themeMenuAnchor]);
+
   useEffect(() => {
     !isMobile && setBurgerOpen(false);
   }, [isMobile]);
 
-  const toggleBurgerOpen = useCallback(
+  const handleToggleBurgerOpen = useCallback(
     () => setBurgerOpen((isOpen) => !isOpen),
     []
+  );
+
+  const handleOpenThemeMenu = useCallback(
+    (event: React.MouseEvent<HTMLElement>) =>
+      setThemeMenuAnchor(event.currentTarget),
+    []
+  );
+
+  const handleCloseThemeMenu = useCallback(() => setThemeMenuAnchor(null), []);
+
+  const handleSetThemePreference = useCallback(
+    (
+      _event: React.MouseEvent<HTMLElement>,
+      newThemePreference: ThemePreference
+    ) => newThemePreference && setThemePreference(newThemePreference),
+    [setThemePreference]
   );
 
   return (
@@ -52,7 +106,11 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
       <AppBar component="nav" color="default">
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {isMobile && (
-            <IconButton color="inherit" onClick={toggleBurgerOpen} size="large">
+            <IconButton
+              color="inherit"
+              onClick={handleToggleBurgerOpen}
+              size="large"
+            >
               <MenuIcon />
             </IconButton>
           )}
@@ -83,21 +141,71 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
               )}
             />
           )}
-          {isDesktop && <Box sx={{ flex: "1 0" }} />}
+          {!isMobile && (
+            <Box sx={{ flex: isDesktop ? "1 0" : "0" }}>
+              <Tooltip title="Change Theme" sx={{ float: "right" }}>
+                <IconButton size="large" onClick={handleOpenThemeMenu}>
+                  {themePreference === "light" ? (
+                    <LightModeIcon />
+                  ) : themePreference === "dark" ? (
+                    <DarkModeIcon />
+                  ) : (
+                    <SettingsBrightnessIcon />
+                  )}
+                </IconButton>
+              </Tooltip>
+              <Menu
+                id="theme-menu"
+                anchorEl={themeMenuAnchor}
+                open={isThemeMenuOpen}
+                onClose={handleCloseThemeMenu}
+              >
+                {themeOptions.map((option, index) => (
+                  <MenuItem
+                    key={index}
+                    selected={themeOptions[index].key === themePreference}
+                    onClick={(event: React.MouseEvent<HTMLElement>) =>
+                      handleSetThemePreference(event, themeOptions[index].key)
+                    }
+                  >
+                    <ListItemIcon>
+                      <ThemeIcon icon={option.icon} />
+                    </ListItemIcon>
+                    <ListItemText>{option.name}</ListItemText>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
       <Box component="nav">
         <Drawer
           variant="temporary"
           open={isBurgerOpen}
-          onClose={toggleBurgerOpen}
+          onClose={handleToggleBurgerOpen}
           ModalProps={{ keepMounted: true }}
-          sx={{ "& .MuiDrawer-paper": { width: 240 } }}
         >
           <Toolbar>
-            <IconButton color="inherit" onClick={toggleBurgerOpen} size="large">
+            <IconButton
+              color="inherit"
+              onClick={handleToggleBurgerOpen}
+              size="large"
+            >
               <MenuIcon />
             </IconButton>
+            <ToggleButtonGroup
+              value={themePreference}
+              exclusive
+              onChange={handleSetThemePreference}
+              sx={{ ml: 3 }}
+            >
+              {themeOptions.map((option, index) => (
+                <ToggleButton key={index} value={option.key}>
+                  <ThemeIcon icon={option.icon} />
+                </ToggleButton>
+              ))}
+            </ToggleButtonGroup>
           </Toolbar>
           <Divider />
           <List sx={{ pt: 0 }}>
