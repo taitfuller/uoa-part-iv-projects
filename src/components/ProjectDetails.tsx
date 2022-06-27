@@ -1,6 +1,14 @@
 import React from "react";
 
-import { Box, Button, Chip, Divider, styled, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Divider,
+  styled,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 import FavouriteButton from "./FavouriteButton";
 import { Project } from "../types";
@@ -9,11 +17,6 @@ const Section = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(1),
   marginBottom: theme.spacing(2),
 }));
-
-const DualSection = styled(Section)({
-  display: "flex",
-  justifyContent: "space-between",
-});
 
 const Column = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -46,12 +49,14 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
   isFavourite,
   toggleFavourite,
 }) => {
+  const isMobile = useMediaQuery("(max-width:640px)");
+
   return (
     <>
       <Section>
         <Typography variant="overline">Description</Typography>
         {project.description.map((description, i) => (
-          <Typography paragraph key={i}>
+          <Typography paragraph key={i} sx={{ wordWrap: "break-word" }}>
             {description}
           </Typography>
         ))}
@@ -72,7 +77,11 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
           <Divider />
         </>
       )}
-      <DualSection>
+      <Section
+        sx={
+          !isMobile ? { display: "flex", justifyContent: "space-between" } : {}
+        }
+      >
         <Column sx={{ alignItems: "flex-start" }}>
           <Typography variant="overline" sx={{ mb: -1 }}>
             Supervisor
@@ -80,36 +89,40 @@ const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
           <ChipList items={project.supervisors} />
         </Column>
         {project.cosupervisors.length > 0 && (
-          <Column>
+          <Column sx={{ alignItems: isMobile ? "flex-start" : "flex-end" }}>
             <Typography variant="overline" sx={{ mb: -1 }}>
               Co-Supervisor
             </Typography>
             <ChipList items={project.cosupervisors} />
           </Column>
         )}
-      </DualSection>
+      </Section>
       <Divider />
-      <DualSection>
+      <Section
+        sx={
+          !isMobile ? { display: "flex", justifyContent: "space-between" } : {}
+        }
+      >
         <Column sx={{ alignItems: "flex-start" }}>
           <Typography variant="overline" sx={{ mb: -1 }}>
             Categories
           </Typography>
           <ChipList items={project.categories} />
         </Column>
-        <Column sx={{ alignItems: "flex-end" }}>
+        <Column sx={{ alignItems: isMobile ? "flex-start" : "flex-end" }}>
           <Typography variant="overline" sx={{ mb: -1 }}>
             Specialisations
           </Typography>
           <ChipList items={project.specialisations} />
         </Column>
-      </DualSection>
+      </Section>
       <Divider />
-      <DualSection sx={{ mb: 0 }}>
+      <Section sx={{ display: "flex", justifyContent: "space-between" }}>
         <FavouriteButton active={isFavourite} toggle={toggleFavourite} />
         <Button href={project.url} target="_blank">
           Go to Official Page
         </Button>
-      </DualSection>
+      </Section>
     </>
   );
 };
