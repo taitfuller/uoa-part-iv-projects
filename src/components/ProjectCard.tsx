@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
 
-import { Avatar, Box, Chip, Divider, Paper, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
 
 import ProjectDetails from "./ProjectDetails";
 import { Project } from "../types";
+import AllocatedChip from "./AllocatedChip";
 
 interface ProjectCardProps {
   project: Project;
@@ -22,24 +23,20 @@ const ProjectCard: React.VFC<ProjectCardProps> = ({
   );
 
   return (
-    <Paper sx={{ p: 2 }}>
+    <Paper>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
           columnGap: 2,
-          mb: 2,
+          p: 2,
         }}
       >
         <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
         <Typography variant="h5" sx={{ flex: 1, fontWeight: "bold" }}>
           {project.title}
         </Typography>
-        {project.allocated ? (
-          <Chip label="Allocated" />
-        ) : (
-          <Chip label="Unallocated" color="primary" />
-        )}
+        <AllocatedChip allocated={project.allocated} />
       </Box>
       <Divider />
       <ProjectDetails

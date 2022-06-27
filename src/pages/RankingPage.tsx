@@ -1,11 +1,11 @@
 import React from "react";
 
-import RankTable from "../components/RankTable";
 import { useFavourites } from "../context/Favourites";
 import { useFilterAndSortFavourites } from "../hooks/filter";
 import HideableAlert from "../components/HideableAlert";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import { Box } from "@mui/material";
+import RankProjectList from "../components/RankProjectList";
 
 const RankingPage: React.VFC = () => {
   const { userFavourites, toggleFavourite, swapUserFavourites } =
@@ -21,9 +21,9 @@ const RankingPage: React.VFC = () => {
         localStorageKey="hideRankMessage"
         message="Your top 5 projects are highlighted"
       />
-      <RankTable
+      <RankProjectList
         projects={favouriteProjects}
-        userFavourites={userFavourites}
+        favourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapUserFavourites}
       />

@@ -14,8 +14,7 @@ import FavouriteButton from "./FavouriteButton";
 import { Project } from "../types";
 
 const Section = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(1),
-  marginBottom: theme.spacing(2),
+  padding: theme.spacing(2),
 }));
 
 const Column = styled(Box)(({ theme }) => ({

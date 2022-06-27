@@ -11,13 +11,17 @@ import { useLeaveGroupDialog } from "../hooks/dialog";
 import { useFavourites } from "../context/Favourites";
 import { useCopyAccessCode } from "../hooks/copy";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
-import RankTable from "../components/RankTable";
 import HideableAlert from "../components/HideableAlert";
 import { useFilterAndSortFavourites } from "../hooks/filter";
+import RankProjectList from "../components/RankProjectList";
 
 const RankGroup: React.VFC = () => {
-  const { groupFavourites, toggleFavourite, swapGroupFavourites } =
-    useFavourites();
+  const {
+    userFavourites,
+    groupFavourites,
+    toggleFavourite,
+    swapGroupFavourites,
+  } = useFavourites();
   const { groupHasLoaded, userCount } = useGroup();
   const handleLeaveGroup = useLeaveGroupDialog();
   const copyAccessCode = useCopyAccessCode();
@@ -34,9 +38,9 @@ const RankGroup: React.VFC = () => {
         localStorageKey="hideRankMessage"
         message="Your top 5 projects are highlighted"
       />
-      <RankTable
+      <RankProjectList
         projects={favouriteProjects}
-        userFavourites={groupFavourites}
+        favourites={userFavourites}
         toggleFavourite={toggleFavourite}
         swapFavourites={swapGroupFavourites}
       />
