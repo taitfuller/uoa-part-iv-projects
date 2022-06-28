@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { useGroup } from "../context/Group";
@@ -19,6 +19,8 @@ const JoinGroupPage: React.FC = () => {
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
   const [loadingCreateGroup, setLoadingCreateGroup] = useState(false);
+
+  const isMobile = useMediaQuery("(max-width:740px)");
 
   const navigate = useNavigate();
 
@@ -50,7 +52,15 @@ const JoinGroupPage: React.FC = () => {
 
   return (
     <Box
-      sx={{ mt: 4, display: "flex", justifyContent: "center", columnGap: 4 }}
+      sx={{
+        mt: 4,
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        justifyContent: "center",
+        alignItems: "center",
+        rowGap: 4,
+        columnGap: 4,
+      }}
     >
       {userId && groupId ? (
         <ShareGroupCard
