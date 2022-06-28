@@ -57,7 +57,7 @@ const JoinGroupPage: React.FC = () => {
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: isMobile ? "center" : "stretch",
         rowGap: 4,
         columnGap: 4,
       }}
