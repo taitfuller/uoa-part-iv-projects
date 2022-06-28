@@ -27,7 +27,7 @@ interface RankProjectItemProps {
   swapFavourites: (a: number, b: number) => void;
 }
 
-const RankProjectItem: React.VFC<RankProjectItemProps> = ({
+const RankProjectItem: React.FC<RankProjectItemProps> = ({
   i,
   project,
   isFirst,

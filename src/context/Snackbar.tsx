@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useContext, useState } from "react";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
 import { AlertColor, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
@@ -20,7 +26,7 @@ type SnackbarState = {
   autoHideDuration?: number;
 };
 
-export const SnackbarProvider: React.FC = ({ children }) => {
+export const SnackbarProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [{ isOpen, message, severity, autoHideDuration }, setState] =
     useState<SnackbarState>({ isOpen: false });
 

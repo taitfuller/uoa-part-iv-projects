@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useEffect,
@@ -20,7 +21,9 @@ const ConnectionContext = createContext<ConnectionContextType | undefined>(
   undefined
 );
 
-export const ConnectionProvider: React.FC = ({ children }) => {
+export const ConnectionProvider: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
   const { socket, groupId, userId, connect, disconnect } = useGroup();
   const { userFavourites, setGroupFavourites } = useFavourites();
   const updateUserFavourites = useUpdateUserFavourites();

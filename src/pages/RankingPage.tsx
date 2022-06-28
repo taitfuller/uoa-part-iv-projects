@@ -8,7 +8,7 @@ import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import RankProjectList from "../components/RankProjectList";
 import { useFilterAndSortFavourites } from "../hooks/filter";
 
-const RankingPage: React.VFC = () => {
+const RankingPage: React.FC = () => {
   const { userFavourites, toggleFavourite, swapUserFavourites } =
     useFavourites();
 

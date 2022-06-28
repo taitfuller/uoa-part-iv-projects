@@ -11,7 +11,7 @@ interface CreateGroupCardProps {
   onCreateGroup: () => Promise<void>;
 }
 
-const CreateGroupCard: React.VFC<CreateGroupCardProps> = ({
+const CreateGroupCard: React.FC<CreateGroupCardProps> = ({
   disabled,
   loading,
   onCreateGroup,

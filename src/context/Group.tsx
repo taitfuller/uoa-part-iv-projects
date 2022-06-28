@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useMemo,
@@ -31,7 +32,7 @@ async function postData(url = "") {
   return response.json();
 }
 
-export const GroupProvider: React.FC = ({ children }) => {
+export const GroupProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [socket, setSocket] = useState<WebSocket>();
 
   const [groupId, setGroupId] = useLocalStorage("groupId", "");

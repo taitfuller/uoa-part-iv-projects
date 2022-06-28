@@ -16,7 +16,7 @@ import { useCopyAccessCode } from "../hooks/copy";
 import { useLeaveGroupDialog } from "../hooks/dialog";
 import { useFilterAndSortFavourites } from "../hooks/filter";
 
-const GroupRankingPage: React.VFC = () => {
+const GroupRankingPage: React.FC = () => {
   const {
     userFavourites,
     groupFavourites,

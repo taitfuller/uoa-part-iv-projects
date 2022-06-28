@@ -11,7 +11,7 @@ interface ShareGroupCardProps {
   onDone: () => void;
 }
 
-const ShareGroupCard: React.VFC<ShareGroupCardProps> = ({
+const ShareGroupCard: React.FC<ShareGroupCardProps> = ({
   groupId,
   copyAccessCode,
   onDone,

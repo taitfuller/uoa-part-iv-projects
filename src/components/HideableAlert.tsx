@@ -9,7 +9,7 @@ interface HideableAlertProps {
   severity?: AlertColor;
 }
 
-const HideableAlert: React.VFC<HideableAlertProps> = ({
+const HideableAlert: React.FC<HideableAlertProps> = ({
   localStorageKey,
   message,
   severity = "info",

@@ -18,7 +18,7 @@ type SelectedFilters = {
   selectedCategories: string[];
 };
 
-const ExplorePage: React.VFC = () => {
+const ExplorePage: React.FC = () => {
   const { projects, supervisors, cosupervisors, specialisations, categories } =
     useProjects();
   const { userFavourites, toggleFavourite } = useFavourites();

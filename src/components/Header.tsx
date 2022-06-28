@@ -44,7 +44,7 @@ interface ThemeIconProps {
   icon: SvgIconComponent;
 }
 
-const ThemeIcon: React.VFC<ThemeIconProps> = ({ icon }) => {
+const ThemeIcon: React.FC<ThemeIconProps> = ({ icon }) => {
   const Icon = icon;
   return <Icon />;
 };
@@ -56,7 +56,7 @@ const pathNames = {
 };
 const paths = Object.keys(pathNames) as Array<keyof typeof pathNames>;
 
-const Header: React.VFC = () => {
+const Header: React.FC = () => {
   const location = useLocation();
   const pathMatch = paths.find((path) =>
     matchPath({ path, end: false }, location.pathname)

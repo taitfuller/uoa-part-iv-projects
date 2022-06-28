@@ -7,7 +7,7 @@ import { useProjects } from "./context/Projects";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
 
-const Layout: React.VFC = () => {
+const Layout: React.FC = () => {
   const { isLoading } = useProjects();
 
   return (

@@ -12,7 +12,7 @@ interface RankProjectListProps {
   swapFavourites: (a: number, b: number) => void;
 }
 
-const RankProjectList: React.VFC<RankProjectListProps> = ({
+const RankProjectList: React.FC<RankProjectListProps> = ({
   projects,
   favourites,
   toggleFavourite,

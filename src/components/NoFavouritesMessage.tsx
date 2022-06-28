@@ -5,7 +5,7 @@ import { Box, Button, Typography } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
-const NoFavouritesMessage: React.VFC = () => (
+const NoFavouritesMessage: React.FC = () => (
   <Box
     sx={{
       display: "flex",

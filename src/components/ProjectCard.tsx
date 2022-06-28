@@ -12,7 +12,7 @@ interface ProjectCardProps {
   toggleFavourite: (id: Project["id"]) => void;
 }
 
-const ProjectCard: React.VFC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   isFavourite,
   toggleFavourite,

@@ -19,7 +19,7 @@ interface JoinGroupCardProps {
   onJoinGroup: () => Promise<void>;
 }
 
-const JoinGroupCard: React.VFC<JoinGroupCardProps> = ({
+const JoinGroupCard: React.FC<JoinGroupCardProps> = ({
   disabled,
   loading,
   accessCode,

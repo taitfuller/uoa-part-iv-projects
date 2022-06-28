@@ -7,7 +7,7 @@ import RankingPage from "./pages/RankingPage";
 import GroupRankingPage from "./pages/GroupRankingPage";
 import JoinGroupPage from "./pages/JoinGroupPage";
 
-const App: React.VFC = () => (
+const App: React.FC = () => (
   <Routes>
     <Route path="/" element={<Layout />}>
       <Route path="explore" element={<ExplorePage />} />

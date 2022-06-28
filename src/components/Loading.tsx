@@ -6,7 +6,7 @@ interface LoadingProps {
   message: string;
 }
 
-const Loading: React.VFC<LoadingProps> = ({ message }) => (
+const Loading: React.FC<LoadingProps> = ({ message }) => (
   <Box
     sx={{
       mt: 10,

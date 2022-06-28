@@ -11,7 +11,7 @@ interface FavouriteButtonProps {
   toggle: () => void;
 }
 
-const FavouriteButton: React.VFC<FavouriteButtonProps> = ({
+const FavouriteButton: React.FC<FavouriteButtonProps> = ({
   active,
   toggle,
 }) => (

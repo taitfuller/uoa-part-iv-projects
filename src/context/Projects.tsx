@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import { Project } from "../types";
 
@@ -15,7 +21,7 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined
 );
 
-export const ProjectsProvider: React.FC = ({ children }) => {
+export const ProjectsProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [data, setData] = useState<ProjectsContextType>({
     projects: [],
     supervisors: [],

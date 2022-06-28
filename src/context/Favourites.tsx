@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useEffect,
@@ -28,7 +29,9 @@ const FavouritesContext = createContext<FavouritesContextType | undefined>(
   undefined
 );
 
-export const FavouritesProvider: React.FC = ({ children }) => {
+export const FavouritesProvider: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
   const { socket } = useGroup();
   const updateUserFavourites = useUpdateUserFavourites();
   const updateGroupFavourites = useUpdateGroupFavourites();

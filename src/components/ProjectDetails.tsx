@@ -29,7 +29,7 @@ interface ChipListProps {
   items: string[];
 }
 
-const ChipList: React.VFC<ChipListProps> = ({ items }) => (
+const ChipList: React.FC<ChipListProps> = ({ items }) => (
   <>
     {items.map((item, i) => (
       <Chip key={i} label={item} />
@@ -43,7 +43,7 @@ interface ProjectDetailsProps {
   toggleFavourite: () => void;
 }
 
-const ProjectDetails: React.VFC<ProjectDetailsProps> = ({
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   project,
   isFavourite,
   toggleFavourite,

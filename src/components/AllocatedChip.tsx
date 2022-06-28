@@ -7,7 +7,7 @@ interface AllocatedChipProps {
   allocatedColor?: ChipProps["color"];
 }
 
-const AllocatedChip: React.VFC<AllocatedChipProps> = ({
+const AllocatedChip: React.FC<AllocatedChipProps> = ({
   allocated,
   allocatedColor,
 }) =>

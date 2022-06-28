@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useMemo,
@@ -20,7 +21,7 @@ type DialogState = {
   dialog?: React.ReactNode;
 };
 
-export const DialogProvider: React.FC = ({ children }) => {
+export const DialogProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [{ isOpen, dialog }, setState] = useState<DialogState>({
     isOpen: false,
   });

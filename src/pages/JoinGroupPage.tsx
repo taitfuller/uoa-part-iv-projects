@@ -10,7 +10,7 @@ import CreateGroupCard from "../components/CreateGroupCard";
 import JoinGroupCard from "../components/JoinGroupCard";
 import { useCopyAccessCode } from "../hooks/copy";
 
-const JoinGroupPage: React.VFC = () => {
+const JoinGroupPage: React.FC = () => {
   const { createGroup, joinGroup, groupId, userId } = useGroup();
   const openSnackbar = useSnackbar();
   const copyAccessCode = useCopyAccessCode();

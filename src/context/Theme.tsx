@@ -1,4 +1,9 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+} from "react";
 import useLocalStorage from "use-local-storage";
 
 import {
@@ -29,7 +34,7 @@ const darkTheme = createTheme({
   },
 });
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [themePreference, setThemePreference] =
     useLocalStorage<ThemePreference>("themePreference", "system");
 

@@ -8,7 +8,7 @@ interface LeaveGroupDialogProps {
   onClose: () => void;
 }
 
-const LeaveGroupDialog: React.VFC<LeaveGroupDialogProps> = ({ onClose }) => {
+const LeaveGroupDialog: React.FC<LeaveGroupDialogProps> = ({ onClose }) => {
   const { disconnectGroup } = useConnection();
 
   const leaveGroup = useCallback(() => {
