@@ -1,6 +1,13 @@
 import React, { useCallback } from "react";
 
-import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Paper,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 import { Project } from "../types";
 import ProjectDetails from "./ProjectDetails";
@@ -17,6 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isFavourite,
   toggleFavourite,
 }) => {
+  const isSmallMobile = useMediaQuery("(max-width:440px)");
+
   const handleToggleFavourite = useCallback(
     () => toggleFavourite(project.id),
     [project.id, toggleFavourite]
@@ -32,7 +41,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           p: 2,
         }}
       >
-        <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
+        {!isSmallMobile && (
+          <Avatar sx={{ bgcolor: "primary.main" }}>{project.id}</Avatar>
+        )}
         <Typography variant="h5" sx={{ flex: 1, fontWeight: "bold" }}>
           {project.title}
         </Typography>

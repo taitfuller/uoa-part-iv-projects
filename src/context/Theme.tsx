@@ -8,6 +8,7 @@ import useLocalStorage from "use-local-storage";
 
 import {
   createTheme,
+  responsiveFontSizes,
   ThemeProvider as MUIThemeProvider,
   useMediaQuery,
 } from "@mui/material";
@@ -51,7 +52,9 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={value}>
-      <MUIThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <MUIThemeProvider
+        theme={responsiveFontSizes(theme === "light" ? lightTheme : darkTheme)}
+      >
         {children}
       </MUIThemeProvider>
     </ThemeContext.Provider>

@@ -52,6 +52,7 @@ const Filter: React.FC<FilterProps> = ({
 
   const isDesktop = useMediaQuery("(min-width:1200px)");
   const isMobile = useMediaQuery("(max-width:880px)");
+  const isSmallMobile = useMediaQuery("(max-width:440px)");
 
   useEffect(() => {
     isDesktop && setCollapseOpen(false);
@@ -193,7 +194,7 @@ const Filter: React.FC<FilterProps> = ({
         <Box
           sx={{
             display: "flex",
-            flexDirection: isDesktop ? "column" : "row",
+            flexDirection: isDesktop || isSmallMobile ? "column" : "row",
             alignItems: "center",
             columnGap: isDesktop ? 0 : 1,
           }}
