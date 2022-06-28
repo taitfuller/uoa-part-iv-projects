@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import {
   CircularProgress,
@@ -25,31 +25,45 @@ const JoinGroupCard: React.VFC<JoinGroupCardProps> = ({
   accessCode,
   setAccessCode,
   onJoinGroup,
-}) => (
-  <GroupCard>
-    <Typography variant="h6">Join Group</Typography>
-    <Typography>Enter your partner&#39;s Access Code:</Typography>
-    <Paper sx={{ display: "flex" }} elevation={3}>
-      <InputBase
-        sx={{ ml: 2, flex: 1 }}
-        placeholder="Access Code"
-        value={accessCode}
-        onChange={(event) => setAccessCode(event.target.value.toUpperCase())}
-      />
-      {loading ? (
-        <CircularProgress sx={{ p: 1 }} />
-      ) : (
-        <IconButton
-          onClick={onJoinGroup}
-          sx={{ p: 1 }}
-          disabled={disabled}
-          size="large"
-        >
-          <AddIcon />
-        </IconButton>
-      )}
-    </Paper>
-  </GroupCard>
-);
+}) => {
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      onJoinGroup();
+    },
+    [onJoinGroup]
+  );
+
+  return (
+    <GroupCard>
+      <Typography variant="h6">Join Group</Typography>
+      <Typography>Enter your partner&#39;s Access Code:</Typography>
+      <form onSubmit={handleSubmit}>
+        <Paper sx={{ display: "flex", alignItems: "center" }} elevation={3}>
+          <InputBase
+            sx={{ ml: 2, flex: 1 }}
+            placeholder="Access Code"
+            value={accessCode}
+            onChange={(event) =>
+              setAccessCode(event.target.value.toUpperCase())
+            }
+          />
+          {loading ? (
+            <CircularProgress sx={{ m: 1.5 }} size={26} />
+          ) : (
+            <IconButton
+              disabled={disabled}
+              sx={{ m: 1 }}
+              size="small"
+              type="submit"
+            >
+              <AddIcon />
+            </IconButton>
+          )}
+        </Paper>
+      </form>
+    </GroupCard>
+  );
+};
 
 export default JoinGroupCard;

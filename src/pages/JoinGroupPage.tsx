@@ -28,11 +28,11 @@ const JoinGroupPage: React.VFC = () => {
     try {
       await joinGroup(accessCode);
       connectGroup();
+      history.replace("/group-ranking");
     } catch (err) {
       openSnackbar((err as Error).message, "error");
     }
     setLoadingJoinGroup(false);
-    history.replace("/group-ranking");
   };
 
   const handleCreateGroup = async () => {
