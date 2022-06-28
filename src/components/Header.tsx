@@ -113,7 +113,7 @@ const Header: React.FC = () => {
             </IconButton>
           )}
           <Typography variant="h6" sx={{ flex: isDesktop ? "1 0" : "" }}>
-            2021 Part IV Projects
+            UoA Part IV Projects
           </Typography>
           {!isMobile && (
             <Tabs value={pathMatch ?? false}>

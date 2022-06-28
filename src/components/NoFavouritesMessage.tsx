@@ -13,13 +13,14 @@ const NoFavouritesMessage: React.FC = () => (
       alignItems: "center",
       rowGap: 6,
       mt: 10,
+      textAlign: "center",
     }}
   >
-    <Typography variant="h4">
+    <Typography variant="h5">
       You don&apos;t have any favourite projects&nbsp;
-      <SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, mb: -2 }} />
+      <SentimentVeryDissatisfiedIcon sx={{ fontSize: 48, mb: -2 }} />
     </Typography>
-    <Typography variant="h6">
+    <Typography variant="body1">
       You can favourite projects by clicking{" "}
       <FavoriteBorderIcon sx={{ mb: -1 }} fontSize="large" /> on the Explore
       page

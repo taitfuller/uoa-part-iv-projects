@@ -126,15 +126,15 @@ const RankProjectItem: React.FC<RankProjectItemProps> = ({
               )}
             </IconButton>
           </Tooltip>
-          <Tooltip title="Remove" sx={{ order: isDesktop ? 0 : -1 }}>
-            <span>
+          <Tooltip title="Remove">
+            <Box component="span" sx={{ order: isDesktop ? 0 : -1 }}>
               <IconButton
                 onClick={handleToggleFavourite}
                 disabled={!isFavourite}
               >
                 <ClearIcon />
               </IconButton>
-            </span>
+            </Box>
           </Tooltip>
         </Box>
       </Box>

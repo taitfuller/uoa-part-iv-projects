@@ -66,7 +66,7 @@ const ExplorePage: React.FC = () => {
   );
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", rowGap: 4 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", rowGap: 4, mb: -4 }}>
       <Filter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
@@ -77,9 +77,9 @@ const ExplorePage: React.FC = () => {
         categories={categories}
       />
       {filteredProjects.length === 0 ? (
-        <Typography variant="h4" align="center" sx={{ mt: 10 }}>
+        <Typography variant="h5" align="center" sx={{ mt: 10, mb: 4 }}>
           No projects found&nbsp;
-          <SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, mb: -2 }} />
+          <SentimentVeryDissatisfiedIcon sx={{ fontSize: 48, mb: -2 }} />
         </Typography>
       ) : (
         <Virtuoso
