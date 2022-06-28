@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Virtuoso } from "react-virtuoso";
 
 import { Box, Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
@@ -81,14 +82,21 @@ const ExplorePage: React.FC = () => {
           <SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, mb: -2 }} />
         </Typography>
       ) : (
-        filteredProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            isFavourite={userFavourites.has(project.id)}
-            toggleFavourite={toggleFavourite}
-          />
-        ))
+        <Virtuoso
+          useWindowScroll
+          data={filteredProjects}
+          increaseViewportBy={1000}
+          itemContent={(_index, project) => (
+            <Box sx={{ pb: 4 }}>
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isFavourite={userFavourites.has(project.id)}
+                toggleFavourite={toggleFavourite}
+              />
+            </Box>
+          )}
+        />
       )}
     </Box>
   );
