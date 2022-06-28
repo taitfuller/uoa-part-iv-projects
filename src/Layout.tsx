@@ -13,11 +13,11 @@ const Layout: React.FC = () => {
   return (
     <Box sx={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
       <Header />
+      <Box sx={(theme) => theme.mixins.toolbar} />
       <Container component="main" sx={{ py: 4, flex: 1 }}>
-        <Box sx={(theme) => theme.mixins.toolbar} />
         {isLoading ? <Loading message="Loading Projects..." /> : <Outlet />}
       </Container>
-      <Typography variant="body2" align="center" sx={{ mb: 4 }}>
+      <Typography variant="body2" align="center" sx={{ mb: 2 }}>
         Made by{" "}
         <Link
           href="https://www.linkedin.com/in/taitfuller/"

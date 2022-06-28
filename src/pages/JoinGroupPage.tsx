@@ -53,7 +53,7 @@ const JoinGroupPage: React.FC = () => {
   return (
     <Box
       sx={{
-        mt: 4,
+        my: 4,
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
         justifyContent: "center",
