@@ -4,6 +4,7 @@ import { Box, Chip, IconButton, Tooltip } from "@mui/material";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Navigate } from "react-router-dom";
 
 import { useGroup } from "../context/Group";
 import Loading from "../components/Loading";
@@ -14,9 +15,8 @@ import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import HideableAlert from "../components/HideableAlert";
 import { useFilterAndSortFavourites } from "../hooks/filter";
 import RankProjectList from "../components/RankProjectList";
-import { Redirect } from "react-router-dom";
 
-const RankGroup: React.VFC = () => {
+const GroupRankingPage: React.VFC = () => {
   const {
     userFavourites,
     groupFavourites,
@@ -29,7 +29,7 @@ const RankGroup: React.VFC = () => {
 
   const favouriteProjects = useFilterAndSortFavourites(groupFavourites);
 
-  if (!groupId || !userId) return <Redirect to="/group-ranking/join" />;
+  if (!groupId || !userId) return <Navigate to="/group-ranking/join" replace />;
 
   if (!groupHasLoaded) return <Loading message="Loading Group Data..." />;
 
@@ -73,4 +73,4 @@ const RankGroup: React.VFC = () => {
   );
 };
 
-export default RankGroup;
+export default GroupRankingPage;

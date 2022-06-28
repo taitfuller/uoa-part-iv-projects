@@ -12,9 +12,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  styled,
   Tab,
-  TabProps,
   Tabs,
   ToggleButton,
   ToggleButtonGroup,
@@ -28,13 +26,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 
 import { useTheme, ThemePreference } from "../context/Theme";
-
-const ToolbarTab = styled(Tab)<TabProps<Link>>(({ theme }) => ({
-  ...theme.mixins.toolbar,
-}));
 
 const themeOptions: {
   name: string;
@@ -55,14 +49,18 @@ const ThemeIcon: React.VFC<ThemeIconProps> = ({ icon }) => {
   return <Icon />;
 };
 
-const paths = {
+const pathNames = {
   "/explore": "Explore",
   "/my-ranking": "My Ranking",
   "/group-ranking": "Group Ranking",
 };
+const paths = Object.keys(pathNames) as Array<keyof typeof pathNames>;
 
 const Header: React.VFC = () => {
-  const routeMatch = useRouteMatch(Object.keys(paths));
+  const location = useLocation();
+  const pathMatch = paths.find((path) =>
+    matchPath({ path, end: false }, location.pathname)
+  );
 
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
@@ -118,14 +116,17 @@ const Header: React.VFC = () => {
             2021 Part IV Projects
           </Typography>
           {!isMobile && (
-            <Tabs value={routeMatch?.path ?? false}>
-              {Object.entries(paths).map(([path, name], i) => (
-                <ToolbarTab
+            <Tabs value={pathMatch ?? false}>
+              {paths.map((path, i) => (
+                <Tab
                   key={i}
                   value={path}
-                  label={name}
+                  label={pathNames[path]}
                   component={Link}
                   to={path}
+                  sx={(theme) => ({
+                    ...theme.mixins.toolbar,
+                  })}
                 />
               ))}
             </Tabs>
@@ -198,15 +199,15 @@ const Header: React.VFC = () => {
           </Toolbar>
           <Divider />
           <List sx={{ pt: 0 }}>
-            {Object.entries(paths).map(([path, name], i) => (
+            {paths.map((path, i) => (
               <ListItem
                 key={i}
                 button
                 component={Link}
                 to={path}
-                selected={routeMatch?.path === path}
+                selected={pathMatch === path}
               >
-                <ListItemText primary={name} />
+                <ListItemText primary={pathNames[path]} />
               </ListItem>
             ))}
           </List>

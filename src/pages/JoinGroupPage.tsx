@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { Box } from "@mui/material";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
+
 import { useGroup } from "../context/Group";
-import { useConnection } from "../context/Connection";
 import { useSnackbar } from "../context/Snackbar";
 import { useCopyAccessCode } from "../hooks/copy";
 import ShareGroupCard from "../components/ShareGroupCard";
@@ -12,30 +12,28 @@ import JoinGroupCard from "../components/JoinGroupCard";
 
 const JoinGroupPage: React.VFC = () => {
   const { createGroup, joinGroup, groupId, userId } = useGroup();
-  const { connectGroup } = useConnection();
   const openSnackbar = useSnackbar();
   const copyAccessCode = useCopyAccessCode();
-
-  const history = useHistory();
 
   const [accessCode, setAccessCode] = useState(groupId);
 
   const [loadingJoinGroup, setLoadingJoinGroup] = useState(false);
   const [loadingCreateGroup, setLoadingCreateGroup] = useState(false);
 
-  const handleJoinGroup = async () => {
+  const navigate = useNavigate();
+
+  const handleJoinGroup = useCallback(async () => {
     setLoadingJoinGroup(true);
     try {
       await joinGroup(accessCode);
-      connectGroup();
-      history.replace("/group-ranking");
+      navigate("/group-ranking", { replace: true });
     } catch (err) {
+      setLoadingJoinGroup(false);
       openSnackbar((err as Error).message, "error");
     }
-    setLoadingJoinGroup(false);
-  };
+  }, [accessCode, joinGroup, navigate, openSnackbar]);
 
-  const handleCreateGroup = async () => {
+  const handleCreateGroup = useCallback(async () => {
     setLoadingCreateGroup(true);
     try {
       await createGroup();
@@ -43,7 +41,12 @@ const JoinGroupPage: React.VFC = () => {
       openSnackbar((err as Error).message, "error");
     }
     setLoadingCreateGroup(false);
-  };
+  }, [createGroup, openSnackbar]);
+
+  const handleDone = useCallback(
+    () => navigate("/group-ranking", { replace: true }),
+    [navigate]
+  );
 
   return (
     <Box
@@ -52,7 +55,7 @@ const JoinGroupPage: React.VFC = () => {
       {userId && groupId ? (
         <ShareGroupCard
           groupId={groupId}
-          history={history}
+          onDone={handleDone}
           copyAccessCode={copyAccessCode}
         />
       ) : (
