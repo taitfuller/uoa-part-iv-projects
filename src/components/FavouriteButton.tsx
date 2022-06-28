@@ -1,10 +1,10 @@
 import React from "react";
 
+import { Tooltip } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { red } from "@mui/material/colors";
-import { Tooltip } from "@mui/material";
 
 interface FavouriteButtonProps {
   active: boolean;

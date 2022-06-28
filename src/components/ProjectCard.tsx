@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 
 import { Avatar, Box, Divider, Paper, Typography } from "@mui/material";
 
-import ProjectDetails from "./ProjectDetails";
 import { Project } from "../types";
+import ProjectDetails from "./ProjectDetails";
 import AllocatedChip from "./AllocatedChip";
 
 interface ProjectCardProps {

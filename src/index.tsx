@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+
+import { CssBaseline } from "@mui/material";
+
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { ProjectsProvider } from "./context/Projects";
 import { GroupProvider } from "./context/Group";
 import { FavouritesProvider } from "./context/Favourites";
 import { ConnectionProvider } from "./context/Connection";
-import { CssBaseline } from "@mui/material";
-import { BrowserRouter } from "react-router-dom";
 import { DialogProvider } from "./context/Dialog";
 import { SnackbarProvider } from "./context/Snackbar";
 import { ThemeProvider } from "./context/Theme";

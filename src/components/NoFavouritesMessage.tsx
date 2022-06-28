@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Box, Button, Typography } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import { Link } from "react-router-dom";
 
 const NoFavouritesMessage: React.VFC = () => (
   <Box

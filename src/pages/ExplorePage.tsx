@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
-import Filter from "../components/Filter";
-import ProjectCard from "../components/ProjectCard";
-import { Project } from "../types";
 import { useProjects } from "../context/Projects";
 import { useFavourites } from "../context/Favourites";
+import { Project } from "../types";
+import Filter from "../components/Filter";
+import ProjectCard from "../components/ProjectCard";
 
 type SelectedFilters = {
   toggledFavourites: boolean;

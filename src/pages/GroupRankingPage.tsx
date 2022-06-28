@@ -7,14 +7,14 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Navigate } from "react-router-dom";
 
 import { useGroup } from "../context/Group";
-import Loading from "../components/Loading";
-import { useLeaveGroupDialog } from "../hooks/dialog";
 import { useFavourites } from "../context/Favourites";
-import { useCopyAccessCode } from "../hooks/copy";
+import Loading from "../components/Loading";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import HideableAlert from "../components/HideableAlert";
-import { useFilterAndSortFavourites } from "../hooks/filter";
 import RankProjectList from "../components/RankProjectList";
+import { useCopyAccessCode } from "../hooks/copy";
+import { useLeaveGroupDialog } from "../hooks/dialog";
+import { useFilterAndSortFavourites } from "../hooks/filter";
 
 const GroupRankingPage: React.VFC = () => {
   const {

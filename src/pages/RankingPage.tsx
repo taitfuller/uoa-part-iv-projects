@@ -1,11 +1,12 @@
 import React from "react";
 
+import { Box } from "@mui/material";
+
 import { useFavourites } from "../context/Favourites";
-import { useFilterAndSortFavourites } from "../hooks/filter";
 import HideableAlert from "../components/HideableAlert";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
-import { Box } from "@mui/material";
 import RankProjectList from "../components/RankProjectList";
+import { useFilterAndSortFavourites } from "../hooks/filter";
 
 const RankingPage: React.VFC = () => {
   const { userFavourites, toggleFavourite, swapUserFavourites } =

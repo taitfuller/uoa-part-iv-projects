@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
-import LeaveGroupDialog from "../components/LeaveGroupDialog";
+
 import { useDialog } from "../context/Dialog";
+import LeaveGroupDialog from "../components/LeaveGroupDialog";
 
 export const useLeaveGroupDialog = () => {
   const { openDialog, handleClose: handleCloseDialog } = useDialog();

@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 import { useGroup } from "../context/Group";
 import { useSnackbar } from "../context/Snackbar";
-import { useCopyAccessCode } from "../hooks/copy";
 import ShareGroupCard from "../components/ShareGroupCard";
 import CreateGroupCard from "../components/CreateGroupCard";
 import JoinGroupCard from "../components/JoinGroupCard";
+import { useCopyAccessCode } from "../hooks/copy";
 
 const JoinGroupPage: React.VFC = () => {
   const { createGroup, joinGroup, groupId, userId } = useGroup();

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Link, matchPath, useLocation } from "react-router-dom";
 
 import {
   AppBar,
@@ -21,12 +22,11 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { SvgIconComponent } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
-import { Link, matchPath, useLocation } from "react-router-dom";
+import { SvgIconComponent } from "@mui/icons-material";
 
 import { useTheme, ThemePreference } from "../context/Theme";
 

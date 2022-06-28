@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
+import useLocalStorage from "use-local-storage";
 
 import { Alert, AlertColor } from "@mui/material";
-import useLocalStorage from "use-local-storage";
 
 interface HideableAlertProps {
   localStorageKey: string;

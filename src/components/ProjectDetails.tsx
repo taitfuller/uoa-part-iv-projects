@@ -10,8 +10,8 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-import FavouriteButton from "./FavouriteButton";
 import { Project } from "../types";
+import FavouriteButton from "./FavouriteButton";
 
 const Section = styled(Box)(({ theme }) => ({
   padding: theme.spacing(2),

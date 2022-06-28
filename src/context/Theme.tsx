@@ -1,10 +1,11 @@
+import React, { createContext, useContext, useMemo } from "react";
+import useLocalStorage from "use-local-storage";
+
 import {
   createTheme,
   ThemeProvider as MUIThemeProvider,
   useMediaQuery,
 } from "@mui/material";
-import React, { createContext, useContext, useMemo } from "react";
-import useLocalStorage from "use-local-storage";
 
 export type ThemePreference = "system" | "light" | "dark";
 
