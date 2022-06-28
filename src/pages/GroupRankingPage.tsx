@@ -14,6 +14,7 @@ import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import HideableAlert from "../components/HideableAlert";
 import { useFilterAndSortFavourites } from "../hooks/filter";
 import RankProjectList from "../components/RankProjectList";
+import { Redirect } from "react-router-dom";
 
 const RankGroup: React.VFC = () => {
   const {
@@ -22,11 +23,13 @@ const RankGroup: React.VFC = () => {
     toggleFavourite,
     swapGroupFavourites,
   } = useFavourites();
-  const { groupHasLoaded, userCount } = useGroup();
+  const { groupId, userId, groupHasLoaded, userCount } = useGroup();
   const handleLeaveGroup = useLeaveGroupDialog();
   const copyAccessCode = useCopyAccessCode();
 
   const favouriteProjects = useFilterAndSortFavourites(groupFavourites);
+
+  if (!groupId || !userId) return <Redirect to="/group-ranking/join" />;
 
   if (!groupHasLoaded) return <Loading message="Loading Group Data..." />;
 

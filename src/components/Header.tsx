@@ -28,7 +28,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
-import { Link, Route } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 import { useTheme, ThemePreference } from "../context/Theme";
 
@@ -55,15 +55,15 @@ const ThemeIcon: React.VFC<ThemeIconProps> = ({ icon }) => {
   return <Icon />;
 };
 
-interface HeaderProps {
-  pages: {
-    name: string;
-    href: string;
-    paths: string[];
-  }[];
-}
+const paths = {
+  "/explore": "Explore",
+  "/my-ranking": "My Ranking",
+  "/group-ranking": "Group Ranking",
+};
 
-const Header: React.VFC<HeaderProps> = ({ pages }) => {
+const Header: React.VFC = () => {
+  const routeMatch = useRouteMatch(Object.keys(paths));
+
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
   const isDesktop = useMediaQuery("(min-width:980px)");
@@ -118,28 +118,17 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
             2021 Part IV Projects
           </Typography>
           {!isMobile && (
-            <Route
-              path="/"
-              render={({ location }) => (
-                <Tabs
-                  value={
-                    pages.findIndex((page) =>
-                      page.paths.includes(location.pathname)
-                    ) ?? -1
-                  }
-                >
-                  {pages.map((page, i) => (
-                    <ToolbarTab
-                      label={page.name}
-                      component={Link}
-                      to={page.href}
-                      value={i}
-                      key={page.name}
-                    />
-                  ))}
-                </Tabs>
-              )}
-            />
+            <Tabs value={routeMatch?.path ?? false}>
+              {Object.entries(paths).map(([path, name], i) => (
+                <ToolbarTab
+                  key={i}
+                  value={path}
+                  label={name}
+                  component={Link}
+                  to={path}
+                />
+              ))}
+            </Tabs>
           )}
           {!isMobile && (
             <Box sx={{ flex: isDesktop ? "1 0" : "0" }}>
@@ -209,22 +198,17 @@ const Header: React.VFC<HeaderProps> = ({ pages }) => {
           </Toolbar>
           <Divider />
           <List sx={{ pt: 0 }}>
-            <Route
-              path="/"
-              render={({ location }) =>
-                pages.map((page) => (
-                  <ListItem
-                    button
-                    component={Link}
-                    to={page.href}
-                    selected={page.paths.includes(location.pathname)}
-                    key={page.name}
-                  >
-                    <ListItemText primary={page.name} />
-                  </ListItem>
-                ))
-              }
-            />
+            {Object.entries(paths).map(([path, name], i) => (
+              <ListItem
+                key={i}
+                button
+                component={Link}
+                to={path}
+                selected={routeMatch?.path === path}
+              >
+                <ListItemText primary={name} />
+              </ListItem>
+            ))}
           </List>
         </Drawer>
       </Box>
