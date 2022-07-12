@@ -41,8 +41,10 @@ export const SnackbarProvider: React.FC<PropsWithChildren> = ({ children }) => {
     []
   );
 
+  const context = openSnackbar;
+
   return (
-    <SnackbarContext.Provider value={openSnackbar}>
+    <SnackbarContext.Provider value={context}>
       {children}
       <Snackbar
         open={isOpen}
@@ -58,11 +60,11 @@ export const SnackbarProvider: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const useSnackbar = () => {
-  const snackbarInstance = useContext(SnackbarContext);
+  const context = useContext(SnackbarContext);
 
-  if (snackbarInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useSnackbar() must be used within a SnackbarProvider");
   }
 
-  return snackbarInstance;
+  return context;
 };

@@ -45,13 +45,13 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const theme = themePreference === "system" ? systemTheme : themePreference;
 
-  const value = useMemo(
+  const context = useMemo(
     () => ({ themePreference, setThemePreference }),
     [setThemePreference, themePreference]
   );
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={context}>
       <MUIThemeProvider
         theme={responsiveFontSizes(theme === "light" ? lightTheme : darkTheme)}
       >
@@ -62,11 +62,11 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const useTheme = (): ThemeContextType => {
-  const themeInstance = useContext(ThemeContext);
+  const context = useContext(ThemeContext);
 
-  if (themeInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useTheme() must be used within a ThemeProvider");
   }
 
-  return themeInstance;
+  return context;
 };

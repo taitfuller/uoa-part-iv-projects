@@ -121,7 +121,7 @@ export const GroupProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
   }, [setGroupId, setUserId, socket]);
 
-  const value = useMemo<GroupContextType>(
+  const context = useMemo<GroupContextType>(
     () => ({
       socket,
       groupId,
@@ -147,16 +147,16 @@ export const GroupProvider: React.FC<PropsWithChildren> = ({ children }) => {
   );
 
   return (
-    <GroupContext.Provider value={value}>{children}</GroupContext.Provider>
+    <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
   );
 };
 
 export const useGroup = (): GroupContextType => {
-  const groupInstance = useContext(GroupContext);
+  const context = useContext(GroupContext);
 
-  if (groupInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useGroup() must be used within a GroupProvider");
   }
 
-  return groupInstance;
+  return context;
 };

@@ -42,17 +42,21 @@ export const ProjectsProvider: React.FC<PropsWithChildren> = ({ children }) => {
     })();
   }, []);
 
+  const context = data;
+
   return (
-    <ProjectsContext.Provider value={data}>{children}</ProjectsContext.Provider>
+    <ProjectsContext.Provider value={context}>
+      {children}
+    </ProjectsContext.Provider>
   );
 };
 
 export const useProjects = (): ProjectsContextType => {
-  const projectsInstance = useContext(ProjectsContext);
+  const context = useContext(ProjectsContext);
 
-  if (projectsInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useProjects() must be used within a ProjectsProvider");
   }
 
-  return projectsInstance;
+  return context;
 };

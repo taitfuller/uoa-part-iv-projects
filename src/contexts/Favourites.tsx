@@ -91,7 +91,7 @@ export const FavouritesProvider: React.FC<PropsWithChildren> = ({
     [groupFavourites, socket, updateGroupFavourites]
   );
 
-  const value = useMemo<FavouritesContextType>(
+  const context = useMemo<FavouritesContextType>(
     () => ({
       userFavourites,
       groupFavourites,
@@ -110,18 +110,18 @@ export const FavouritesProvider: React.FC<PropsWithChildren> = ({
   );
 
   return (
-    <FavouritesContext.Provider value={value}>
+    <FavouritesContext.Provider value={context}>
       {children}
     </FavouritesContext.Provider>
   );
 };
 
 export const useFavourites = (): FavouritesContextType => {
-  const favouritesInstance = useContext(FavouritesContext);
+  const context = useContext(FavouritesContext);
 
-  if (favouritesInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useFavourites() must be used within a FavouritesProvider");
   }
 
-  return favouritesInstance;
+  return context;
 };

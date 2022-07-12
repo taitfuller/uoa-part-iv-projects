@@ -58,24 +58,24 @@ export const ConnectionProvider: React.FC<PropsWithChildren> = ({
     if (!socket && groupId && userId) connectGroup();
   }, [connectGroup, groupId, socket, userId]);
 
-  const value = useMemo<ConnectionContextType>(
+  const context = useMemo<ConnectionContextType>(
     () => ({ connectGroup, disconnectGroup }),
     [connectGroup, disconnectGroup]
   );
 
   return (
-    <ConnectionContext.Provider value={value}>
+    <ConnectionContext.Provider value={context}>
       {children}
     </ConnectionContext.Provider>
   );
 };
 
 export const useConnection = () => {
-  const connectionInstance = useContext(ConnectionContext);
+  const context = useContext(ConnectionContext);
 
-  if (connectionInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useConnection() must be used within a ConnectionProvider");
   }
 
-  return connectionInstance;
+  return context;
 };

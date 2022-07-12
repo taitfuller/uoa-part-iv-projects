@@ -36,13 +36,13 @@ export const DialogProvider: React.FC<PropsWithChildren> = ({ children }) => {
     []
   );
 
-  const value = useMemo<DialogContextType>(
+  const context = useMemo<DialogContextType>(
     () => ({ openDialog, handleClose }),
     [handleClose, openDialog]
   );
 
   return (
-    <DialogContext.Provider value={value}>
+    <DialogContext.Provider value={context}>
       {children}
       <Dialog open={isOpen} onClose={handleClose}>
         {dialog}
@@ -52,11 +52,11 @@ export const DialogProvider: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const useDialog = () => {
-  const dialogInstance = useContext(DialogContext);
+  const context = useContext(DialogContext);
 
-  if (dialogInstance === undefined) {
+  if (context === undefined) {
     throw new Error("useDialog() must be used within a DialogProvider");
   }
 
-  return dialogInstance;
+  return context;
 };
