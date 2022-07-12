@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 import { Button, DialogActions, DialogTitle } from "@mui/material";
 
-import { useConnection } from "../context/Connection";
+import { useConnection } from "../contexts/Connection";
 
 interface LeaveGroupDialogProps {
   onClose: () => void;

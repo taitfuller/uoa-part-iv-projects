@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { useProjects } from "../context/Projects";
+import { useProjects } from "../contexts/Projects";
 import { Project } from "../types";
 
 export const useFilterAndSortFavourites = (

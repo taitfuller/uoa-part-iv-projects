@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box } from "@mui/material";
 
-import { useFavourites } from "../context/Favourites";
+import { useFavourites } from "../contexts/Favourites";
 import HideableAlert from "../components/HideableAlert";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import RankProjectList from "../components/RankProjectList";

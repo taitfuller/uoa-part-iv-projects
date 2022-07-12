@@ -3,8 +3,8 @@ import React, { useCallback, useState } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import { useGroup } from "../context/Group";
-import { useSnackbar } from "../context/Snackbar";
+import { useGroup } from "../contexts/Group";
+import { useSnackbar } from "../contexts/Snackbar";
 import ShareGroupCard from "../components/ShareGroupCard";
 import CreateGroupCard from "../components/CreateGroupCard";
 import JoinGroupCard from "../components/JoinGroupCard";

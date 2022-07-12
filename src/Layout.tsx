@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { Box, Container, Link, Typography } from "@mui/material";
 
-import { useProjects } from "./context/Projects";
+import { useProjects } from "./contexts/Projects";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
 

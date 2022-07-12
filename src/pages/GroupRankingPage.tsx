@@ -6,8 +6,8 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Navigate } from "react-router-dom";
 
-import { useGroup } from "../context/Group";
-import { useFavourites } from "../context/Favourites";
+import { useGroup } from "../contexts/Group";
+import { useFavourites } from "../contexts/Favourites";
 import Loading from "../components/Loading";
 import NoFavouritesMessage from "../components/NoFavouritesMessage";
 import HideableAlert from "../components/HideableAlert";

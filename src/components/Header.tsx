@@ -28,7 +28,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import { SvgIconComponent } from "@mui/icons-material";
 
-import { useTheme, ThemePreference } from "../context/Theme";
+import { useTheme, ThemePreference } from "../contexts/Theme";
 
 const themeOptions: {
   name: string;

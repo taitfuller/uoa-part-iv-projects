@@ -4,8 +4,8 @@ import { Virtuoso } from "react-virtuoso";
 import { Box, Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
-import { useProjects } from "../context/Projects";
-import { useFavourites } from "../context/Favourites";
+import { useProjects } from "../contexts/Projects";
+import { useFavourites } from "../contexts/Favourites";
 import { Project } from "../types";
 import Filter from "../components/Filter";
 import ProjectCard from "../components/ProjectCard";

@@ -7,13 +7,13 @@ import { CssBaseline } from "@mui/material";
 
 import "./index.css";
 import App from "./App";
-import { ProjectsProvider } from "./context/Projects";
-import { GroupProvider } from "./context/Group";
-import { FavouritesProvider } from "./context/Favourites";
-import { ConnectionProvider } from "./context/Connection";
-import { DialogProvider } from "./context/Dialog";
-import { SnackbarProvider } from "./context/Snackbar";
-import { ThemeProvider } from "./context/Theme";
+import { ProjectsProvider } from "./contexts/Projects";
+import { GroupProvider } from "./contexts/Group";
+import { FavouritesProvider } from "./contexts/Favourites";
+import { ConnectionProvider } from "./contexts/Connection";
+import { DialogProvider } from "./contexts/Dialog";
+import { SnackbarProvider } from "./contexts/Snackbar";
+import { ThemeProvider } from "./contexts/Theme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
